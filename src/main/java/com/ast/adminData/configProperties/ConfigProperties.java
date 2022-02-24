@@ -3,8 +3,8 @@ package com.ast.adminData.configProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
-@ConfigurationProperties("site")
 @Configuration
+@ConfigurationProperties("site")
 public class ConfigProperties {
 
     private String url;
