@@ -241,6 +241,13 @@ public class AdaptorApiController {
 
         return DataList.toString();
     }
+    // dpIngestAdaptorItPpSave   /instance/property/save/{param1} post
+    @PostMapping(value = {"/instance/property/save/{param1}"})
+    public String dpIngestAdaptorItPpSave(@PathVariable String param1) {
 
+        Map<String, Object> DataList = restService.postApi("/instance/property/save/" + param1);
+
+        return DataList.toString();
+    }
 
 }

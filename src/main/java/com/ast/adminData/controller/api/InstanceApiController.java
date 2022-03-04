@@ -24,70 +24,84 @@ public class InstanceApiController {
         return DataList.toString();
     }
 
-//    dpIngestItSearch	/search	get
-@GetMapping(value = {"/search"})
-public String dpIngestItSearch() {
+    //    dpIngestItSearch	/search	get
+    @GetMapping(value = {"/search"})
+    public String dpIngestItSearch() {
 
-    Map<String, Object> DataList = restService.getApi("/search");
+        Map<String, Object> DataList = restService.getApi("/search");
 
-    return DataList.toString();
-}
-//    dpIngestItPpDelChk		/property/delete/check	get
-@GetMapping(value = {"/property/delete/check"})
-public String dpIngestItPpDelChk() {
+        return DataList.toString();
+    }
 
-    Map<String, Object> DataList = restService.getApi("/property/delete/check");
+    //    dpIngestItPpDelChk		/property/delete/check	get
+    @GetMapping(value = {"/property/delete/check"})
+    public String dpIngestItPpDelChk() {
 
-    return DataList.toString();
-}
+        Map<String, Object> DataList = restService.getApi("/property/delete/check");
 
-//    dpIngestItPpInfoDelChk		/property/info/delete/check	get
-@GetMapping(value = {"/property/info/delete/check"})
-public String dpIngestItPpInfoDelChk() {
+        return DataList.toString();
+    }
 
-    Map<String, Object> DataList = restService.getApi("/property/info/delete/check");
+    //    dpIngestItPpInfoDelChk		/property/info/delete/check	get
+    @GetMapping(value = {"/property/info/delete/check"})
+    public String dpIngestItPpInfoDelChk() {
 
-    return DataList.toString();
-}
-//    dpIngestItPpGpDt		/property/{param1}/{param2}	get
-@GetMapping(value = {"/property/{param1}/{param2}"})
-public String dpIngestItPpGpDt(@PathVariable String param1, @PathVariable String param2) {
+        Map<String, Object> DataList = restService.getApi("/property/info/delete/check");
 
-    Map<String, Object> DataList = restService.getApi("/property/" + param1 +  "/" + param2);
+        return DataList.toString();
+    }
 
-    return DataList.toString();
-}
-//    dpIngestItPpDelGpDt		/property/delete/{param1}/{param1}	post
-@PostMapping(value = {"/property/delete/{param1}/{param1}"})
-public String dpIngestItPpDelGpDt(@PathVariable String param1, @PathVariable String param2) {
+    //    dpIngestItPpGpDt		/property/{param1}/{param2}	get
+    @GetMapping(value = {"/property/{param1}/{param2}"})
+    public String dpIngestItPpGpDt(@PathVariable String param1, @PathVariable String param2) {
 
-    Map<String, Object> DataList = restService.postApi("/property/delete/" + param1 + "/" + param2);
+        Map<String, Object> DataList = restService.getApi("/property/" + param1 + "/" + param2);
 
-    return DataList.toString();
-}
-//    dpIngestItPpSaveGpDt		/property/save/{param1}/{param1}	post
-@PostMapping(value = {"/property/save/{param1}/{param2}"})
-public String dpIngestItPpSaveGpDt(@PathVariable String param1, @PathVariable String param2) {
+        return DataList.toString();
+    }
 
-    Map<String, Object> DataList = restService.postApi("/property/save/" + param1 + "/" + param2);
+    //    dpIngestItPpDelGpDt		/property/delete/{param1}/{param1}	post
+    @PostMapping(value = {"/property/delete/{param1}/{param2}"})
+    public String dpIngestItPpDelGpDt(@PathVariable String param1, @PathVariable String param2) {
 
-    return DataList.toString();
-}
-//    dpIngestItPpInfoDelGpDt		/property/info/delete/{param1}/{param1}	post
-@PostMapping(value = {"/property/info/delete/{param1}/{param2}"})
-public String dpIngestItPpInfoDelGpDt(@PathVariable String param1, @PathVariable String param2) {
+        Map<String, Object> DataList = restService.postApi("/property/delete/" + param1 + "/" + param2);
 
-    Map<String, Object> DataList = restService.postApi("/property/info/delete/" + param1 + "/" + param2);
+        return DataList.toString();
+    }
 
-    return DataList.toString();
-}
-//    dpIngestItPpInfoSaveGpDt		/property/info/save/{param1}/{param1}	post
-@PostMapping(value = {"/property/info/save/{param1}/{param2}"})
-public String dpIngestItPpInfoSaveGpDt(@PathVariable String param1, @PathVariable String param2) {
+    //    dpIngestItPpSaveGpDt		/property/save/{param1}/{param1}	post
+    @PostMapping(value = {"/property/save/{param1}/{param2}"})
+    public String dpIngestItPpSaveGpDt(@PathVariable String param1, @PathVariable String param2) {
 
-    Map<String, Object> DataList = restService.postApi("/property/info/save/" + param1 + "/" + param2);
+        Map<String, Object> DataList = restService.postApi("/property/save/" + param1 + "/" + param2);
 
-    return DataList.toString();
-}
+        return DataList.toString();
+    }
 
+    //    dpIngestItPpInfoDelGpDt		/property/info/delete/{param1}/{param1}	post
+    @PostMapping(value = {"/property/info/delete/{param1}/{param2}"})
+    public String dpIngestItPpInfoDelGpDt(@PathVariable String param1, @PathVariable String param2) {
+
+        Map<String, Object> DataList = restService.postApi("/property/info/delete/" + param1 + "/" + param2);
+
+        return DataList.toString();
+    }
+
+    //    dpIngestItPpInfoSaveGpDt		/property/info/save/{param1}/{param1}	post
+    @PostMapping(value = {"/property/info/save/{param1}/{param2}"})
+    public String dpIngestItPpInfoSaveGpDt(@PathVariable String param1, @PathVariable String param2) {
+
+        Map<String, Object> DataList = restService.postApi("/property/info/save/" + param1 + "/" + param2);
+
+        return DataList.toString();
+    }
+
+    //    dpIngestItPp	/instance/property/{param1}/{param2}	get
+    @GetMapping(value = {"/instance/property/{param1}/{param2}"})
+    public String dpIngestItPp(@PathVariable String param1, @PathVariable String param2) {
+
+        Map<String, Object> DataList = restService.getApi("/instance/property/" + param1 + "/" + param2);
+
+        return DataList.toString();
+    }
 }

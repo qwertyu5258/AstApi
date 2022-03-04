@@ -52,10 +52,10 @@ public class LoadApiController {
     }
 
     //    dpLoadPopupHistory_01		/popup/history/01/{param1}	get
-    @GetMapping(value = {"/dataset/detail/{param1}"})
+    @GetMapping(value = {"/popup/history/01/{param1}"})
     public String dpLoadPopupHistory_01(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.getApi("/dataset/detail/" + param1);
+        Map<String, Object> DataList = restService.getApi("/popup/history/01/" + param1);
 
         return DataList.toString();
     }
