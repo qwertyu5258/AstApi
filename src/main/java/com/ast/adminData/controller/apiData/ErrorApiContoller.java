@@ -1,4 +1,4 @@
-package com.ast.adminData.controller.api;
+package com.ast.adminData.controller.apiData;
 
 import com.ast.adminData.common.RestService;
 import lombok.RequiredArgsConstructor;

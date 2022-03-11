@@ -1,10 +1,8 @@
-package com.ast.adminData.controller.api;
+package com.ast.adminData.controller.apiData;
 
 import com.ast.adminData.common.RestService;
-import com.ast.adminData.configProperties.ConfigProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;

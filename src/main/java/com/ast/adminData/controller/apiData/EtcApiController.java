@@ -1,4 +1,4 @@
-package com.ast.adminData.controller.api;
+package com.ast.adminData.controller.apiData;
 
 import com.ast.adminData.common.RestService;
 import lombok.RequiredArgsConstructor;
@@ -23,12 +23,12 @@ public class EtcApiController {
         return DataList.toString();
     }
 
-    //    dpIngestAdaptorItPre	/dp/ingest/adaptor/instance/pre		get
-    @GetMapping(value = {"/dp/ingest/adaptor/instance/pre"})
-    public String dpIngestAdaptorItPre() {
-
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/adaptor/instance/pre");
-
-        return DataList.toString();
-    }
+    //    dpIngestAdaptorItPre	/dp/ingest/adaptor/instance/pre		get 중복 :: adaptorApicontroller 에서 중복
+//    @GetMapping(value = {"/dp/ingest/adaptor/instance/pre"})
+//    public String dpIngestAdaptorItPre() {
+//
+//        Map<String, Object> DataList = restService.getApi("/dp/ingest/adaptor/instance/pre");
+//
+//        return DataList.toString();
+//    }
 }
