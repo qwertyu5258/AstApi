@@ -2,7 +2,6 @@ package com.ast.adminData.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -13,11 +12,24 @@ public class BaseController {
         model.addAttribute("attr","attr121212");
         return "index";
     }
-    @RequestMapping("/table")
-    public String table() {
-        return "table";
+
+    @RequestMapping("/clcntErrorDetail")
+    public String clcntErrorDetail() {
+        return "clcntErrorDetail";
     }
 
+    @RequestMapping("/data")
+    public String data() {
+        return "data";
+    }
+    @RequestMapping("/dataSetList")
+    public String dataSetList() {
+        return "dataSetList";
+    }
+    @RequestMapping("/index")
+    public String index() {
+        return "index";
+    }
     @RequestMapping("/input")
     public String input() {
         return "input";
@@ -26,16 +38,28 @@ public class BaseController {
     public String modal() {
         return "modal";
     }
+    @RequestMapping("/port")
+    public String port() {
+        return "port";
+    }
+    @RequestMapping("/sandbox")
+    public String sandbox() {
+        return "sandbox";
+    }
+    @RequestMapping("/sandboxRgstr")
+    public String sandboxRgstr() {
+        return "sandboxRgstr";
+    }
+    @RequestMapping("/scenario")
+    public String scenario() {
+        return "scenario";
+    }
     @RequestMapping("/search")
     public String search() {
         return "search";
     }
-    @RequestMapping("/dataSetList")
-    public String dataSetList() {
-        return "dataSetList";
-    }
-    @RequestMapping("/clcntErrorDetail")
-    public String clcntErrorDetail() {
-        return "clcntErrorDetail";
+    @RequestMapping("/table")
+    public String table() {
+        return "table";
     }
 }

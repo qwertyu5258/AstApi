@@ -1,30 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <title>LX DT | 모달 형태</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- common css-->
-    <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="vendors/bootstrap-daterangepicker/daterangepicker.css">
-    <link rel="stylesheet" href="vendors/datatables.net-bs/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
-    <link rel="stylesheet" href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css">
-    <link rel="stylesheet" href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css">
-    <link rel="stylesheet" href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css">
-    <link rel="stylesheet" href="vendors/iCheck/skins/flat/purple.css">
-    <link rel="stylesheet" href="vendors/dragula/dust/dragula.min.css">
-    <!-- custom css-->
-    <link rel="stylesheet" href="css/style.css">
+    <%@include file="common/commonCss.jsp" %>
   </head>
   <body class="nav-md">
     <div class="container body"> 
       <div class="main_container">    
         <div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
-            <div class="navbar nav_title"><a class="site_title" href="index.html"><i class="fa fa-paw"> </i><span>LX DT </span></a></div>
+            <div class="navbar nav_title"><a class="site_title" href="index"><i class="fa fa-paw"> </i><span>LX DT </span></a></div>
             <div class="clearfix"> </div>
             <div class="profile clearfix">
               <div class="profile_pic"><img class="img-circle profile_img" src="img/img.jpg" alt="..."></div>
@@ -35,18 +22,31 @@
             <div class="main_menu_side hidden-print main_menu" id="sidebar-menu">
               <div class="menu_section">
                 <ul class="nav side-menu">
-                  <li><a href="table.html"> <i class="fa fa-user"> </i>테이블 형태</a></li>
-                  <li> <a href="modal.html"> <i class="fa fa-user"> </i>모달 형태</a></li>
-                  <li> <a href="search.html"> <i class="fa fa-user"> </i>검색 형태</a></li>
-                  <li> <a href="input.html"> <i class="fa fa-user"> </i>등록폼</a></li>
-                  <li> <a href="clcntErrorDetail.html"> <i class="fa fa-user"> </i>수집오류 상세</a></li>
-                  <li> <a href="dataSetList.html"> <i class="fa fa-user"> </i>데이터 셋 리스트 상세</a></li>
+                  <li><a href="table"> <i class="fa fa-user"> </i>테이블 형태</a></li>
+                  <li> <a href="modal"> <i class="fa fa-user"> </i>모달 형태</a></li>
+                  <li> <a href="search"> <i class="fa fa-user"> </i>검색 형태</a></li>
+                  <li> <a href="input"> <i class="fa fa-user"> </i>등록폼</a></li>
+                  <li> <a href="clcntErrorDetail"> <i class="fa fa-user"> </i>수집오류 상세</a></li>
+                  <li> <a href="dataSetList"> <i class="fa fa-user"> </i>데이터 셋 리스트 상세</a></li>
                   <li> <a><i class="fa fa-list-alt"></i>1뎁스<span class="fa fa-chevron-down"> </span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.html">2뎁스</a></li>
-                      <li><a href="cmntManage.html">2뎁스</a></li>
+                      <li><a href="index">2뎁스</a></li>
+                      <li><a>2뎁스<span class="fa fa-chevron-down"> </span></a>
+                        <ul class="nav child_menu">
+                          <li><a href="#">3뎁스</a></li>
+                        </ul>
+                      </li>
                     </ul>
                   </li>
+                  <li> <a href="port"> <i class="fa fa-user"> </i>포트관리</a></li>
+                  <li> <a href="scenario"> <i class="fa fa-user"> </i>시나리오</a></li>
+                  <li> <a><i class="fa fa-user"> </i>샌드박스<span class="fa fa-chevron-down"> </span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="sandbox">샌드박스 관리</a></li>
+                      <li><a href="sandboxRgstr">샌드박스 등록</a></li>
+                    </ul>
+                  </li>
+                  <li> <a href="data"> <i class="fa fa-user"> </i>데이터 분석 결과 조회</a></li>
                 </ul>
               </div>
             </div>
@@ -59,7 +59,7 @@
             <div class="nav navbar-nav">
               <ul class="navbar-right">
                 <li class="nav-item dropdown open"><a class="user-profile dropdown-toggle" id="navbarDropdown" href="" aria-haspopup="true" data-toggle="dropdown" aria-expanded="false"> <img src="img/img.jpg" alt="">John Doe</a>
-                  <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown"><a class="dropdown-item">Profile</a><a class="dropdown-item"> <span class="badge bg-red pull-right">50%</span><span>Settings</span></a><a class="dropdown-item">Help</a><a class="dropdown-item" href="login.html"><i class="fa fa-sign-out pull-right"></i>log Out</a></div>
+                  <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown"><a class="dropdown-item">Profile</a><a class="dropdown-item"> <span class="badge bg-red pull-right">50%</span><span>Settings</span></a><a class="dropdown-item">Help</a><a class="dropdown-item" href="login"><i class="fa fa-sign-out pull-right"></i>log Out</a></div>
                 </li>
                 <li class="nav-item dropdown open" role="presentation"><a class="dropdown-toggle info-number" id="navbarDropdown1" href="" data-toggle="dropdown" aria-expanded="false"> <i class="fa fa-envelope-o"></i><span class="badge bg-green">6</span></a>
                   <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
@@ -574,7 +574,7 @@
     <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
     <script src="vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
     <script src="vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons5.min.js"></script>
     <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
     <script src="vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
     <script src="vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>

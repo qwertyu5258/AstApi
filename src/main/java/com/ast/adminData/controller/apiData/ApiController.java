@@ -21,4 +21,12 @@ public class ApiController {
         map.put("id", "20171105");
         return ResponseEntity.ok(map);
     }
+
+    @GetMapping("/testjsp")
+    public String testApiTest() {
+        Map<String, Object> map = new HashMap<String,Object>();
+        map.put("name", "jihye");
+        map.put("id", "20171105");
+        return "hello";
+    }
 }

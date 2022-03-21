@@ -1,23 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>LX DT | 게시판 리스트</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- common css-->
-    <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="vendors/bootstrap-daterangepicker/daterangepicker.css">
-    <link rel="stylesheet" href="vendors/datatables.net-bs/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
-    <link rel="stylesheet" href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css">
-    <link rel="stylesheet" href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css">
-    <link rel="stylesheet" href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css">
-    <link rel="stylesheet" href="vendors/iCheck/skins/flat/purple.css">
-    <link rel="stylesheet" href="vendors/dragula/dust/dragula.min.css">
-    <!-- custom css-->
-    <link rel="stylesheet" href="css/style.css">
+    <title>LX DT | 수집오류 상세</title>
+    <%@include file="common/commonCss.jsp" %>
   </head>
   <body class="nav-md">
     <div class="container body"> 
@@ -44,9 +31,22 @@
                   <li> <a><i class="fa fa-list-alt"></i>1뎁스<span class="fa fa-chevron-down"> </span></a>
                     <ul class="nav child_menu">
                       <li><a href="index">2뎁스</a></li>
-                      <li><a href="cmntManage">2뎁스</a></li>
+                      <li><a>2뎁스<span class="fa fa-chevron-down"> </span></a>
+                        <ul class="nav child_menu">
+                          <li><a href="#">3뎁스</a></li>
+                        </ul>
+                      </li>
                     </ul>
                   </li>
+                  <li> <a href="port"> <i class="fa fa-user"> </i>포트관리</a></li>
+                  <li> <a href="scenario"> <i class="fa fa-user"> </i>시나리오</a></li>
+                  <li> <a><i class="fa fa-user"> </i>샌드박스<span class="fa fa-chevron-down"> </span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="sandbox">샌드박스 관리</a></li>
+                      <li><a href="sandboxRgstr">샌드박스 등록</a></li>
+                    </ul>
+                  </li>
+                  <li> <a href="data"> <i class="fa fa-user"> </i>데이터 분석 결과 조회</a></li>
                 </ul>
               </div>
             </div>
@@ -75,7 +75,74 @@
             </div>
           </div>
         </div>
-        <script>window.location.href = "table"</script>
+        <div class="right_col" role="main">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="x_panel"> 
+                <div class="x_title"> 
+                  <h2>수집오류 상세</h2>
+                  <div class="clearfix"> </div>
+                </div>
+                <div class="x_content">                         <br>
+                  <div class="cont_title_box">
+                    <h3>수집오류 상세 정보</h3>
+                    <div class="right_btns"><a class="btn btn-primary" href="table">목록 </a>
+                      <button class="btn btn-danger">즉시실행</button>
+                    </div>
+                  </div>
+                  <div class="border_rows">
+                    <div class="row">
+                      <div class="form-group row col-12 col-md-6">
+                        <div class="control-label">데이터 모델 명</div>
+                        <div class="form-control_box">LX_연계1</div>
+                      </div>
+                      <div class="form-group row col-12 col-md-6">
+                        <div class="control-label">데이터 셋 명</div>
+                        <div class="form-control_box">연계1</div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group row col-12 col-md-6">
+                        <div class="control-label">Adaptor 명</div>
+                        <div class="form-control_box">문화재정보</div>
+                      </div>
+                      <div class="form-group row col-12 col-md-6">
+                        <div class="control-label">Instance 명</div>
+                        <div class="form-control_box">보물정보</div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group row col-12 col-md-6">
+                        <div class="control-label">수집방식</div>
+                        <div class="form-control_box">DB_TO_DB</div>
+                      </div>
+                      <div class="form-group row col-12 col-md-6">
+                        <div class="control-label">수집유형</div>
+                        <div class="form-control_box">Postgresql</div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group row col-12 col-md-12">
+                        <div class="control-label">오류사항</div>
+                        <div class="form-control_box">수집대상 메타정보 변경 </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group row col-12 col-md-12">
+                        <div class="control-label">오류처리</div>
+                        <div class="form-control_box"> 
+                          <ol class="ol_num">
+                            <li><a class="btn btn-primary" href="modal">메타정보 변경</a></li>
+                          </ol>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <footer> 
           <div class="full-right"></div>Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
           <div class="clearfix"></div>
