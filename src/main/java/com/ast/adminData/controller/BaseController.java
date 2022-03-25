@@ -24,7 +24,7 @@ public class BaseController {
     }
     @RequestMapping("/dataSetList")
     public String dataSetList() {
-        return "dataSetList";
+        return "A2.DataSet/dataSetList";
     }
     @RequestMapping("/index")
     public String index() {
@@ -40,7 +40,7 @@ public class BaseController {
     }
     @RequestMapping("/port")
     public String port() {
-        return "port";
+        return "A3.Port/port";
     }
     @RequestMapping("/sandbox")
     public String sandbox() {
@@ -61,5 +61,13 @@ public class BaseController {
     @RequestMapping("/table")
     public String table() {
         return "table";
+    }
+    @RequestMapping("/metaTable")
+    public String metaTable() {
+        return "A2.MetaTblManage/metaTable";
+    }
+    @RequestMapping("/dataModelList")
+    public String dataModelList() {
+        return "A2.DataModelManage/dataModelList";
     }
 }

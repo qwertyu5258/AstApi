@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <title>LX DT | 데이터 분석 결과 조회</title>
-    <%@include file="common/commonCss.jsp" %>
+    <%@include file="A1.Common/commonCss.jsp" %>
   </head>
   <body class="nav-md">
     <div class="container body"> 
@@ -19,37 +19,9 @@
                 <h2>John Doe</h2>
               </div>
             </div><br>
-            <div class="main_menu_side hidden-print main_menu" id="sidebar-menu">
-              <div class="menu_section">
-                <ul class="nav side-menu">
-                  <li><a href="table"> <i class="fa fa-user"> </i>테이블 형태</a></li>
-                  <li> <a href="modal"> <i class="fa fa-user"> </i>모달 형태</a></li>
-                  <li> <a href="search"> <i class="fa fa-user"> </i>검색 형태</a></li>
-                  <li> <a href="input"> <i class="fa fa-user"> </i>등록폼</a></li>
-                  <li> <a href="clcntErrorDetail"> <i class="fa fa-user"> </i>수집오류 상세</a></li>
-                  <li> <a href="dataSetList"> <i class="fa fa-user"> </i>데이터 셋 리스트 상세</a></li>
-                  <li> <a><i class="fa fa-list-alt"></i>1뎁스<span class="fa fa-chevron-down"> </span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="index">2뎁스</a></li>
-                      <li><a>2뎁스<span class="fa fa-chevron-down"> </span></a>
-                        <ul class="nav child_menu">
-                          <li><a href="#">3뎁스</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li> <a href="port"> <i class="fa fa-user"> </i>포트관리</a></li>
-                  <li> <a href="scenario"> <i class="fa fa-user"> </i>시나리오</a></li>
-                  <li> <a><i class="fa fa-user"> </i>샌드박스<span class="fa fa-chevron-down"> </span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="sandbox">샌드박스 관리</a></li>
-                      <li><a href="sandboxRgstr">샌드박스 등록</a></li>
-                    </ul>
-                  </li>
-                  <li> <a href="data"> <i class="fa fa-user"> </i>데이터 분석 결과 조회</a></li>
-                </ul>
-              </div>
-            </div>
+
+            <%@include file="A1.Menu/menu.jsp" %>
+
             <div class="sidebar-footer hidden-small"><a data-toggle="tooltip" data-placement="top" title="로그아웃"><span class="glyphicon glyphicon-off" aria-hidden="Logout"></span></a></div>
           </div>
         </div>
@@ -316,33 +288,8 @@
         </footer>
       </div>
     </div>
-    <!-- common js-->
-    <script src="vendors/jquery/dist/jquery.min.js"></script>
-    <script src="vendors/bootstrap/dist/js/bootstrap.bundle.min.js"> </script>
-    <script src="vendors/fastclick/lib/fastclick.js"></script>
-    <script src="vendors/iCheck/icheck.min.js"></script>
-    <script src="vendors/moment/min/moment.min.js"></script>
-    <script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="vendors/datatables.net-buttons/js/buttons5.min.js"></script>
-    <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <script src="vendors/jszip/dist/jszip.min.js"></script>
-    <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
-    <script src="vendors/dragula/dist/dragula.js"></script>
-    <script src="vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
-    <script src="vendors/nprogress/nprogress.js"></script>
-    <script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <script src="vendors/Chart.js/dist/Chart.min.js"></script>
-    <script src="js/custom.js"></script>
+
+    <%@include file="A1.Common/commonJs.jsp" %>
+
   </body>
 </html>
