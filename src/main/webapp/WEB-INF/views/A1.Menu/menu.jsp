@@ -12,13 +12,16 @@
             <li> <a><i class="fa fa-list-alt"></i>데이터 모델 관리<span class="fa fa-chevron-down"> </span></a>
                 <ul class="nav child_menu">
                     <li><a href="dataModelList">데이터모델 리스트</a></li>
-                    <li><a href="#">데이터모델 등록</a></li>
-                    <li><a href="#">데이터모델 상세</a></li>
+                    <li><a href="dataModelRegist">데이터모델 등록</a></li>
+                    <li><a href="dataModelDetail">데이터모델 상세</a></li>
                     <li><a href="#">메타 팝업</a></li>
                 </ul>
             </li>
             <li> <a><i class="fa fa-list-alt"></i>Adaptor 관리<span class="fa fa-chevron-down" /></a>
                 <ul class="nav child_menu">
+                    <li><a href="adaptorConfig">Adaptor 설정</a></li>
+                    <li><a href="adaptorDetail">Adaptor 상세1</a></li>
+                    <li><a href="adaptorDetail">Adaptor 상세2</a></li>
                     <li><a>Adaptor 설정<span class="fa fa-chevron-down"> </span></a>
                         <ul class="nav child_menu">
                             <li><a href="#">Adaptor 상세1</a></li>

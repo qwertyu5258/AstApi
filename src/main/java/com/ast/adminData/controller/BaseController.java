@@ -70,4 +70,20 @@ public class BaseController {
     public String dataModelList() {
         return "A2.DataModelManage/dataModelList";
     }
+    @RequestMapping("/dataModelRegist")
+    public String dataModelRegist() {
+        return "A2.DataModelManage/dataModelRegist";
+    }
+    @RequestMapping("/dataModelDetail")
+    public String dataModelDetail() {
+        return "A2.DataModelManage/dataModelDetail";
+    }
+    @RequestMapping("/adaptorConfig")
+    public String adaptorConfig() {
+        return "A2.AdaptorManage/adaptorConfig";
+    }
+    @RequestMapping("/adaptorDetail")
+    public String adaptorDetail() {
+        return "A2.AdaptorManage/adaptorDetail";
+    }
 }
