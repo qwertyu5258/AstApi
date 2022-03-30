@@ -16,3 +16,4 @@
     <link rel="stylesheet" href="vendors/dragula/dist/dragula.min.css">
     <!-- custom css-->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/customStyle.css">
