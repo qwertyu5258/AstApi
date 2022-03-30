@@ -377,6 +377,66 @@
             </div>
           </div>
         </div>
+
+        <!-- 데이터 셋 선택 -->
+        <div class="modal fade setting_modal show" tabindex="-1" role="dialog" style="display: block; padding-right: 17px;" aria-modal="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">융복합대상 설정</h4>
+                <button class="close" type="button" data-dismiss="modal"></button><span aria-hidden="true">×</span>
+              </div>
+              <div class="modal-body">
+                <div class="x_content">
+                  <div class="form-group row col-12 mx-0 px-0">
+                    <div class="control-label">데이터 셋 ID</div>
+                    <div class="form-control_box">
+                      <input class="form-control mr-1" type="text" disabled="" value="DataSet02, DataSet03, DataSet04">
+                    </div>
+                  </div>
+                  <div class="border_box mb-4">
+                    <div class="form-control_box">데이터 셋 명    </div>
+                  </div>
+                  <div class="right_btns mb-2">
+                    <button class="btn btn-sm btn-danger">초기화</button>
+                    <button class="btn btn-sm btn-success">추가</button>
+                    <button class="btn btn-sm btn-primary">적용</button>
+                  </div>
+                  <div class="table_responsive table-modal-height">
+                    <table class="table table-striped">
+                      <colgroup> </colgroup>
+                      <thead>
+                      <tr>
+                        <th colspan="2">메타 테이블명</th>
+                        <th>데이터셋 메타정보</th>
+                      </tr>
+                      <tr>
+                        <th>영문</th>
+                        <th>국문</th>
+                        <th>사용유무    </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>TB_NAME_01</td>
+                        <td>지역문화재</td>
+                        <td>사용</td>
+                      </tr>
+                      <tr>
+                        <td>TB_NAME_02</td>
+                        <td>지역문화재</td>
+                        <td>미사용</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
         <!-- setting_modal -->
         <div class="modal fade setting_modal" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-dialog modal-lg">

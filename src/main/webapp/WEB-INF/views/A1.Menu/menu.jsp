@@ -22,14 +22,10 @@
                     <li><a href="adaptorConfig">Adaptor 설정</a></li>
                     <li><a href="adaptorDetail">Adaptor 상세1</a></li>
                     <li><a href="adaptorDetail">Adaptor 상세2</a></li>
-                    <li><a>Adaptor 설정<span class="fa fa-chevron-down"> </span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="#">Adaptor 상세1</a></li>
-                            <li><a href="#">Adaptor 상세2</a></li>
-                            <li><a href="#">Instance 상세</a></li>
-                            <li><a href="#">...</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="instanceDetail">Instance 상세</a></li>
+                    <li><a href="instanceConfig">Instance 매칭정보 설정</a></li>
+                    <li><a href="adaptorOperation">Adaptor 운영</a></li>
+                    <li><a href="instanceInquiry">Instance 조회</a></li>
                 </ul>
             </li>
             <li> <a><i class="fa fa-list-alt"></i>데이터 셋<span class="fa fa-chevron-down" /></a>

@@ -86,4 +86,20 @@ public class BaseController {
     public String adaptorDetail() {
         return "A2.AdaptorManage/adaptorDetail";
     }
+    @RequestMapping("/instanceDetail")
+    public String instanceDetail() {
+        return "A2.AdaptorManage/instanceDetail";
+    }
+    @RequestMapping("/instanceConfig")
+    public String instanceConfig() {
+        return "A2.AdaptorManage/instanceConfig";
+    }
+    @RequestMapping("/adaptorOperation")
+    public String adaptorOperation() {
+        return "A2.AdaptorManage/adaptorOperation";
+    }
+    @RequestMapping("/instanceInquiry")
+    public String instanceInquiry() {
+        return "A2.AdaptorManage/instanceInquiry";
+    }
 }
