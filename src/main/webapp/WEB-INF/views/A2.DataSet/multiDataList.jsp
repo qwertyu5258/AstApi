@@ -52,18 +52,19 @@
         <div class="col-md-12">
           <div class="x_panel">
             <div class="x_title">
-              <h2>HOME &gt; Adaptor 관리 &gt; Instance 조회</h2>
+              <h2>HOME &gt; 데이터 셋 &gt; 융복합 데이터 셋 리스트</h2>
               <div class="clearfix"> </div>
             </div>
             <div class="x_content">
+              <h3>융복합 데이터 셋 리스트</h3>
               <form class="form-horizontal form-label-left d-flex align-items-center row">
                 <div class="col-12 col-md-10">
-                  <div class="form-group row">
+                  <div class="form-group row mb-4">
                     <label class="control-label">검색</label>
                     <div class="form-control_box">
                       <div class="col-md-3 pl-0">
                         <select class="form-control">
-                          <option>Choose option</option>
+                          <option>선택</option>
                           <option>Option one</option>
                           <option>Option two</option>
                           <option>Option three</option>
@@ -81,61 +82,73 @@
                 </div>
                 <div class="col-12 col-md-12">
                   <div class="table_responsive">
-                    <h3>Instance 정보</h3>
-                    <div class="talbel_total mb-2">총 3 건</div>
+                    <div class="cont_title_box mt-2 mb-4">
+                      <div class="talbel_total pl-0 col-md-6">총 3 건</div>
+                      <div class="right_btns col-md-6">
+                        <a href="#" class="btn btn-primary">융복합 설정</a>
+                      </div>
+                    </div>
                     <table class="table table-striped">
                       <colgroup>
-                        <col width="55px">
                       </colgroup>
                       <thead>
                       <tr>
-                        <th>순번</th>
-                        <th>Adaptor 명</th>
-                        <th>Instance 명</th>
-                        <th>수집방식</th>
-                        <th>수집유형</th>
-                        <th>데이터 모델명</th>
+                        <th>데이터 셋 명</th>
+                        <th>데이터 모델 명</th>
                         <th>메타 테이블명</th>
-                        <th>수집오류</th>
-                        <th>상태</th>
+                        <th>융복합 대상 데이터 셋</th>
+                        <th>수집 건수</th>
+                        <th>적재 건수</th>
+                        <th>실패 건수</th>
                       </tr>
                       </thead>
                       <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>문화재</td>
-                        <td>전주시 문화재</td>
-                        <td>DB_TO_DB</td>
-                        <td>Postgresq</td>
-                        <td>연계1</td>
-                        <td>문화재정보</td>
-                        <td></td>
-                        <td>실행</td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>지자체</td>
-                        <td>전주시 유물</td>
-                        <td>API</td>
-                        <td>OPEN_API</td>
-                        <td>문화재</td>
-                        <td>박물관정보</td>
-                        <td></td>
-                        <td>실행</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>지역</td>
-                        <td>전주시 박물관</td>
-                        <td>FILE</td>
-                        <td>CVS</td>
-                        <td>XML파일</td>
-                        <td>지역정보</td>
-                        <td><a class="btn btn-success btn-sm" href="">바로가기</a></td>
-                        <td>중지</td>
-                      </tr>
+                        <tr>
+                          <td>종합</td>
+                          <td>융복합</td>
+                          <td>융복합1</td>
+                          <td>문화재1, 문화재2, 문화재3</td>
+                          <td>100</td>
+                          <td>100</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td>종합</td>
+                          <td>융복합</td>
+                          <td>융복합1</td>
+                          <td>문화재1, 문화재2, 문화재3</td>
+                          <td>100</td>
+                          <td>100</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td>종합</td>
+                          <td>융복합</td>
+                          <td>융복합1</td>
+                          <td>문화재1, 문화재2, 문화재3</td>
+                          <td>100</td>
+                          <td>100</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td>종합</td>
+                          <td>융복합</td>
+                          <td>융복합1</td>
+                          <td>문화재1, 문화재2, 문화재3</td>
+                          <td>100</td>
+                          <td>100</td>
+                          <td>0</td>
+                        </tr>
                       </tbody>
                     </table>
+                    <div class="nav justify-content-center">
+                      <ul class="pagination">
+                        <li class="page-item"> <a class="page-link" href="#">&lt; </a></li>
+                        <li class="page-item"> <a class="page-link" href="#">1   </a></li>
+                        <li class="page-item"> <a class="page-link" href="#">2 </a></li>
+                        <li class="page-item"> <a class="page-link" href="#">&gt;           </a></li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </form>

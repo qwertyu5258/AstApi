@@ -55,13 +55,12 @@
                   <h2>HOME &gt; Adaptor 설정 &gt; Adaptor 상세 &gt; Adaptor 운영</h2>
                   <div class="clearfix"> </div>
                 </div>
-                <div class="x_content"> <br>
+                <div class="x_content">
                   <form class="form-horizontal form-label-left">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="x_panel">
-                          <div class="x_content"> <br>
-                            <form class="form-horizontal form-label-left">
+                          <div class="x_content">
                               <div class="cont_title_box">
                                 <h3>Adaptor 상세</h3>
                                 <div class="right_btns">
@@ -104,7 +103,6 @@
                                   </div>
                                 </div>
                               </div>
-                            </form>
                           </div>
                         </div>
                       </div>

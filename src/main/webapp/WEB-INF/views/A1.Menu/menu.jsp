@@ -20,38 +20,38 @@
             <li> <a><i class="fa fa-list-alt"></i>Adaptor 관리<span class="fa fa-chevron-down" /></a>
                 <ul class="nav child_menu">
                     <li><a href="adaptorConfig">Adaptor 설정</a></li>
-                    <li><a href="adaptorDetail">Adaptor 상세1</a></li>
-                    <li><a href="adaptorDetail">Adaptor 상세2</a></li>
+                    <li><a href="adaptorDetail">Adaptor 상세</a></li>
                     <li><a href="instanceDetail">Instance 상세</a></li>
                     <li><a href="instanceConfig">Instance 매칭정보 설정</a></li>
                     <li><a href="adaptorOperation">Adaptor 운영</a></li>
                     <li><a href="instanceInquiry">Instance 조회</a></li>
+                    <li><a href="instanceSet">Instance 유형관리</a></li>
+                    <li><a href="adaptorSet">Adaptor 유형관리</a></li>
+                    <li><a href="processList">전처리 리스트</a></li>
+                    <li><a href="processRegist">전처리 등록</a></li>
+                </ul>
+            </li>
+            <li> <a><i class="fa fa-list-alt"></i>수집오류<span class="fa fa-chevron-down" /></a>
+                <ul class="nav child_menu">
+                    <li><a href="dataCollectList">수집오류 리스트</a></li>
+                    <li><a href="dataCollectDetail">수집오류 상세</a></li>
                 </ul>
             </li>
             <li> <a><i class="fa fa-list-alt"></i>데이터 셋<span class="fa fa-chevron-down" /></a>
                 <ul class="nav child_menu">
-                    <li><a>메타정보리스트<span class="fa fa-chevron-down"> </span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="#">메타정보 상세</a></li>
-                        </ul>
-                    </li>
-                    <li><a>데이터셋 리스트<span class="fa fa-chevron-down"> </span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="#">데이터셋 리스트상세</a></li>
-                        </ul>
-                    </li>
-                    <li><a>융복합 데이터 셋 리스트<span class="fa fa-chevron-down"> </span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="dataSetList">융복합데이터상세</a></li>
-                            <li><a href="#">융복합설정</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="metaInfoList">메타정보리스트</a></li>
+                    <li><a href="metaInfoDetail">메타정보 상세</a></li>
+                    <li><a href="dataSetList">데이터 셋 리스트</a></li>
+                    <li><a href="dataSetDetail">데이터 셋 리스트 상세</a></li>
+                    <li><a href="multiDataList">융복합 데이터 셋 리스트</a></li>
+                    <li><a href="multiDataDetail">융복합 데이터 상세</a></li>
+                    <li><a href="multiDataSet">융복합 설정</a></li>
+
                 </ul>
             </li>
             <li> <a><i class="fa fa-list-alt"></i>시스템관리<span class="fa fa-chevron-down" /></a>
                 <ul class="nav child_menu">
-                    <li><a href="#">코드관리</a></li>
-                    </li>
+                    <li><a href="codeSet">코드관리</a></li></li>
                 </ul>
             </li>
             <li> <a><i class="fa fa-list-alt"></i>데이터분석<span class="fa fa-chevron-down" /></a>

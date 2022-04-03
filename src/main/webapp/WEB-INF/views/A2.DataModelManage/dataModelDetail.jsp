@@ -55,7 +55,7 @@
                   <h2>검색 형태3</h2>
                   <div class="clearfix"> </div>
                 </div>
-                <div class="x_content"> <br>
+                <div class="x_content">
                   <form class="form-horizontal form-label-left">
                     <h3>기본 정보</h3>
                     <div class="row">

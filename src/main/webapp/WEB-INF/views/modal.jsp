@@ -60,10 +60,19 @@
                   <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" data-target=".code_modal">코드 등록 및 상세</button>
                   <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" data-target=".history_modal">이력보기</button>
                   <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" data-target=".idSetting_modal">ID 설정</button>
+                  <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" data-target=".idSetting2_modal">ID 설정2</button>
                   <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" data-target=".instance_modal">Instance 매칭정보 변경</button>
                   <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" data-target=".search_modal">데이터 모델 검색</button>
                   <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" data-target=".setting_modal">융복합대상 설정</button>
                   <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" data-target=".metaInfo_modal">메타정보 변경</button>
+                  <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" data-target=".dataset_modal">데이터 셋 선택</button>
+                  <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" data-target=".column_modal">컬럼보기</button>
+                  <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" data-target=".receive_modal">기본 수신 경로 설정</button>
+                  <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" data-target=".change_modal">데이터 모델 변경</button>
+                  <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" data-target=".license_modal">라이선스 정책</button>
+                  <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" data-target=".codegroup_modal">코드그룹 등록</button>
+                  <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" data-target=".codedetail_modal">코드그룹 상세</button>
+                  <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" data-target=".codereg_modal">코드 등록</button>
                 </div>
               </div>
             </div>
@@ -197,8 +206,43 @@
                           <td>1</td>
                           <td class="td_btn"><a class="btn btn-primary btn-sm" href="" download>다운로드</a> </td>
                         </tr>
+                        <tr>
+                          <td>2019.6.19</td>
+                          <td>100</td>
+                          <td>99</td>
+                          <td>1</td>
+                          <td class="td_btn"><a class="btn btn-primary btn-sm" href="" download>다운로드</a> </td>
+                        </tr>
+                        <tr>
+                          <td>2019.6.19</td>
+                          <td>100</td>
+                          <td>99</td>
+                          <td>1</td>
+                          <td class="td_btn"><a class="btn btn-primary btn-sm" href="" download>다운로드</a> </td>
+                        </tr>
+                        <tr>
+                          <td>2019.6.19</td>
+                          <td>100</td>
+                          <td>99</td>
+                          <td>1</td>
+                          <td class="td_btn"><a class="btn btn-primary btn-sm" href="" download>다운로드</a> </td>
+                        </tr> <tr>
+                          <td>2019.6.19</td>
+                          <td>100</td>
+                          <td>99</td>
+                          <td>1</td>
+                          <td class="td_btn"><a class="btn btn-primary btn-sm" href="" download>다운로드</a> </td>
+                        </tr>
                       </tbody>
                     </table>
+                    <div class="nav justify-content-center">
+                      <ul class="pagination">
+                        <li class="page-item"> <a class="page-link" href="#">&lt; </a></li>
+                        <li class="page-item"> <a class="page-link" href="#">1   </a></li>
+                        <li class="page-item"> <a class="page-link" href="#">2 </a></li>
+                        <li class="page-item"> <a class="page-link" href="#">&gt; </a></li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -254,6 +298,60 @@
                 </div>
               </div>
               <div class="modal-footer"> 
+                <button class="btn btn-primary" type="button">저장</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- idSetting2_modal -->
+        <div class="modal fade idSetting2_modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel2">ID 설정</h4>
+                <button class="close" type="button" data-dismiss="modal"></button><span aria-hidden="true">&times;</span>
+              </div>
+              <div class="modal-body">
+                <div class="main-container">
+                  <ul class="columns">
+                    <li class="column to-do-column">
+                      <div class="column-header">
+                        <h4>데이터모델</h4>
+                      </div>
+                      <ul class="task-list" id="drakeLeft">
+                        <li class="task">
+                          <p>C_NAME_03(Double)</p>
+                        </li>
+                        <li class="task">
+                          <p>C_NAME_05(Date)</p>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="column doing-column">
+                      <div class="column-header">
+                        <h4>ID순서</h4>
+                      </div>
+                      <ul class="task-list" id="drakeRight">
+                        <li class="task">
+                          <p>C_NAME_02(Integer)</p>
+                        </li>
+                        <li class="task">
+                          <p>C_NAME_01(String)</p>
+                        </li>
+                        <li class="task">
+                          <p>C_NAME_04(Integer)</p>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="drake_result_box">
+                  <div class="drake_title">ID</div>
+                  <div class="drake_result">C_NAME_02.C_NAME_01.C_NAME_04</div>
+                  <button class="btn btn-danger m-0">초기화</button>
+                </div>
+              </div>
+              <div class="modal-footer">
                 <button class="btn btn-primary" type="button">저장</button>
               </div>
             </div>
@@ -379,7 +477,7 @@
         </div>
 
         <!-- 데이터 셋 선택 -->
-        <div class="modal fade setting_modal show" tabindex="-1" role="dialog" style="display: block; padding-right: 17px;" aria-modal="true">
+        <div class="modal fade setting_modal" tabindex="-1" role="dialog" style="padding-right: 17px;" aria-modal="true">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
@@ -435,8 +533,6 @@
             </div>
           </div>
         </div>
-
-
         <!-- setting_modal -->
         <div class="modal fade setting_modal" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-dialog modal-lg">
@@ -588,13 +684,456 @@
             </div>
           </div>
         </div>
+        <!-- dataset_modal -->
+        <div class="modal fade dataset_modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">데이터 셋 선택</h4>
+                <button class="close" type="button" data-dismiss="modal"></button><span aria-hidden="true">&times;</span>
+              </div>
+              <div class="modal-body">
+                <div class="x_content">
+                  <div class="form-control_box">
+                    <input class="form-control mb-2 tec " type="text" value="데이터 셋 명">
+                  </div>
+                  <div class="right_btns mb-2">
+                    <button class="btn btn-sm btn-primary">검색</button>
+                  </div>
+                  <div class="table_responsive table-modal-height">
+                    <table class="table table-striped">
+                      <colgroup> </colgroup>
+                      <thead>
+                        <tr>
+                          <th>수집방식</th>
+                          <th>수집유형</th>
+                          <th>데이터 모델 명</th>
+                          <th>데이터 셋 명</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>DB_TO_DB</td>
+                          <td>Postgresql</td>
+                          <td>문화재 모델</td>
+                          <td>연계1</td>
+                        </tr>
+                        <tr>
+                          <td>DB_TO_DB</td>
+                          <td>Oracle</td>
+                          <td>지역 모델</td>
+                          <td>연계2</td>
+                        </tr>
+                        <tr>
+                          <td>DB_TO_DB</td>
+                          <td>Tibero</td>
+                          <td>지자체 모델</td>
+                          <td>연계3</td>
+                        </tr>
+                        <tr>
+                          <td>DB_TO_DB</td>
+                          <td>Mariadb</td>
+                          <td>바람 모델</td>
+                          <td>기상청 바람</td>
+                        </tr>
+                        <tr>
+                          <td>API</td>
+                          <td>Open API</td>
+                          <td>박물관 모델</td>
+                          <td>문화재</td>
+                        </tr>
+                        <tr>
+                          <td>FILE</td>
+                          <td>CVS</td>
+                          <td>지방 모델</td>
+                          <td>XML파일</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- column_modal -->
+        <div class="modal fade column_modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">컬럼보기</h4>
+                <button class="close" type="button" data-dismiss="modal"></button><span aria-hidden="true">&times;</span>
+              </div>
+              <div class="modal-body">
+                <div class="x_content">
+                  <div class="table_responsive table-modal-height">
+                    <table class="table table-striped table-bordered">
+                      <tbody>
+                        <tr>
+                          <th>테이블명</th>
+                          <td>문화재</td>
+                          <th>테이블id</th>
+                          <td>td_name</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="table table-striped">
+                      <colgroup> </colgroup>
+                      <thead>
+                      <tr>
+                        <th>컬럼명</th>
+                        <th>컬럼ID</th>
+                        <th>컬럼타입</th>
+                        <th>컬럼자리수</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>컬럼1</td>
+                        <td>cn_name01</td>
+                        <td>Varcher</td>
+                        <td>256</td>
+                      </tr>
+                      <tr>
+                        <td>컬럼2</td>
+                        <td>cn_name02</td>
+                        <td>Timesetamp</td>
+                        <td>256</td>
+                      </tr>
+                      <tr>
+                        <td>컬럼3</td>
+                        <td>cn_name03</td>
+                        <td>Numeric</td>
+                        <td>5,2</td>
+                      </tr>
+                      <tr>
+                        <td>컬럼4</td>
+                        <td>cn_name04</td>
+                        <td>Varcher</td>
+                        <td>20</td>
+                      </tr>
+                      <tr>
+                        <td>컬럼5</td>
+                        <td>cn_name05</td>
+                        <td>Varcher</td>
+                        <td>300</td>
+                      </tr>
+                      <tr>
+                        <td>컬럼6</td>
+                        <td>cn_name06</td>
+                        <td>Varcher</td>
+                        <td>500</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- receive_modal -->
+        <div class="modal fade receive_modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">기본 수신 경로 설정</h4>
+                <button class="close" type="button" data-dismiss="modal"></button><span aria-hidden="true">&times;</span>
+              </div>
+              <div class="modal-body">
+                <div class="x_content">
+                  <div class="table_responsive table-modal-height">
+                    <table class="table table-striped">
+                      <colgroup>
+                        <col width="44px">
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th>
+                            <div class="icheckbox_flat-purple" style="position: relative;"><div class="icheckbox_flat-purple" style="position: relative;"><input class="flat" id="check-all" type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                          </th>
+                          <th>수신경로</th>
+                          <th>항목명</th>
+                          <th>샘플데이터</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                             <div class="icheckbox_flat-purple" style="position: relative;"><div class="icheckbox_flat-purple" style="position: relative;"><input class="flat" id="check-all" type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                            </td>
+                            <td>response</td>
+                            <td>Header</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="icheckbox_flat-purple" style="position: relative;"><div class="icheckbox_flat-purple" style="position: relative;"><input class="flat" id="check-all" type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                            </td>
+                            <td>response.items</td>
+                            <td>Headercd</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="icheckbox_flat-purple" style="position: relative;"><div class="icheckbox_flat-purple" style="position: relative;"><input class="flat" id="check-all" type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                            </td>
+                            <td>response.itmes.item</td>
+                            <td>ctnDay</td>
+                            <td>3</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="icheckbox_flat-purple" style="position: relative;"><div class="icheckbox_flat-purple" style="position: relative;"><input class="flat" id="check-all" type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                            </td>
+                            <td>response.itmes.item</td>
+                            <td>demoEndDay</td>
+                            <td>3</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="icheckbox_flat-purple" style="position: relative;"><div class="icheckbox_flat-purple" style="position: relative;"><input class="flat" id="check-all" type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                            </td>
+                            <td>response.itmes.item</td>
+                            <td>demoExtngCaus</td>
+                            <td>3</td>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary" type="button">수정</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- change_modal -->
+        <div class="modal fade change_modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">데이터 모델 변경</h4>
+                <button class="close" type="button" data-dismiss="modal"></button><span aria-hidden="true">&times;</span>
+              </div>
+              <div class="modal-body">
+                <div class="x_content">
+                  <h5 class="mt-4 mb-2">데이터 모델 속성 정보</h5>
+                  <div class="row">
+                    <div class="metatable_box col-5">
+                      <div class="form-group row">
+                        <label class="control-label">테이블 명</label>
+                        <div class="form-control_box duplicate_box">
+                          <input class="form-control col-12" type="text">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="meta_title">메타 테이블 정보</div>
+                        <div class="meta_cont meta_list">
+                          <ul>
+                            <li>
+                              <button type="button">C_NAME_01(varchar 10) 문화재 명</button>
+                            </li>
+                            <li>
+                              <button type="button">C_NAME_01(Integer) 문화재 순번</button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-2 col-lg-1 d-flex align-self-center justify-content-center p-0">
+                      <button class="btn btn-secondary" type="button"><i class="glyphicon glyphicon-chevron-right"></i>
+                        <div>매칭</div>
+                      </button>
+                    </div>
+                    <div class="metatable_box col-5 col-lg-6">
+                      <div class="row">
+                        <div class="meta_title">데이터 모델 속성 정보</div>
+                        <div class="meta_cont meta_list">
+                          <ul>
+                            <li>
+                              <button type="button">C_NAME_01 String</button>
+                            </li>
+                            <li>
+                              <button type="button">C_NAME_01 Integer</button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary" type="button">수정</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- codegroup_modal -->
+        <div class="modal fade codegroup_modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">코드그룹 등록</h4>
+                <button class="close" type="button" data-dismiss="modal"></button><span aria-hidden="true">&times;</span>
+              </div>
+              <div class="modal-body">
+                <div class="x_content">
+                  <div class="table_responsive table-modal-height">
+                    <table class="table type02 table-bordered">
+                      <colgroup>
+                        <col width="150px">
+                        <col width="*">
+                        <col width="150px">
+                        <col width="*">
+                      </colgroup>
+                      <tbody>
+                          <tr>
+                            <th>코드그룹ID</th>
+                            <td><input type="text" class="form-control" disabled="disabled" value="I01"></td>
+                            <th>코드그룹ID</th>
+                            <td><input type="text" class="form-control" disabled="disabled" value="사용여부"></td>
+                          </tr>
+                          <tr>
+                            <th>사용여부</th>
+                            <td>
+                              <select class="form-control" disabled="disabled">
+                                <option>선택</option>
+                                <option>Option one</option>
+                                <option>Option two</option>
+                                <option>Option three</option>
+                                <option>Option four</option>
+                              </select>
+                            </td>
+                            <th>코드그룹 설명</th>
+                            <td><input type="text" class="form-control" disabled="disabled"></td>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary" type="button">저장</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- codedetail_modal -->
+        <div class="modal fade codedetail_modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">코드그룹 등록</h4>
+                <button class="close" type="button" data-dismiss="modal"></button><span aria-hidden="true">&times;</span>
+              </div>
+              <div class="modal-body">
+                <div class="x_content">
+                  <div class="table_responsive table-modal-height">
+                    <table class="table type02 table-bordered">
+                    <colgroup>
+                      <col width="150px">
+                      <col width="*">
+                      <col width="150px">
+                      <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                      <th>코드그룹ID</th>
+                      <td><input type="text" class="form-control" disabled="disabled" value="I01"></td>
+                      <th>코드그룹 명</th>
+                      <td><input type="text" class="form-control" disabled="disabled" value="사용여부"></td>
+                    </tr>
+                    <tr>
+                      <th>사용여부</th>
+                      <td>
+                        <select class="form-control" disabled="disabled">
+                          <option>선택</option>
+                          <option>Option one</option>
+                          <option>Option two</option>
+                          <option>Option three</option>
+                          <option>Option four</option>
+                        </select>
+                      </td>
+                      <th>코드그룹 설명</th>
+                      <td><input type="text" class="form-control" disabled="disabled"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary" type="button">수정</button>
+                <button class="btn btn-danger" type="button">삭제</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade codereg_modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">코드그룹 등록</h4>
+                <button class="close" type="button" data-dismiss="modal"></button><span aria-hidden="true">&times;</span>
+              </div>
+              <div class="modal-body">
+                <div class="x_content">
+                  <div class="table_responsive table-modal-height">
+                    <table class="table type02 table-bordered">
+                    <colgroup>
+                      <col width="150px">
+                      <col width="*">
+                      <col width="150px">
+                      <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                      <th>코드그룹ID</th>
+                      <td><input type="text" class="form-control" disabled="disabled" value="I01"></td>
+                      <th>코드 ID</th>
+                      <td><input type="text" class="form-control" disabled="disabled" value="I01001"></td>
+                    </tr>
+                    <tr>
+                      <th>코드명</th>
+                      <td><input type="text" class="form-control" disabled="disabled" value="사용"></td>
+                      <th>정렬순서</th>
+                      <td><input type="text" class="form-control" disabled="disabled" value="1"></td>
+                    </tr>
+                    <tr>
+                      <th>사용여부</th>
+                      <td>
+                        <select class="form-control" disabled="disabled">
+                          <option>선택</option>
+                          <option>Option one</option>
+                          <option>Option two</option>
+                          <option>Option three</option>
+                          <option>Option four</option>
+                        </select>
+                      </td>
+                      <th>코드설명</th>
+                      <td><input type="text" class="form-control" disabled="disabled"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary" type="button">수정</button>
+                <button class="btn btn-danger" type="button">삭제</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <footer> 
           <div class="full-right"></div>Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
           <div class="clearfix"></div>
         </footer>
       </div>
     </div>
-
     <%@include file="A1.Common/commonJs.jsp" %>
 
   </body>

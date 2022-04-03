@@ -52,18 +52,19 @@
         <div class="col-md-12">
           <div class="x_panel">
             <div class="x_title">
-              <h2>HOME &gt; Adaptor 관리 &gt; Instance 조회</h2>
+              <h2>HOME &gt; 데이터 셋 &gt; 메타정보 리스트</h2>
               <div class="clearfix"> </div>
             </div>
             <div class="x_content">
+              <h3>메타정보 리스트</h3>
               <form class="form-horizontal form-label-left d-flex align-items-center row">
                 <div class="col-12 col-md-10">
-                  <div class="form-group row">
+                  <div class="form-group row mb-4">
                     <label class="control-label">검색</label>
                     <div class="form-control_box">
                       <div class="col-md-3 pl-0">
                         <select class="form-control">
-                          <option>Choose option</option>
+                          <option>선택</option>
                           <option>Option one</option>
                           <option>Option two</option>
                           <option>Option three</option>
@@ -81,61 +82,88 @@
                 </div>
                 <div class="col-12 col-md-12">
                   <div class="table_responsive">
-                    <h3>Instance 정보</h3>
                     <div class="talbel_total mb-2">총 3 건</div>
                     <table class="table table-striped">
                       <colgroup>
-                        <col width="55px">
                       </colgroup>
                       <thead>
                       <tr>
-                        <th>순번</th>
-                        <th>Adaptor 명</th>
-                        <th>Instance 명</th>
-                        <th>수집방식</th>
+                        <th>데이터 셋 명</th>
+                        <th>데이터모델 명</th>
                         <th>수집유형</th>
-                        <th>데이터 모델명</th>
-                        <th>메타 테이블명</th>
-                        <th>수집오류</th>
-                        <th>상태</th>
+                        <th>수집방식</th>
+                        <th>대분류</th>
+                        <th>중분류</th>
+                        <th>소분류</th>
+                        <th>제공기관</th>
+                        <th>제공시스템</th>
+                        <th>제공항목</th>
+                        <th>업데이트주기</th>
+                        <th>라이선스</th>
+                        <th>최초수집기간</th>
+                        <th>최종수집시간</th>
                       </tr>
                       </thead>
                       <tbody>
                       <tr>
-                        <td>1</td>
-                        <td>문화재</td>
-                        <td>전주시 문화재</td>
+                        <td><a href="#">연계1</a></td>
+                        <td>LX_연계</td>
                         <td>DB_TO_DB</td>
-                        <td>Postgresq</td>
-                        <td>연계1</td>
-                        <td>문화재정보</td>
+                        <td>Postgresql</td>
                         <td></td>
-                        <td>실행</td>
+                        <td></td>
+                        <td></td>
+                        <td>국토부</td>
+                        <td>국토부</td>
+                        <td>LX_연계</td>
+                        <td>매월 1일 00:01</td>
+                        <td>CC BY</td>
+                        <td>2019. 6.18 오후 1:07:39</td>
+                        <td>2019. 6.18 오후 1:07:39</td>
                       </tr>
                       <tr>
-                        <td>2</td>
-                        <td>지자체</td>
-                        <td>전주시 유물</td>
-                        <td>API</td>
-                        <td>OPEN_API</td>
+                        <td><a href="#">문화재</a></td>
                         <td>문화재</td>
-                        <td>박물관정보</td>
+                        <td>API</td>
+                        <td>Open API</td>
                         <td></td>
-                        <td>실행</td>
+                        <td></td>
+                        <td></td>
+                        <td>문화재</td>
+                        <td>문화재청</td>
+                        <td>문화재</td>
+                        <td>매월 2일 00:01</td>
+                        <td>CC BY</td>
+                        <td>2019. 6.18 오후 1:07:39</td>
+                        <td>2019. 6.18 오후 1:07:39</td>
                       </tr>
                       <tr>
-                        <td>3</td>
-                        <td>지역</td>
-                        <td>전주시 박물관</td>
-                        <td>FILE</td>
-                        <td>CVS</td>
-                        <td>XML파일</td>
-                        <td>지역정보</td>
-                        <td><a class="btn btn-success btn-sm" href="">바로가기</a></td>
-                        <td>중지</td>
+                        <td><a href="#">CVS파일</a></td>
+                        <td>지방주소</td>
+                        <td>File</td>
+                        <td>cvs</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>지자체</td>
+                        <td>지자체</td>
+                        <td>지방주소</td>
+                        <td>매월 3일 00:01</td>
+                        <td>CC BY</td>
+                        <td>2019. 6.18 오후 1:07:39</td>
+                        <td>2019. 6.18 오후 1:07:39</td>
                       </tr>
+
                       </tbody>
                     </table>
+                    <div class="nav justify-content-center">
+                      <ul class="pagination">
+                        <li class="page-item"> <a class="page-link" href="#">&lt; </a></li>
+                        <li class="page-item"> <a class="page-link" href="#">1   </a></li>
+                        <li class="page-item"> <a class="page-link" href="#">2 </a></li>
+                        <li class="page-item"> <a class="page-link" href="#">&gt;           </a></li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </form>

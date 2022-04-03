@@ -55,7 +55,7 @@
                   <h2>검색 형태3</h2>
                   <div class="clearfix"> </div>
                 </div>
-                <div class="x_content"> <br>
+                <div class="x_content">
                   <form class="form-horizontal form-label-left">
                     <div class="row">
                     <h3 class="col-md-11">Adaptor 등록</h3>
@@ -84,16 +84,10 @@
                         </div>
                       </div>
                     </div>
-
-                    <br><br>
-                    <br><br>
-
-
-
                     <div class="row">
                       <div class="col-md-12">
                         <div class="x_panel">
-                          <div class="x_content"> <br>
+                          <div class="x_content">
                             <form class="form-horizontal form-label-left d-flex align-items-center mb-4 row">
                               <div class="col-12 col-md-10">
                                 <div class="form-group row">
@@ -119,13 +113,13 @@
                               </div>
                             </form>
                           </div>
-                          <div class="x_title col-md-11">
+                          <div class="x_title col-md-11 mb-4">
                             <h2>adaptor 정보</h2>
                           </div>
                           <div class="clearfix col-md-1"><button class="btn btn-sm btn-primary col-md">저장</button> </div>
                           <div class="x_content">
                             <div class="table_responsive">
-                              <div class="talbel_total">총 1개</div>
+                              <div class="talbel_total mb-2">총 1개</div>
                               <table class="table table-striped">
                                 <colgroup>
                                   <col width="55px">

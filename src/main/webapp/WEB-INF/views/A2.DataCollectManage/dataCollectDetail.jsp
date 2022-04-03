@@ -52,91 +52,69 @@
         <div class="col-md-12">
           <div class="x_panel">
             <div class="x_title">
-              <h2>HOME &gt; Adaptor 관리 &gt; Instance 조회</h2>
+              <h2>HOME &gt; 수집오류 &gt; 수집오류 상세</h2>
               <div class="clearfix"> </div>
             </div>
             <div class="x_content">
-              <form class="form-horizontal form-label-left d-flex align-items-center row">
-                <div class="col-12 col-md-10">
-                  <div class="form-group row">
-                    <label class="control-label">검색</label>
-                    <div class="form-control_box">
-                      <div class="col-md-3 pl-0">
-                        <select class="form-control">
-                          <option>Choose option</option>
-                          <option>Option one</option>
-                          <option>Option two</option>
-                          <option>Option three</option>
-                          <option>Option four</option>
-                        </select>
-                      </div>
-                      <div class="col-md-9 pr-0">
-                        <input class="form-control" type="text" placeholder="">
-                      </div>
-                    </div>
+              <h3>수집오류 상세</h3>
+              <form class="form-horizontal form-label-left">
+                <div class="cont_title_box">
+                  <h4>Instance 상세</h4>
+                  <div class="right_btns">
+                    <a href="#" class="btn btn-success">목록</a>
+                    <a href="#" class="btn btn-primary">즉시실행</a>
                   </div>
                 </div>
-                <div class="col-12 col-md-2 btn_search_box">
-                  <button class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i></button>
-                </div>
-                <div class="col-12 col-md-12">
-                  <div class="table_responsive">
-                    <h3>Instance 정보</h3>
-                    <div class="talbel_total mb-2">총 3 건</div>
-                    <table class="table table-striped">
-                      <colgroup>
-                        <col width="55px">
-                      </colgroup>
-                      <thead>
-                      <tr>
-                        <th>순번</th>
-                        <th>Adaptor 명</th>
-                        <th>Instance 명</th>
-                        <th>수집방식</th>
-                        <th>수집유형</th>
-                        <th>데이터 모델명</th>
-                        <th>메타 테이블명</th>
-                        <th>수집오류</th>
-                        <th>상태</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>문화재</td>
-                        <td>전주시 문화재</td>
-                        <td>DB_TO_DB</td>
-                        <td>Postgresq</td>
-                        <td>연계1</td>
-                        <td>문화재정보</td>
-                        <td></td>
-                        <td>실행</td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>지자체</td>
-                        <td>전주시 유물</td>
-                        <td>API</td>
-                        <td>OPEN_API</td>
-                        <td>문화재</td>
-                        <td>박물관정보</td>
-                        <td></td>
-                        <td>실행</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>지역</td>
-                        <td>전주시 박물관</td>
-                        <td>FILE</td>
-                        <td>CVS</td>
-                        <td>XML파일</td>
-                        <td>지역정보</td>
-                        <td><a class="btn btn-success btn-sm" href="">바로가기</a></td>
-                        <td>중지</td>
-                      </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                <div class="table_responsive">
+                  <table class="table type02 table-bordered">
+                    <colgroup>
+                      <col width="20%">
+                      <col width="*">
+                      <col width="20%">
+                      <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                      <th>데이터 모델명</th>
+                      <td>LX_연계1</td>
+                      <th>데이터 셋 명</th>
+                      <td>연계1</td>
+                    </tr>
+                    <tr>
+                      <th>Adaptor 명</th>
+                      <td>문화재정보</td>
+                      <th>Instance 명</th>
+                      <td>보물정보</td>
+                    </tr>
+                    <tr>
+                      <th>수집방식</th>
+                      <td>DB_TO_DB</td>
+                      <th>수집유형</th>
+                      <td>Postgresql</td>
+                    </tr>
+                    <tr>
+                      <th>오류사항</th>
+                      <td colspan="3">수집대상 메타정보 변경</td>
+                    </tr>
+                    <tr>
+                      <th rowspan="4">오류처리</th>
+                      <td colspan="2">바로가기</td>
+                      <td>처리여부</td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"><a href="#" class="btn btn-success btn-sm">메타정보 변경</a></td>
+                      <td>미처리</td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"><a href="#" class="btn btn-success btn-sm">데이터 모델 변경</a></td>
+                      <td>미처리</td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"><a href="#" class="btn btn-success btn-sm">Instance 매칭정보</a></td>
+                      <td>미처리</td>
+                    </tr>
+                    </tbody>
+                  </table>
                 </div>
               </form>
             </div>

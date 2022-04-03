@@ -55,12 +55,12 @@
                   <h2>HOME &gt; Adaptor 설정 &gt; Adaptor 상세 &gt; Instance 매칭정보 설정</h2>
                   <div class="clearfix"> </div>
                 </div>
-                <div class="x_content"> <br>
+                <div class="x_content">
                   <form class="form-horizontal form-label-left">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="x_panel">
-                          <div class="x_content"> <br>
+                          <div class="x_content">
                             <form class="form-horizontal form-label-left">
                               <div class="cont_title_box">
                                 <h3>Instance 매칭정보 설정</h3>
@@ -69,105 +69,109 @@
                                 <div class="form-group row col-12 col-md-6">
                                   <label class="control-label">인스턴스 명</label>
                                   <div class="form-control_box duplicate_box">
-                                    <input class="form-control" type="text">
+                                    <input class="form-control" type="text" disabled="disabled">
                                   </div>
                                 </div>
                                 <div class="form-group row col-12 col-md-6">
                                   <label class="control-label">데이터 셋 명</label>
                                   <div class="form-control_box duplicate_box">
-                                      <input class="form-control" type="text">
+                                      <input class="form-control" type="text" value="cvs 파일" disabled="disabled" >
                                   </div>
                                 </div>
                               </div>
-                              <div class="right_btns mt-2 mb-2">
-                                <a class="btn btn-success" href="">목록</a>
-                                <button class="btn btn-primary">저장</button>
-                              </div>
                               <div class="row">
+                                <div class="right_btns col-12 col-md-12 mt-2 mb-2">
+                                  <a class="btn btn-success" href="">목록</a>
+                                  <button class="btn btn-primary">저장</button>
+                                </div>
+                              </div>
+                              <div class="row mt-2 mb-2">
                                 <div class="form-group row col-12 col-md-12">
                                   <label class="control-label">ID</label>
                                   <div class="form-control_box duplicate_box">
-                                    <input class="form-control" type="text" >
+                                    <input class="form-control" type="text" value="C_NAME02.C_NAME_01.C_NAME04" >
                                     <button class="btn btn-primary">ID설정</button>
                                   </div>
                                 </div>
                               </div>
-                              <div class="row">
+                              <div class="row mb-4">
                                 <div class="form-group row col-12 col-md-12">
                                   <label class="control-label">기본 수신경로 설정</label>
                                   <div class="form-control_box duplicate_box">
-                                    <input class="form-control" type="text">
+                                    <input class="form-control" type="text" value="response.items.item" disabled="disabled">
                                     <button class="btn btn-primary">설정</button>
                                   </div>
                                 </div>
                               </div>
-                              <div class="table_responsive">
-                                <table class="table table-striped">
-                                  <thead>
-                                  <tr>
-                                    <th colspan="2">데이터 모델</th>
-                                    <th colspan="2">Source</th>
-                                    <th colspan="3">전처리</th>
-                                  </tr>
-                                  <tr>
-                                    <th>속성ID</th>
-                                    <th>속성값</th>
-                                    <th>ID</th>
-                                    <th>수신경로</th>
-                                    <th>속성</th>
-                                    <th>속성유형</th>
-                                    <th>예시</th>
-                                  </tr>
-                                  </thead>
-                                  <tbody>
-                                  <tr>
-                                    <td>C_NAME_01</td>
-                                    <td>String</td>
-                                    <td>
-                                      <select name="">
-                                        <option>C_NAME_01</option>
-                                      </select>
-                                    </td>
-                                    <td>
-                                      <input type="text" value="response.items.item" disabled="">
-                                    </td>
-                                    <td>
-                                      <select name="">
-                                        <option>주민등록번호</option>
-                                      </select>
-                                    </td>
-                                    <td>
-                                      <input type="text" value="String" disabled="">
-                                    </td>
-                                    <td>
-                                      <input type="text" value="123456-1******" disabled="">
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td>C_NAME_01</td>
-                                    <td>String</td>
-                                    <td>
-                                      <select name="">
-                                        <option>C_NAME_01</option>
-                                      </select>
-                                    </td>
-                                    <td>
-                                      <input type="text" value="response.items.item" disabled="">
-                                    </td>
-                                    <td>
-                                      <select name="">
-                                        <option>해당없음</option>
-                                      </select>
-                                    </td>
-                                    <td>
-                                      <input type="text" value="없음" disabled="">
-                                    </td>
-                                    <td>
-                                      <input type="text" value="없음" disabled="">
-                                    </td>
-                                  </tr>
-                                  </tbody>
-                                </table>
+                              <div class="row">
+                                <div class="table_responsive">
+                                  <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                      <th colspan="2">데이터 모델</th>
+                                      <th colspan="2">Source</th>
+                                      <th colspan="3">전처리</th>
+                                    </tr>
+                                    <tr>
+                                      <th>속성ID</th>
+                                      <th>속성값</th>
+                                      <th>ID</th>
+                                      <th>수신경로</th>
+                                      <th>속성</th>
+                                      <th>속성유형</th>
+                                      <th>예시</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                      <td>C_NAME_01</td>
+                                      <td>String</td>
+                                      <td>
+                                        <select name="">
+                                          <option>C_NAME_01</option>
+                                        </select>
+                                      </td>
+                                      <td>
+                                        <input type="text" value="response.items.item" disabled="">
+                                      </td>
+                                      <td>
+                                        <select name="">
+                                          <option>주민등록번호</option>
+                                        </select>
+                                      </td>
+                                      <td>
+                                        <input type="text" value="String" disabled="">
+                                      </td>
+                                      <td>
+                                        <input type="text" value="123456-1******" disabled="">
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>C_NAME_01</td>
+                                      <td>String</td>
+                                      <td>
+                                        <select name="">
+                                          <option>C_NAME_01</option>
+                                        </select>
+                                      </td>
+                                      <td>
+                                        <input type="text" value="response.items.item" disabled="">
+                                      </td>
+                                      <td>
+                                        <select name="">
+                                          <option>해당없음</option>
+                                        </select>
+                                      </td>
+                                      <td>
+                                        <input type="text" value="없음" disabled="">
+                                      </td>
+                                      <td>
+                                        <input type="text" value="없음" disabled="">
+                                      </td>
+                                    </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
                               </div>
                             </form>
                           </div>

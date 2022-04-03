@@ -55,7 +55,7 @@
                   <h2>검색 형태2</h2>
                   <div class="clearfix"> </div>
                 </div>
-                <div class="x_content"> <br>
+                <div class="x_content">
                   <form class="form-horizontal form-label-left d-flex align-items-center mb-4 row">
                     <div class="col-12 col-md-10">
                       <div class="form-group row">

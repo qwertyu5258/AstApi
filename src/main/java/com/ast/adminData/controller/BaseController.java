@@ -22,10 +22,20 @@ public class BaseController {
     public String data() {
         return "data";
     }
+    @RequestMapping("/metaInfoList")
+    public String metaInfoList() { return "A2.DataSet/metaInfoList";}
+    @RequestMapping("/metaInfoDetail")
+    public String metaInfoDetail() {return "A2.DataSet/metaInfoDetail";}
     @RequestMapping("/dataSetList")
-    public String dataSetList() {
-        return "A2.DataSet/dataSetList";
-    }
+    public String dataSetList() {return "A2.DataSet/dataSetList";}
+    @RequestMapping("/dataSetDetail")
+    public String dataSetDetail() {return "A2.DataSet/dataSetDetail";}
+    @RequestMapping("/multiDataList")
+    public String multiDataList() {return "A2.DataSet/multiDataList";}
+    @RequestMapping("/multiDataDetail")
+    public String multiDataDetail() {return "A2.DataSet/multiDataDetail";}
+    @RequestMapping("/multiDataSet")
+    public String multiDataSet() {return "A2.DataSet/multiDataSet";}
     @RequestMapping("/index")
     public String index() {
         return "index";
@@ -101,5 +111,33 @@ public class BaseController {
     @RequestMapping("/instanceInquiry")
     public String instanceInquiry() {
         return "A2.AdaptorManage/instanceInquiry";
+    }
+    @RequestMapping("/instanceSet")
+    public String instanceSet() {
+        return "A2.AdaptorManage/instanceSet";
+    }
+    @RequestMapping("/adaptorSet")
+    public String adaptorSet() {
+        return "A2.AdaptorManage/adaptorSet";
+    }
+    @RequestMapping("/processList")
+    public String processList() {
+        return "A2.AdaptorManage/processList";
+    }
+    @RequestMapping("/processRegist")
+    public String processRegist() {
+        return "A2.AdaptorManage/processRegist";
+    }
+    @RequestMapping("/dataCollectList")
+    public String dataCollectList() {
+        return "A2.DataCollectManage/dataCollectList";
+    }
+    @RequestMapping("/dataCollectDetail")
+    public String dataCollectDetail() {
+        return "A2.DataCollectManage/dataCollectDetail";
+    }
+    @RequestMapping("/codeSet")
+    public String codeSet() {
+        return "A2.CodeManage/codeSet";
     }
 }

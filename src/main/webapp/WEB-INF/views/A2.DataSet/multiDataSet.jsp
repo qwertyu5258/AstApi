@@ -63,124 +63,25 @@
                           <div class="x_content">
                               <div class="cont_title_box">
                                 <h3>Instance 상세</h3>
-                                <div class="right_btns"> <a class="btn btn-success" href="">목록</a>
+                                <div class="right_btns">
+                                  <button class="btn btn-primary">저장</button>
                                   <button class="btn btn-danger">삭제</button>
-                                  <button class="btn btn-primary">수정</button>
                                 </div>
                               </div>
                               <div class="row">
-                                <div class="form-group row col-12 col-md-6">
-                                  <label class="control-label">인스턴스 명</label>
-                                  <div class="form-control_box duplicate_box">
-                                    <input class="form-control" type="text" disabled="disabled">
-                                  </div>
-                                </div>
                                 <div class="form-group row col-12 col-md-6">
                                   <label class="control-label">데이터 셋 명</label>
                                   <div class="form-control_box">
                                     <div class="col-md-6">
-                                      <input class="form-control" type="text" disabled="disabled">
+                                      <input class="form-control" type="text" value="종합">
                                     </div>
-                                    <button class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i></button>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="form-group row col-12 col-md-6">
-                                  <label class="control-label">수집방식</label>
-                                  <div class="form-control_box duplicate_box">
-                                    <input class="form-control" type="text" value="DB_TO_DB" disabled="disabled">
+                                    <a href="#" class="btn btn-primary">선택</a>
                                   </div>
                                 </div>
                                 <div class="form-group row col-12 col-md-6">
-                                  <div class="control-label">사용여부</div>
-                                  <div class="form-control_box">
-                                    <div class="radio radio_inline">
-                                      <label class="">
-                                        <div class="iradio_flat-purple checked" style="position: relative;"><input class="flat" type="radio" checked="" name="use" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>사용
-                                      </label>
-                                    </div>
-                                    <div class="radio radio_inline">
-                                      <label>
-                                        <div class="iradio_flat-purple" style="position: relative;"><input class="flat" type="radio" name="use" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>사용안함
-                                      </label>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="form-group row col-12 col-md-6">
-                                  <label class="control-label">수집유형</label>
-                                  <div class="form-control_box duplicate_box">
-                                    <input class="form-control" type="text" value="Postgresql" disabled="disabled">
-                                  </div>
-                                </div>
-                                <div class="form-group row col-12 col-md-6">
-                                  <label class="control-label">보관주기</label>
-                                  <div class="form-control_box">
-                                    <div class="col-md-6">
-                                      <input class="form-control" type="text">
-                                    </div>
-                                    <div class="col-md-6">
-                                      <select class="form-control">
-                                        <option>선택</option>
-                                        <option>Option one</option>
-                                        <option>Option two</option>
-                                        <option>Option three</option>
-                                        <option>Option four</option>
-                                      </select>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="form-group row col-12 col-md-6">
-                                  <label class="control-label">수집유형</label>
-                                  <div class="form-control_box duplicate_box">
-                                    <input class="form-control" type="text" value="cvs" disabled="disabled">
-                                  </div>
-                                </div>
-                                <div class="form-group row col-12 col-md-6">
-                                  <label class="control-label">메타테이블</label>
-                                  <div class="form-control_box">
-                                    <div class="col-md-6">
-                                      <input class="form-control" type="text" disabled="disabled">
-                                    </div>
-                                    <button class="btn btn-primary">컬럼보기</button>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="form-group row col-12 col-md-6">
-                                  <div class="control-label">하위폴더 포함여부</div>
-                                  <div class="form-control_box repeat_box">
-                                    <div class="radio radio_inline">
-                                      <label>
-                                        <div class="iradio_flat-purple checked" style="position: relative;"><input class="flat" type="radio" checked="" name="folder" data-repeat="repeat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>반복
-                                      </label>
-                                    </div>
-                                    <div class="radio radio_inline">
-                                      <label>
-                                        <div class="iradio_flat-purple" style="position: relative;"><input class="flat" type="radio" name="folder" data-repeat="no_repeat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>미반복
-                                      </label>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="form-group row col-12 col-md-6">
-                                  <label class="control-label">보관주기</label>
-                                  <div class="form-control_box">
-                                    <div class="col-md-6">
-                                      <input class="form-control" type="text">
-                                    </div>
-                                    <div class="col-md-6">
-                                      <select class="form-control">
-                                        <option>선택</option>
-                                        <option>Option one</option>
-                                        <option>Option two</option>
-                                        <option>Option three</option>
-                                        <option>Option four</option>
-                                      </select>
-                                    </div>
+                                  <label class="control-label">데이터 셋 명</label>
+                                  <div class="col-md-6">
+                                    <input class="form-control" type="text">
                                   </div>
                                 </div>
                               </div>
@@ -201,19 +102,11 @@
                                   </div>
                                 </div>
                                 <div class="form-group row col-12 col-md-6">
-                                  <label class="control-label">시계열 데이터</label>
-                                  <div class="form-control_box">
-                                    <div class="radio radio_inline">
-                                      <label class="">
-                                        <div class="iradio_flat-purple checked" style="position: relative;"><input class="flat" type="radio" checked="" name="yn" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>예
-                                      </label>
-                                    </div>
-                                    <div class="radio radio_inline">
-                                      <label>
-                                        <div class="iradio_flat-purple" style="position: relative;"><input class="flat" type="radio" name="yn" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>아니오
-                                      </label>
-                                    </div>
+                                  <label class="control-label">보관주기</label>
+                                  <div class="col-md-4">
+                                    <input class="form-control" type="text" value="종합">
                                   </div>
+                                  <div style="line-height:calc(1.5em + 0.75rem + 2px);">일</div>
                                 </div>
                               </div>
                               <div class="row result_repeat">
@@ -523,14 +416,6 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="row">
-                                <div class="form-group row col-12 col-md-12">
-                                  <label class="control-label">비고</label>
-                                  <div class="form-control_box duplicate_box">
-                                    <input class="form-control" type="text">
-                                  </div>
-                               </div>
-                              </div>
                           </div>
                         </div>
                       </div>
@@ -538,89 +423,76 @@
                     <div class="row">
                           <div class="col-md-12">
                             <div class="x_panel">
-                              <div class="cont_title_box">
-                                <h3>Instance 설정정보</h3>
-                                <div class="right_btns">
-                                  <a class="btn btn-success" href="">매칭정보 설정</a>
-                                  <button class="btn btn-primary">저장</button>
-                                </div>
-                              </div>
                               <div class="x_content">
-                                <div class="table_btns mb-2">
-                                  <button class="btn btn-primary btn_add">+ 추가</button>
-                                  <button class="btn btn-danger btn_remove">- 삭제</button>
-                                </div>
-                                <div class="table_responsive">
-                                  <table class="table table-striped table-bordered bulk_action" style="width:100%">
-                                    <colgroup>
-                                      <col width="44px">
-                                    </colgroup>
-                                    <thead>
-                                    <tr>
-                                      <th>
-                                        <div class="icheckbox_flat-purple" style="position: relative;"><input class="flat" id="check-all" type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                                      </th>
-                                      <th>항목ID(key)</th>
-                                      <th>항목명</th>
-                                      <th>항목값(value)</th>
-                                      <th>항목설명</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                      <th>
-                                        <div class="icheckbox_flat-purple" style="position: relative;"><input class="flat" type="checkbox" name="table_records" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                                      </th>
-                                      <td>
-                                        <input type="text" value="DB_TO_DB1">
-                                      </td>
-                                      <td>
-                                        <input type="text" value="DB_TO_DB">
-                                      </td>
-                                      <td>
-                                        <input type="text" value="DB_TO_DB">
-                                      </td>
-                                      <td>
-                                        <input type="text" value="DB_TO_DB">
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <th>
-                                        <div class="icheckbox_flat-purple" style="position: relative;"><input class="flat" type="checkbox" name="table_records" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                                      </th>
-                                      <td>
-                                        <input type="text" value="DB_TO_DB2">
-                                      </td>
-                                      <td>
-                                        <input type="text" value="DB_TO_DB">
-                                      </td>
-                                      <td>
-                                        <input type="text" value="DB_TO_DB">
-                                      </td>
-                                      <td>
-                                        <input type="text" value="DB_TO_DB">
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <th>
-                                        <div class="icheckbox_flat-purple" style="position: relative;"><input class="flat" type="checkbox" name="table_records" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                                      </th>
-                                      <td>
-                                        <input type="text" value="DB_TO_DB3" disabled="">
-                                      </td>
-                                      <td>
-                                        <input type="text" value="DB_TO_DB" disabled="">
-                                      </td>
-                                      <td>
-                                        <input type="text" value="DB_TO_DB" disabled="">
-                                      </td>
-                                      <td>
-                                        <input type="text" value="DB_TO_DB" disabled="">
-                                      </td>
-                                    </tr>
-                                    </tbody>
-                                  </table>
-                                </div>
+                                <ul class="columns">
+                                  <li class="column to-do-column">
+                                    <div class="column-header">
+                                      <h4>융복합 대상 데이터셋</h4>
+                                    </div>
+                                    <div>
+                                      <div>문화재1,문화재2,문화재3</div>
+                                      <button class="btn-primary">선택</button>
+                                    </div>
+                                    <p>DataSet02 A (문화재1)</p>
+                                    <ul class="task-list" id="drakeLeft">
+                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
+                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
+                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
+                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
+                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
+                                    </ul>
+                                    <p>DataSet03 B (문화재2)</p>
+                                    <ul class="task-list" id="drakeLeft">
+                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
+                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
+                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
+                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
+                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
+                                    </ul>
+                                    <p>DataSet04 C (문화재3)</p>
+                                    <ul class="task-list" id="drakeLeft">
+                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
+                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
+                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
+                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
+                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
+                                    </ul>
+
+                                  </li>
+                                  <li class="column doing-column">
+                                    <div class="column-header">
+                                      <h4>컬럼매칭</h4>
+                                    </div>
+                                    <ul class="task-list" id="drakeRight">
+                                      <li class="task">
+                                        <p>C_NAME_02(Integer)</p>
+                                      </li>
+                                      <li class="task">
+                                        <p>C_NAME_01(String)</p>
+                                      </li>
+                                      <li class="task">
+                                        <p>C_NAME_05(Date)</p>
+                                      </li><li class="task">
+                                      <p>C_NAME_04(Integer)</p>
+                                    </li>
+                                    </ul>
+                                  </li>
+                                  <li class="column doing-column">
+                                    <div class="column-header">
+                                      <h4>융복합 데이터 셋</h4>
+                                      <ul>
+                                        <li>- id(한글컬럼명)</li>
+                                        <li>- id(한글컬럼명)</li>
+                                        <li>- id(한글컬럼명)</li>
+                                        <li>- id(한글컬럼명)</li>
+                                        <li>- id(한글컬럼명)</li>
+                                        <li>- id(한글컬럼명)</li>
+                                        <li>- id(한글컬럼명)</li>
+                                      </ul>
+                                    </div>
+                                  </li>
+                                </ul>
+
                               </div>
                             </div>
                           </div>

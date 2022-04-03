@@ -55,7 +55,7 @@
                   <h2>검색 형태3</h2>
                   <div class="clearfix"> </div>
                 </div>
-                <div class="x_content"> <br>
+                <div class="x_content">
                   <form class="form-horizontal form-label-left">
                     <div class="row">
                     <h3 class="col-md-11">Adaptor 등록</h3>
@@ -108,7 +108,7 @@
 
                     <div class="row col-md-12">
                       인스턴스 등록
-                      <table class="col-md-12 table">
+                      <table class="col-md-12 table mt-3">
                         <tr>
                           <td>
                             인스턴스명
