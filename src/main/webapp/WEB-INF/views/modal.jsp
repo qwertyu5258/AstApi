@@ -971,6 +971,85 @@
             </div>
           </div>
         </div>
+        <!-- license_modal -->
+        <div class="modal fade license_modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">라이선스 정책</h4>
+                <button class="close" type="button" data-dismiss="modal"></button><span aria-hidden="true">&times;</span>
+              </div>
+              <div class="modal-body">
+                <div class="x_content">
+                  <div class="table_responsive table-modal-height">
+                    <table class="table type02 table-bordered">
+                      <colgroup>
+                        <col width="120px">
+                        <col width="*">
+                        <col width="120px">
+                      </colgroup>
+                      <tbody>
+                        <tr>
+                          <th>라이선스</th>
+                          <th>이용조건</th>
+                          <th>문자표기</th>
+                        </tr>
+                        <tr>
+                          <td>이미지표기</td>
+                          <td>
+                            <strong>저작자표시</strong><br>
+                            저작자의 이름, 저작물의 제목, 출처 등 저작자에 관한 표시를 해주어야 합니다.
+                          </td>
+                          <td>CC BY</td>
+                        </tr>
+                        <tr>
+                          <td>이미지표기</td>
+                          <td>
+                            <strong>저작자표시-비영리</strong><br>
+                            저작자를 밝히면 자유로운 이용이 가능하지만 영리목적으로 이용할 수 없습니다.
+                          </td>
+                          <td>CC BY-NC</td>
+                        </tr>
+                        <tr>
+                          <td>이미지표기</td>
+                          <td>
+                            <strong>저작자표시-변경금지</strong><br>
+                            저작자를 밝히면 자유로운 이용이 가능하지만, 변경 없이 그대로 이용해야 합니다.
+                          </td>
+                          <td>CC BY-ND</td>
+                        </tr>
+                        <tr>
+                          <td>이미지표기</td>
+                          <td>
+                            <strong>저작자표시-동일조건변경허락</strong><br>
+                            저작자를 밝히면 자유로운 이용이 가능하고 저작물의 변경도 가능하지만, 2차적 저작물에는 원 저작물에 적용된 것과 동일한 라이선스를 적용해야 합니다.
+                          </td>
+                          <td>CC BY-SA</td>
+                        </tr>
+                        <tr>
+                          <td>이미지표기</td>
+                          <td>
+                            <strong>저작자표시-비영리-동일조건변경허락</strong><br>
+                            저작자를 밝히면 자유로운 이용이 가능하며 저작물의 변경도 가능하지만, 영리목적으로 이용할 수 없고 2차적 저작물에는 원 저작물과 동일한 라이선스를 적용해야 합니다.
+                          </td>
+                          <td>CC BY-NC-SA</td>
+                        </tr>
+                        <tr>
+                          <td>이미지표기</td>
+                          <td>
+                            <strong>저작자표시-비영리-변경금지</strong><br>
+                            저작자를 밝히면 자유로운 이용이 가능하지만, 영리목적으로 이용할 수 없고 변경 없이 그대로 이용해야 합니다.
+                          </td>
+                          <td>CC BY-NC-ND</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- codegroup_modal -->
         <div class="modal fade codegroup_modal" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-dialog modal-lg">
