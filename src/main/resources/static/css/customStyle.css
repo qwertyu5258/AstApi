@@ -8,7 +8,7 @@ body{font-size:14px;}
 .page-link, .page-link:hover{color:#666}
 .table.type02 th{background-color:#f2f2f2}
 .table.type02 tr:last-child th, .table.type02 tr:last-child td {border-bottom:1px solid #dee2e6}
-
+.table strong{font-weight:bold}
 /* 융복합 설정 */
 .multi_set_wrap .column{width:33.33%;border:none;}
 .multi_set_wrap .column-header{padding:1rem 0.1rem;border:none}
@@ -29,7 +29,8 @@ body{font-size:14px;}
 
 /* ID설정 팝업 */
 .idSetting2_modal table th,
-.idSetting2_modal table td{word-break:break-all}
+.idSetting2_modal table td{text-align:center;word-break:break-all}
+.idSetting2_modal table button{margin:0 0 5px}
 .idSetting2_modal .btns{margin:auto 0.5rem}
 .idSetting2_modal .btn_right{border-bottom:15px solid transparent;border-top:15px solid transparent;border-left:15px solid #666;border-right:15px solid transparent}
 .idSetting2_modal .btn_left{border-bottom:15px solid transparent;border-top:15px solid transparent;border-left:15px solid transparent;border-right:15px solid #666}

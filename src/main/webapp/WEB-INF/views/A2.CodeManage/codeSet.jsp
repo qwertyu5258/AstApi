@@ -61,7 +61,7 @@
                   <div class="table_responsive">
                     <h3>코드 관리</h3>
                     <div class="qty_total mb-2">코드 그룹 <span class="ml-5">총 20건</span></div>
-                    <table class="table table-striped">
+                    <table class="table table-striped table-bordered">
                       <colgroup>
                           <col width="150px" />
                       </colgroup>
