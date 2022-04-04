@@ -52,7 +52,7 @@
             <div class="col-md-12">
               <div class="x_panel">
                 <div class="x_title">
-                  <h2>HOME &gt; Adaptor 설정 &gt; Adaptor 상세 &gt; Instance 상세</h2>
+                  <h2>HOME &gt; 데이터 셋 > 융복합 데이터 셋 리스트 > 융복합 설정</h2>
                   <div class="clearfix"> </div>
                 </div>
                 <div class="x_content">
@@ -62,7 +62,7 @@
                         <div class="x_panel">
                           <div class="x_content">
                               <div class="cont_title_box">
-                                <h3>Instance 상세</h3>
+                                <h3>융복합 설정</h3>
                                 <div class="right_btns">
                                   <button class="btn btn-primary">저장</button>
                                   <button class="btn btn-danger">삭제</button>
@@ -79,9 +79,9 @@
                                   </div>
                                 </div>
                                 <div class="form-group row col-12 col-md-6">
-                                  <label class="control-label">데이터 셋 명</label>
+                                  <label class="control-label">메타 테이블 명</label>
                                   <div class="col-md-6">
-                                    <input class="form-control" type="text">
+                                    <input class="form-control" type="text" value="융복합 1">
                                   </div>
                                 </div>
                               </div>
@@ -104,7 +104,7 @@
                                 <div class="form-group row col-12 col-md-6">
                                   <label class="control-label">보관주기</label>
                                   <div class="col-md-4">
-                                    <input class="form-control" type="text" value="종합">
+                                    <input class="form-control" type="text" value="">
                                   </div>
                                   <div style="line-height:calc(1.5em + 0.75rem + 2px);">일</div>
                                 </div>
@@ -424,79 +424,316 @@
                           <div class="col-md-12">
                             <div class="x_panel">
                               <div class="x_content">
-                                <ul class="columns">
-                                  <li class="column to-do-column">
-                                    <div class="column-header">
-                                      <h4>융복합 대상 데이터셋</h4>
-                                    </div>
-                                    <div>
-                                      <div>문화재1,문화재2,문화재3</div>
-                                      <button class="btn-primary">선택</button>
-                                    </div>
-                                    <p>DataSet02 A (문화재1)</p>
-                                    <ul class="task-list" id="drakeLeft">
-                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
-                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
-                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
-                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
-                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
-                                    </ul>
-                                    <p>DataSet03 B (문화재2)</p>
-                                    <ul class="task-list" id="drakeLeft">
-                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
-                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
-                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
-                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
-                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
-                                    </ul>
-                                    <p>DataSet04 C (문화재3)</p>
-                                    <ul class="task-list" id="drakeLeft">
-                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
-                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
-                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
-                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
-                                      <li class="task"><p>- c_name01(한글컬럼명1)</p></li>
-                                    </ul>
-
-                                  </li>
-                                  <li class="column doing-column">
-                                    <div class="column-header">
-                                      <h4>컬럼매칭</h4>
-                                    </div>
-                                    <ul class="task-list" id="drakeRight">
-                                      <li class="task">
-                                        <p>C_NAME_02(Integer)</p>
-                                      </li>
-                                      <li class="task">
-                                        <p>C_NAME_01(String)</p>
-                                      </li>
-                                      <li class="task">
-                                        <p>C_NAME_05(Date)</p>
-                                      </li><li class="task">
-                                      <p>C_NAME_04(Integer)</p>
+                                <div class="multi_set_wrap">
+                                  <ul class="columns">
+                                    <li class="column to-do-column">
+                                      <div class="column-header">
+                                        <h4>융복합 대상 데이터셋</h4>
+                                      </div>
+                                      <div class="result_wrap">
+                                        <div class="result">문화재1,문화재2,문화재3</div>
+                                        <button class="btn btn-primary">선택</button>
+                                      </div>
+                                      <div class="data_set_box v02">
+                                        <div class="data_set">
+                                          <h5 class="title">DataSet02 A (문화재1)</h5>
+                                          <ul class="data-list">
+                                            <li class="data"><p>- c_name01(한글컬럼명1)</p></li>
+                                            <li class="data"><p>- c_name01(한글컬럼명1)</p></li>
+                                            <li class="data"><p>- c_name01(한글컬럼명1)</p></li>
+                                            <li class="data"><p>- c_name01(한글컬럼명1)</p></li>
+                                            <li class="data"><p>- c_name01(한글컬럼명1)</p></li>
+                                          </ul>
+                                        </div>
+                                        <div class="data_set">
+                                          <h5 class="title">DataSet03 B (문화재2)</h5>
+                                          <ul class="data-list">
+                                            <li class="data"><p>- c_name01(한글컬럼명1)</p></li>
+                                            <li class="data"><p>- c_name01(한글컬럼명1)</p></li>
+                                            <li class="data"><p>- c_name01(한글컬럼명1)</p></li>
+                                            <li class="data"><p>- c_name01(한글컬럼명1)</p></li>
+                                            <li class="data"><p>- c_name01(한글컬럼명1)</p></li>
+                                          </ul>
+                                        </div>
+                                        <div class="data_set">
+                                          <h5 class="title">DataSet04 C (문화재3)</h5>
+                                          <ul class="data-list">
+                                            <li class="data"><p>- c_name01(한글컬럼명1)</p></li>
+                                            <li class="data"><p>- c_name01(한글컬럼명1)</p></li>
+                                            <li class="data"><p>- c_name01(한글컬럼명1)</p></li>
+                                            <li class="data"><p>- c_name01(한글컬럼명1)</p></li>
+                                            <li class="data"><p>- c_name01(한글컬럼명1)</p></li>
+                                          </ul>
+                                        </div>
+                                      </div>
                                     </li>
-                                    </ul>
-                                  </li>
-                                  <li class="column doing-column">
-                                    <div class="column-header">
-                                      <h4>융복합 데이터 셋</h4>
-                                      <ul>
-                                        <li>- id(한글컬럼명)</li>
-                                        <li>- id(한글컬럼명)</li>
-                                        <li>- id(한글컬럼명)</li>
-                                        <li>- id(한글컬럼명)</li>
-                                        <li>- id(한글컬럼명)</li>
-                                        <li>- id(한글컬럼명)</li>
-                                        <li>- id(한글컬럼명)</li>
-                                      </ul>
-                                    </div>
-                                  </li>
-                                </ul>
-
+                                    <li class="column doing-column">
+                                      <div class="column-header">
+                                        <h4>컬럼매칭</h4>
+                                      </div>
+                                      <div class="data_set_box">
+                                        <ul class="data-list" id="">
+                                          <li class="data">
+                                            <div class="matching_data_wrap">
+                                              <div class="matching_data">A.c_name02_c_name_03</div>
+                                              <button class="btn btn-primary">ID 초기화</button>
+                                            </div>
+                                          </li>
+                                          <li class="data">
+                                            <div class="matching_data_wrap">
+                                              <div class="matching_data">A.c_name02_c_name_03</div>
+                                            </div>
+                                          </li>
+                                          <li class="data">
+                                            <div class="matching_data_wrap">
+                                              <div class="matching_data">A.c_name02_c_name_03</div>
+                                            </div>
+                                          </li>
+                                          <li class="data">
+                                            <div class="matching_data_wrap">
+                                              <div class="matching_data">A.c_name02_c_name_03</div>
+                                            </div>
+                                          </li>
+                                          <li class="data">
+                                            <div class="matching_data_wrap">
+                                              <div class="matching_data">A.c_name02_c_name_03</div>
+                                            </div>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </li>
+                                    <li class="column doing-column">
+                                      <div class="column-header">
+                                        <h4>융복합 데이터 셋</h4>
+                                      </div>
+                                      <div class="data_set_box">
+                                        <div class="data_set">
+                                          <button>DataSet05 (융복합)</button>
+                                          <ul class="data-list">
+                                            <li class="data">- id(한글컬럼명)</li>
+                                            <li class="data">- cname01(한글컬럼명1)</li>
+                                            <li class="data">- cname01(한글컬럼명1)</li>
+                                            <li class="data">- cname01(한글컬럼명1)</li>
+                                            <li class="data">- cname01(한글컬럼명1)</li>
+                                            <li class="data">- cname01(한글컬럼명1)</li>
+                                            <li class="data">- cname01(한글컬럼명1)</li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </li>
+                                  </ul>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                          <div class="x_panel">
+                            <div class="x_content">
+                              <div class="cont_title_box">
+                                <h3>조건설정</h3>
+                                <div class="right_btns">
+                                  <button class="btn btn-primary">초기화</button>
+                                  <button class="btn btn-primary">쿼리입력</button>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="form-group row col-md-12">
+                                  <input class="form-control col-md-3 mr-2" type="text" value="A.cname_01" >
+                                  <select class="form-control col-md-3 mr-2">
+                                    <option>=</option>
+                                    <option><</option>
+                                    <option>></option>
+                                    <option><=</option>
+                                    <option>>=</option>
+                                  </select>
+                                  <input class="form-control col-md-3" type="text" value="B.cname_01">
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="form-group row col-md-12">
+                                  <input class="form-control col-md-3 mr-2" type="text" value="A.cname_01" >
+                                  <select class="form-control col-md-3 mr-2">
+                                    <option>=</option>
+                                    <option><</option>
+                                    <option>></option>
+                                    <option><=</option>
+                                    <option>>=</option>
+                                  </select>
+                                  <input class="form-control col-md-3" type="text" value="B.cname_01">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- //조건설정 -->
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="x_panel">
+                          <div class="x_content">
+                            <div class="cont_title_box">
+                              <h3>SQL문</h3>
+                              <div class="right_btns">
+                                <button class="btn btn-primary">실행</button>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="form-group row col-md-12">
+                                <textarea style="width:100%;height:10rem" class="col-md-12">select cast(A.c_name_01 as text)||'.'||cast(B.c_name02 as text) as id, A.c_name_02 as c_name01 ,A.c_name_03 as c_name02 ,A.c_name_04  as c_name03 ,B.c_name_02 as c_name04 ,B.c_name_03 as c_name05 ,B.c_name_04 as c_name06 ,C.c_name_02 as c_name07 from data_service_broker.”lx. DataSet02:1.0” A , data_service_broker.” DataSet03:1.0” B , data_service_broker.” DataSet04:1.0” C where A.c_name_01 = B.c_name_01 and A.c_name_01 = C.c_name_01</textarea>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- // SQL문 -->
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="x_panel">
+                          <div class="x_content">
+                            <div class="cont_title_box">
+                              <h3>실행결과</h3>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 col-md-12">
+                                <div class="table_responsive">
+                                  <div class="talbel_total mb-2">조회 2 건</div>
+                                  <table class="table table-striped">
+                                    <colgroup>
+                                    </colgroup>
+                                    <thead>
+                                    <tr>
+                                      <th>id</th>
+                                      <th>c_name01</th>
+                                      <th>c_name02</th>
+                                      <th>c_name03</th>
+                                      <th>c_name04</th>
+                                      <th>c_name05</th>
+                                      <th>c_name06</th>
+                                      <th>c_name07</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>B01.B04</td>
+                                        <td>B01</td>
+                                        <td>B02</td>
+                                        <td>B03</td>
+                                        <td>B04</td>
+                                        <td>B05</td>
+                                        <td>B06</td>
+                                        <td>B07</td>
+                                      </tr>
+                                      <tr>
+                                        <td>B01.B04</td>
+                                        <td>B01</td>
+                                        <td>B02</td>
+                                        <td>B03</td>
+                                        <td>B04</td>
+                                        <td>B05</td>
+                                        <td>B06</td>
+                                        <td>B07</td>
+                                      </tr>
+                                      <tr>
+                                        <td>B01.B04</td>
+                                        <td>B01</td>
+                                        <td>B02</td>
+                                        <td>B03</td>
+                                        <td>B04</td>
+                                        <td>B05</td>
+                                        <td>B06</td>
+                                        <td>B07</td>
+                                      </tr>
+                                      <tr>
+                                        <td>B01.B04</td>
+                                        <td>B01</td>
+                                        <td>B02</td>
+                                        <td>B03</td>
+                                        <td>B04</td>
+                                        <td>B05</td>
+                                        <td>B06</td>
+                                        <td>B07</td>
+                                      </tr>
+                                      <tr>
+                                        <td>B01.B04</td>
+                                        <td>B01</td>
+                                        <td>B02</td>
+                                        <td>B03</td>
+                                        <td>B04</td>
+                                        <td>B05</td>
+                                        <td>B06</td>
+                                        <td>B07</td>
+                                      </tr>
+                                      <tr>
+                                        <td>B01.B04</td>
+                                        <td>B01</td>
+                                        <td>B02</td>
+                                        <td>B03</td>
+                                        <td>B04</td>
+                                        <td>B05</td>
+                                        <td>B06</td>
+                                        <td>B07</td>
+                                      </tr>
+                                      <tr>
+                                        <td>B01.B04</td>
+                                        <td>B01</td>
+                                        <td>B02</td>
+                                        <td>B03</td>
+                                        <td>B04</td>
+                                        <td>B05</td>
+                                        <td>B06</td>
+                                        <td>B07</td>
+                                      </tr>
+                                      <tr>
+                                        <td>B01.B04</td>
+                                        <td>B01</td>
+                                        <td>B02</td>
+                                        <td>B03</td>
+                                        <td>B04</td>
+                                        <td>B05</td>
+                                        <td>B06</td>
+                                        <td>B07</td>
+                                      </tr>
+                                      <tr>
+                                        <td>B01.B04</td>
+                                        <td>B01</td>
+                                        <td>B02</td>
+                                        <td>B03</td>
+                                        <td>B04</td>
+                                        <td>B05</td>
+                                        <td>B06</td>
+                                        <td>B07</td>
+                                      </tr>
+                                      <tr>
+                                        <td>B01.B04</td>
+                                        <td>B01</td>
+                                        <td>B02</td>
+                                        <td>B03</td>
+                                        <td>B04</td>
+                                        <td>B05</td>
+                                        <td>B06</td>
+                                        <td>B07</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  <div class="nav justify-content-center">
+                                    <ul class="pagination">
+                                      <li class="page-item"> <a class="page-link" href="#">&lt; </a></li>
+                                      <li class="page-item"> <a class="page-link" href="#">1   </a></li>
+                                      <li class="page-item"> <a class="page-link" href="#">2 </a></li>
+                                      <li class="page-item"> <a class="page-link" href="#">&gt;           </a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- // 실행결과 -->
                   </form>
               </div>
             </div>
