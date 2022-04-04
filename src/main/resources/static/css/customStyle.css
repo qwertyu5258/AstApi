@@ -5,6 +5,18 @@ body{font-size:14px;}
 .x_title{margin-bottom:20px}
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:focus{background-color:#666 !important;border-color:#666 !important;outline:none !important;-webkit-tap-highlight-color:transparent !important }
 .btn-success, .btn-success:hover, .btn-success:active, .btn-success:focus{background:#666 !important;border:1px solid #666 !important;outline:none !important;-webkit-tap-highlight-color:transparent !important}
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgb(102 102 102 / 50%);
+}
+.btn-primary.focus, .btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgb(102 102 102 / 50%);
+}
+.btn-success:not(:disabled):not(.disabled).active:focus, .btn-success:not(:disabled):not(.disabled):active:focus, .show>.btn-success.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgb(102 102 102 / 50%);
+}
+.btn-success.focus, .btn-success:focus {
+    box-shadow: 0 0 0 0.2rem rgb(102 102 102 / 50%);
+}
 .page-link, .page-link:hover{color:#666}
 .table.type02 th{background-color:#f2f2f2}
 .table.type02 tr:last-child th, .table.type02 tr:last-child td {border-bottom:1px solid #dee2e6}
