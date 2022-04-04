@@ -598,7 +598,7 @@
                             </div>
                             <div class="row">
                               <div class="col-12 col-md-12">
-                                <div class="table_responsive">
+                                <div class="table_responsive table-modal-height">
                                   <div class="talbel_total mb-2">조회 2 건</div>
                                   <table class="table table-striped">
                                     <colgroup>
@@ -718,14 +718,6 @@
                                       </tr>
                                     </tbody>
                                   </table>
-                                  <div class="nav justify-content-center">
-                                    <ul class="pagination">
-                                      <li class="page-item"> <a class="page-link" href="#">&lt; </a></li>
-                                      <li class="page-item"> <a class="page-link" href="#">1   </a></li>
-                                      <li class="page-item"> <a class="page-link" href="#">2 </a></li>
-                                      <li class="page-item"> <a class="page-link" href="#">&gt;           </a></li>
-                                    </ul>
-                                  </div>
                                 </div>
                               </div>
                             </div>
