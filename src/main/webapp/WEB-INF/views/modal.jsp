@@ -312,47 +312,132 @@
                 <button class="close" type="button" data-dismiss="modal"></button><span aria-hidden="true">&times;</span>
               </div>
               <div class="modal-body">
+                <div class="right_btns mb-2">
+                  <button class="btn btn-sm btn-primary">검색</button>
+                </div>
                 <div class="main-container">
-                  <ul class="columns">
-                    <li class="column to-do-column">
-                      <div class="column-header">
-                        <h4>데이터모델</h4>
+                        <div class="table_responsive table-modal-height">
+                          <table class="table type02 table-bordered">
+                              <colgroup>
+                              </colgroup>
+                              <thead>
+                              <tr>
+                                  <th colspan="4" class="tec">ID목록</th>
+                              </tr>
+                              <tr>
+                                  <th>ID명(영문)</th>
+                                  <th>ID명(국문)</th>
+                                  <th>Type</th>
+                                  <th>Length</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                  <td>C_NAME_03</td>
+                                  <td>이름 03</td>
+                                  <td>Double</td>
+                                  <td></td>
+                              </tr>
+                              <tr>
+                                  <td>C_NAME_03</td>
+                                  <td>이름 03</td>
+                                  <td>Double</td>
+                                  <td></td>
+                              </tr>
+                              <tr>
+                                  <td>C_NAME_03</td>
+                                  <td>이름 03</td>
+                                  <td>Double</td>
+                                  <td></td>
+                              </tr>
+                              <tr>
+                                  <td>C_NAME_03</td>
+                                  <td>이름 03</td>
+                                  <td>Double</td>
+                                  <td></td>
+                              </tr>
+                              </tbody>
+                          </table>
                       </div>
-                      <ul class="task-list" id="drakeLeft">
-                        <li class="task">
-                          <p>C_NAME_03(Double)</p>
-                        </li>
-                        <li class="task">
-                          <p>C_NAME_05(Date)</p>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="column doing-column">
-                      <div class="column-header">
-                        <h4>ID순서</h4>
+                      <div class="btns">
+                        <button class="btn_right"></button>
+                        <button class="btn_left"></button>
                       </div>
-                      <ul class="task-list" id="drakeRight">
-                        <li class="task">
-                          <p>C_NAME_02(Integer)</p>
-                        </li>
-                        <li class="task">
-                          <p>C_NAME_01(String)</p>
-                        </li>
-                        <li class="task">
-                          <p>C_NAME_04(Integer)</p>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
+                      <div class="table_responsive table-modal-height">
+                        <table class="table type02 table-bordered">
+                          <colgroup>
+                            <col width="60px"/>
+                          </colgroup>
+                            <thead>
+                            <tr>
+                                <th colspan="6" class="tec">선택 ID</th>
+                            </tr>
+                            <tr>
+                                <th>순번</th>
+                                <th>ID명(영문)</th>
+                                <th>ID명(국문)</th>
+                                <th>Type</th>
+                                <th>Length</th>
+                                <th>정렬</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>C_NAME_02</td>
+                                <td>이름 02</td>
+                                <td>Int</td>
+                                <td>10</td>
+                                <td><button class="btn_down"></button></td>
+                            </tr>
+                            <tr>
+                              <td>1</td>
+                              <td>C_NAME_02</td>
+                              <td>이름 02</td>
+                              <td>Int</td>
+                              <td>10</td>
+                              <td>
+                                <button class="btn_up"></button>
+                                <button class="btn_down"></button>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>1</td>
+                              <td>C_NAME_02</td>
+                              <td>이름 02</td>
+                              <td>Int</td>
+                              <td>10</td>
+                              <td><button class="btn_up"></button></td>
+                            </tr>
+                            <tr>
+                              <td>1</td>
+                              <td>C_NAME_02</td>
+                              <td>이름 02</td>
+                              <td>Int</td>
+                              <td>10</td>
+                              <td><button class="btn_down"></button></td>
+                            </tr>
+                            <tr>
+                              <td>1</td>
+                              <td>C_NAME_02</td>
+                              <td>이름 02</td>
+                              <td>Int</td>
+                              <td>10</td>
+                              <td><button class="btn_down"></button></td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="drake_result_box">
                   <div class="drake_title">ID</div>
-                  <div class="drake_result">C_NAME_02.C_NAME_01.C_NAME_04</div>
+                  <div class="drake_result disabled">C_NAME_02.C_NAME_01.C_NAME_04</div>
                   <button class="btn btn-danger m-0">초기화</button>
                 </div>
               </div>
               <div class="modal-footer">
-                <button class="btn btn-primary" type="button">저장</button>
+                <button class="btn btn-primary" type="button">선택</button>
               </div>
             </div>
           </div>
