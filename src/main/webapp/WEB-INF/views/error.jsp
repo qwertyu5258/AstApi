@@ -1,4 +1,4 @@
-<%@include file="common/commonCss.jsp" %>
+<%@include file="A1.Common/commonCss.jsp" %>
 <!DOCTYPE html>
 <html lang="UTF-8">
 <head>

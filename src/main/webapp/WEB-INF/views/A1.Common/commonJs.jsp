@@ -25,3 +25,4 @@
 <script src="vendors/dragula/dist/dragula.js"></script>
 <script src="vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/common.js"></script>

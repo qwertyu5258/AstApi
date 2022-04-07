@@ -155,4 +155,12 @@
     <%@include file="/WEB-INF/views/A1.Common/commonJs.jsp" %>
 
   </body>
+<script>
+  ajax('get', '/dp/ingest/meta/tables/metaTest', '', function(data) {
+    console.log(data);
+
+  });
+</script>
+
+
 </html>

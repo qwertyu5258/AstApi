@@ -50,373 +50,369 @@
 
           <div class="right_col" role="main">
 
-          <div class="row">
-            <div class="col-md-3">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>드롭다운</h2>
-                  <div class="clearfix"> </div>
-                </div>
-                <div class="x_content">
-                  <div class="table_responsive">
-                    <table class="table table-striped">
-                      <thead>
-                      <tr>
-                          <th>대분류</th>
-                          <th>
-                              <select name="">
-                                  <option>C_NAME_01</option>
-                              </select>
-                          </th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>중분류</td>
-                          <td>
-                            <select name="">
-                              <option>C_NAME_01</option>
-                            </select>
-                          </td>
-                        </tr>
-                        <tr>
-                            <td>소분류</td>
-                            <td>
-                                <select name="">
-                                    <option>C_NAME_01</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>검색</td>
-                            <td>
-                                <input type="text" value="String" disabled>
-                            </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-                <div class="">
-                    <h2>JSON Data</h2>
-                    <div id="treeview12" class="treeview"><ul class="list-group"><li class="list-group-item node-treeview12" data-nodeid="0" style="color:undefined;background-color:undefined;"><span class="icon expand-icon glyphicon glyphicon-minus"></span><span class="icon node-icon"></span>Parent 1</li><li class="list-group-item node-treeview12" data-nodeid="1" style="color:undefined;background-color:undefined;"><span class="indent"></span><span class="icon expand-icon glyphicon glyphicon-plus"></span><span class="icon node-icon"></span>Child 1</li><li class="list-group-item node-treeview12" data-nodeid="4" style="color:undefined;background-color:undefined;"><span class="indent"></span><span class="icon glyphicon"></span><span class="icon node-icon"></span>Child 2</li><li class="list-group-item node-treeview12" data-nodeid="5" style="color:undefined;background-color:undefined;"><span class="icon glyphicon"></span><span class="icon node-icon"></span>Parent 2</li><li class="list-group-item node-treeview12" data-nodeid="6" style="color:undefined;background-color:undefined;"><span class="icon glyphicon"></span><span class="icon node-icon"></span>Parent 3</li><li class="list-group-item node-treeview12" data-nodeid="7" style="color:undefined;background-color:undefined;"><span class="icon glyphicon"></span><span class="icon node-icon"></span>Parent 4</li><li class="list-group-item node-treeview12" data-nodeid="8" style="color:undefined;background-color:undefined;"><span class="icon glyphicon"></span><span class="icon node-icon"></span>Parent 5</li></ul></div>
-                </div>
-
-            </div>
-
-              <br>
-
-
-              <div class="col-md-9">
-                  <div class="x_panel">
-                      <div class="x_title">
-                          <h2>기본 테이블</h2>
-                          <div class="clearfix"> </div>
-                      </div>
-                      <div class="x_content">
-                          <div class="table_responsive" style="white-space: nowrap;overflow: auto;">
-                              <table class="table table-striped" style="width:350px;display: inline-block;vertical-align: top">
-
-                                  <thead>
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="x_panel">
+                          <div class="x_title">
+                              <h2>검색 형태2</h2>
+                              <div class="clearfix"> </div>
+                          </div>
+                          <div class="x_content">
+                              <table class="table">
+                                  <colgroup>
+                                      <col width="50px">
+                                      <col width="150px">
+                                      <col width="150px">
+                                      <col width="150px">
+                                      <col width="150px">
+                                      <col width="200px">
+                                      <col width="50px">
+                                  </colgroup>
                                   <tr>
+                                      <th style="vertical-align: middle">
+                                         검색
+                                      </th>
                                       <th>
-                                          데이터셋 항목
+                                          <select class="form-control">
+                                              <option>대분류</option>
+                                              <option>Option one</option>
+                                          </select>
                                       </th>
-                                      <th style="text-align: right">
-                                          <button class="btn btn-primary">저장</button>
+                                      <th>
+                                          <select class="form-control">
+                                              <option>중분류</option>
+                                              <option>Option one</option>
+                                          </select>
+                                      </th>
+                                      <th>
+                                          <select class="form-control">
+                                              <option>소분류</option>
+                                              <option>Option one</option>
+                                          </select>
+                                      </th>
+                                      <th>
+                                          <select class="form-control">
+                                              <option>선택</option>
+                                              <option>Option one</option>
+                                          </select>
+                                      </th>
+                                      <th>
+                                          <input class="form-control" type="text" placeholder="">
+                                      </th>
+                                      <th>
+                                          <button class="btn btn-primary" style="float:right">검색</button>
                                       </th>
                                   </tr>
 
-                                  <tr>
-                                      <th>항목</th>
-                                      <th>값</th>
-                                  </tr>
-                                  </thead>
-                                  <tbody>
-                                  <tr>
-                                      <td>데이터셋 ID</td>
-                                      <td>2019. 6. 18 오후 1:07:39</td>
-                                  </tr>
-                                  <tr>
-                                      <td>2</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>데이터셋 한글명</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>데이터셋 소유자</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>데이터셋 대분류</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>데이터셋 중분류</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>데이터셋 소분류</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>수집 방식</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>수집 유형</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>데이터셋 설명</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>주 식별자</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>슈퍼타입 엔터티명</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>엔티티정의서 항목명</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>CRUD 구분</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>CRUD 설명</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>사용여부</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>수집테이블 생성여부</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  </tbody>
-                              </table>
-                             <%--2번 테이블--%>
-                              <table class="table table-striped" style="width:350px;display: inline-block;vertical-align: top">
-                                  <thead>
-                                  <tr>
-                                      <th>
-                                          테이블 항목
-                                      </th>
-                                      <th style="text-align: right">
-                                          <button class="btn btn-primary">저장</button>
-                                      </th>
-                                  </tr>
-                                  <tr>
-                                      <th>항목</th>
-                                      <th>값</th>
-                                  </tr>
-                                  </thead>
-                                  <tbody>
-                                  <tr>
-                                      <td>물리 DB명</td>
-                                      <td>2019. 6. 18 오후 1:07:39</td>
-                                  </tr>
-                                  <tr>
-                                      <td>테이블 소유자</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>테이블 영문명</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>테이블 한글명</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>테이블 유형</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>관련 엔터티 식별자</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>테이블 설명</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>업무 분류체계</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>보존기간</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>테이블 볼륨</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>발생주기</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>공개 여부</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>테이블정의서 항목명</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>CRUD 구분</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>CRUD 설명</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>사용여부</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>수집테이블 생성여부</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  </tbody>
-                              </table>
-                              <%--3번 테이블--%>
-                              <table class="table table-striped" style="width:350px;display: inline-block;">
-                                  <thead>
-                                  <tr>
-                                      <th>
-                                       컬럼 항목
-                                      </th>
-                                      <th style="text-align: right">
-                                          <button class="btn btn-primary">저장</button>
-                                      </th>
-                                  </tr>
-                                  <tr>
-                                      <th>항목</th>
-                                      <th>값</th>
-                                  </tr>
-                                  </thead>
-                                  <tbody>
-                                  <tr>
-                                      <td>참조테이블 식별자</td>
-                                      <td>2019. 6. 18 오후 1:07:39</td>
-                                  </tr>
-                                  <tr>
-                                      <td>참조컬럼 식별자</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>데이터셋 종류</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>컬럼 영문명</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>컬럼 한글명</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>컬럼 설명</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>데이터 타입</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>데이터 길이</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>데이터 포멧</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>Not null 여부</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>PK 정보</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>FK 정보</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>AK 정보</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>참조 테이블명</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>참조 컬럼명</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>제약 조건</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>개인정보 여부</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>암호화 여부</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>공개 여부</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>컬럼 저장타입</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>컬럼정의 항목명</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>CRUD 구분</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>CRUD 설명</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>사용여부</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  <tr>
-                                      <td>수집테이블 생성여부</td>
-                                      <td><input type="text" value=""></td>
-                                  </tr>
-                                  </tbody>
                               </table>
                           </div>
                       </div>
                   </div>
               </div>
 
-          </div>
 
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="x_panel">
+                          <div class="x_title">
+                              <h2>기본 테이블</h2>
+                              <div class="clearfix"> </div>
+                          </div>
+                          <div class="x_content">
+                              <div class="table_responsive">
+                                  <div class="talbel_total">총 1개</div>
+                                  <button class="btn btn-primary" style="width:10%;float:right">삭제</button>
+                                  <button class="btn btn-primary" style="width:10%;float:right">추가</button>
+                                  <button class="btn btn-primary" style="width:10%;float:right">테이블생성</button>
+                                  <table class="table table-striped" id="metaTable1">
+                                      <colgroup>
+                                          <col width="55px">
+                                          <col width="75px">
+                                          <col width="75px">
+                                          <col width="75px">
+                                      </colgroup>
+                                      <thead>
+                                          <tr>
+                                              <th rowspan="2">선택</th>
+                                              <th rowspan="2">대분류</th>
+                                              <th rowspan="2">중분류</th>
+                                              <th rowspan="2">소분류</th>
+                                              <th rowspan="2">수집방식</th>
+
+                                              <th rowspan="2">수집유형</th>
+                                              <th rowspan="2">데이터셋 한글명</th>
+                                              <th colspan="2">테이블</th>
+                                              <th rowspan="2">수집테이블생성여부</th>
+                                              <th rowspan="2">컬럼정보</th>
+                                          </tr>
+                                          <tr>
+                                              <th>한글명</th>
+                                              <th>영문명</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                      </tbody>
+                                  </table>
+                                  <div class="nav justify-content-center">
+                                      <ul class="pagination">
+                                          <li class="page-item"> <a class="page-link" href="#">&lt; </a></li>
+                                          <li class="page-item"> <a class="page-link" href="#">1   </a></li>
+                                          <li class="page-item"> <a class="page-link" href="#">2 </a></li>
+                                          <li class="page-item"> <a class="page-link" href="#">&gt;           </a></li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="x_panel">
+                          <div class="x_title">
+                              <h2>데이터셋 항목</h2>
+                              <button class="btn btn-primary" style="float:right" onclick="saveDataset()">저장~~1</button>
+                              <div class="clearfix"> </div>
+                          </div>
+                          <div class="x_content">
+                              <div class="table_responsive">
+
+                                  <table class="table table-striped" id="metaTable2">
+                                      <colgroup>
+                                          <col width="150px">
+                                          <col width="150px">
+                                          <col width="150px">
+                                          <col width="150px">
+                                          <col width="150px">
+                                          <col width="150px">
+                                      </colgroup>
+                                      <thead>
+                                      <tr>
+                                          <th>데이터셋 한글명</th>
+                                          <th>
+                                              <input class="form-control" type="text" placeholder="">
+                                          </th>
+                                          <th>수집방식</th>
+                                          <th><select class="form-control">
+                                              <option>Choose option</option>
+                                              <option>Option one</option>
+                                          </select></th>
+                                          <th rowspan="3" style="vertical-align: middle;">데이터셋 설명</th>
+                                          <th rowspan="3" style="vertical-align: middle;">
+                                              <textarea style="width: 100%;height: 130px;"></textarea>
+                                          </th>
+                                      </tr>
+                                      <tr>
+                                          <th>
+                                              데이터셋 대분류
+                                          </th>
+                                          <th>
+                                              <select class="form-control">
+                                                  <option>Choose option</option>
+                                                  <option>Option one</option>
+                                              </select>
+                                          </th>
+                                          <th>
+                                              수집유형
+                                          </th>
+                                          <th>
+                                              <select class="form-control">
+                                                  <option>Choose option</option>
+                                                  <option>Option one</option>
+                                              </select>
+                                          </th>
+                                      </tr>
+                                      <tr>
+                                          <th>
+                                              데이터셋 중분류
+                                          </th>
+                                          <th>
+                                              <select class="form-control">
+                                                  <option>Choose option</option>
+                                                  <option>Option one</option>
+                                              </select>
+                                          </th>
+                                          <th>
+                                              데이터셋 소유자
+                                          </th>
+                                          <th>
+                                              <select class="form-control">
+                                                  <option>Choose option</option>
+                                                  <option>Option one</option>
+                                              </select>
+                                          </th>
+                                      </tr>
+                                      <tr>
+                                          <th>
+                                              데이터셋 소분류
+                                          </th>
+                                          <th>
+                                              <select class="form-control">
+                                                  <option>Choose option</option>
+                                                  <option>Option one</option>
+                                              </select>
+                                          </th>
+                                          <th>
+                                              CUD 구분
+                                          </th>
+                                          <th>
+                                              <select class="form-control">
+                                                  <option>Choose option</option>
+                                                  <option>Option one</option>
+                                              </select>
+                                          </th>
+                                          <th rowspan="2" style="vertical-align: middle">CUD 설명</th>
+                                          <th rowspan="2" style="vertical-align: middle">
+                                              <textarea style="width: 100%;height: 100px;"></textarea>
+                                          </th>
+                                      </tr>
+                                      <tr>
+                                          <th>
+                                              사용 여부
+                                          </th>
+                                          <th>
+                                              <select class="form-control">
+                                                  <option>Choose option</option>
+                                                  <option>Option one</option>
+                                              </select>
+                                          </th>
+                                          <th>
+                                              수집 테이블 생성 여부
+                                          </th>
+                                          <th>
+                                              <select class="form-control">
+                                                  <option>Choose option</option>
+                                                  <option>Option one</option>
+                                              </select>
+                                          </th>
+                                      </tr>
+                                      </thead>
+                                      <tbody>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="x_panel">
+                          <div class="x_title">
+                              <h2>테이블 항목</h2>
+                              <button class="btn btn-primary" style="float:right">저장</button>
+                              <div class="clearfix"> </div>
+                          </div>
+                          <div class="x_content">
+                              <div class="table_responsive">
+
+                                  <table class="table table-striped" id="metaTable3">
+                                      <colgroup>
+                                          <col width="150px">
+                                          <col width="150px">
+                                          <col width="150px">
+                                          <col width="150px">
+                                          <col width="150px">
+                                          <col width="150px">
+                                      </colgroup>
+                                      <thead>
+                                      <tr>
+                                          <th>데이터셋 한글명</th>
+                                          <th colspan="3">
+                                              <input class="form-control" type="text" placeholder="">
+                                          </th>
+                                          <th rowspan="3" style="vertical-align: middle;">데이터셋 설명</th>
+                                          <th rowspan="3" style="vertical-align: middle;">
+                                              <textarea style="width: 100%;height: 130px;"></textarea>
+                                          </th>
+                                      </tr>
+                                      <tr>
+                                          <th>
+                                              데이터셋 영문명
+                                          </th>
+                                          <th colspan="3">
+                                              <select class="form-control" style="width: 80%;display: inline">
+                                                  <option>Choose option</option>
+                                                  <option>Option one</option>
+                                              </select>
+                                              <button class="btn btn-primary" style="float:right">중복체크</button>
+                                          </th>
+                                      </tr>
+                                      <tr>
+                                          <th>
+                                              데이터셋 셋종류
+                                          </th>
+                                          <th>
+                                              <select class="form-control">
+                                                  <option>Choose option</option>
+                                                  <option>Option one</option>
+                                              </select>
+                                          </th>
+                                          <th>
+                                              소유자 ID
+                                          </th>
+                                          <th>
+                                              <select class="form-control">
+                                                  <option>Choose option</option>
+                                                  <option>Option one</option>
+                                              </select>
+                                          </th>
+                                      </tr>
+                                      <tr>
+                                          <th>
+                                              테이블 유형
+                                          </th>
+                                          <th>
+                                              <select class="form-control">
+                                                  <option>Choose option</option>
+                                                  <option>Option one</option>
+                                              </select>
+                                          </th>
+                                          <th>
+                                              CUD 구분
+                                          </th>
+                                          <th>
+                                              <select class="form-control">
+                                                  <option>Choose option</option>
+                                                  <option>Option one</option>
+                                              </select>
+                                          </th>
+                                          <th rowspan="2" style="vertical-align: middle">CUD 설명</th>
+                                          <th rowspan="2" style="vertical-align: middle">
+                                              <textarea style="width: 100%;height: 100px;"></textarea>
+                                          </th>
+                                      </tr>
+                                      <tr>
+                                          <th>
+                                              사용 여부
+                                          </th>
+                                          <th>
+                                              <select class="form-control">
+                                                  <option>Choose option</option>
+                                                  <option>Option one</option>
+                                              </select>
+                                          </th>
+                                          <th>
+                                              수집 테이블 생성 여부
+                                          </th>
+                                          <th>
+                                              <select class="form-control">
+                                                  <option>Choose option</option>
+                                                  <option>Option one</option>
+                                              </select>
+                                          </th>
+                                      </tr>
+                                      </thead>
+                                      <tbody>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
 
 
         </div>
@@ -445,5 +441,61 @@
 
     <%@include file="../A1.Common/commonJs.jsp" %>
     <script src="http://jonmiles.github.io/bootstrap-treeview/js/bootstrap-treeview.js"></script>
+    <script>
+        ajax('get', '/dp/ingest/meta/tables', '', function(data) {
+            console.log(data);
+            let obj = data.contents;
+            let trHTML;
+
+            /*for (let i = 0; i < obj.length; i++) {*/
+            for (let i = 0; i < 2; i++) {
+                trHTML += '<tr>' +
+                    '<td><label>' + (i + 1) + '</label></td>'
+                    + '<td><label>' + obj[i].dset_lclas + '</label></td>'
+                    + '<td><label>' + obj[i].dset_mclas + '</label></td>'
+                    + '<td><label>' + obj[i].dset_sclas + '</label></td>'
+                    + '<td><label>' + obj[i].clct_mthd + '</label></td>'
+                    + '<td><label>' + obj[i].clct_ty + '</label></td>'
+                    + '<td><label>' + obj[i].dset_korean_nm + '</label></td>'
+                    + '<td><label>' + obj[i].table_korean_nm + '</label></td>'
+                    + '<td><label>' + obj[i].table_eng_nm + '</label></td>'
+                    + '<td><label>'+ obj[i].column_korean_nm + '</label></td>'
+                    + '<td><label>' + obj[i].creat_table_at + '</label></td>'
+                    + '<td><button class="btn btn-primary" style="width:100%">바로가기</button></td>'
+                    + '</tr>';
+
+
+            }
+            $("#metaTable1 tbody").append(trHTML);
+        });
+
+        function saveDataset() {
+            let data = {
+                "dset_owner":"S",
+                    "dset_lclas":"D",
+                    "dset_mclas":"200",
+                    "dset_sclas":"1",
+                    "clct_mthd":"DB2DB",
+                    "clct_ty":"POSTGRESQL",
+                    "logic_db_nm":"LX_DT_DMS",
+                    "dset_korean_nm":"도로명주소_건물",
+                    "dset_dc": null,
+                    "idntfr":null,
+                    "supe_type_entity_nm":null,
+                    "entity_iem_nm":null,
+                    "crud_se":null,
+                    "crud_dc":null,
+                    "use_at":null,
+                    "creat_table_at":null
+            }
+
+            ajax('post', '/dp/ingest/meta/tables/save/dataset', data,function (data){
+                alert('저장완료');
+            })
+        }
+    </script>
+
+
+
   </body>
 </html>
