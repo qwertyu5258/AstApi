@@ -76,6 +76,10 @@ public class BaseController {
     public String metaTable() {
         return "A2.MetaTblManage/metaTable";
     }
+    @RequestMapping("/metaTableInfo")
+    public String metaTableInfo() {
+        return "A2.MetaTblManage/metaTableInfo";
+    }
     @RequestMapping("/dataModelList")
     public String dataModelList() {
         return "A2.DataModelManage/dataModelList";

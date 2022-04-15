@@ -191,5 +191,69 @@
 
     <%@include file="/WEB-INF/views/A1.Common/commonJs.jsp" %>
 
+      <script>
+        ajax('get', '/dp/ingest/meta/tables', '', function(data) {
+          console.log(data);
+          let obj = data.contents;
+          let trHTML;
+
+          /*for (let i = 0; i < obj.length; i++) {*/
+          for (let i = 0; i < 2; i++) {
+            trHTML += '<tr>' +
+                    '<td><label>' + (i + 1) + '</label></td>'
+                    + '<td><label>' + obj[i].dset_lclas + '</label></td>'
+                    + '<td><label>' + obj[i].dset_mclas + '</label></td>'
+                    + '<td><label>' + obj[i].dset_sclas + '</label></td>'
+                    + '<td><label>' + obj[i].clct_mthd + '</label></td>'
+                    + '<td><label>' + obj[i].clct_ty + '</label></td>'
+                    + '<td><label>' + obj[i].dset_korean_nm + '</label></td>'
+                    + '<td><label>' + obj[i].table_korean_nm + '</label></td>'
+                    + '<td><label>' + obj[i].table_eng_nm + '</label></td>'
+                    + '<td><label>'+ obj[i].column_korean_nm + '</label></td>'
+                    + '<td><label>' + obj[i].creat_table_at + '</label></td>'
+                    + '<td><button class="btn btn-primary" style="width:100%">바로가기</button></td>'
+                    + '</tr>';
+
+
+          }
+          $("#metaTable1 tbody").append(trHTML);
+        });
+
+        function saveDataset() {
+          let data = {
+            // "dset_owner":$('#dset_owner1').val(),
+            // "dset_lclas":$('#dset_lclas1').val(),
+            // "dset_mclas":$('#dset_mclas1').val(),
+            //     "dset_sclas":$('#dset_sclas1').val(),
+            // "clct_mthd":$('#clct_mthd1').val(),
+            // "clct_ty":$('#clct_ty1').val(),
+
+            "dset_owner":"S",
+            "dset_lclas":"D",
+            "dset_mclas":"200",
+            "dset_sclas":"1",
+            "clct_mthd":"DB2DB",
+            "clct_ty":"POSTGRESQL",
+
+            "logic_db_nm":$('#logic_db_nm1').val(),
+            "dset_korean_nm":$('#dset_korean_nm1').val(),
+
+            "dset_dc": null,
+            "idntfr":null,
+            "supe_type_entity_nm":null,
+            "entity_iem_nm":null,
+            "crud_se":null,
+            "crud_dc":null,
+            "use_at":null,
+            "creat_table_at":null
+          }
+
+          ajax('post', '/dp/ingest/meta/tables/save/dataset', data,function (data){
+            alert('저장완료');
+          })
+        }
+      </script>
+
+
   </body>
 </html>

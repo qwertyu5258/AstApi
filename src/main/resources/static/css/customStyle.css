@@ -50,3 +50,9 @@ body{font-size:14px;}
 .idSetting2_modal .btn_up{border-bottom:10px solid #666;border-top:10px solid transparent;border-left:10px solid transparent;border-right:10px solid transparent}
 .idSetting2_modal .btn_down{border-bottom:10px solid transparent;border-top:10px solid #666;border-left:10px solid transparent;border-right:10px solid transparent}
 .idSetting2_modal .drake_result.disabled{background-color:#e9ecef}
+
+input[type="checkbox"] {
+    width: 20px;
+    margin-top: -5px;
+    vertical-align: bottom;
+}

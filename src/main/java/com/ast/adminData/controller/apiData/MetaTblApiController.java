@@ -47,7 +47,7 @@ public class MetaTblApiController {
     @GetMapping(value = {"/{param1}/dataset"})
     public Map dpIngestMetaTblDset(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.getApi(param1 + "/dataset");
+        Map<String, Object> DataList = restService.getApi("/dp/ingest/meta/tables/" + param1 + "/dataset");
 
         return DataList;
     }
@@ -56,7 +56,7 @@ public class MetaTblApiController {
     @GetMapping(value = {"/{param1}/table"})
     public Map dpIngestMetaTblTbl(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.getApi(param1 + "/table");
+        Map<String, Object> DataList = restService.getApi("/dp/ingest/meta/tables/" + param1 + "/table");
 
         return DataList;
     }
@@ -65,7 +65,7 @@ public class MetaTblApiController {
     @GetMapping(value = {"/{param1}/column/{param2}"})
     public Map dpIngestMetaTblCol(@PathVariable String param1, @PathVariable String param2) {
 
-        Map<String, Object> DataList = restService.getApi(param1 + "/column/" + param2);
+        Map<String, Object> DataList = restService.getApi("/dp/ingest/meta/tables/" + param1 + "/column/" + param2);
 
         return DataList;
     }
@@ -74,7 +74,7 @@ public class MetaTblApiController {
     @GetMapping(value = {"/dataset/id/check"})
     public Map dpIngestMetaTblDsetIdChk() {
 
-        Map<String, Object> DataList = restService.getApi("/dataset/id/check");
+        Map<String, Object> DataList = restService.getApi("/dp/ingest/meta/tables/dataset/id/check");
 
         return DataList;
     }
@@ -83,7 +83,7 @@ public class MetaTblApiController {
     @GetMapping(value = {"/{param1}/check"})
     public Map dpIngestMetaTblChk(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.getApi(param1 + "/check");
+        Map<String, Object> DataList = restService.getApi("/dp/ingest/meta/tables/" + param1 + "/check");
 
         return DataList;
     }
@@ -92,7 +92,7 @@ public class MetaTblApiController {
     @PostMapping(value = {"/delete/{param1}/dataset"})
     public Map dpIngestMetaTblDelDset(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.postApi("/delete/" + param1 + "/dataset");
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/meta/tables//delete/" + param1 + "/dataset");
 
         return DataList;
     }
@@ -101,7 +101,7 @@ public class MetaTblApiController {
     @PostMapping(value = {"/delete/{param1}/table"})
     public Map dpIngestMetaTblDelTbl(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.postApi("/delete/" + param1 + "/table");
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/meta/tables//delete/" + param1 + "/table");
 
         return DataList;
     }
@@ -141,16 +141,16 @@ public class MetaTblApiController {
 //    public Map dpIngestMetaTblSaveDset(@RequestBody String params) {
     @PostMapping(value = {"/save/dataset"}, produces = "application/json")
     @ResponseBody
-    public Map dpIngestMetaTblSaveDset(@RequestBody Map<String,Object> params) {
+    public Map dpIngestMetaTblSaveDset(@RequestBody Map<String,Object> params) throws Exception {
 
         Map<String, Object> DataList = restService.postApi("/dp/ingest/meta/tables/save/dataset", params);
 
         return DataList;
     }
     @PostMapping(value = {"/save/table"})
-    public Map dpIngestMetaTblSaveTbl() {
+    public Map dpIngestMetaTblSaveTbl(@RequestBody Map<String,Object> params) throws Exception {
 
-        Map<String, Object> DataList = restService.postApi("/dp/ingest/meta/tables/save/table");
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/meta/tables/save/table", params);
 
         return DataList;
     }

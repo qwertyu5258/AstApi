@@ -1,12 +1,16 @@
 package com.ast.adminData.common;
 
 import com.ast.adminData.configProperties.ConfigProperties;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,23 +37,31 @@ public class RestService {
     public Map<String, Object> postApi(final String path, Map<String,Object> params) {
 
         RestTemplate restTemplate = new RestTemplate();
+//        restTemplate.getMessageConverters()
+//                .add(0,new StringHttpMessageConverter(StandardCharsets.UTF_8));
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         HttpEntity<Map<String,Object>> entity = new HttpEntity<Map<String,Object>>(params, headers);
 
-//        Map req_payload = new HashMap();
-//        req_payload.put("name", "piyush");
+        try {
+            final ResponseEntity<Map<String, Object>> response = restTemplate.exchange(
+                    "http://" + configProperties.getUrl() + ":" + configProperties.getPort() + path,
+                    HttpMethod.POST,
+                    entity,
+                    new ParameterizedTypeReference<Map<String, Object>>() {
+                    });
+            Map<String, Object> dataList = response.getBody();
+            return dataList;
+        } catch (HttpStatusCodeException e) {
+//            Map<String, Object> dataList = e.getCause();
+//            return e.getRawStatusCode();
+            return  new Gson().fromJson(e.getResponseBodyAsString(), Map.class);
+//            return (Map<String, Object>) ResponseEntity.status(e.getRawStatusCode()).headers(e.getResponseHeaders())
+//                    .body(e.getResponseBodyAsString());
+        }
 
-        final ResponseEntity<Map<String, Object>> response = restTemplate.exchange(
-                "http://" + configProperties.getUrl() + ":" + configProperties.getPort() + path ,
-                HttpMethod.POST,
-                entity,
-                new ParameterizedTypeReference<Map<String, Object>>(){});
-
-        Map<String, Object> dataList = response.getBody();
-        return dataList;
     }
 
     public Map<String, Object> postApi(final String path) {
