@@ -450,15 +450,10 @@
                 let obj = data.contents;
                 let trHTML;
 
-                /*for (let i = 0; i < obj.length; i++) {*/
                 for (let i = 0; i < obj.length; i++) {
                     let num = i;
                     trHTML += '<tr class="">' +
-                        // '<td>' + `<div class="icheckbox_flat-purple" id="checkTable1" style="position: relative;" onClick="checkTable(` + i + `)">
-                        // <input id="checkTable1" class="flat" type="checkbox" name="table_records" style="position: absolute; opacity: 0;">
-                        // <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>` + '</td>'
                         '<td><input class="tableInfo" type="checkbox"></td>'
-                        // + '<td><input class="flat" type="checkbox" name="table_records"></td>'
                         + '<td><label>' + obj[i].dset_lclas + '</label></td>'
                         + '<td><label>' + obj[i].dset_mclas + '</label></td>'
                         + '<td><label>' + obj[i].dset_sclas + '</label></td>'
