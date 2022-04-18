@@ -29,7 +29,7 @@ function initTable () {
                 + '<td><label>' + obj[i].table_eng_nm + '</label></td>'
                 + '<td><label>' + obj[i].creat_table_at + '</label></td>'
                 + '<td><label>' + obj[i].column_korean_nm + '</label></td>'
-                + '<td><button class="btn btn-primary" style="width:100%" onclick="dp_ingest_meta_tbl_dset('+ idntfcId +')">바로가기</button></td>'
+                + '<td><button class="btn btn-primary" style="width:100%" onclick="dp_ingest_meta_tbl_dset(`'+ obj[i].table_idntfc_id +'`)">바로가기</button></td>'
                 + '</tr>';
         }
         $("#metaTable1 tbody").append(trHTML);
@@ -67,7 +67,7 @@ function search() {
                 + '<td><label>' + obj[i].table_eng_nm + '</label></td>,'
                 + '<td><label>' + obj[i].creat_table_at + '</label></td>'
                 + '<td><label>' + obj[i].column_korean_nm + '</label></td>'
-                + '<td><button class="btn btn-primary" style="width:100%" onclick="dp_ingest_meta_tbl_dset('+ idntfcId +')">바로가기</button></td>'
+                + '<td><button class="btn btn-primary" style="width:100%" onclick="dp_ingest_meta_tbl_dset(`'+ obj[i].table_idntfc_id +'`)">바로가기</button></td>'
                 + '</tr>';
         }
         $("#metaTable1 tbody").append(trHTML);
@@ -210,17 +210,19 @@ function metaTableEdit() {
 
 //컬럼 정보 바로 가기
 function dp_ingest_meta_tbl_dset(id) {
-    const data = {
-        "dset_idntfc_id": id
-    };
-    ajaxGet('/dp/ingest/meta/tables/{}/dataset', data, function (data) {
-        alert('완료~113');
-    });
+
+    location.href="metaTableInfo?idntfcId="+id;
+
 }
 
 //데이터셋 영문명 중복체크
 function table_eng_nm_chk(){
     let tableEngNm = $('#table_eng_nm2').val();
+
+    if(!tableEngNm){
+        alert('데이터셋 영문명을 작성하세요');
+        return;
+    }
 
     ajaxGet(`/dp/ingest/meta/tables/${tableEngNm}/check`, "", function (data) {
         if(data.contents[0].successYn === "Y"){

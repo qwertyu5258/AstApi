@@ -7,7 +7,7 @@
             <li> <a><i class="fa fa-list-alt"></i>메타테이블 관리<span class="fa fa-chevron-down"> </span></a>
                 <ul class="nav child_menu">
                     <li><a href="metaTable">메타테이블</a></li>
-                    <li><a href="metaTableInfo">(내부)테이블정보</a></li>
+<%--                    <li><a href="metaTableInfo">(내부)테이블정보</a></li>--%>
                 </ul>
             </li>
             <li> <a><i class="fa fa-list-alt"></i>데이터 모델 관리<span class="fa fa-chevron-down"> </span></a>

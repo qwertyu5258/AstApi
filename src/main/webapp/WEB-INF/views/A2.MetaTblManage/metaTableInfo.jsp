@@ -59,11 +59,11 @@
                           </div>
                           <div class="x_content">
                               <div class="table_responsive">
-                                  <div class="talbel_total">총 1개</div>
-                                  <button class="btn btn-primary" style="width:10%;float:right">삭제</button>
-                                  <button class="btn btn-primary" style="width:10%;float:right">추가</button>
-                                  <button class="btn btn-primary" style="width:10%;float:right">목록</button>
-                                  <table class="table table-striped" id="metaTable1">
+                                  <div class="talbel_total" id="metaTableInfoCnt">총 1개</div>
+                                  <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableInfoDel()">삭제</button>
+                                  <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableInfoAdd()">추가</button>
+                                  <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableList()">목록</button>
+                                  <table class="table table-striped" id="metaTableInfo1">
                                       <colgroup>
                                           <col width="55px">
                                           <col width="75px">
@@ -104,7 +104,7 @@
                   </div>
               </div>
 
-              <div class="row">
+              <div class="row" id="metaTableInfoColDt">
                   <div class="col-md-12">
                       <div class="x_panel">
                           <div class="x_title">
@@ -338,34 +338,9 @@
     </div>
 
     <%@include file="../A1.Common/commonJs.jsp" %>
+    <script src="js/metaTableInfo.js"></script>
     <script src="http://jonmiles.github.io/bootstrap-treeview/js/bootstrap-treeview.js"></script>
     <script>
-        ajax('get', '/dp/ingest/meta/tables', '', function(data) {
-            console.log(data);
-            let obj = data.contents;
-            let trHTML;
-
-            /*for (let i = 0; i < obj.length; i++) {*/
-            for (let i = 0; i < 2; i++) {
-                trHTML += '<tr>' +
-                    '<td><label>' + (i + 1) + '</label></td>'
-                    + '<td><label>' + obj[i].dset_lclas + '</label></td>'
-                    + '<td><label>' + obj[i].dset_mclas + '</label></td>'
-                    + '<td><label>' + obj[i].dset_sclas + '</label></td>'
-                    + '<td><label>' + obj[i].clct_mthd + '</label></td>'
-                    + '<td><label>' + obj[i].clct_ty + '</label></td>'
-                    + '<td><label>' + obj[i].dset_korean_nm + '</label></td>'
-                    + '<td><label>' + obj[i].table_korean_nm + '</label></td>'
-                    + '<td><label>' + obj[i].table_eng_nm + '</label></td>'
-                    + '<td><label>'+ obj[i].column_korean_nm + '</label></td>'
-                    + '<td><label>' + obj[i].creat_table_at + '</label></td>'
-                    + '<td><button class="btn btn-primary" style="width:100%">바로가기</button></td>'
-                    + '</tr>';
-
-
-            }
-            $("#metaTable1 tbody").append(trHTML);
-        });
 
         function saveDataset() {
             let data = {
