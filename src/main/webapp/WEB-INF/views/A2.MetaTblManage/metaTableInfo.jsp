@@ -109,7 +109,7 @@
                       <div class="x_panel">
                           <div class="x_title">
                               <h2>컬럼 항목</h2>
-                              <button class="btn btn-primary" style="float:right" onclick="saveDataset()">저장~~1</button>
+                              <button class="btn btn-primary" style="float:right" id="colSaveBtn" onclick="saveColumn()">저장~~1</button>
                               <div class="clearfix"> </div>
                           </div>
                           <div class="x_content">
@@ -130,11 +130,11 @@
                                       <tr>
                                           <th>한글명</th>
                                           <th colspan="3">
-                                              <input class="form-control" type="text" placeholder="" id="dset_korean_nm1">
+                                              <input class="form-control" type="text" placeholder="" id="column_korean_nm">
                                           </th>
                                           <th>참조 테이블 식별자</th>
-                                          <th colspan="3"><select class="form-control" id="clct_mthd1">
-                                              <option>Choose option</option>
+                                          <th colspan="3"><select class="form-control" id="refrn_table_idntfc_id">
+                                              <option value="">Choose option</option>
                                               <option>Option one</option>
                                           </select></th>
                                       </tr>
@@ -143,13 +143,13 @@
                                               영문명
                                           </th>
                                           <th colspan="3">
-                                              <input class="form-control" type="text" placeholder="" id="">
+                                              <input class="form-control" type="text" placeholder="" id="column_eng_nm">
                                           </th>
                                           <th>
                                               참조 테이블명
                                           </th>
                                           <th colspan="3">
-                                              <input class="form-control" type="text" placeholder="" id="">
+                                              <input class="form-control" type="text" placeholder="" id="refrn_table_idntfc_nm">
                                           </th>
                                       </tr>
                                       <tr>
@@ -157,8 +157,8 @@
                                               데이터 타입
                                           </th>
                                           <th>
-                                              <select class="form-control" id="dset_mclas1">
-                                                  <option>Choose option</option>
+                                              <select class="form-control" id="data_type">
+                                                  <option value="">Choose option</option>
                                                   <option>Option one</option>
                                               </select>
                                           </th>
@@ -166,8 +166,8 @@
                                               데이터 길이
                                           </th>
                                           <th>
-                                              <select class="form-control" id="dset_owner1">
-                                                  <option>Choose option</option>
+                                              <select class="form-control" id="data_lt">
+                                                  <option value="">Choose option</option>
                                                   <option>Option one</option>
                                               </select>
                                           </th>
@@ -175,8 +175,8 @@
                                               참조컬럼 식별자
                                           </th>
                                           <th colspan="3">
-                                              <select class="form-control" id="">
-                                                  <option>Choose option</option>
+                                              <select class="form-control" id="refrn_column_idntfc_id">
+                                                  <option value="">Choose option</option>
                                                   <option>Option one</option>
                                               </select>
                                           </th>
@@ -186,23 +186,23 @@
                                               Not null 여부
                                           </th>
                                           <th>
-                                              <select class="form-control" id="dset_sclas1">
-                                                  <option>Choose option</option>
-                                                  <option>Option one</option>
+                                              <select class="form-control" id="not_null_at">
+                                                  <option value="Y">예</option>
+                                                  <option value="N">아니오</option>
                                               </select>
                                           </th>
                                           <th>
                                               데이터 셋 종류
                                           </th>
                                           <th>
-                                              <select class="form-control" id="crud_se1">
-                                                  <option>Choose option</option>
+                                              <select class="form-control" id="dset_knd">
+                                                  <option value="">Choose option</option>
                                                   <option>Option one</option>
                                               </select>
                                           </th>
                                           <th style="vertical-align: middle">참조 컬럼명</th>
                                           <th colspan="3" style="vertical-align: middle">
-                                              <input class="form-control" type="text" placeholder="" id="">
+                                              <input class="form-control" type="text" placeholder="" id="refrn_column_idntfc_nm">
                                           </th>
                                       </tr>
                                       <tr>
@@ -210,25 +210,25 @@
                                               PK 정보
                                           </th>
                                           <th>
-                                              <select class="form-control" id="use_at1">
-                                                  <option>Choose option</option>
-                                                  <option>Option one</option>
+                                              <select class="form-control" id="pk_info">
+                                                  <option value="Y">예</option>
+                                                  <option value="N">아니오</option>
                                               </select>
                                           </th>
                                           <th>
                                               FK 정보
                                           </th>
                                           <th>
-                                              <select class="form-control" id="creat_table_at1">
-                                                  <option>Choose option</option>
-                                                  <option>Option one</option>
+                                              <select class="form-control" id="fk_info">
+                                                  <option value="Y">예</option>
+                                                  <option value="N">아니오</option>
                                               </select>
                                           </th>
                                           <th>
                                               수집테이블 생성여부
                                           </th>
                                           <th colspan="3">
-                                              <input class="form-control" type="text" placeholder="" id="">
+                                              <input class="form-control" type="text" placeholder="" id="creat_table_at">
                                           </th>
                                       </tr>
                                       <tr>
@@ -236,17 +236,17 @@
                                               사용 여부
                                           </th>
                                           <th>
-                                              <select class="form-control" id="use_at1">
-                                                  <option>Choose option</option>
-                                                  <option>Option one</option>
+                                              <select class="form-control" id="use_at">
+                                                  <option value="Y">예</option>
+                                                  <option value="N">아니오</option>
                                               </select>
                                           </th>
                                           <th>
                                               컬럼저장타입
                                           </th>
                                           <th>
-                                              <select class="form-control" id="creat_table_at1">
-                                                  <option>Choose option</option>
+                                              <select class="form-control" id="column_stre_type">
+                                                  <option value="">Choose option</option>
                                                   <option>Option one</option>
                                               </select>
                                           </th>
@@ -254,13 +254,13 @@
                                               컬럼설명
                                           </th>
                                           <th rowspan="3">
-                                              <textarea style="width: 100%;height: 130px;" id=""></textarea>
+                                              <textarea style="width: 100%;height: 130px;" id="column_dc"></textarea>
                                           </th>
                                           <th rowspan="3">
                                               CRUD 설명
                                           </th>
                                           <th rowspan="3">
-                                              <textarea style="width: 100%;height: 130px;" id=""></textarea>
+                                              <textarea style="width: 100%;height: 130px;" id="crud_dc"></textarea>
                                           </th>
                                       </tr>
                                       <tr>
@@ -268,8 +268,8 @@
                                               정렬 순서
                                           </th>
                                           <th>
-                                              <select class="form-control" id="use_at1">
-                                                  <option>Choose option</option>
+                                              <select class="form-control" id="ordr">
+                                                  <option value="">Choose option</option>
                                                   <option>Option one</option>
                                               </select>
                                           </th>
@@ -277,9 +277,9 @@
                                               개인정보여부
                                           </th>
                                           <th>
-                                              <select class="form-control" id="creat_table_at1">
-                                                  <option>Choose option</option>
-                                                  <option>Option one</option>
+                                              <select class="form-control" id="indvdl_info_at">
+                                                  <option value="Y">예</option>
+                                                  <option value="N">아니오</option>
                                               </select>
                                           </th>
                                       </tr>
@@ -288,17 +288,17 @@
                                               암호화 여부
                                           </th>
                                           <th>
-                                              <select class="form-control" id="use_at1">
-                                                  <option>Choose option</option>
-                                                  <option>Option one</option>
+                                              <select class="form-control" id="encpt_at">
+                                                  <option value="Y">예</option>
+                                                  <option value="N">아니오</option>
                                               </select>
                                           </th>
                                           <th>
                                               CRUD 구분
                                           </th>
                                           <th>
-                                              <select class="form-control" id="creat_table_at1">
-                                                  <option>Choose option</option>
+                                              <select class="form-control" id="crud_se">
+                                                  <option value="">Choose option</option>
                                                   <option>Option one</option>
                                               </select>
                                           </th>
@@ -340,43 +340,6 @@
     <%@include file="../A1.Common/commonJs.jsp" %>
     <script src="js/metaTableInfo.js"></script>
     <script src="http://jonmiles.github.io/bootstrap-treeview/js/bootstrap-treeview.js"></script>
-    <script>
-
-        function saveDataset() {
-            let data = {
-                    // "dset_owner":$('#dset_owner1').val(),
-                    // "dset_lclas":$('#dset_lclas1').val(),
-                    // "dset_mclas":$('#dset_mclas1').val(),
-                    //     "dset_sclas":$('#dset_sclas1').val(),
-                    // "clct_mthd":$('#clct_mthd1').val(),
-                    // "clct_ty":$('#clct_ty1').val(),
-
-                    "dset_owner":"S",
-                    "dset_lclas":"D",
-                    "dset_mclas":"200",
-                    "dset_sclas":"1",
-                    "clct_mthd":"DB2DB",
-                    "clct_ty":"POSTGRESQL",
-
-                    "logic_db_nm":$('#logic_db_nm1').val(),
-                    "dset_korean_nm":$('#dset_korean_nm1').val(),
-
-                    "dset_dc": null,
-                    "idntfr":null,
-                    "supe_type_entity_nm":null,
-                    "entity_iem_nm":null,
-                    "crud_se":null,
-                    "crud_dc":null,
-                    "use_at":null,
-                    "creat_table_at":null
-            }
-
-            ajax('post', '/dp/ingest/meta/tables/save/dataset', data,function (data){
-                alert('저장완료');
-            })
-        }
-    </script>
-
 
 
   </body>

@@ -19,16 +19,16 @@ function initTable () {
             let idntfcId = obj[i].rl_dset_idntfc_id + "@" + obj[i].table_idntfc_id;
             trHTML += '<tr class="">'
                 + '<td><input class="tableInfo" type="checkbox" onclick="metaCheckBox(checked)" name="checkList" id="check'+i+'" value="'+idntfcId+'"></td>'
-                + '<td><label>' + obj[i].dset_lclas + '</label></td>'
-                + '<td><label>' + obj[i].dset_mclas + '</label></td>'
-                + '<td><label>' + obj[i].dset_sclas + '</label></td>'
-                + '<td><label>' + obj[i].clct_mthd + '</label></td>'
-                + '<td><label>' + obj[i].clct_ty + '</label></td>'
-                + '<td><label>' + obj[i].dset_korean_nm + '</label></td>'
-                + '<td><label>' + obj[i].table_korean_nm + '</label></td>'
-                + '<td><label>' + obj[i].table_eng_nm + '</label></td>'
-                + '<td><label>' + obj[i].creat_table_at + '</label></td>'
-                + '<td><label>' + obj[i].column_korean_nm + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_lclas + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_mclas + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_sclas + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].clct_mthd + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].clct_ty + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_korean_nm + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].table_korean_nm + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].table_eng_nm + '</label></td>,'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].creat_table_at + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].column_korean_nm + '</label></td>'
                 + '<td><button class="btn btn-primary" style="width:100%" onclick="dp_ingest_meta_tbl_dset(`'+ obj[i].table_idntfc_id +'`)">바로가기</button></td>'
                 + '</tr>';
         }
@@ -57,16 +57,16 @@ function search() {
             let idntfcId = obj[i].rl_dset_idntfc_id + "@" + obj[i].table_idntfc_id;
             trHTML += '<tr class="">'
                 + '<td><input class="tableInfo" type="checkbox" onclick="metaCheckBox(checked)" name="checkList" id="check'+i+'" value="'+idntfcId+'"></td>'
-                + '<td><label>' + obj[i].dset_lclas + '</label></td>'
-                + '<td><label>' + obj[i].dset_mclas + '</label></td>'
-                + '<td><label>' + obj[i].dset_sclas + '</label></td>'
-                + '<td><label>' + obj[i].clct_mthd + '</label></td>'
-                + '<td><label>' + obj[i].clct_ty + '</label></td>'
-                + '<td><label>' + obj[i].dset_korean_nm + '</label></td>'
-                + '<td><label>' + obj[i].table_korean_nm + '</label></td>'
-                + '<td><label>' + obj[i].table_eng_nm + '</label></td>,'
-                + '<td><label>' + obj[i].creat_table_at + '</label></td>'
-                + '<td><label>' + obj[i].column_korean_nm + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_lclas + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_mclas + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_sclas + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].clct_mthd + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].clct_ty + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_korean_nm + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].table_korean_nm + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].table_eng_nm + '</label></td>,'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].creat_table_at + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].column_korean_nm + '</label></td>'
                 + '<td><button class="btn btn-primary" style="width:100%" onclick="dp_ingest_meta_tbl_dset(`'+ obj[i].table_idntfc_id +'`)">바로가기</button></td>'
                 + '</tr>';
         }
@@ -77,36 +77,8 @@ function search() {
 //추가 버튼
 function metaTableAdd() {
 
-    //데이터셋
-    $("#dset_korean_nm1").val("");
-    $("#clct_mthd1").val("");
-    $("#dset_dc1").val("");
-    $("#dset_lclas1").val("");
-    $("#clct_ty1").val("");
-    $("#dset_mclas1").val("");
-    $("#dset_owner1").val("S");
-    $("#dset_sclas1").val("");
-    $("#crud_se1").val("");
-    $("#crud_dc1").val("");
-    $("#use_at1").val("Y");
-    $("#creat_table_at1").val("");
-
-    //테이블 항목
-    $("#table_korean_nm2").val("");
-    $("#dset_dc2").val("");
-    $("#table_eng_nm2").val("");
-    $("#table_dset_knd").val("");
-    $("#table_owner").val("");
-    $("#physic_table_ty").val("");
-    $("#crud_se2").val("");
-    $("#crud_dc2").val("");
-    $("#use_at2").val("Y");
-    $("#creat_table_at2").val("");
-
+    dataReset();
     tableEngNmChk = false;          //데이터셋 영문명 중복체크
-
-    $("#hidden_dset_idntfc_id").val("");
-    $("#hidden_table_idntfc_id").val("");
 
     //저장버튼
     $("#dataSetItemSaveBtn").show();
@@ -157,8 +129,15 @@ function metaTableEdit() {
         alert("하나의 항목을 선택해 주세요.");
         return;
     }
-    let destIdntfcId = checked_val[0].split("@")[0];
-    let tableIdntfcId = checked_val[0].split("@")[1];
+
+    dataSetTableData(checked_val[0], "edit");
+}
+
+function dataSetTableData(id,status) {
+    let destIdntfcId = id.split("@")[0];
+    let tableIdntfcId = id.split("@")[1];
+
+    dataReset();
 
     //메타테이블 데이터셋 항목 상세
     ajaxGet('/dp/ingest/meta/tables/'+destIdntfcId+'/dataset', "", function (datasetData) {
@@ -196,11 +175,19 @@ function metaTableEdit() {
 
             $("#hidden_table_idntfc_id").val(TableData.contents[0].table_idntfc_id);  //테이블_식별자
 
-            $("#dataSetItemSaveBtn").hide();
-            $("#tableItemSaveBtn").hide();
+            if(status === "edit"){
+                $("#dataSetItemSaveBtn").hide();
+                $("#tableItemSaveBtn").hide();
 
-            $("#dataSetItemEditBtn").show();
-            $("#tableItemEditBtn").show();
+                $("#dataSetItemEditBtn").show();
+                $("#tableItemEditBtn").show();
+            }else if(status === "view"){
+                $("#dataSetItemSaveBtn").hide();
+                $("#tableItemSaveBtn").hide();
+
+                $("#dataSetItemEditBtn").hide();
+                $("#tableItemEditBtn").hide();
+            }
 
             $("#dataSetItem").show();
             $("#tableItem").show();
@@ -210,9 +197,7 @@ function metaTableEdit() {
 
 //컬럼 정보 바로 가기
 function dp_ingest_meta_tbl_dset(id) {
-
     location.href="metaTableInfo?idntfcId="+id;
-
 }
 
 //데이터셋 영문명 중복체크
@@ -224,7 +209,7 @@ function table_eng_nm_chk(){
         return;
     }
 
-    ajaxGet(`/dp/ingest/meta/tables/${tableEngNm}/check`, "", function (data) {
+    ajaxGet(`/dp/ingest/meta/tables/`+tableEngNm+`/check`, "", function (data) {
         if(data.contents[0].successYn === "Y"){
             console.log('완료~dp_ingest_meta_tbl_chk',data);
             tableEngNmChk = true;
@@ -273,6 +258,7 @@ function saveDataSetItem() {
 //데이터셋항목 수정
 function editDataSetItem() {
     const edit_dset_idntfc_id = $('#hidden_dset_idntfc_id').val();
+
     const data = {
         "dset_idntfc_id": edit_dset_idntfc_id,               //데이터셋_식별_ID
         "dset_owner": $("#dset_owner1").val(),  //데이터셋_소유자
@@ -292,6 +278,7 @@ function editDataSetItem() {
         "use_at": $("#use_at1").val(),          //사용 여부
         "creat_table_at": $("#creat_table_at1").val() //수집 테이블 생성 여부
     };
+
     ajaxPost('/dp/ingest/meta/tables/update/dataset/'+edit_dset_idntfc_id, data, function (data) {
         if(data.returnCode === "0000"){
             console.log('완료~dp_ingest_meta_tbl_update_dset', data);
@@ -389,6 +376,38 @@ function meta_tbl_id_chk() {
         console.log('완료~dp_ingest_meta_tbl_dset_id_chk' ,data);
         return data.contents[0].dset_idntfc_id;
     });
+}
+
+//데이터 리셋
+function dataReset () {
+    //데이터셋
+    $("#dset_korean_nm1").val("");
+    $("#clct_mthd1").val("");
+    $("#dset_dc1").val("");
+    $("#dset_lclas1").val("");
+    $("#clct_ty1").val("");
+    $("#dset_mclas1").val("");
+    $("#dset_owner1").val("S");
+    $("#dset_sclas1").val("");
+    $("#crud_se1").val("");
+    $("#crud_dc1").val("");
+    $("#use_at1").val("Y");
+    $("#creat_table_at1").val("");
+
+    //테이블 항목
+    $("#table_korean_nm2").val("");
+    $("#dset_dc2").val("");
+    $("#table_eng_nm2").val("");
+    $("#table_dset_knd").val("");
+    $("#table_owner").val("");
+    $("#physic_table_ty").val("");
+    $("#crud_se2").val("");
+    $("#crud_dc2").val("");
+    $("#use_at2").val("Y");
+    $("#creat_table_at2").val("");
+
+    $("#hidden_dset_idntfc_id").val("");
+    $("#hidden_table_idntfc_id").val("");
 }
 
 //전체선택 checked 해제
