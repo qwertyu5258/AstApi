@@ -73,31 +73,31 @@
                                          검색
                                       </th>
                                       <th>
-                                          <select class="form-control" id="">
+                                          <select class="form-control" id="LargeCategory">
                                               <option>대분류</option>
                                               <option>Option one</option>
                                           </select>
                                       </th>
                                       <th>
-                                          <select class="form-control" id="">
+                                          <select class="form-control" id="MiddleCategory">
                                               <option>중분류</option>
                                               <option>Option one</option>
                                           </select>
                                       </th>
                                       <th>
-                                          <select class="form-control" id="">
+                                          <select class="form-control" id="SmallCategory">
                                               <option>소분류</option>
                                               <option>Option one</option>
                                           </select>
                                       </th>
                                       <th>
-                                          <select class="form-control" id="">
+                                          <select class="form-control" id="SelectCategory">
                                               <option>선택</option>
                                               <option>Option one</option>
                                           </select>
                                       </th>
                                       <th>
-                                          <input class="form-control" type="text" placeholder="" id="">
+                                          <input class="form-control" type="text" placeholder="" id="SelectText">
                                       </th>
                                       <th>
                                           <button class="btn btn-primary" style="float:right" onclick="search()">검색</button>
@@ -120,10 +120,10 @@
                           </div>
                           <div class="x_content">
                               <div class="table_responsive">
-                                  <div class="talbel_total">총 1개</div>
-                                  <button class="btn btn-primary" style="width:10%;float:right" onclick="">삭제</button>
-                                  <button class="btn btn-primary" style="width:10%;float:right" onclick="">추가</button>
-                                  <button class="btn btn-primary" style="width:10%;float:right" onclick="dp_ingest_meta_tbl_make()">테이블생성</button>
+                                  <div class="talbel_total" id="metaTableCnt">총 1개</div>
+                                  <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableDel()">삭제</button>
+                                  <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableAdd()">추가</button>
+                                  <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableEdit()">테이블수정</button>
                                   <table class="table table-striped" id="metaTable1">
                                       <colgroup>
                                           <col width="55px">
@@ -133,7 +133,7 @@
                                       </colgroup>
                                       <thead>
                                           <tr>
-                                              <th rowspan="2"><input class="tableInfoAll" type="checkbox" onclick="checkBoxAll('tableInfo')"></th>
+                                              <th rowspan="2"><input class="tableInfoAll" id="check-all" type="checkbox" onclick="checkBoxAll('tableInfo')"></th>
                                               <th rowspan="2">대분류</th>
                                               <th rowspan="2">중분류</th>
                                               <th rowspan="2">소분류</th>
@@ -151,6 +151,7 @@
                                           </tr>
                                       </thead>
                                       <tbody>
+
                                       </tbody>
                                   </table>
                                   <div class="nav justify-content-center">
@@ -167,18 +168,20 @@
                   </div>
               </div>
 
-              <div class="row">
+              <div class="row" id="dataSetItem">
                   <div class="col-md-12">
                       <div class="x_panel">
                           <div class="x_title">
                               <h2>데이터셋 항목</h2>
-                              <button class="btn btn-primary" style="float:right" onclick="dp_ingest_meta_tbl_save_dset()">저장~~1</button>
+                              <button class="btn btn-primary" style="float:right" id="dataSetItemSaveBtn" onclick="saveDataSetItem()">저장~~1</button>
+                              <button class="btn btn-primary" style="float:right" id="dataSetItemEditBtn" onclick="editDataSetItem()">수정~~1</button>
                               <div class="clearfix"> </div>
                           </div>
                           <div class="x_content">
                               <div class="table_responsive">
 
                                   <table class="table table-striped" id="metaTable2">
+                                      <input type="hidden" id="hidden_dset_idntfc_id" value="">
                                       <colgroup>
                                           <col width="150px">
                                           <col width="150px">
@@ -195,7 +198,7 @@
                                           </th>
                                           <th>수집방식</th>
                                           <th><select class="form-control" id="clct_mthd1">
-                                              <option>Choose option</option>
+                                              <option val="">Choose option</option>
                                               <option>Option one</option>
                                           </select></th>
                                           <th rowspan="3" style="vertical-align: middle;">데이터셋 설명</th>
@@ -209,7 +212,7 @@
                                           </th>
                                           <th>
                                               <select class="form-control" id="dset_lclas1">
-                                                  <option>Choose option</option>
+                                                  <option val="">Choose option</option>
                                                   <option>Option one</option>
                                               </select>
                                           </th>
@@ -218,7 +221,7 @@
                                           </th>
                                           <th>
                                               <select class="form-control" id="clct_ty1">
-                                                  <option>Choose option</option>
+                                                  <option val="">Choose option</option>
                                                   <option>Option one</option>
                                               </select>
                                           </th>
@@ -229,7 +232,7 @@
                                           </th>
                                           <th>
                                               <select class="form-control" id="dset_mclas1">
-                                                  <option>Choose option</option>
+                                                  <option val="">Choose option</option>
                                                   <option>Option one</option>
                                               </select>
                                           </th>
@@ -238,8 +241,8 @@
                                           </th>
                                           <th>
                                               <select class="form-control" id="dset_owner1">
-                                                  <option>Choose option</option>
-                                                  <option>Option one</option>
+                                                  <option value="S">시스템</option>
+                                                  <option value="U">사용자</option>
                                               </select>
                                           </th>
                                       </tr>
@@ -249,7 +252,7 @@
                                           </th>
                                           <th>
                                               <select class="form-control" id="dset_sclas1">
-                                                  <option>Choose option</option>
+                                                  <option val="">Choose option</option>
                                                   <option>Option one</option>
                                               </select>
                                           </th>
@@ -258,7 +261,7 @@
                                           </th>
                                           <th>
                                               <select class="form-control" id="crud_se1">
-                                                  <option>Choose option</option>
+                                                  <option val="">Choose option</option>
                                                   <option>Option one</option>
                                               </select>
                                           </th>
@@ -273,8 +276,8 @@
                                           </th>
                                           <th>
                                               <select class="form-control" id="use_at1">
-                                                  <option>Choose option</option>
-                                                  <option>Option one</option>
+                                                  <option value="Y">사용</option>
+                                                  <option value="N">미사용</option>
                                               </select>
                                           </th>
                                           <th>
@@ -282,7 +285,7 @@
                                           </th>
                                           <th>
                                               <select class="form-control" id="creat_table_at1">
-                                                  <option>Choose option</option>
+                                                  <option val="">Choose option</option>
                                                   <option>Option one</option>
                                               </select>
                                           </th>
@@ -297,20 +300,20 @@
                   </div>
               </div>
 
-              <div class="row">
+              <div class="row" id="tableItem">
                   <div class="col-md-12">
                       <div class="x_panel">
                           <div class="x_title">
                               <h2>테이블 항목</h2>
-                              <button class="btn btn-primary" style="float:right"
-                                      onclick="dp_ingest_meta_tbl_save_tbl($('#table_korean_nm2').val())">저장~~2
-                              </button>
+                              <button class="btn btn-primary" style="float:right" id="tableItemSaveBtn" onclick="saveTableItem()">저장~~2</button>
+                              <button class="btn btn-primary" style="float:right" id="tableItemEditBtn" onclick="editTableItem()">수정~~2</button>
                               <div class="clearfix"></div>
                           </div>
                           <div class="x_content">
                               <div class="table_responsive">
 
                                   <table class="table table-striped" id="metaTable3">
+                                      <input type="hidden" id="hidden_table_idntfc_id" value="">
                                       <colgroup>
                                           <col width="150px">
                                           <col width="150px">
@@ -327,7 +330,8 @@
                                           </th>
                                           <th rowspan="3" style="vertical-align: middle;">데이터셋 설명</th>
                                           <th rowspan="3" style="vertical-align: middle;">
-                                              <textarea style="width: 100%;height: 130px;"></textarea>
+                                          <th rowspan="3" style="vertical-align: middle;">
+                                              <textarea style="width: 100%;height: 130px;" id="dset_dc2"></textarea>
                                           </th>
                                       </tr>
                                       <tr>
@@ -336,7 +340,7 @@
                                           </th>
                                           <th colspan="3">
                                               <input class="form-control" type="text" placeholder="" id="table_eng_nm2" style="display: inline-block;width: 80%">
-                                              <button class="btn btn-primary" style="float:right" onclick="dp_ingest_meta_tbl_chk('kkk')">중복체크</button>
+                                              <button class="btn btn-primary" style="float:right" onclick="table_eng_nm_chk()">중복체크</button>
                                           </th>
                                       </tr>
                                       <tr>
@@ -344,8 +348,8 @@
                                               데이터셋 셋종류
                                           </th>
                                           <th>
-                                              <select class="form-control" id="">
-                                                  <option>Choose option</option>
+                                              <select class="form-control" id="table_dset_knd">
+                                                  <option value="">Choose option</option>
                                                   <option>Option one</option>
                                               </select>
                                           </th>
@@ -353,8 +357,8 @@
                                               소유자 ID
                                           </th>
                                           <th>
-                                              <select class="form-control" id="">
-                                                  <option>Choose option</option>
+                                              <select class="form-control" id="table_owner">
+                                                  <option value="">Choose option</option>
                                                   <option>Option one</option>
                                               </select>
                                           </th>
@@ -364,8 +368,8 @@
                                               테이블 유형
                                           </th>
                                           <th>
-                                              <select class="form-control" id="">
-                                                  <option>Choose option</option>
+                                              <select class="form-control" id="physic_table_ty">
+                                                  <option value="">Choose option</option>
                                                   <option>Option one</option>
                                               </select>
                                           </th>
@@ -373,14 +377,14 @@
                                               CUD 구분
                                           </th>
                                           <th>
-                                              <select class="form-control" id="">
-                                                  <option>Choose option</option>
+                                              <select class="form-control" id="crud_se2">
+                                                  <option value="">Choose option</option>
                                                   <option>Option one</option>
                                               </select>
                                           </th>
                                           <th rowspan="2" style="vertical-align: middle">CUD 설명</th>
                                           <th rowspan="2" style="vertical-align: middle">
-                                              <textarea style="width: 100%;height: 100px;"></textarea>
+                                              <textarea style="width: 100%;height: 100px;" id="crud_dc2"></textarea>
                                           </th>
                                       </tr>
                                       <tr>
@@ -388,17 +392,17 @@
                                               사용 여부
                                           </th>
                                           <th>
-                                              <select class="form-control" id="">
-                                                  <option>Choose option</option>
-                                                  <option>Option one</option>
+                                              <select class="form-control" id="use_at2">
+                                                  <option value="Y">사용</option>
+                                                  <option value="N">미사용</option>
                                               </select>
                                           </th>
                                           <th>
                                               수집 테이블 생성 여부
                                           </th>
                                           <th>
-                                              <select class="form-control" id="">
-                                                  <option>Choose option</option>
+                                              <select class="form-control" id="creat_table_at2">
+                                                  <option value="">Choose option</option>
                                                   <option>Option one</option>
                                               </select>
                                           </th>
@@ -439,55 +443,10 @@
     </div>
 
     <%@include file="../A1.Common/commonJs.jsp" %>
+    <script src="js/metaTable.js"></script>
     <script src="http://jonmiles.github.io/bootstrap-treeview/js/bootstrap-treeview.js"></script>
-    <script>
-
-        // onload = initTable();
-        $(document).ready(initTable);
-        function initTable () {
-            ajaxGet('/dp/ingest/meta/tables', '', function (data) {
-                console.log(data);
-                let obj = data.contents;
-                let trHTML;
-
-                for (let i = 0; i < obj.length; i++) {
-                    let num = i;
-                    trHTML += '<tr class="">' +
-                        '<td><input class="tableInfo" type="checkbox"></td>'
-                        + '<td><label>' + obj[i].dset_lclas + '</label></td>'
-                        + '<td><label>' + obj[i].dset_mclas + '</label></td>'
-                        + '<td><label>' + obj[i].dset_sclas + '</label></td>'
-                        + '<td><label>' + obj[i].clct_mthd + '</label></td>'
-                        + '<td><label>' + obj[i].clct_ty + '</label></td>'
-                        + '<td><label>' + obj[i].dset_korean_nm + '</label></td>'
-                        + '<td><label>' + obj[i].table_korean_nm + '</label></td>'
-                        + '<td><label>' + obj[i].table_eng_nm + '</label></td>'
-                        + '<td><label>' + obj[i].column_korean_nm + '</label></td>'
-                        + '<td><label>' + obj[i].creat_table_at + '</label></td>'
-                        + '<td><button class="btn btn-primary" style="width:100%">바로가기</button></td>'
-                        + '</tr>';
 
 
-                }
-                $("#metaTable1 tbody").append(trHTML);
-            });
-        }
-
-        function search(param1) {
-            initTable();
-        }
-    </script>
-
-  <script>
-      $(document).ready(function () {
-
-      });
-
-      function checkTable() {
-
-      }
-
-  </script>
 
 
   </body>
