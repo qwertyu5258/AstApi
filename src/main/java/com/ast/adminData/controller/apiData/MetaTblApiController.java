@@ -62,10 +62,10 @@ public class MetaTblApiController {
     }
 
     //    dpIngestMetaTblCol	/dp/ingest/meta/tables/{param1}/column/{param1}	get
-    @GetMapping(value = {"/{param1}/column/{param2}"})
-    public Map dpIngestMetaTblCol(@PathVariable String param1, @PathVariable String param2) {
+    @GetMapping(value = {"/{param1}/column"})
+    public Map dpIngestMetaTblCol(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/meta/tables/" + param1 + "/column/" + param2);
+        Map<String, Object> DataList = restService.getApi("/dp/ingest/meta/tables/" + param1 + "/column");
 
         return DataList;
     }
