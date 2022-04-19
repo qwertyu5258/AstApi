@@ -80,6 +80,14 @@ public class BaseController {
     public String metaTableInfo() {
         return "A2.MetaTblManage/metaTableInfo";
     }
+    @RequestMapping("/metaTableItemManage")
+    public String metaTableItemManage() {
+        return "A2.MetaTblManage/metaTableItemManage";
+    }
+    @RequestMapping("/metaTblReferPopup")
+    public String metaTblReferPopup() {
+        return "A2.MetaTblManage/metaTblReferPopup";
+    }
     @RequestMapping("/dataModelList")
     public String dataModelList() {
         return "A2.DataModelManage/dataModelList";
