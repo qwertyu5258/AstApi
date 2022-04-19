@@ -1,6 +1,8 @@
 
 let url = new URL(window.location.href);
 let idntfcId = url.searchParams.get('idntfcId');
+let tableKoreanNm = url.searchParams.get('table_korean_nm');
+let tableEngNm = url.searchParams.get('table_eng_nm');
 
 console.log("idntfcId ::", idntfcId);
 
@@ -17,11 +19,15 @@ function initTable () {
 
         $("#metaTableInfoCnt").html("총 "+obj.length+"개");
 
+        $("#tableKoName").val(tableKoreanNm);
+        $("#tableEnName").val(tableEngNm);
+
         for (let i = 0; i < obj.length; i++) {
             trHTML += '<tr class="">'
                 + '<td><input class="tableInfo" type="checkbox" name="checkList" id="check'+i+'" value="'+obj[i].column_idntfc_id+'"></td>'
                 + '<td><label>' + obj[i].column_korean_nm + '</label></td>'
                 + '<td><label>' + obj[i].column_eng_nm + '</label></td>'
+                + '<td><label>' + obj[i].data_type + '</label></td>'
                 + '<td><label>' + obj[i].data_lt + '</label></td>'
                 + '<td><label>' + obj[i].not_null_at + '</label></td>'
                 + '<td><label>' + obj[i].dset_knd + '</label></td>'
@@ -71,6 +77,37 @@ function metaTableInfoAdd () {
 
 //삭제 버튼
 function metaTableInfoDel () {
+    const metaTableChecked_val = [];
+
+    $("input:checkbox[name='checkList']:checked").each(function(k,kValue){
+        metaTableChecked_val.push(kValue.value);
+    })
+
+    if(metaTableChecked_val.length === 0){
+        alert("삭제할 항목을 선택해 주세요.");
+        return;
+    }
+    let delStatus = true;
+    if(window.confirm("정말 삭제하시겠습니까?")){
+        setTimeout(() => {
+            for(let i=0; i < metaTableChecked_val.length; i++){
+                ajaxPost('/dp/ingest/meta/tables/delete'+idntfcId+'/dataset'+metaTableChecked_val[i], "", function (data) {
+                    if(data.contents[0].successYn === "Y"){
+                        console.log('완료~dp_ingest_meta_tbl_del_col',data);
+                    }else{
+                        console.log('실패~dp_ingest_meta_tbl_del_col',data);
+                        delStatus = false;
+                    }
+                });
+            }
+        })
+    }
+
+    if(delStatus){
+        alert("선택한 항목이 정상적으로 삭제되었습니다.");
+    }else{
+        alert("선택한 항목중 일부 삭제되지않았습니다.");
+    }
 
 }
 
@@ -83,7 +120,7 @@ function saveColumn () {
         "ordr" : $('#ordr').val(),
         "refrn_table_idntfc_id" : $('#refrn_table_idntfc_id').val(),
         "refrn_column_idntfc_id" : $('#refrn_column_idntfc_id').val(),
-        "table_eng_nm" : "",
+        "table_eng_nm" : tableEngNm,
         "column_eng_nm" : $('#column_eng_nm').val(),
         "column_korean_nm" : $('#column_korean_nm').val(),
         "column_dc" : $('#column_dc').val(),

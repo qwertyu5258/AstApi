@@ -49,6 +49,30 @@
         </div>
 
           <div class="right_col" role="main">
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="x_panel">
+                          <div class="x_content">
+                              <div class="row">
+                                  <div class="form-group row col-12 col-md-6">
+                                      <label class="control-label">테이블 한글 명</label>
+                                      <div class="form-control_box duplicate_box">
+                                          <input class="form-control" id="tableKoName" type="text" disabled="disabled">
+                                      </div>
+                                  </div>
+                                  <div class="form-group row col-12 col-md-6">
+                                      <label class="control-label">테이블 영문 명</label>
+                                      <div class="form-control_box">
+                                          <div class="col-md-6">
+                                              <input class="form-control" id="tableEnName" type="text" disabled="disabled">
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
 
               <div class="row">
                   <div class="col-md-12">

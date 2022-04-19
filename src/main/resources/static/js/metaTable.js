@@ -29,7 +29,7 @@ function initTable () {
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].table_eng_nm + '</label></td>,'
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].creat_table_at + '</label></td>'
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].column_korean_nm + '</label></td>'
-                + '<td><button class="btn btn-primary" style="width:100%" onclick="dp_ingest_meta_tbl_dset(`'+ obj[i].table_idntfc_id +'`)">바로가기</button></td>'
+                + '<td><button class="btn btn-primary" style="width:100%" onclick="dp_ingest_meta_tbl_dset(`'+ obj[i].table_idntfc_id +'`,`'+ obj[i].table_korean_nm +'`,`'+ obj[i].table_eng_nm +'`)">바로가기</button></td>'
                 + '</tr>';
         }
         $("#metaTable1 tbody").append(trHTML);
@@ -67,7 +67,7 @@ function search() {
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].table_eng_nm + '</label></td>,'
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].creat_table_at + '</label></td>'
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].column_korean_nm + '</label></td>'
-                + '<td><button class="btn btn-primary" style="width:100%" onclick="dp_ingest_meta_tbl_dset(`'+ obj[i].table_idntfc_id +'`)">바로가기</button></td>'
+                + '<td><button class="btn btn-primary" style="width:100%" onclick="dp_ingest_meta_tbl_dset(`'+ obj[i].table_idntfc_id +'`,`'+ obj[i].table_korean_nm +'`,`'+ obj[i].table_eng_nm +'`)">바로가기</button></td>'
                 + '</tr>';
         }
         $("#metaTable1 tbody").append(trHTML);
@@ -105,12 +105,28 @@ function metaTableDel() {
         return;
     }
 
+    let delStatus = true;
     if(window.confirm("정말 삭제하시겠습니까?")){
         setTimeout(() => {
             for(let i=0; i < checked_val.length; i++){
+                let delDestIdntfcId = checked_val[i].split("@")[0];
 
+                ajaxPost('/dp/ingest/meta/tables/delete/'+delDestIdntfcId+'/dataset', "", function (data) {
+                    if(data.contents[0].successYn === "Y"){
+                        console.log('완료~dp_ingest_meta_tbl_del_dset',data);
+                    }else{
+                        delStatus = false;
+                        console.log('실패~dp_ingest_meta_tbl_del_dset',data);
+                    }
+                });
             }
         })
+    }
+
+    if(delStatus){
+        alert("선택한 항목이 정상적으로 삭제되었습니다.");
+    }else{
+        alert("선택한 항목중 일부 삭제되지않았습니다.");
     }
 }
 
@@ -162,10 +178,10 @@ function dataSetTableData(id,status) {
         ajaxGet('/dp/ingest/meta/tables/'+tableIdntfcId+'/table', "", function (TableData) {
             console.log('완료~table' ,TableData);
 
-            $("#table_korean_nm2").val(TableData.contents[0].table_korean_nm);      //데이터셋 테이블_한글명
-            $("#dset_dc2").val(TableData.contents[0].dset_dc);                      //데이터셋 설명
-            $("#table_eng_nm2").val(TableData.contents[0].table_eng_nm);            //데이터셋 테이블_영문명
-            $("#table_dset_knd").val(TableData.contents[0].dset_knd);               //데이터셋 셋종류
+            $("#table_korean_nm2").val(TableData.contents[0].table_korean_nm);      //테이블_한글명
+            $("#table_dc").val(TableData.contents[0].table_dc);                     //테이블_설명
+            $("#table_eng_nm2").val(TableData.contents[0].table_eng_nm);            //테이블_영문명
+            $("#table_dset_knd").val(TableData.contents[0].dset_knd);               //테이블 데이터셋 셋종류
             $("#table_owner").val(TableData.contents[0].table_owner);               //테이블_소유자 ID
             $("#physic_table_ty").val(TableData.contents[0].physic_table_ty);       //테이블 유형
             $("#crud_se2").val(TableData.contents[0].crud_se);                      //CUD 구분
@@ -196,8 +212,8 @@ function dataSetTableData(id,status) {
 }
 
 //컬럼 정보 바로 가기
-function dp_ingest_meta_tbl_dset(id) {
-    location.href="metaTableInfo?idntfcId="+id;
+function dp_ingest_meta_tbl_dset(id, table_korean_nm, table_eng_nm) {
+    location.href="metaTableInfo?idntfcId="+id+"&table_korean_nm="+table_korean_nm+"&table_eng_nm="+table_eng_nm;
 }
 
 //데이터셋 영문명 중복체크
@@ -309,7 +325,7 @@ function saveTableItem() {
         "table_korean_nm": $('#table_korean_nm2').val(),            //테이블_한글명(필수)
         "physic_table_ty": $('#physic_table_ty').val(),             //테이블_유형
         "rl_entity_idntfc_id":null,                                 //관련_엔터티_식별자
-        "table_dc":null,                                            //테이블_설명
+        "table_dc": $('#table_dc').val(),                           //테이블_설명
         "cl_systm":null,                                            //업무_분류_체계
         "prsrv_pd":null,                                            //보존_기간
         "table_volum":null,                                         //테이블_볼륨

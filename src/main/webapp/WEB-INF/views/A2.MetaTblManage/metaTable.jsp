@@ -324,19 +324,19 @@
                                       </colgroup>
                                       <thead>
                                       <tr>
-                                          <th>데이터셋 한글명</th>
+                                          <th>테이블 한글명</th>
                                           <th colspan="3">
                                               <input class="form-control" type="text" placeholder="" id="table_korean_nm2">
                                           </th>
-                                          <th rowspan="3" style="vertical-align: middle;">데이터셋 설명</th>
+                                          <th rowspan="3" style="vertical-align: middle;">테이블 설명</th>
                                           <th rowspan="3" style="vertical-align: middle;">
                                           <th rowspan="3" style="vertical-align: middle;">
-                                              <textarea style="width: 100%;height: 130px;" id="dset_dc2"></textarea>
+                                              <textarea style="width: 100%;height: 130px;" id="table_dc"></textarea>
                                           </th>
                                       </tr>
                                       <tr>
                                           <th>
-                                              데이터셋 영문명
+                                              테이블 영문명
                                           </th>
                                           <th colspan="3">
                                               <input class="form-control" type="text" placeholder="" id="table_eng_nm2" style="display: inline-block;width: 80%">
