@@ -8,7 +8,7 @@
                 <ul class="nav child_menu">
                     <li><a href="metaTable">메타테이블</a></li>
                     <li><a href="metaTableItemManage">메타정보 항목관리</a></li>
-                    <li><a href="metaTblReferPopup">참조테이블검색팝업</a></li>
+<%--                    <li><a href="metaTblReferPopup">참조테이블검색팝업</a></li>--%>
 <%--                    <li><a href="metaTableInfo">(내부)테이블정보</a></li>--%>
                 </ul>
             </li>

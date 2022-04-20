@@ -56,8 +56,7 @@
                   <div class="clearfix"> </div>
                 </div>
                 <div class="x_content">
-                  <form class="form-horizontal form-label-left">
-                    <div class="row">
+                    <%--<div class="row">
                     <h3 class="col-md-11">Adaptor 등록</h3>
                     <button class="btn btn-sm btn-primary col-md">저장</button>
                     </div>
@@ -83,44 +82,40 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div>--%>
                     <div class="row">
                       <div class="col-md-12">
                         <div class="x_panel">
                           <div class="x_content">
-                            <form class="form-horizontal form-label-left d-flex align-items-center mb-4 row">
                               <div class="col-12 col-md-10">
                                 <div class="form-group row">
                                   <label class="control-label">검색</label>
                                   <div class="form-control_box">
                                     <div class="col-md-3 pl-0">
-                                      <select class="form-control">
-                                        <option>Choose option</option>
-                                        <option>Option one</option>
-                                        <option>Option two</option>
-                                        <option>Option three</option>
-                                        <option>Option four</option>
+                                      <select class="form-control" id="adapterSearchType">
+                                        <option value="">Choose option</option>
+                                        <option value="adapter_nm">adapter 명</option>
+                                        <option value="adapter_type_nm">adapter 유형</option>
                                       </select>
                                     </div>
                                     <div class="col-md-9 pr-0">
-                                      <input class="form-control" type="text" placeholder="">
+                                      <input class="form-control" type="text" placeholder="" id="adapterSearchText>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                               <div class="col-12 col-md-2 btn_search_box">
-                                <button class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i></button>
+                                <button class="btn btn-primary" onclick="search()"> <i class="glyphicon glyphicon-search"></i></button>
                               </div>
-                            </form>
                           </div>
                           <div class="x_title col-md-11 mb-4">
                             <h2>adaptor 정보</h2>
                           </div>
-                          <div class="clearfix col-md-1"><button class="btn btn-sm btn-primary col-md">저장</button> </div>
+                          <div class="clearfix col-md-1"><button class="btn btn-sm btn-primary col-md" onclick="adaptorConfigAdd();">등록</button> </div>
                           <div class="x_content">
                             <div class="table_responsive">
-                              <div class="talbel_total mb-2">총 1개</div>
-                              <table class="table table-striped">
+                              <div class="talbel_total mb-2" id="adaptorConfigCnt">총 1개</div>
+                              <table class="table table-striped" id="adaptorConfigData">
                                 <colgroup>
                                   <col width="55px">
                                 </colgroup>
@@ -129,15 +124,14 @@
                                   <th>no.</th>
                                   <th>Adaptor 명</th>
                                   <th>Adaptor 유형</th>
-                                  <th>수집방식</th>
-                                  <th>수집유형</th>
                                   <th>운영 및 상세</th>
                                   <th>사용여부</th>
                                   <th>인스턴스 수</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
+
+                               <%-- <tr>
                                   <td>1</td>
                                   <td>DB_TO_DB</td>
                                   <td>Postgresql</td>
@@ -149,20 +143,8 @@
                                     <button class="btn btn-sm btn-primary">상세</button>
                                   </td>
                                   <td>2019. 6. 18 오후 1:07:39</td>
-                                </tr>
-                                <tr>
-                                  <td>2</td>
-                                  <td>API</td>
-                                  <td>OPEN_API</td>
-                                  <td>M_CHA_1</td>
-                                  <td>문화재</td>
-                                  <td>박물관정보</td>
-                                  <td>
-                                    <button class="btn btn-sm btn-primary">운영</button>
-                                    <button class="btn btn-sm btn-primary">상세</button>
-                                  </td>
-                                  <td>2019. 6. 18 오후 1:07:39</td>
-                                </tr>
+                                </tr>--%>
+
                                 </tbody>
                               </table>
                               <div class="nav justify-content-center">
@@ -181,7 +163,6 @@
 
                     <div class="row">
                     </div>
-                  </form>
                 </div>
               </div>
             </div>
@@ -189,70 +170,10 @@
       </div>
     </div>
 
-    <%@include file="/WEB-INF/views/A1.Common/commonJs.jsp" %>
+      <%@include file="../A1.Common/commonJs.jsp" %>
+      <script type="text/javascript" src="../js/adaptor/adaptorConfig.js"></script>
+      <script src="http://jonmiles.github.io/bootstrap-treeview/js/bootstrap-treeview.js"></script>
 
-      <script>
-        ajax('get', '/dp/ingest/meta/tables', '', function(data) {
-          console.log(data);
-          let obj = data.contents;
-          let trHTML;
-
-          /*for (let i = 0; i < obj.length; i++) {*/
-          for (let i = 0; i < 2; i++) {
-            trHTML += '<tr>' +
-                    '<td><label>' + (i + 1) + '</label></td>'
-                    + '<td><label>' + obj[i].dset_lclas + '</label></td>'
-                    + '<td><label>' + obj[i].dset_mclas + '</label></td>'
-                    + '<td><label>' + obj[i].dset_sclas + '</label></td>'
-                    + '<td><label>' + obj[i].clct_mthd + '</label></td>'
-                    + '<td><label>' + obj[i].clct_ty + '</label></td>'
-                    + '<td><label>' + obj[i].dset_korean_nm + '</label></td>'
-                    + '<td><label>' + obj[i].table_korean_nm + '</label></td>'
-                    + '<td><label>' + obj[i].table_eng_nm + '</label></td>'
-                    + '<td><label>'+ obj[i].column_korean_nm + '</label></td>'
-                    + '<td><label>' + obj[i].creat_table_at + '</label></td>'
-                    + '<td><button class="btn btn-primary" style="width:100%">바로가기</button></td>'
-                    + '</tr>';
-
-
-          }
-          $("#metaTable1 tbody").append(trHTML);
-        });
-
-        function saveDataset() {
-          let data = {
-            // "dset_owner":$('#dset_owner1').val(),
-            // "dset_lclas":$('#dset_lclas1').val(),
-            // "dset_mclas":$('#dset_mclas1').val(),
-            //     "dset_sclas":$('#dset_sclas1').val(),
-            // "clct_mthd":$('#clct_mthd1').val(),
-            // "clct_ty":$('#clct_ty1').val(),
-
-            "dset_owner":"S",
-            "dset_lclas":"D",
-            "dset_mclas":"200",
-            "dset_sclas":"1",
-            "clct_mthd":"DB2DB",
-            "clct_ty":"POSTGRESQL",
-
-            "logic_db_nm":$('#logic_db_nm1').val(),
-            "dset_korean_nm":$('#dset_korean_nm1').val(),
-
-            "dset_dc": null,
-            "idntfr":null,
-            "supe_type_entity_nm":null,
-            "entity_iem_nm":null,
-            "crud_se":null,
-            "crud_dc":null,
-            "use_at":null,
-            "creat_table_at":null
-          }
-
-          ajax('post', '/dp/ingest/meta/tables/save/dataset', data,function (data){
-            alert('저장완료');
-          })
-        }
-      </script>
 
 
   </body>

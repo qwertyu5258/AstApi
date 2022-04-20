@@ -416,8 +416,6 @@
                       </div>
                   </div>
               </div>
-
-
         </div>
         <!-- modal -->
         <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
@@ -443,7 +441,7 @@
     </div>
 
     <%@include file="../A1.Common/commonJs.jsp" %>
-    <script src="js/metaTable.js"></script>
+    <script type="text/javascript" src="../js/metaTable/metaTable.js"></script>
     <script src="http://jonmiles.github.io/bootstrap-treeview/js/bootstrap-treeview.js"></script>
 
 

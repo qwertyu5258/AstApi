@@ -20,12 +20,9 @@ public class AdapterApiController {
 
     //    dpIngestadapter	/		get
     @GetMapping(value = {"", "/"})
-    public Map dpIngestAdapter(
-            @RequestParam(value="search", required = false) String search,
-            @RequestParam(value="search_type", required = false) String search_type,
-            @RequestParam(value="pageCurrent", required = false, defaultValue = "1") String pageCurrent) {
+    public Map dpIngestAdapter() {
 
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/adapter?search="+ search +"&search_type=" + search_type + "&pageCurrent=" + pageCurrent);
+        Map<String, Object> DataList = restService.getApi("/dp/ingest/adapter");
 
         return DataList;
     }

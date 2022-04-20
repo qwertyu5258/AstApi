@@ -52,26 +52,25 @@
             <div class="col-md-12">
               <div class="x_panel">
                 <div class="x_title">
-                  <h2>검색 형태3</h2>
+                  <h2>Adaptor 상세</h2>
                   <div class="clearfix"> </div>
                 </div>
                 <div class="x_content">
-                  <form class="form-horizontal form-label-left">
                     <div class="row">
-                    <h3 class="col-md-11">Adaptor 등록</h3>
-                    <button class="btn btn-sm btn-primary col-md">저장</button>
+                    <h3 class="col-md-11">Adaptor 상세</h3>
+                    <button class="btn btn-sm btn-primary col-md" onclick="adaptorConfigList();">목록</button>
                     </div>
                     <div class="row">
                       <div class="form-group row col-12 col-md-6">
                         <label class="control-label">Adaptor 명</label>
                         <div class="form-control_box duplicate_box">
-                          <input class="form-control" type="text">
+                          <input class="form-control" type="text" id="adapterDetalNm" disabled="disabled">
                         </div>
                       </div>
                       <div class="form-group row col-12 col-md-6">
                         <label class="control-label">사용 여부</label>
-                        <div class="form-control_box">
-                          <div class="radio radio_inline">
+                        <div class="form-control_box" id="adapterDetalUseYn">
+                          <%--<div class="radio radio_inline">
                             <label>
                               <div class="iradio_flat-purple checked" style="position: relative;"><input class="flat" type="radio" checked="" name="use" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>사용
                             </label>
@@ -80,7 +79,7 @@
                             <label>
                               <div class="iradio_flat-purple" style="position: relative;"><input class="flat" type="radio" name="use" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>사용안함
                             </label>
-                          </div>
+                          </div>--%>
                         </div>
                       </div>
                     </div>
@@ -88,14 +87,14 @@
                       <div class="form-group row col-12 col-md-6">
                         <label class="control-label">Adaptor 유형</label>
                         <div class="form-control_box">
-                          <div class="col-md-6 pl-0">
-                            <select class="form-control">
+                          <div class="col-md-6 pl-0" id="adapterDetalTypeNm">
+                            <%--<select class="form-control">
                               <option>Choose option</option>
                               <option>Option one</option>
                               <option>Option two</option>
                               <option>Option three</option>
                               <option>Option four</option>
-                            </select>
+                            </select>--%>
                           </div>
                         </div>
                       </div>
@@ -104,10 +103,8 @@
                     <br><br>
                     <br><br>
 
-
-
                     <div class="row col-md-12">
-                      인스턴스 등록
+                      <%--인스턴스 등록
                       <table class="col-md-12 table mt-3">
                         <tr>
                           <td>
@@ -183,14 +180,16 @@
 
                           </td>
                         </tr>
-                      </table>
+                      </table>--%>
 
                       <div class="col-md-12">
                         <div class="row">
                           <div class="row col-md-11">Instance 목록</div>
-                          <div class="col-md"><button class="btn btn-sm btn-primary float-md-right">상세</button></div>
+                          <div class="talbel_total" id="instanceListCnt">총 1개</div>
+                          <div class="col-md"><button class="btn btn-sm btn-primary float-md-right" onclick="instanceAdd();">등록</button></div>
                         </div>
-                        <table class="col-md-12 table">
+                        <table class="col-md-12 table" id="instanceListData">
+                          <thead>
                           <tr>
                             <td>
                               순번
@@ -220,7 +219,9 @@
                               사용여부
                             </td>
                           </tr>
-                          <tr>
+                          </thead>
+                          <tbody>
+                          <%--<tr>
                             <td>
                               1
                             </td>
@@ -249,7 +250,8 @@
                             <td>
                               사용여부
                             </td>
-                          </tr>
+                          </tr>--%>
+                          </tbody>
                         </table>
                       </div>
 
@@ -257,7 +259,7 @@
 
                     <div class="row">
                     </div>
-                  </form>
+
                 </div>
               </div>
             </div>
@@ -266,6 +268,8 @@
     </div>
 
     <%@include file="/WEB-INF/views/A1.Common/commonJs.jsp" %>
+      <script type="text/javascript" src="../js/adaptor/adaptorDetail.js"></script>
+      <script src="http://jonmiles.github.io/bootstrap-treeview/js/bootstrap-treeview.js"></script>
 
   </body>
 </html>

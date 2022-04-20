@@ -88,6 +88,10 @@ public class BaseController {
     public String metaTblReferPopup() {
         return "A2.MetaTblManage/metaTblReferPopup";
     }
+    @RequestMapping("/adaptorConfigPopup")
+    public String adaptorConfigPopup() {
+        return "A2.AdaptorManage/adaptorConfigPopup";
+    }
     @RequestMapping("/dataModelList")
     public String dataModelList() {
         return "A2.DataModelManage/dataModelList";

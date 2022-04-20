@@ -157,10 +157,11 @@
                                               <input class="form-control" type="text" placeholder="" id="column_korean_nm">
                                           </th>
                                           <th>참조 테이블 식별자</th>
-                                          <th colspan="3"><select class="form-control" id="refrn_table_idntfc_id">
-                                              <option value="">Choose option</option>
-                                              <option>Option one</option>
-                                          </select></th>
+                                          <th colspan="3">
+                                              <input class="form-control" id="refrn_table_idntfc_id" type="text" disabled="disabled">
+                                              <button class="btn btn-primary" onclick="refrnTablePopup();"> <i class="glyphicon glyphicon-search"></i></button>
+
+                                          </th>
                                       </tr>
                                       <tr>
                                           <th>
@@ -173,7 +174,7 @@
                                               참조 테이블명
                                           </th>
                                           <th colspan="3">
-                                              <input class="form-control" type="text" placeholder="" id="refrn_table_idntfc_nm">
+                                              <input class="form-control" type="text" placeholder="" id="refrn_table_idntfc_nm" disabled="disabled">
                                           </th>
                                       </tr>
                                       <tr>
@@ -226,7 +227,7 @@
                                           </th>
                                           <th style="vertical-align: middle">참조 컬럼명</th>
                                           <th colspan="3" style="vertical-align: middle">
-                                              <input class="form-control" type="text" placeholder="" id="refrn_column_idntfc_nm">
+                                              <input class="form-control" type="text" placeholder="" id="refrn_column_idntfc_nm" disabled="disabled">
                                           </th>
                                       </tr>
                                       <tr>
@@ -252,7 +253,7 @@
                                               수집테이블 생성여부
                                           </th>
                                           <th colspan="3">
-                                              <input class="form-control" type="text" placeholder="" id="creat_table_at">
+                                              <input class="form-control" type="text" placeholder="" id="creat_table_at" disabled="disabled">
                                           </th>
                                       </tr>
                                       <tr>
@@ -362,7 +363,7 @@
     </div>
 
     <%@include file="../A1.Common/commonJs.jsp" %>
-    <script src="js/metaTableInfo.js"></script>
+    <script type="text/javascript" src="../js/metaTable/metaTableInfo.js"></script>
     <script src="http://jonmiles.github.io/bootstrap-treeview/js/bootstrap-treeview.js"></script>
 
 

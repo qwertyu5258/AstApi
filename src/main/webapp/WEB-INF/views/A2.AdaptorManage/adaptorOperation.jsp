@@ -56,7 +56,7 @@
                   <div class="clearfix"> </div>
                 </div>
                 <div class="x_content">
-                  <form class="form-horizontal form-label-left">
+
                     <div class="row">
                       <div class="col-md-12">
                         <div class="x_panel">
@@ -160,7 +160,6 @@
                         </div>
                       </div>
                     </div>
-                  </form>
                 </div>
               </div>
             </div>
@@ -169,6 +168,8 @@
     </div>
 
     <%@include file="/WEB-INF/views/A1.Common/commonJs.jsp" %>
+      <script type="text/javascript" src="../js/adaptor/adaptorOperation.js"></script>
+      <script src="http://jonmiles.github.io/bootstrap-treeview/js/bootstrap-treeview.js"></script>
 
   </body>
 </html>

@@ -62,15 +62,6 @@
                   <div class="form-group row">
                     <label class="control-label">검색</label>
                     <div class="form-control_box">
-                      <div class="col-md-3 pl-0">
-                        <select class="form-control">
-                          <option>선택</option>
-                          <option>Option one</option>
-                          <option>Option two</option>
-                          <option>Option three</option>
-                          <option>Option four</option>
-                        </select>
-                      </div>
                       <div class="col-md-9 pr-0">
                         <input class="form-control" type="text" placeholder="">
                       </div>
@@ -78,30 +69,42 @@
                   </div>
                 </div>
                 <div class="col-12 col-md-2 btn_search_box">
-                  <button class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i></button>
+                  <button class="btn btn-primary" onclick="search();"> <i class="glyphicon glyphicon-search"></i></button>
                 </div>
                 <div class="col-12 col-md-12">
                   <div class="right_btns">
-                    <button class="btn btn-primary">등록</button>
+                    <button class="btn btn-primary" onclick="processListAdd();">등록</button>
                   </div>
                 </div>
                 <div class="col-12 col-md-12">
                   <div class="table_responsive">
-                    <div class="talbel_total mb-2">총 1 건</div>
-                    <table class="table table-striped">
+                    <div class="talbel_total mb-2" id="processListCnt">총 1 건</div>
+                    <table class="table table-striped" id="processListData">
                       <colgroup>
                       </colgroup>
                       <thead>
                       <tr>
-                        <th>전처리 명</th>
-                        <th>속성유형</th>
-                        <th>자리수</th>
-                        <th>전처리 전</th>
-                        <th>전처리 후</th>
+                        <th rowspan="2">전처리 명</th>
+                        <%--<th rowspan="2">변경유형</th>--%>
+                        <th rowspan="2">속성유형</th>
+                        <th rowspan="2">자리수</th>
+
+                        <th rowspan="2">변경모양</th>
+                        <th colspan="2">자리수</th>
+                        <th rowspan="2">정수</th>
+                        <th rowspan="2">소수점</th>
+                        <th rowspan="2">변경단어</th>
+                        <th colspan="2">전처리</th>
+                      </tr>
+                      <tr>
+                        <th>시작</th>
+                        <th>끝</th>
+                        <th>전</th>
+                        <th>후</th>
                       </tr>
                       </thead>
                       <tbody>
-                      <tr>
+                      <%--<tr>
                         <td>주민등록번호</td>
                         <td>String</td>
                         <td>14</td>
@@ -121,7 +124,7 @@
                         <td>14</td>
                         <td>123456-1234567</td>
                         <td>123456-1******</td>
-                      </tr>
+                      </tr>--%>
                       </tbody>
                     </table>
                     <div class="nav justify-content-center">
@@ -143,6 +146,8 @@
   </div>
 
   <%@include file="/WEB-INF/views/A1.Common/commonJs.jsp" %>
+  <script type="text/javascript" src="../js/adaptor/processList.js"></script>
+  <script src="http://jonmiles.github.io/bootstrap-treeview/js/bootstrap-treeview.js"></script>
 
 </body>
 </html>

@@ -6,9 +6,9 @@ let tableEngNm = url.searchParams.get('table_eng_nm');
 
 console.log("idntfcId ::", idntfcId);
 
-$(document).ready(initTable);
+metaTableInfoInit();
 
-function initTable () {
+function metaTableInfoInit () {
     //컬럼항목
     $("#metaTableInfoColDt").hide();
 
@@ -18,6 +18,7 @@ function initTable () {
         let trHTML;
 
         $("#metaTableInfoCnt").html("총 "+obj.length+"개");
+        $("#metaTableInfo1 tbody").empty();
 
         $("#tableKoName").val(tableKoreanNm);
         $("#tableEnName").val(tableEngNm);
@@ -91,7 +92,7 @@ function metaTableInfoDel () {
     if(window.confirm("정말 삭제하시겠습니까?")){
         setTimeout(() => {
             for(let i=0; i < metaTableChecked_val.length; i++){
-                ajaxPost('/dp/ingest/meta/tables/delete'+idntfcId+'/dataset'+metaTableChecked_val[i], "", function (data) {
+                ajaxPost('/dp/ingest/meta/tables/delete'+idntfcId+'/dataset/'+metaTableChecked_val[i], "", function (data) {
                     if(data.contents[0].successYn === "Y"){
                         console.log('완료~dp_ingest_meta_tbl_del_col',data);
                     }else{
@@ -100,21 +101,26 @@ function metaTableInfoDel () {
                     }
                 });
             }
-        })
-    }
 
-    if(delStatus){
-        alert("선택한 항목이 정상적으로 삭제되었습니다.");
-    }else{
-        alert("선택한 항목중 일부 삭제되지않았습니다.");
+            if(delStatus){
+                alert("선택한 항목이 정상적으로 삭제되었습니다.");
+                location.href="metaTableInfo?idntfcId="+idntfcId;
+            }else{
+                alert("선택한 항목중 일부 삭제되지않았습니다.");
+            }
+        },1000)
     }
-
 }
 
 //저장 버튼
 function saveColumn () {
+    const id_chk = column_tbl_id_chk();
+    if(!id_chk){
+        alert("컬럼_식별자 ID가 정상적으로 생성되지 않았습니다.");
+        return;
+    }
     const saveColumnData = {
-        "column_idntfc_id" : "",
+        "column_idntfc_id" : id_chk,
         "rl_table_idntfc_id" : idntfcId,
         "dset_knd" : $('#dset_knd').val(),
         "ordr" : $('#ordr').val(),
@@ -152,4 +158,20 @@ function saveColumn () {
             console.log('실패~dp_ingest_meta_tbl_save_col',data);
         }
     });
+}
+
+//참조 테이블 검색 팝업창
+function refrnTablePopup() {
+    let url = "/metaTblReferPopup";
+    let name = "metaTblReferPopup";
+    let option = "width = 700, height = 700, top = 100, left = 200, location = no"
+    window.open(url, name, option);
+}
+
+//컬럼_식별자_ID (컬럼_식별자 자동증가) - 식별자 C로시작 자리수 20자
+function column_tbl_id_chk() {
+    /*ajaxGet('/dp/ingest/meta/tables/dataset/id/check', "", function (data) {
+        console.log('완료~dp_ingest_meta_tbl_dset_id_chk' ,data);
+        return data.contents[0].dset_idntfc_id;
+    });*/
 }

@@ -112,9 +112,9 @@
                           </div>
                           <div class="x_content">
                               <div class="table_responsive">
-                                  <div class="talbel_total" id="metaTableCnt">총 1개</div>
-                                  <button class="btn btn-primary" style="width:10%;float:right" onclick="">저장</button>
-                                  <table class="table table-striped" id="metaTable1">
+                                  <div class="talbel_total" id="metaTableItemManageCnt">총 1개</div>
+                                  <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableItemManageSave()">저장</button>
+                                  <table class="table table-striped" id="metaTableItemManageData">
                                       <colgroup>
                                           <col width="55px">
                                           <col width="75px">
@@ -128,12 +128,11 @@
                                               <th>중분류</th>
                                               <th>소분류</th>
                                               <th>데이터셋명</th>
-
                                               <th>메타기본정보</th>
                                               <th>공간정보(데이터 품질)</th>
                                               <th>공간정보(좌표계)</th>
                                               <th>공간정보(배포)</th>
-                                              <th>문화제(속성</th>
+                                              <th>문화제(속성)</th>
                                           </tr>
                                       </thead>
                                       <tbody>
@@ -164,7 +163,7 @@
     </div>
 
     <%@include file="../A1.Common/commonJs.jsp" %>
-    <script src="js/metaTableItemManage.js"></script>
+    <script type="text/javascript" src="../js/metaTable/metaTableItemManage.js"></script>
     <script src="http://jonmiles.github.io/bootstrap-treeview/js/bootstrap-treeview.js"></script>
 
 

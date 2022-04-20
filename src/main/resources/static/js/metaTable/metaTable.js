@@ -1,9 +1,9 @@
 
 var tableEngNmChk = false;      //데이터셋 영문명 중복체크 값
 
-$(document).ready(initTable);
+metaTableInit();
 
-function initTable () {
+function metaTableInit () {
     $("#dataSetItem").hide();
     $("#tableItem").hide();
 
@@ -13,9 +13,9 @@ function initTable () {
         let trHTML;
 
         $("#metaTableCnt").html("총 "+obj.length+"개");
+        $("#metaTable1 tbody").empty();
 
         for (let i = 0; i < obj.length; i++) {
-            let num = i;
             let idntfcId = obj[i].rl_dset_idntfc_id + "@" + obj[i].table_idntfc_id;
             trHTML += '<tr class="">'
                 + '<td><input class="tableInfo" type="checkbox" onclick="metaCheckBox(checked)" name="checkList" id="check'+i+'" value="'+idntfcId+'"></td>'
@@ -23,11 +23,13 @@ function initTable () {
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_mclas + '</label></td>'
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_sclas + '</label></td>'
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].clct_mthd + '</label></td>'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><input class="" type="checkbox" onclick="" name="" id="check" value=""></td>'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><input class="" type="checkbox" onclick="" name="" id="check" value=""></td>'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><input class="" type="checkbox" onclick="" name="" id="check" value=""></td>'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><input class="" type="checkbox" onclick="" name="" id="check" value=""></td>,'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><input class="" type="checkbox" onclick="" name="" id="check" value=""></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].clct_ty + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_korean_nm + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].table_korean_nm + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].table_eng_nm + '</label></td>,'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].creat_table_at + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].column_korean_nm + '</label></td>'
+                + '<td><button class="btn btn-primary" style="width:100%" onclick="dp_ingest_meta_tbl_dset(`'+ obj[i].table_idntfc_id +'`,`'+ obj[i].table_korean_nm +'`,`'+ obj[i].table_eng_nm +'`)">바로가기</button></td>'
                 + '</tr>';
         }
         $("#metaTable1 tbody").append(trHTML);
@@ -49,9 +51,9 @@ function search() {
         let obj = data.contents;
         let trHTML;
         $("#metaTableCnt").html("총 "+obj.length+"개");
+        $("#metaTable1 tbody").empty();
 
         for (let i = 0; i < obj.length; i++) {
-            let num = i;
             let idntfcId = obj[i].rl_dset_idntfc_id + "@" + obj[i].table_idntfc_id;
             trHTML += '<tr class="">'
                 + '<td><input class="tableInfo" type="checkbox" onclick="metaCheckBox(checked)" name="checkList" id="check'+i+'" value="'+idntfcId+'"></td>'
@@ -118,13 +120,14 @@ function metaTableDel() {
                     }
                 });
             }
-        })
-    }
 
-    if(delStatus){
-        alert("선택한 항목이 정상적으로 삭제되었습니다.");
-    }else{
-        alert("선택한 항목중 일부 삭제되지않았습니다.");
+            if(delStatus){
+                alert("선택한 항목이 정상적으로 삭제되었습니다.");
+                location.href="metaTable";
+            }else{
+                alert("선택한 항목중 일부 삭제되지않았습니다.");
+            }
+        },1000)
     }
 }
 
@@ -237,6 +240,10 @@ function table_eng_nm_chk(){
 //데이터셋항목 저장
 function saveDataSetItem() {
     const id_chk = meta_tbl_id_chk();
+    if(!id_chk){
+        alert("데이터셋_식별 ID가 정상적으로 생성되지 않았습니다.");
+        return;
+    }
     const data = {
         "dset_idntfc_id": id_chk,               //데이터셋_식별_ID
         "dset_owner": $("#dset_owner1").val(),  //데이터셋_소유자
