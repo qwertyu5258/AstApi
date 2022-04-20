@@ -17,92 +17,92 @@ public class ModelApiController {
 
     //    dpIngestDataModels			get
     @GetMapping(value = {""})
-    public String dpIngestDataModels() {
+    public Map dpIngestDataModels() {
 
         Map<String, Object> DataList = restService.getApi("");
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpIngestDataModelsDt		/{param1}	get
     @GetMapping(value = {"/{param1}"})
-    public String dpIngestDataModelsDt(@PathVariable String param1) {
+    public Map dpIngestDataModelsDt(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.getApi("/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpIngestDataModelsIdChk		/id/check/{param1}	get
     @GetMapping(value = {"/id/check/{param1}"})
-    public String dpIngestDataModelsIdChk(@PathVariable String param1) {
+    public Map dpIngestDataModelsIdChk(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.getApi("/id/check/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpIngestDataModelsMeta		/meta/{param1}	get
     @GetMapping(value = {"/meta/{param1}"})
-    public String dpIngestDataModelsMeta(@PathVariable String param1) {
+    public Map dpIngestDataModelsMeta(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.getApi("/meta/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpIngestDataModelsPp		/property/{param1}	get
     @GetMapping(value = {"/property/{param1}"})
-    public String dpIngestDataModelsPp(@PathVariable String param1) {
+    public Map dpIngestDataModelsPp(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.getApi("/property/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpIngestDataModelsSave		/save	post
     @GetMapping(value = {"/save"})
-    public String dpIngestDataModelsSave() {
+    public Map dpIngestDataModelsSave() {
 
         Map<String, Object> DataList = restService.postApi("/save");
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpIngestDataModelsUpdate		/update/{param1}	post 중복
     @GetMapping(value = {"/update/{param1}"})
-    public String dpIngestDataModelsUpdate(@PathVariable String param1) {
+    public Map dpIngestDataModelsUpdate(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.postApi("/update/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpIngestDataModelsDelChk		/delete/check/{param1}	get
     @GetMapping(value = {"/delete/check/{param1}"})
-    public String dpIngestDataModelsDelChk(@PathVariable String param1) {
+    public Map dpIngestDataModelsDelChk(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.getApi("/delete/check/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpIngestDataModelsDel		/delete/{param1}	post
     @GetMapping(value = {"/delete/{param1}"})
-    public String dpIngestDataModelsDel(@PathVariable String param1) {
+    public Map dpIngestDataModelsDel(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.postApi("/delete/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
 //    //    dpIngestDataModelsUpdate	/update/{param1} post
 //    @PostMapping(value = {"/update/{param1}"})
-//    public String dpIngestDataModelsUpdate2(@PathVariable String param1) {
+//    public Map dpIngestDataModelsUpdate2(@PathVariable String param1) {
 //
 //        Map<String, Object> DataList = restService.postApi("/update/" + param1);
 //
-//        return DataList.toString();
+//        return DataList;
 //    }
 
 

@@ -17,59 +17,59 @@ public class ProApiController {
 
 //    dpIngestPro	/dp/ingest/pro		get
 @GetMapping(value = {""})
-public String dpIngestAdaptorItIdChk() {
+public Map dpIngestAdaptorItIdChk() {
 
     Map<String, Object> DataList = restService.getApi("");
 
-    return DataList.toString();
+    return DataList;
 }
 //    dpIngestProDt		/{param1}	get
 @GetMapping(value = {"/{param1}"})
-public String dpIngestProDt(@PathVariable String param1) {
+public Map dpIngestProDt(@PathVariable String param1) {
 
     Map<String, Object> DataList = restService.getApi("/" + param1);
 
-    return DataList.toString();
+    return DataList;
 }
 //    dpIngestProIdChk		/id/check/{param1}	get
 @GetMapping(value = {"/id/check/{param1}"})
-public String dpIngestProIdChk(@PathVariable String param1) {
+public Map dpIngestProIdChk(@PathVariable String param1) {
 
     Map<String, Object> DataList = restService.getApi("/id/check/" + param1);
 
-    return DataList.toString();
+    return DataList;
 }
 //    dpIngestProIdDelChk		/id/delete/check/	get
 @GetMapping(value = {"/id/delete/check"})
-public String dpIngestProIdDelChk() {
+public Map dpIngestProIdDelChk() {
 
     Map<String, Object> DataList = restService.getApi("/id/delete/check");
 
-    return DataList.toString();
+    return DataList;
 }
 //    dpIngestProSave		/save	post
 @PostMapping(value = {"/save"})
-public String dpIngestProSave() {
+public Map dpIngestProSave() {
 
     Map<String, Object> DataList = restService.postApi("/save");
 
-    return DataList.toString();
+    return DataList;
 }
 //    dpIngestProDel		/delete/{param1}	post
 @PostMapping(value = {"/delete/{param1}"})
-public String dpIngestProDel(@PathVariable String param1) {
+public Map dpIngestProDel(@PathVariable String param1) {
 
     Map<String, Object> DataList = restService.postApi("/delete/" + param1);
 
-    return DataList.toString();
+    return DataList;
 }
 //    dpIngestProUpdate		/update/{param1}	post
 @PostMapping(value = {"/update/{param1}"})
-public String dpIngestProUpdate(@PathVariable String param1) {
+public Map dpIngestProUpdate(@PathVariable String param1) {
 
     Map<String, Object> DataList = restService.postApi("/update/" + param1);
 
-    return DataList.toString();
+    return DataList;
 }
 
 

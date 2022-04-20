@@ -18,38 +18,38 @@ public class DataSetApiController {
 
     //    dpIngestMetaDset		/dataset	get
     @GetMapping(value = {"/dataset"})
-    public String dpIngestMetaDset() {
+    public Map dpIngestMetaDset() {
 
         Map<String, Object> DataList = restService.getApi("/dataset");
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpIngestMetaDsetDt		/dataset/{param1}	get
     @GetMapping(value = {"/detail/{param1}"})
-    public String dpIngestMetaDsetDt(@PathVariable String param1) {
+    public Map dpIngestMetaDsetDt(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.getApi("/detail/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpIngestMetaDsetUpdate		/dataset/update/{param1}	post
     @PostMapping(value = {"/dataset/update/{param1}"})
-    public String dpIngestMetaDsetUpdate(@PathVariable String param1) {
+    public Map dpIngestMetaDsetUpdate(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.postApi("/dataset/update/{param1}" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpIngestMetaDsetDel		/dataset/delete/{param1}	post
     @PostMapping(value = {"/dataset/delete/{param1}"})
-    public String dpIngestMetaDsetDel(@PathVariable String param1) {
+    public Map dpIngestMetaDsetDel(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.postApi("/dataset/delete/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
 

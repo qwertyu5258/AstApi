@@ -17,74 +17,74 @@ public class CodesApiController {
 
     //    dpCmCodesDt		/detail/{param1}	get
     @GetMapping(value = {"/detail/{param1}"})
-    public String dpCmCodesDt(@PathVariable String param1) {
+    public Map dpCmCodesDt(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.getApi("/detail/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //
 //    dpCmCodes		/{param1}	get
     @GetMapping(value = {"/{param1}"})
-    public String dpCmCodes(@PathVariable String param1) {
+    public Map dpCmCodes(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.getApi("/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpCmCodesSave		/save	post
     @PostMapping(value = {"/save"})
-    public String dpCmCodesSave() {
+    public Map dpCmCodesSave() {
 
         Map<String, Object> DataList = restService.postApi("/save");
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpCmCodesUpdate		/update/{param1}	post
     @PostMapping(value = {"/update/{param1}"})
-    public String dpCmCodesUpdate(@PathVariable String param1) {
+    public Map dpCmCodesUpdate(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.postApi("/update/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpCmCodesDel		/delete/{param1}	post
     @PostMapping(value = {"/delete/{param1}"})
-    public String dpCmCodesDel(@PathVariable String param1) {
+    public Map dpCmCodesDel(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.postApi("/delete/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpCmCodesDtSave		/detail/save	post
     @PostMapping(value = {"/detail/save"})
-    public String dpCmCodesDtSave() {
+    public Map dpCmCodesDtSave() {
 
         Map<String, Object> DataList = restService.postApi("/detail/save");
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpCmCodesDtUpdate		/detail/update/{param1}	post
     @PostMapping(value = {"/detail/update/{param1}"})
-    public String dpCmCodesDtUpdate(@PathVariable String param1) {
+    public Map dpCmCodesDtUpdate(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.postApi("/detail/update/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpCmCodesDtDel		/detail/delete/{param1}	post
     @PostMapping(value = {"/detail/delete/{param1}"})
-    public String dpCmCodesDtDel(@PathVariable String param1) {
+    public Map dpCmCodesDtDel(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.postApi("/detail/delete/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 }

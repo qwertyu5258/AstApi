@@ -18,46 +18,46 @@ public class PopupApiController {
     private final RestService restService;
 
     @GetMapping(value = {"/{param1}/dataset"})
-    public String dpIngestMetaTblDset(@PathVariable String param1) {
+    public Map dpIngestMetaTblDset(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.getApi(param1 + "/dataset");
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpIngestPopupDset01		/dataset01	get
     @GetMapping(value = {"/dataset01"})
-    public String dpIngestPopupDset01() {
+    public Map dpIngestPopupDset01() {
 
         Map<String, Object> DataList = restService.getApi("/dp/ingest/popup");
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpIngestPopupTblColum		/table_colum/{param1}	get
     @GetMapping(value = {"/table_colum/{param1}"})
-    public String dpIngestPopupTblColum(@PathVariable String param1) {
+    public Map dpIngestPopupTblColum(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.getApi("/table_colum/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpIngestPopupPpPath   /property_path/{param1}	get
     @GetMapping(value = {"/property_path/{param1}"})
-    public String dpIngestPopupPpPath(@PathVariable String param1) {
+    public Map dpIngestPopupPpPath(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.getApi("/property_path/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpIngestPopupMetaTbl	/metaTable	get
     @GetMapping(value = {"/metaTable"})
-    public String dpIngestPopupMetaTbl() {
+    public Map dpIngestPopupMetaTbl() {
 
         Map<String, Object> DataList = restService.getApi("/metaTable");
 
-        return DataList.toString();
+        return DataList;
     }
 }

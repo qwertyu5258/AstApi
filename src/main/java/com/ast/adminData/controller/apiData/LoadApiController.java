@@ -17,7 +17,7 @@ public class LoadApiController {
     private final RestService restService;
 
     @GetMapping(value = {""})
-    public String dpIngestErrors() {
+    public Map dpIngestErrors() {
 
         Map<String, Object> DataList = restService.getApi("");
 
@@ -26,7 +26,7 @@ public class LoadApiController {
 
     //    dpLoadDset	/dataset	get
     @GetMapping(value = {"/dataset"})
-    public String dpdpLoadDsetIngestErrors() {
+    public Map dpdpLoadDsetIngestErrors() {
 
         Map<String, Object> DataList = restService.getApi("/dataset");
 
@@ -35,7 +35,7 @@ public class LoadApiController {
 
     //    dpLoadDsetDt		/dataset/detail/{param1}	get
     @GetMapping(value = {"/dataset/detail/{param1}"})
-    public String dpLoadDsetDt(@PathVariable String param1) {
+    public Map dpLoadDsetDt(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.getApi("/dataset/detail/" + param1);
 
@@ -44,7 +44,7 @@ public class LoadApiController {
 
     //    dpLoadDsetDtCt		/dataset/detail/collection	post
     @PostMapping(value = {"/dataset/detail/collection"})
-    public String dpLoadDsetDtCt() {
+    public Map dpLoadDsetDtCt() {
 
         Map<String, Object> DataList = restService.postApi("/dataset/detail/collection");
 
@@ -53,7 +53,7 @@ public class LoadApiController {
 
     //    dpLoadPopupHistory_01		/popup/history/01/{param1}	get
     @GetMapping(value = {"/popup/history/01/{param1}"})
-    public String dpLoadPopupHistory_01(@PathVariable String param1) {
+    public Map dpLoadPopupHistory_01(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.getApi("/popup/history/01/" + param1);
 
@@ -62,7 +62,7 @@ public class LoadApiController {
 
     //    dpLoadPopupHistoryDown_01		/popup/history/down/01/{param1}	post
     @PostMapping(value = {"/popup/history/down/01/{param1}"})
-    public String dpLoadPopupHistoryDown_01(@PathVariable String param1) {
+    public Map dpLoadPopupHistoryDown_01(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.postApi("/popup/history/down/01/" + param1);
 
@@ -71,7 +71,7 @@ public class LoadApiController {
 
     //    dpLoadDataComplex		/data_complex	get
     @GetMapping(value = {"/data_complex"})
-    public String dpLoadDataComplex() {
+    public Map dpLoadDataComplex() {
 
         Map<String, Object> DataList = restService.getApi("/data_complex");
 
@@ -80,7 +80,7 @@ public class LoadApiController {
 
     //    dpLoadDataComplexDt		/data_complex/detail	get
     @GetMapping(value = {"/data_complex/detail"})
-    public String dpLoadDataComplexDt() {
+    public Map dpLoadDataComplexDt() {
 
         Map<String, Object> DataList = restService.getApi("/data_complex/detail");
 
@@ -89,7 +89,7 @@ public class LoadApiController {
 
     //    dpLoadDataComplexDtCt		/data_complex/detail/collection	get
     @GetMapping(value = {"/data_complex/detail/collection"})
-    public String dpLoadDataComplexDtCt() {
+    public Map dpLoadDataComplexDtCt() {
 
         Map<String, Object> DataList = restService.getApi("/data_complex/detail/collection");
 
@@ -98,7 +98,7 @@ public class LoadApiController {
 
     //    dpLoadPopupHistory_02		/popup/history/02/{param1}	get
     @GetMapping(value = {"/popup/history/02/{param1}"})
-    public String dpLoadPopupHistory_02(@PathVariable String param1) {
+    public Map dpLoadPopupHistory_02(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.getApi("/popup/history/02/" + param1);
 
@@ -107,7 +107,7 @@ public class LoadApiController {
 
     //    dpLoadPopupHistoryDown_02		/popup/history/down/02/{param1}	post
     @PostMapping(value = {"/popup/history/down/02/{param1}"})
-    public String dpLoadPopupHistoryDown_02(@PathVariable String param1) {
+    public Map dpLoadPopupHistoryDown_02(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.postApi("/popup/history/down/02/" + param1);
 
@@ -116,7 +116,7 @@ public class LoadApiController {
 
     //    dpLoadDataComplexQDt		/data_complex/query/detail/{param1}	get
     @GetMapping(value = {"/data_complex/query/detail/{param1}"})
-    public String dpLoadDataComplexQDt(@PathVariable String param1) {
+    public Map dpLoadDataComplexQDt(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.getApi("/data_complex/query/detail/" + param1);
 
@@ -125,7 +125,7 @@ public class LoadApiController {
 
     //    dpLoadDataComplexQTarget		/data_complex/query/target/{param1}	get
     @GetMapping(value = {"/data_complex/query/target/{param1}"})
-    public String dpLoadDataComplexQTarget(@PathVariable String param1) {
+    public Map dpLoadDataComplexQTarget(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.getApi("/data_complex/query/target/" + param1);
 
@@ -134,7 +134,7 @@ public class LoadApiController {
 
     //    dpLoadDataComplexQMatch		/data_complex/query/match/{param1}	get
     @GetMapping(value = {"/data_complex/query/match/{param1}"})
-    public String dpLoadDataComplexQMatch(@PathVariable String param1) {
+    public Map dpLoadDataComplexQMatch(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.getApi("/data_complex/query/match/" + param1);
 
@@ -143,7 +143,7 @@ public class LoadApiController {
 
     //    dpLoadDataComplexQComplex		/data_complex/query/complex/{param1}	get
     @GetMapping(value = {"/data_complex/query/complex/{param1}"})
-    public String dpLoadDataComplexQComplex(@PathVariable String param1) {
+    public Map dpLoadDataComplexQComplex(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.getApi("/data_complex/query/complex/" + param1);
 
@@ -152,7 +152,7 @@ public class LoadApiController {
 
     //    dpLoadDataComplexQSql		/data_complex/query/sql/{param1}	get
     @GetMapping(value = {"/data_complex/query/sql/{param1}"})
-    public String dpLoadDataComplexQSql(@PathVariable String param1) {
+    public Map dpLoadDataComplexQSql(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.getApi("/data_complex/query/sql/" + param1);
 
@@ -161,7 +161,7 @@ public class LoadApiController {
 
     //    dpLoadDsetQSave		/dataset/query/save/{param1}	post
     @PostMapping(value = {"/dataset/query/save/{param1}"})
-    public String dpLoadDsetQSave(@PathVariable String param1) {
+    public Map dpLoadDsetQSave(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.postApi("/dataset/query/save/" + param1);
 
@@ -170,7 +170,7 @@ public class LoadApiController {
 
     //    dpLoadDsetQDelChk		/dataset/query/delete/check	get
     @GetMapping(value = {"/dataset/query/delete/check"})
-    public String dpLoadDsetQDelChk() {
+    public Map dpLoadDsetQDelChk() {
 
         Map<String, Object> DataList = restService.getApi("/dataset/query/delete/check");
 
@@ -179,7 +179,7 @@ public class LoadApiController {
 
     //    dpLoadDsetQDel		/dataset/query/delete/{param1}	post
     @PostMapping(value = {"/dataset/query/delete/{param1}"})
-    public String dpLoadDsetQDel(@PathVariable String param1) {
+    public Map dpLoadDsetQDel(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.postApi("/dataset/query/delete/" + param1);
 
@@ -188,7 +188,7 @@ public class LoadApiController {
 
     //    dpLoadDsetQExecStart		/dataset/query/exec/start/{param1}	post
     @PostMapping(value = {"/dataset/query/exec/start/{param1}"})
-    public String dpLoadDsetQExecStart(@PathVariable String param1) {
+    public Map dpLoadDsetQExecStart(@PathVariable String param1) {
 
         Map<String, Object> DataList = restService.postApi("/dataset/query/exec/start/" + param1);
 
@@ -197,7 +197,7 @@ public class LoadApiController {
 
     //    dpLoadPopupDset01		/popup/dataset01	get
     @GetMapping(value = {"/popup/dataset01"})
-    public String dpLoadPopupDset01() {
+    public Map dpLoadPopupDset01() {
 
         Map<String, Object> DataList = restService.getApi("/popup/dataset01");
 
@@ -206,7 +206,7 @@ public class LoadApiController {
 
     //    dpLoadPopupDset02		/popup/dataset02	get
     @GetMapping(value = {"/popup/dataset02"})
-    public String dpLoadPopupDset02() {
+    public Map dpLoadPopupDset02() {
 
         Map<String, Object> DataList = restService.getApi("/popup/dataset02");
 
