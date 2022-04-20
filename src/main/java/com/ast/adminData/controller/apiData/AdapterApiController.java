@@ -46,6 +46,13 @@ public class AdapterApiController {
 
         return DataList;
     }
+    @GetMapping(value = {"/type"})
+    public Map dp_ingest_adapter_type() {
+
+        Map<String, Object> DataList = restService.getApi("/dp/ingest/adapter/type");
+
+        return DataList;
+    }
 
     //    dpIngestadapterItIdChk		/instance/id/check/{param1}	get
     @GetMapping(value = {"/instance/id/check/{param1}"})
