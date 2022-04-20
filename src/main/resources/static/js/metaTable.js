@@ -432,3 +432,7 @@ function metaCheckBox(value) {
         $("#check-all").prop("checked", false);
     }
 }
+
+ajaxGet('/dp/ingest/adapter?search_type=adapter_nm&search=11', '', function (data) {
+    alert('완료~113');
+});
