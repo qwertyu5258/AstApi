@@ -21,7 +21,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.getApi("");
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadDset	/dataset	get
@@ -30,7 +30,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.getApi("/dataset");
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadDsetDt		/dataset/detail/{param1}	get
@@ -39,7 +39,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.getApi("/dataset/detail/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadDsetDtCt		/dataset/detail/collection	post
@@ -48,7 +48,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.postApi("/dataset/detail/collection");
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadPopupHistory_01		/popup/history/01/{param1}	get
@@ -57,7 +57,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.getApi("/popup/history/01/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadPopupHistoryDown_01		/popup/history/down/01/{param1}	post
@@ -66,7 +66,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.postApi("/popup/history/down/01/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadDataComplex		/data_complex	get
@@ -75,7 +75,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.getApi("/data_complex");
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadDataComplexDt		/data_complex/detail	get
@@ -84,7 +84,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.getApi("/data_complex/detail");
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadDataComplexDtCt		/data_complex/detail/collection	get
@@ -93,7 +93,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.getApi("/data_complex/detail/collection");
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadPopupHistory_02		/popup/history/02/{param1}	get
@@ -102,7 +102,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.getApi("/popup/history/02/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadPopupHistoryDown_02		/popup/history/down/02/{param1}	post
@@ -111,7 +111,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.postApi("/popup/history/down/02/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadDataComplexQDt		/data_complex/query/detail/{param1}	get
@@ -120,7 +120,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.getApi("/data_complex/query/detail/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadDataComplexQTarget		/data_complex/query/target/{param1}	get
@@ -129,7 +129,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.getApi("/data_complex/query/target/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadDataComplexQMatch		/data_complex/query/match/{param1}	get
@@ -138,7 +138,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.getApi("/data_complex/query/match/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadDataComplexQComplex		/data_complex/query/complex/{param1}	get
@@ -147,7 +147,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.getApi("/data_complex/query/complex/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadDataComplexQSql		/data_complex/query/sql/{param1}	get
@@ -156,7 +156,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.getApi("/data_complex/query/sql/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadDsetQSave		/dataset/query/save/{param1}	post
@@ -165,7 +165,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.postApi("/dataset/query/save/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadDsetQDelChk		/dataset/query/delete/check	get
@@ -174,7 +174,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.getApi("/dataset/query/delete/check");
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadDsetQDel		/dataset/query/delete/{param1}	post
@@ -183,7 +183,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.postApi("/dataset/query/delete/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadDsetQExecStart		/dataset/query/exec/start/{param1}	post
@@ -192,7 +192,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.postApi("/dataset/query/exec/start/" + param1);
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadPopupDset01		/popup/dataset01	get
@@ -201,7 +201,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.getApi("/popup/dataset01");
 
-        return DataList.toString();
+        return DataList;
     }
 
     //    dpLoadPopupDset02		/popup/dataset02	get
@@ -210,7 +210,7 @@ public class LoadApiController {
 
         Map<String, Object> DataList = restService.getApi("/popup/dataset02");
 
-        return DataList.toString();
+        return DataList;
     }
 
 }
