@@ -23,6 +23,13 @@ public class EtcApiController {
         return DataList.toString();
     }
 
+    @GetMapping(value = {"/dp/ingest/pre"})
+    public Map dp_ingest_pre(@RequestParam(value="search", required = false) String search,
+                             @RequestParam(value="pageCurrent", required = false, defaultValue = "1") String pageCurrent
+                             ) {
+        Map<String, Object> DataList = restService.getApi("/dp/ingest/pre?search" + search + "&pageCurrent" + pageCurrent);
 
+        return DataList;
+    }
 
 }
