@@ -47,9 +47,9 @@ public class MetaDataApiController {
 
 
     @PostMapping(value = {"/dp/ingest/meta/item/save"})
-    public Map dp_ingest_meta_item_save(@PathVariable String param1) {
+    public Map dp_ingest_meta_item_save(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.postApi("/dp/ingest/meta/item/save");
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/meta/item/save", params);
 
         return DataList;
     }

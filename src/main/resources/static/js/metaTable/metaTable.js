@@ -431,4 +431,20 @@ function metaCheckBox(value) {
     if(value === false){
         $("#check-all").prop("checked", false);
     }
+
+}
+//    test
+function test1() {
+    let data =
+        {
+            "dset_idntfc_id": "test03kk1",
+            "cl_bass": "k",
+            "cl_qlity": "k",
+            "cl_cntm": "k",
+            "cl_wdtb": "k",
+            "cl_crlts": "k"
+        };
+    ajaxPost('/dp/ingest/meta/item/save', data, function (data) {
+        alert('완료~113');
+    });
 }
