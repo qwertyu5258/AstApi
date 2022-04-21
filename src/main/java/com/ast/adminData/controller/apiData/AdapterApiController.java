@@ -257,4 +257,12 @@ public class AdapterApiController {
         return DataList;
     }
 
+    @GetMapping(value = {"/instance/{param1}/detail"})
+    public Map dp_ingest_adapter_it_dt(@PathVariable String param1) {
+
+        Map<String, Object> DataList = restService.getApi("/dp/ingest/adapter/instance/" + param1 + "/detail");
+
+        return DataList;
+    }
+
 }

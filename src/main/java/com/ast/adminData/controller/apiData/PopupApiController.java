@@ -3,10 +3,7 @@ package com.ast.adminData.controller.apiData;
 import com.ast.adminData.common.RestService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -14,13 +11,14 @@ import java.util.Map;
 @RestController
 @RequestMapping("/dp/ingest/popup")
 @RequiredArgsConstructor
+@ResponseBody
 public class PopupApiController {
     private final RestService restService;
 
     @GetMapping(value = {"/{param1}/dataset"})
     public Map dpIngestMetaTblDset(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.getApi(param1 + "/dataset");
+        Map<String, Object> DataList = restService.getApi("/dp/ingest/popup/" + param1 + "/dataset");
 
         return DataList;
     }
@@ -38,7 +36,7 @@ public class PopupApiController {
     @GetMapping(value = {"/table_colum/{param1}"})
     public Map dpIngestPopupTblColum(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.getApi("/table_colum/" + param1);
+        Map<String, Object> DataList = restService.getApi("/dp/ingest/popup/table_colum/" + param1);
 
         return DataList;
     }
@@ -47,16 +45,15 @@ public class PopupApiController {
     @GetMapping(value = {"/property_path/{param1}"})
     public Map dpIngestPopupPpPath(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.getApi("/property_path/" + param1);
+        Map<String, Object> DataList = restService.getApi("/dp/ingest/popup/property_path/" + param1);
 
         return DataList;
     }
 
     //    dpIngestPopupMetaTbl	/metaTable	get
-    @GetMapping(value = {"/metaTable"})
-    public Map dpIngestPopupMetaTbl() {
-
-        Map<String, Object> DataList = restService.getApi("/metaTable");
+    @GetMapping(value = {"/meta_table"})
+    public Map dpIngestPopupMetaTbl(@RequestParam(value="table_korean_nm", required = false) String table_korean_nm) {
+        Map<String, Object> DataList = restService.getApi("/dp/ingest/popup/meta_table?table_korean_nm=" + table_korean_nm);
 
         return DataList;
     }
