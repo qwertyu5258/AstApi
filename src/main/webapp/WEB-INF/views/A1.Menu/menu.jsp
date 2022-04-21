@@ -25,6 +25,9 @@
                     <li><a href="adaptorConfig">Adaptor 설정</a></li>
                     <%--<li><a href="adaptorDetail">Adaptor 상세</a></li>--%>
                     <li><a href="instanceDetail">Instance 상세</a></li>
+                    <li><a href="instanceAdd">(팝업)Instance 등록</a></li>
+                    <li><a href="instanceUpdate">(팝업)Instance 수정</a></li>
+                    <li><a href="idConfigPopup">(팝업)ID 설정 팝업</a></li>
                     <li><a href="instanceConfig">Instance 매칭정보 설정</a></li>
                     <li><a href="adaptorOperation">Adaptor 운영</a></li>
                     <li><a href="instanceInquiry">Instance 조회</a></li>

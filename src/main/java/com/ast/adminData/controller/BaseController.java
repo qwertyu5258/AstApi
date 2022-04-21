@@ -116,6 +116,14 @@ public class BaseController {
     public String instanceDetail() {
         return "A2.AdaptorManage/instanceDetail";
     }
+    @RequestMapping("/instanceAdd")
+    public String instanceAdd() {
+        return "A2.AdaptorManage/instanceAdd";
+    }
+    @RequestMapping("/instanceUpdate")
+    public String instanceUpdate() {
+        return "A2.AdaptorManage/instanceUpdate";
+    }
     @RequestMapping("/instanceConfig")
     public String instanceConfig() {
         return "A2.AdaptorManage/instanceConfig";
@@ -156,4 +164,11 @@ public class BaseController {
     public String codeSet() {
         return "A2.CodeManage/codeSet";
     }
+    @RequestMapping("/idConfigPopup")
+    public String idConfigPopup() {
+        return "A2.AdaptorManage/idConfigPopup";
+    }
+
+
+
 }
