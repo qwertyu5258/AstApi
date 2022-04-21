@@ -52,17 +52,16 @@
         <div class="col-md-12">
           <div class="x_panel">
             <div class="x_title">
-              <h2>HOME &gt; Adaptor 관리 &gt; Instance 유형관리</h2>
+              <h2>HOME &gt; Adaptor 관리 &gt; 접속유형 항목관리</h2>
               <div class="clearfix"> </div>
             </div>
             <div class="x_content">
-              <form class="form-horizontal form-label-left d-flex align-items-center row">
                 <div class="col-12 col-md-12">
                   <div class="row">
                     <div class="col-md-12">
                       <div class="x_panel">
                         <div class="cont_title_box">
-                          <h3>Instance 유형상세</h3>
+                          <h3>접속 유형상세</h3>
                         </div>
                         <div class="x_content">
                           <div class="table_btns mb-2">
@@ -71,23 +70,20 @@
                             <button class="btn btn-success">저장</button>
                           </div>
                           <div class="table_responsive">
-                            <table class="table table-striped table-bordered bulk_action" style="width:100%">
+                            <table class="table table-striped table-bordered bulk_action" style="width:100%" id="instanceSetData">
                               <colgroup>
                                 <col width="44px">
                                 <col width="70px">
                               </colgroup>
                               <thead>
                                 <tr>
-                                  <th>
-                                    <div class="icheckbox_flat-purple" style="position: relative;"><div class="icheckbox_flat-purple" style="position: relative;"><input class="flat" id="check-all" type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                                  </th>
-                                  <th>순번</th>
+                                  <th>선택</th>
                                   <th>수집유형</th>
                                   <th>수집방식</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
+                                <%--<tr>
                                   <th>
                                     <div class="icheckbox_flat-purple" style="position: relative;"><div class="icheckbox_flat-purple" style="position: relative;"><input class="flat" type="checkbox" name="table_records" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
                                   </th>
@@ -134,7 +130,7 @@
                                       <option>Postgresql</option>
                                     </select>
                                   </td>
-                                </tr>
+                                </tr>--%>
                               </tbody>
                             </table>
                           </div>
@@ -161,9 +157,8 @@
                             <thead>
                             <tr>
                               <th>
-                                <div class="icheckbox_flat-purple" style="position: relative;"><div class="icheckbox_flat-purple" style="position: relative;"><input class="flat" id="check-all" type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                <input class="tableInfoAll" id="check-all" type="checkbox" onclick="checkBoxAll('tableInfo')">
                               </th>
-                              <th>순번</th>
                               <th>항목ID(Key)</th>
                               <th>항목명</th>
                               <th>항목설명</th>
@@ -223,7 +218,6 @@
                   </div>
                 </div>
                 </div>
-              </form>
             </div>
           </div>
         </div>
@@ -233,6 +227,8 @@
   </div>
 
   <%@include file="/WEB-INF/views/A1.Common/commonJs.jsp" %>
+  <script type="text/javascript" src="../js/adaptor/instanceSet.js"></script>
+  <script src="http://jonmiles.github.io/bootstrap-treeview/js/bootstrap-treeview.js"></script>
 
 </body>
 </html>

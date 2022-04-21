@@ -52,7 +52,7 @@
             <div class="col-md-12">
               <div class="x_panel">
                 <div class="x_title">
-                  <h2>검색 형태3</h2>
+                  <h2>Adaptor 설정 </h2>
                   <div class="clearfix"> </div>
                 </div>
                 <div class="x_content">
@@ -109,7 +109,7 @@
                               </div>
                           </div>
                           <div class="x_title col-md-11 mb-4">
-                            <h2>adaptor 정보</h2>
+                            <h2>Adaptor 정보</h2>
                           </div>
                           <div class="clearfix col-md-1"><button class="btn btn-sm btn-primary col-md" onclick="adaptorConfigAdd();">등록</button> </div>
                           <div class="x_content">

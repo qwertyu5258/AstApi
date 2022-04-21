@@ -5,88 +5,64 @@ let adapterId = url.searchParams.get('adapterId');
 adaptorOperationInit();
 
 function adaptorOperationInit () {
-    ajaxGet('/dp/ingest/adapter', "", function (data) {
+    ajaxGet('/dp/ingest/adapter/operation/'+adapterId, "", function (data) {
+        console.log(data);
+        let obj = data.contents;
+
+        $("#adaptorOperationId").html(adapterId);
+        $("#adaptorOperationNm").html(obj[0].adapter_nm);
+        if(obj[0].use_yn === "Y"){
+            $("#adaptorOperationUseYn").html("사용");
+        }else{
+            $("#adaptorOperationUseYn").html("사용안함");
+        }
+        $("#adaptorOperationSEBtn").html(`<button class="btn btn-primary btn-sm" onclick="totalStartBtn();">시작</button>`);
+
+        instanceList();
+    });
+}
+
+//instance 상세목록
+function instanceList() {
+    ajaxGet('/dp/ingest/adapter/operation/instance/'+adapterId, "", function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";
 
-        $("#adaptorConfigCnt").html("총 "+obj.length+"개");
-        $("#adaptorConfigData tbody").empty();
+        $("#instanceListCnt").html("총 "+obj.length+"개");
+        $("#instanceListData tbody").empty();
 
-        for (let i = 0; i < obj.length; i++) {
+        /*for (let i = 0; i < obj.length; i++) {
             let noCnt = i+1;
             trHTML += `<tr class="">`;
             trHTML += `<td>` + noCnt + `</td>`;
-            trHTML += `<td onclick="adaptorConfigEdit('`+ obj[i].adapter_id +`')">` + obj[i].adapter_nm + `</td>`;
-            trHTML += `<td>` + obj[i].adapter_type_nm + `</td>`;
+            trHTML += `<td>` + obj[i].instance_nm + `</td>`;
             trHTML += `<td>`;
-            trHTML += `<button class="btn btn-sm btn-primary" onclick="adaptorOperationView('`+ obj[i].adapter_id +`')">운영</button>`;
-            trHTML += `<button class="btn btn-sm btn-primary" onclick="adaptorDtView('`+ obj[i].adapter_id +`')">상세</button>`;
+            trHTML += `<button class="btn btn-sm btn-primary col-md-5" onclick="singleStartBtn('`+ obj[i].instance_id +`')">접속설정</button>`;
             trHTML += `</td>`;
+            trHTML += `<td>` + obj[i].dset_korean_nm + `</td>`;
+            trHTML += `<td>` + obj[i].clct_mthd + `</td>`;
+            trHTML += `<td>` + obj[i].clct_ty + `</td>`;
+            trHTML += `<td>` + obj[i].schedule_type + `</td>`;
+            trHTML += `<td>` + obj[i].time_data_yn + `</td>`;
             trHTML += `<td>` + obj[i].use_yn + `</td>`;
-            trHTML += `<td>` + obj[i].instance_count + `</td>`;
             trHTML += `</tr>`;
         }
-        $("#adaptorConfigData tbody").append(trHTML);
+        $("#instanceListData tbody").append(trHTML);*/
     });
 }
 
-//검색
-function search() {
-    const data = {
-        "search": $("#adapterSearchText").val(),
-        "search_type": $("#adapterSearchType").val()
-    };
-
-    ajaxGet('/dp/ingest/adapter', data, function (data) {
-        console.log(data);
-        let obj = data.contents;
-        let trHTML = "";
-
-        $("#adaptorConfigCnt").html("총 "+obj.length+"개");
-        $("#adaptorConfigData tbody").empty();
-
-        for (let i = 0; i < obj.length; i++) {
-            let noCnt = i+1;
-            trHTML += `<tr class="">`;
-            trHTML += `<td>` + noCnt + `</td>`;
-            trHTML += `<td onclick="javascript:adaptorConfigEdit('`+ obj[i].adapter_id +`')">` + obj[i].adapter_nm + `</td>`;
-            trHTML += `<td>` + obj[i].adapter_type_nm + `</td>`;
-            trHTML += `<td>`;
-            trHTML += `<button class="btn btn-sm btn-primary" onclick="adaptorOperationView('`+ obj[i].adapter_id +`')">운영</button>`;
-            trHTML += `<button class="btn btn-sm btn-primary" onclick="adaptorDtView('`+ obj[i].adapter_id +`')">상세</button>`;
-            trHTML += `</td>`;
-            trHTML += `<td>` + obj[i].use_yn + `</td>`;
-            trHTML += `<td>` + obj[i].instance_count + `</td>`;
-            trHTML += `</tr>`;
-        }
-        $("#adaptorConfigData tbody").append(trHTML);
-    });
+//목록 버튼
+function adaptorConfigList() {
+    location.href="adaptorConfig";
 }
 
-//등록 팝업
-function adaptorConfigAdd() {
-    let url = "/adaptorConfigPopup?view=add&adapterId=0";
-    let name = "metaTblReferPopup";
-    let option = "width = 700, height = 700, top = 100, left = 200, location = no"
-    window.open(url, name, option);
+//adaptor 상세 - Adapter 수집 시작
+function totalStartBtn() {
+
 }
 
-//수정 팝업
-function adaptorConfigEdit(adapterId) {
-    let url = "/adaptorConfigPopup?view=edit&adapterId="+adapterId;
-    let name = "metaTblReferPopup";
-    let option = "width = 700, height = 700, top = 100, left = 200, location = no"
-    window.open(url, name, option);
-}
+//adaptor 상세 - Adapter 수집 종료
+function totalEndBtn() {
 
-//운영 버튼
-function adaptorOperationView(id) {
-    location.href="adaptorOperation?adapterId="+id;
 }
-
-//상세 버튼
-function adaptorDtView(id) {
-    location.href="adaptorDetail?adapterId="+id;
-}
-

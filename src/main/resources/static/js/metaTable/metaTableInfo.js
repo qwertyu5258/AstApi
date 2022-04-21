@@ -88,26 +88,45 @@ function metaTableInfoDel () {
         alert("삭제할 항목을 선택해 주세요.");
         return;
     }
-    let delStatus = true;
+
+    let delChk_YN = false;
+    setTimeout(() => {
+        for(let i=0; i < metaTableChecked_val.length; i++){
+            $.ajax({
+                type: 'post',
+                url: '/dp/ingest/meta/tables/delete/check/'+idntfcId+'/column/'+metaTableChecked_val[i],
+                // contentsType: "application/json",
+                contentType:"application/json;charset=UTF-8",
+                //data: JSON.stringify(param),
+                // data: param,
+                success: function(data, textStatus, xhr) {
+                    if(data.contents[0].chk_yn == 'Y') {
+                        delChk_YN = true;
+                    }
+                },
+                error: function(data, status, error) {
+                    // console.log('ajax Error: ' + url);
+                    alert('ajax Error ' + data + url);
+                }
+            });
+        }
+    },1000)
+
+    if(delChk_YN){
+        alert("삭제가 불가능한 컬럼이 있습니다.");
+        return;
+    }
+
     if(window.confirm("정말 삭제하시겠습니까?")){
         setTimeout(() => {
             for(let i=0; i < metaTableChecked_val.length; i++){
-                ajaxPost('/dp/ingest/meta/tables/delete'+idntfcId+'/dataset/'+metaTableChecked_val[i], "", function (data) {
-                    if(data.contents[0].successYn === "Y"){
-                        console.log('완료~dp_ingest_meta_tbl_del_col',data);
-                    }else{
-                        console.log('실패~dp_ingest_meta_tbl_del_col',data);
-                        delStatus = false;
-                    }
+                ajaxPost('/dp/ingest/meta/tables/delete/'+idntfcId+'/dataset/'+metaTableChecked_val[i], "", function (data) {
+                    console.log('완료~dp_ingest_meta_tbl_del_col',data);
                 });
             }
 
-            if(delStatus){
-                alert("선택한 항목이 정상적으로 삭제되었습니다.");
-                location.href="metaTableInfo?idntfcId="+idntfcId;
-            }else{
-                alert("선택한 항목중 일부 삭제되지않았습니다.");
-            }
+            alert("선택한 항목이 정상적으로 삭제되었습니다.");
+            location.href="metaTableInfo?idntfcId="+idntfcId;
         },1000)
     }
 }
@@ -150,13 +169,8 @@ function saveColumn () {
     }
 
     ajaxPost('/dp/ingest/meta/tables/save/column', saveColumnData, function (data) {
-        if(data.contents[0].successYn === "Y"){
-            console.log('완료~dp_ingest_meta_tbl_save_col',data);
-
-            location.href="metaTableInfo?idntfcId="+idntfcId;
-        }else{
-            console.log('실패~dp_ingest_meta_tbl_save_col',data);
-        }
+        console.log('완료~dp_ingest_meta_tbl_save_col',data);
+        location.href="metaTableInfo?idntfcId="+idntfcId;
     });
 }
 

@@ -112,12 +112,7 @@ function metaTableDel() {
                 let delDestIdntfcId = checked_val[i].split("@")[0];
 
                 ajaxPost('/dp/ingest/meta/tables/delete/'+delDestIdntfcId+'/dataset', "", function (data) {
-                    if(data.contents[0].successYn === "Y"){
-                        console.log('완료~dp_ingest_meta_tbl_del_dset',data);
-                    }else{
-                        delStatus = false;
-                        console.log('실패~dp_ingest_meta_tbl_del_dset',data);
-                    }
+                    console.log('완료~dp_ingest_meta_tbl_del_dset',data);
                 });
             }
 

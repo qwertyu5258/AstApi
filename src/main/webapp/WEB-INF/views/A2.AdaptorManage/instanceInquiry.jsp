@@ -52,56 +52,93 @@
         <div class="col-md-12">
           <div class="x_panel">
             <div class="x_title">
-              <h2>HOME &gt; Adaptor 관리 &gt; Instance 조회</h2>
+              <h2>HOME > Adaptor 관리 > Instance 조회</h2>
               <div class="clearfix"> </div>
             </div>
+
             <div class="x_content">
-              <form class="form-horizontal form-label-left d-flex align-items-center row">
-                <div class="col-12 col-md-10">
-                  <div class="form-group row">
-                    <label class="control-label">검색</label>
-                    <div class="form-control_box">
-                      <div class="col-md-3 pl-0">
-                        <select class="form-control">
-                          <option>Choose option</option>
-                          <option>Option one</option>
-                          <option>Option two</option>
-                          <option>Option three</option>
-                          <option>Option four</option>
-                        </select>
-                      </div>
-                      <div class="col-md-9 pr-0">
-                        <input class="form-control" type="text" placeholder="">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-2 btn_search_box">
-                  <button class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i></button>
-                </div>
+              <table class="table">
+                <colgroup>
+                  <col width="50px">
+                  <col width="150px">
+                  <col width="150px">
+                  <col width="150px">
+                  <col width="150px">
+                  <col width="200px">
+                  <col width="50px">
+                </colgroup>
+                <tr>
+                  <th style="vertical-align: middle">
+                    검색
+                  </th>
+                  <th>
+                    <select class="form-control" id="LargeCategory">
+                      <option>대분류</option>
+                      <option>Option one</option>
+                    </select>
+                  </th>
+                  <th>
+                    <select class="form-control" id="MiddleCategory">
+                      <option>중분류</option>
+                      <option>Option one</option>
+                    </select>
+                  </th>
+                  <th>
+                    <select class="form-control" id="SmallCategory">
+                      <option>소분류</option>
+                      <option>Option one</option>
+                    </select>
+                  </th>
+                  <th>
+                    <select class="form-control" id="SelectCategory">
+                      <option>선택</option>
+                      <option>Option one</option>
+                    </select>
+                  </th>
+                  <th>
+                    <input class="form-control" type="text" placeholder="" id="SelectText">
+                  </th>
+                  <th>
+                    <button class="btn btn-primary" style="float:right" onclick="search()">검색</button>
+                  </th>
+                </tr>
+
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="x_panel">
+
+            <div class="x_content">
                 <div class="col-12 col-md-12">
                   <div class="table_responsive">
                     <h3>Instance 정보</h3>
-                    <div class="talbel_total mb-2">총 3 건</div>
-                    <table class="table table-striped">
+                    <div class="talbel_total mb-2" id="instanceCnt">총 3 건</div>
+                    <table class="table table-striped" id="instanceData">
                       <colgroup>
                         <col width="55px">
                       </colgroup>
                       <thead>
                       <tr>
                         <th>순번</th>
+                        <th>대분류</th>
+                        <th>중분류</th>
+                        <th>소분류</th>
                         <th>Adaptor 명</th>
                         <th>Instance 명</th>
                         <th>수집방식</th>
                         <th>수집유형</th>
-                        <th>데이터 모델명</th>
-                        <th>메타 테이블명</th>
+                        <th>데이터셋 명</th>
                         <th>수집오류</th>
                         <th>상태</th>
                       </tr>
                       </thead>
                       <tbody>
-                      <tr>
+                      <%--<tr>
                         <td>1</td>
                         <td>문화재</td>
                         <td>전주시 문화재</td>
@@ -133,12 +170,11 @@
                         <td>지역정보</td>
                         <td><a class="btn btn-success btn-sm" href="">바로가기</a></td>
                         <td>중지</td>
-                      </tr>
+                      </tr>--%>
                       </tbody>
                     </table>
                   </div>
                 </div>
-              </form>
             </div>
           </div>
         </div>
@@ -147,6 +183,10 @@
   </div>
 
   <%@include file="/WEB-INF/views/A1.Common/commonJs.jsp" %>
+  <script type="text/javascript" src="../js/adaptor/instancelnquiry.js"></script>
+  <script src="http://jonmiles.github.io/bootstrap-treeview/js/bootstrap-treeview.js"></script>
+
+
 
 </body>
 </html>

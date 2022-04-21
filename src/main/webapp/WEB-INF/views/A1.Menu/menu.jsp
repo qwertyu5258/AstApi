@@ -23,12 +23,12 @@
             <li> <a><i class="fa fa-list-alt"></i>Adaptor 관리<span class="fa fa-chevron-down" /></a>
                 <ul class="nav child_menu">
                     <li><a href="adaptorConfig">Adaptor 설정</a></li>
-                    <li><a href="adaptorDetail">Adaptor 상세</a></li>
+                    <%--<li><a href="adaptorDetail">Adaptor 상세</a></li>--%>
                     <li><a href="instanceDetail">Instance 상세</a></li>
                     <li><a href="instanceConfig">Instance 매칭정보 설정</a></li>
                     <li><a href="adaptorOperation">Adaptor 운영</a></li>
                     <li><a href="instanceInquiry">Instance 조회</a></li>
-                    <li><a href="instanceSet">Instance 유형관리</a></li>
+                    <li><a href="instanceSet">접속유형 항목관리</a></li>
                     <li><a href="adaptorSet">Adaptor 유형관리</a></li>
                     <li><a href="processList">전처리 리스트</a></li>
                     <li><a href="processRegist">전처리 등록</a></li>

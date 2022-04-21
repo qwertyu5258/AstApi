@@ -64,19 +64,19 @@
                               <div class="cont_title_box">
                                 <h3>Adaptor 상세</h3>
                                 <div class="right_btns">
-                                  <a class="btn btn-success" href="">목록</a>
+                                  <a class="btn btn-success" onclick="adaptorConfigList();">목록</a>
                                 </div>
                               </div>
                               <div class="row">
                                 <div class="form-group row col-12 col-md-6">
                                   <label class="control-label pt-0">Adaptor ID</label>
-                                  <div class="form-control_box">
+                                  <div class="form-control_box" id="adaptorOperationId">
                                     AD_001
                                   </div>
                                 </div>
                                 <div class="form-group row col-12 col-md-6">
                                   <label class="control-label pt-0">Adaptor 명</label>
-                                  <div class="form-control_box">
+                                  <div class="form-control_box" id="adaptorOperationNm">
                                     DS_AirQuality
                                   </div>
                                 </div>
@@ -84,24 +84,16 @@
                               <div class="row">
                                   <div class="form-group row col-12 col-md-12">
                                     <label class="control-label pt-0">사용 여부</label>
-                                    <div class="form-control_box">
+                                    <div class="form-control_box" id="adaptorOperationUseYn">
                                       사용
                                     </div>
                                   </div>
-                              </div>
-                              <div class="row">
-                                <div class="form-group row col-12 col-md-6">
-                                  <label class="control-label pt-0">시작 / 종료</label>
-                                  <div class="form-control_box">
-                                    <button class="btn btn-primary btn-sm">중지</button>
+                                  <div class="form-group row col-12 col-md-6">
+                                    <label class="control-label pt-0">시작 / 종료</label>
+                                    <div class="form-control_box" id="adaptorOperationSEBtn">
+
+                                    </div>
                                   </div>
-                                </div>
-                                <div class="form-group row col-12 col-md-6">
-                                  <label class="control-label pt-0">상태</label>
-                                  <div class="form-control_box">
-                                    실행
-                                  </div>
-                                </div>
                               </div>
                           </div>
                         </div>

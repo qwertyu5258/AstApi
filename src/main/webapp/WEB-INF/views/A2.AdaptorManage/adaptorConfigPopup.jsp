@@ -169,7 +169,7 @@
                 "adapter_type_id": $("#adapterTypeId").val(),           //Adapter유형_ID
                 "use_yn": $("input:radio[name='NAME명']:checked").val() //사용 여부
             };
-            ajaxPost('/dp/ingest/adapter/update'+adapterId, data, function (data) {
+            ajaxPost('/dp/ingest/adapter/update/'+adapterId, data, function (data) {
                 console.log('완료~dp_ingest_adapter_update',data);
                 location.href="adaptorConfig";
                 window.close();
@@ -178,10 +178,38 @@
 
         //삭제 버튼
         function popupDel() {
-            ajaxPost('/dp/ingest/adapter/delete/'+adapterId, data, function (data) {
-                console.log('완료~dp_ingest_adapter_del',data);
-                location.href="adaptorConfig";
-                window.close();
+            $.ajax({
+                type: 'post',
+                url: '/dp/ingest/adapter/delete/check/'+adapterId,
+                contentType:"application/json;charset=UTF-8",
+                //data: JSON.stringify(param),
+                success: function(data, textStatus, xhr) {
+                    if(data.contents[0].chk_yn === "Y"){
+                        console.log('완료~adapter 사용중',data);
+                        alert('Adapter 사용중이라 삭제가 불가능합니다.');
+                    }else{
+                        $.ajax({
+                            type: 'post',
+                            url: '/dp/ingest/adapter/delete/'+adapterId,
+                            // contentsType: "application/json",
+                            contentType:"application/json;charset=UTF-8",
+                            //data: JSON.stringify(param),
+                            // data: param,
+                            success: function(data, textStatus, xhr) {
+                                console.log('완료~dp_ingest_adapter_del',data);
+                                location.href="adaptorConfig";
+                                window.close();
+                            },
+                            error: function(data, status, error) {
+                                // console.log('ajax Error: ' + url);
+                                alert('ajax Error ' + data + url);
+                            }
+                        });
+                    }
+                },
+                error: function(data, status, error) {
+                    alert('ajax Error ' + data + url);
+                }
             });
         }
 

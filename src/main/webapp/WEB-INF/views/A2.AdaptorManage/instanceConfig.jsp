@@ -56,12 +56,10 @@
                   <div class="clearfix"> </div>
                 </div>
                 <div class="x_content">
-                  <form class="form-horizontal form-label-left">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="x_panel">
                           <div class="x_content">
-                            <form class="form-horizontal form-label-left">
                               <div class="cont_title_box">
                                 <h3>Instance 매칭정보 설정</h3>
                               </div>
@@ -69,20 +67,20 @@
                                 <div class="form-group row col-12 col-md-6">
                                   <label class="control-label">인스턴스 명</label>
                                   <div class="form-control_box duplicate_box">
-                                    <input class="form-control" type="text" disabled="disabled">
+                                    <input class="form-control" type="text" disabled="disabled" id="instanceNm">
                                   </div>
                                 </div>
                                 <div class="form-group row col-12 col-md-6">
                                   <label class="control-label">데이터 셋 명</label>
                                   <div class="form-control_box duplicate_box">
-                                      <input class="form-control" type="text" value="cvs 파일" disabled="disabled" >
+                                      <input class="form-control" type="text" value="cvs 파일" id="dsetKoreanNm" disabled="disabled" >
                                   </div>
                                 </div>
                               </div>
                               <div class="row">
                                 <div class="right_btns col-12 col-md-12 mt-2 mb-2">
-                                  <a class="btn btn-success" href="">목록</a>
-                                  <button class="btn btn-primary">저장</button>
+                                  <a class="btn btn-success" onclick="instanceMetaInfo();">목록</a>
+                                  <button class="btn btn-primary" onclick="instanceConfigAdd();">저장</button>
                                 </div>
                               </div>
                               <div class="row mt-2 mb-2">
@@ -90,7 +88,7 @@
                                   <label class="control-label">ID</label>
                                   <div class="form-control_box duplicate_box">
                                     <input class="form-control" type="text" value="C_NAME02.C_NAME_01.C_NAME04" >
-                                    <button class="btn btn-primary">ID설정</button>
+                                    <button class="btn btn-primary" onclick="instanceConfigIdSet();">ID설정</button>
                                   </div>
                                 </div>
                               </div>
@@ -105,7 +103,7 @@
                               </div>
                               <div class="row">
                                 <div class="table_responsive">
-                                  <table class="table table-striped">
+                                  <table class="table table-striped" id="instanceMatchListData">
                                     <thead>
                                     <tr>
                                       <th colspan="2">데이터 모델</th>
@@ -123,7 +121,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
+                                    <%--<tr>
                                       <td>C_NAME_01</td>
                                       <td>String</td>
                                       <td>
@@ -168,17 +166,15 @@
                                       <td>
                                         <input type="text" value="없음" disabled="">
                                       </td>
-                                    </tr>
+                                    </tr>--%>
                                     </tbody>
                                   </table>
                                 </div>
                               </div>
-                            </form>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </form>
                 </div>
               </div>
             </div>
@@ -187,6 +183,8 @@
     </div>
 
     <%@include file="/WEB-INF/views/A1.Common/commonJs.jsp" %>
+      <script type="text/javascript" src="../js/adaptor/instanceConfig.js"></script>
+      <script src="http://jonmiles.github.io/bootstrap-treeview/js/bootstrap-treeview.js"></script>
 
   </body>
 </html>
