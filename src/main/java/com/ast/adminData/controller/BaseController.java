@@ -92,6 +92,14 @@ public class BaseController {
     public String adaptorConfigPopup() {
         return "A2.AdaptorManage/adaptorConfigPopup";
     }
+    @RequestMapping("/dataSetPopup")
+    public String dataSetPopup() {
+        return "A2.AdaptorManage/dataSetPopup";
+    }
+    @RequestMapping("/apiDataSetPopup")
+    public String apiDataSetPopup() {
+        return "A2.AdaptorManage/apiDataSetPopup";
+    }
     @RequestMapping("/dataModelList")
     public String dataModelList() {
         return "A2.DataModelManage/dataModelList";

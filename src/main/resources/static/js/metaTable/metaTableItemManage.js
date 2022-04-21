@@ -14,7 +14,7 @@ function metaTableItemManageInit () {
         for (let i = 0; i < obj.length; i++) {
             let idntfcId = obj[i].dset_idntfc_id;
             trHTML += '<tr>';
-            trHTML += '<td><input class="tableInfo" type="checkbox" onclick="metaCheckBox(checked)" name="checkList" id="check'+i+'" value="'+idntfcId+'"></td>';
+            trHTML += '<input class="tableInfo" id="hiddenIdntfcId" type="hidden" value="'+idntfcId+'">';
             trHTML += '<td><label>' + obj[i].dset_lclas + '</label></td>';
             trHTML += '<td><label>' + obj[i].dset_mclas + '</label></td>';
             trHTML += '<td><label>' + obj[i].dset_sclas + '</label></td>';
@@ -69,7 +69,7 @@ function search() {
         for (let i = 0; i < obj.length; i++) {
             let idntfcId = obj[i].dset_idntfc_id;
             trHTML += '<tr>';
-            trHTML += '<td><input class="tableInfo" type="checkbox" onclick="metaCheckBox(checked)" name="checkList" id="check'+i+'" value="'+idntfcId+'"></td>';
+            trHTML += '<input class="tableInfo" id="hiddenIdntfcId" type="hidden" value="'+idntfcId+'">';
             trHTML += '<td><label>' + obj[i].dset_lclas + '</label></td>';
             trHTML += '<td><label>' + obj[i].dset_mclas + '</label></td>';
             trHTML += '<td><label>' + obj[i].dset_sclas + '</label></td>';
@@ -109,31 +109,31 @@ function search() {
 function metaTableItemManageSave () {
     const checked_val = [];
 
-    $("input:checkbox[name='checkList']:checked").each(function(k,kValue){
+    $.each($("#metaTableItemManageData tbody tr"), function(){
         let clBassChecked = "N";
         let clQlityChecked = "N";
         let clCntmChecked = "N";
         let clWdtbChecked = "N";
         let clCrltsChecked = "N";
 
-        if($(this).parent().parent().find("#clBass").is(":checked")){
+        if($(this).find("#clBass").is(":checked")){
             clBassChecked = "Y";
         }
-        if($(this).parent().parent().find("#clQlity").is(":checked")){
+        if($(this).find("#clQlity").is(":checked")){
             clQlityChecked = "Y";
         }
-        if($(this).parent().parent().find("#clCntm").is(":checked")){
+        if($(this).find("#clCntm").is(":checked")){
             clCntmChecked = "Y";
         }
-        if($(this).parent().parent().find("#clWdtb").is(":checked")){
+        if($(this).find("#clWdtb").is(":checked")){
             clWdtbChecked = "Y";
         }
-        if($(this).parent().parent().find("#clCrlts").is(":checked")){
+        if($(this).find("#clCrlts").is(":checked")){
             clCrltsChecked = "Y";
         }
 
         const contents = {
-            "dset_idntfc_id" : kValue.value,
+            "dset_idntfc_id" : $(this).find("#hiddenIdntfcId").val(),
             "cl_bass" : clBassChecked,
             "cl_qlity" : clQlityChecked,
             "cl_cntm" : clCntmChecked,
@@ -143,47 +143,30 @@ function metaTableItemManageSave () {
         checked_val.push(contents);
     })
 
-    if(checked_val.length === 0){
-        alert("저장할 항목을 선택해 주세요.");
-        return;
-    }
-
     let addStatus = true;
     if(window.confirm("저장하시겠습니까?")){
         setTimeout(() => {
             for(let i=0; i < checked_val.length; i++){
-                console.log("metaTableItemManage Save Data", checked_val[i])
-                const data = {
-                    "dset_idntfc_id": checked_val[i].dset_idntfc_id,
-                    "cl_bass": checked_val[i].cl_bass,
-                    "cl_qlity": checked_val[i].cl_qlity,
-                    "cl_cntm": checked_val[i].cl_cntm,
-                    "cl_wdtb": checked_val[i].cl_wdtb,
-                    "cl_crlts": checked_val[i].cl_crlts
-                };
+                console.log("metaTableItemManage Save Data", checked_val[i]);
 
-                ajaxPost('/dp/ingest/meta/item/save', data, function (data) {
-                    if(data.contents[0].successYn === "Y"){
-                        console.log('완료~dp_ingest_meta_item_save',data);
-                    }else{
-                        addStatus = false;
-                        console.log('실패~dp_ingest_meta_item_save',data);
+                $.ajax({
+                    type: 'post',
+                    url: '/dp/ingest/meta/item/save',
+                    contentType:"application/json;charset=UTF-8",
+                    data: JSON.stringify(checked_val[i]),
+                    success: function(data, textStatus, xhr) {
+                        console.log("dp_ingest_meta_item_save", data)
+                    },
+                    error: function(data, status, error) {
+                        alert('ajax Error ' + data);
+                        addStatus =false;
                     }
                 });
             }
             if(addStatus){
-                alert("선택한 항목이 정상적으로 저장되었습니다.");
+                alert("정상적으로 저장되었습니다.");
                 location.href="metaTableItemManage";
-            }else{
-                alert("선택한 항목중 일부 저장되지않았습니다.");
             }
         },1000)
-    }
-}
-
-//전체선택 checked 해제
-function metaCheckBox(value) {
-    if(value === false){
-        $("#check-all").prop("checked", false);
     }
 }

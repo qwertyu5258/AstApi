@@ -69,31 +69,31 @@
                               </div>
                               <div class="row">
                                 <div class="form-group row col-12 col-md-6">
-                                  <label class="control-label pt-0">Adaptor ID</label>
-                                  <div class="form-control_box" id="adaptorOperationId">
+                                  <label class="control-label pt-0">Adaptor 명</label>
+                                  <div class="form-control_box" id="adaptorOperationNm">
                                     AD_001
                                   </div>
                                 </div>
                                 <div class="form-group row col-12 col-md-6">
-                                  <label class="control-label pt-0">Adaptor 명</label>
-                                  <div class="form-control_box" id="adaptorOperationNm">
+                                  <label class="control-label pt-0">사용 여부</label>
+                                  <div class="form-control_box" id="adaptorOperationUseYn">
                                     DS_AirQuality
                                   </div>
                                 </div>
                               </div>
                               <div class="row">
-                                  <div class="form-group row col-12 col-md-12">
-                                    <label class="control-label pt-0">사용 여부</label>
-                                    <div class="form-control_box" id="adaptorOperationUseYn">
-                                      사용
-                                    </div>
-                                  </div>
                                   <div class="form-group row col-12 col-md-6">
                                     <label class="control-label pt-0">시작 / 종료</label>
                                     <div class="form-control_box" id="adaptorOperationSEBtn">
 
                                     </div>
                                   </div>
+                                  <%--<div class="form-group row col-12 col-md-6">
+                                    <label class="control-label pt-0">상태</label>
+                                    <div class="form-control_box" >
+                                      DS_AirQuality
+                                    </div>
+                                  </div>--%>
                               </div>
                           </div>
                         </div>
@@ -124,7 +124,7 @@
                                 </tr>
                               </thead>
                               <tbody>
-                                <tr>
+                                <%--<tr>
                                   <th>1</th>
                                   <th>전주시 문화재</th>
                                   <th><button class="btn btn-primary btn-sm">중지</button></th>
@@ -145,7 +145,7 @@
                                   <th>5</th>
                                   <th>5</th>
                                   <th>0</th>
-                                </tr>
+                                </tr>--%>
                               </tbody>
                             </table>
                           </div>

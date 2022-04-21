@@ -123,7 +123,6 @@
                                       </colgroup>
                                       <thead>
                                           <tr>
-                                              <th><input class="tableInfoAll" id="check-all" type="checkbox" onclick="checkBoxAll('tableInfo')"></th>
                                               <th>대분류</th>
                                               <th>중분류</th>
                                               <th>소분류</th>

@@ -27,7 +27,7 @@ function metaTableInfoInit () {
             trHTML += '<tr class="">'
                 + '<td><input class="tableInfo" type="checkbox" name="checkList" id="check'+i+'" value="'+obj[i].column_idntfc_id+'"></td>'
                 + '<td><label>' + obj[i].column_korean_nm + '</label></td>'
-                + '<td><label>' + obj[i].column_eng_nm + '</label></td>'
+                + '<td onclick="colDtDataView(`'+ idntfcId +'`,`'+ obj[i].column_idntfc_id +'`)"><label>' + obj[i].column_eng_nm + '</label></td>'
                 + '<td><label>' + obj[i].data_type + '</label></td>'
                 + '<td><label>' + obj[i].data_lt + '</label></td>'
                 + '<td><label>' + obj[i].not_null_at + '</label></td>'
@@ -51,27 +51,7 @@ function metaTableList () {
 //추가 버튼
 function metaTableInfoAdd () {
 
-    $("#column_korean_nm").val("");
-    $("#refrn_table_idntfc_id").val("");
-    $("#column_eng_nm").val("");
-    $("#refrn_table_idntfc_nm").val("");
-    $("#data_type").val("");
-    $("#data_lt").val("");
-    $("#refrn_column_idntfc_id").val("");
-    $("#not_null_at").val("Y");
-    $("#dset_knd").val("");
-    $("#refrn_column_idntfc_nm").val("");
-    $("#pk_info").val("Y");
-    $("#fk_info").val("Y");
-    $("#creat_table_at").val("");
-    $("#use_at").val("Y");
-    $("#column_stre_type").val("");
-    $("#column_dc").val("");
-    $("#crud_dc").val("");
-    $("#ordr").val("");
-    $("#indvdl_info_at").val("Y");
-    $("#encpt_at").val("Y");
-    $("#crud_se").val("");
+    metaTableInfoReset();
 
     $("#metaTableInfoColDt").show();
 }
@@ -105,8 +85,7 @@ function metaTableInfoDel () {
                     }
                 },
                 error: function(data, status, error) {
-                    // console.log('ajax Error: ' + url);
-                    alert('ajax Error ' + data + url);
+                    alert('ajax Error ' + data);
                 }
             });
         }
@@ -131,15 +110,49 @@ function metaTableInfoDel () {
     }
 }
 
+function colDtDataView(idntfcId, columnIdntfcId){
+    metaTableInfoReset();
+    ajaxGet('/dp/ingest/meta/tables/'+idntfcId+'/column/detail/'+columnIdntfcId, "", function (data) {
+        console.log("완료~dp_ingest_meta_tbl_col_dt ::",data);
+        let obj = data.contents;
+
+        $("#hidden_column_idntfc_id").val(obj[0].column_idntfc_id);
+
+        $("#column_korean_nm").val(obj[0].column_korean_nm);
+        $("#refrn_table_idntfc_id").val(obj[0].refrn_table_idntfc_id);
+        $("#column_eng_nm").val(obj[0].column_eng_nm);
+        $("#refrn_table_idntfc_nm").val("");
+        $("#data_type").val(obj[0].data_type);
+        $("#data_lt").val(obj[0].data_lt);
+        $("#refrn_column_idntfc_id").val(obj[0].refrn_column_idntfc_id);
+        $("#not_null_at").val(obj[0].not_null_at);
+        $("#dset_knd").val(obj[0].dset_knd);
+        $("#refrn_column_idntfc_nm").val(obj[0].refrn_column_idntfc_nm);
+        $("#pk_info").val(obj[0].pk_info);
+        $("#fk_info").val(obj[0].fk_info);
+        $("#creat_table_at").val(obj[0].creat_table_at);
+        $("#use_at").val(obj[0].use_at);
+        $("#column_stre_type").val(obj[0].column_stre_type);
+        $("#column_dc").val(obj[0].column_dc);
+        $("#crud_dc").val(obj[0].crud_dc);
+        $("#ordr").val(obj[0].ordr);
+        $("#indvdl_info_at").val(obj[0].indvdl_info_at);
+        $("#encpt_at").val(obj[0].encpt_at);
+        $("#crud_se").val(obj[0].crud_se);
+    });
+}
+
 //저장 버튼
 function saveColumn () {
     const id_chk = column_tbl_id_chk();
     if(!id_chk){
         alert("컬럼_식별자 ID가 정상적으로 생성되지 않았습니다.");
         return;
+    }else{
+        $("#hidden_column_idntfc_id").val(id_chk);
     }
     const saveColumnData = {
-        "column_idntfc_id" : id_chk,
+        "column_idntfc_id" : $("#hidden_column_idntfc_id").val(),
         "rl_table_idntfc_id" : idntfcId,
         "dset_knd" : $('#dset_knd').val(),
         "ordr" : $('#ordr').val(),
@@ -180,6 +193,32 @@ function refrnTablePopup() {
     let name = "metaTblReferPopup";
     let option = "width = 700, height = 700, top = 100, left = 200, location = no"
     window.open(url, name, option);
+}
+
+function metaTableInfoReset(){
+    $("#hidden_column_idntfc_id").val("");
+
+    $("#column_korean_nm").val("");
+    $("#refrn_table_idntfc_id").val("");
+    $("#column_eng_nm").val("");
+    $("#refrn_table_idntfc_nm").val("");
+    $("#data_type").val("");
+    $("#data_lt").val("");
+    $("#refrn_column_idntfc_id").val("");
+    $("#not_null_at").val("Y");
+    $("#dset_knd").val("");
+    $("#refrn_column_idntfc_nm").val("");
+    $("#pk_info").val("Y");
+    $("#fk_info").val("Y");
+    $("#creat_table_at").val("");
+    $("#use_at").val("Y");
+    $("#column_stre_type").val("");
+    $("#column_dc").val("");
+    $("#crud_dc").val("");
+    $("#ordr").val("");
+    $("#indvdl_info_at").val("Y");
+    $("#encpt_at").val("Y");
+    $("#crud_se").val("");
 }
 
 //컬럼_식별자_ID (컬럼_식별자 자동증가) - 식별자 C로시작 자리수 20자

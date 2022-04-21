@@ -31,10 +31,6 @@ function processListInit () {
 
 //검색
 function search() {
-    if(!$("#SelectText").val()){
-        alert("검색어를 작성하세요.");
-        return;
-    }
     const data = {
         "search": $("#SelectText").val()
     };
@@ -69,7 +65,7 @@ function processListAdd() {
     location.href="processRegist";
 }
 
-//등록 팝업
+//전처리 상세페이지 이동
 function processListEdit() {
     location.href="processRegist";
 }

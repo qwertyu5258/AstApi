@@ -79,25 +79,17 @@
                               </div>
                               <div class="row">
                                 <div class="right_btns col-12 col-md-12 mt-2 mb-2">
-                                  <a class="btn btn-success" onclick="instanceMetaInfo();">목록</a>
+                                  <button class="btn btn-primary" onclick="instanceConfigApiSet();">API 테이터 설정</button>
+                                  <button class="btn btn-success" onclick="instanceMetaInfo();">목록</button>
                                   <button class="btn btn-primary" onclick="instanceConfigAdd();">저장</button>
                                 </div>
                               </div>
                               <div class="row mt-2 mb-2">
                                 <div class="form-group row col-12 col-md-12">
-                                  <label class="control-label">ID</label>
+                                  <label class="control-label">PK데이터설정</label>
                                   <div class="form-control_box duplicate_box">
                                     <input class="form-control" type="text" value="C_NAME02.C_NAME_01.C_NAME04" >
                                     <button class="btn btn-primary" onclick="instanceConfigIdSet();">ID설정</button>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row mb-4">
-                                <div class="form-group row col-12 col-md-12">
-                                  <label class="control-label">기본 수신경로 설정</label>
-                                  <div class="form-control_box duplicate_box">
-                                    <input class="form-control" type="text" value="response.items.item" disabled="disabled">
-                                    <button class="btn btn-primary">설정</button>
                                   </div>
                                 </div>
                               </div>

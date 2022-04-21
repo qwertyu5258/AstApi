@@ -79,8 +79,8 @@ function search() {
 }
 
 //바로가기 버튼 (수집오류상세 페이지)
-function processListAdd(id) {
-    location.href="dataCollectDetail";
+function errorMove(id) {
+    location.href="dataCollectDetail?instanceId="+id;
 }
 
 

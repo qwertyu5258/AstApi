@@ -9,7 +9,7 @@
                     <li><a href="metaTable">메타테이블</a></li>
                     <li><a href="metaTableItemManage">메타정보 항목관리</a></li>
 <%--                    <li><a href="metaTblReferPopup">참조테이블검색팝업</a></li>--%>
-<%--                    <li><a href="metaTableInfo">(내부)테이블정보</a></li>--%>
+                    <li><a href="metaTableInfo">(내부)테이블정보</a></li>
                 </ul>
             </li>
             <li> <a><i class="fa fa-list-alt"></i>데이터 모델 관리<span class="fa fa-chevron-down"> </span></a>
@@ -24,12 +24,12 @@
                 <ul class="nav child_menu">
                     <li><a href="adaptorConfig">Adaptor 설정</a></li>
                     <%--<li><a href="adaptorDetail">Adaptor 상세</a></li>--%>
-                    <li><a href="instanceDetail">Instance 상세</a></li>
-                    <li><a href="instanceAdd">(팝업)Instance 등록</a></li>
-                    <li><a href="instanceUpdate">(팝업)Instance 수정</a></li>
-                    <li><a href="idConfigPopup">(팝업)ID 설정 팝업</a></li>
-                    <li><a href="instanceConfig">Instance 매칭정보 설정</a></li>
-                    <li><a href="adaptorOperation">Adaptor 운영</a></li>
+                    <%--<li><a href="instanceDetail">Instance 상세</a></li>--%>
+                    <%--<li><a href="instanceAdd">(팝업)Instance 등록</a></li>--%>
+                    <%--<li><a href="instanceUpdate">(팝업)Instance 수정</a></li>--%>
+                    <%--<li><a href="idConfigPopup">(팝업)ID 설정 팝업</a></li>--%>
+                    <%--<li><a href="instanceConfig">Instance 매칭정보 설정</a></li>--%>
+                    <%--<li><a href="adaptorOperation">Adaptor 운영</a></li>--%>
                     <li><a href="instanceInquiry">Instance 조회</a></li>
                     <li><a href="instanceSet">접속유형 항목관리</a></li>
                     <li><a href="adaptorSet">Adaptor 유형관리</a></li>

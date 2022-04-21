@@ -59,17 +59,17 @@ function adaptorConfigList() {
 
 //instance 등록페이지
 function instanceAdd() {
-    let url = "/adaptorConfigPopup?view=edit&adapterId="+adapterId;
-    let name = "metaTblReferPopup";
-    let option = "width = 700, height = 700, top = 100, left = 200, location = no"
+    let url = "/instanceAdd?adapterId="+adapterId;
+    let name = "instanceAddPopup";
+    let option = "width = 1300, height = 800, top = 100, left = 200, location = no"
     window.open(url, name, option);
 }
 
 //instance 수정페이지
 function instanceEdit(id) {
-    let url = "/adaptorConfigPopup?view=edit&adapterId="+id;
-    let name = "metaTblReferPopup";
-    let option = "width = 700, height = 700, top = 100, left = 200, location = no"
+    let url = "/instanceUpdate?adapterId="+adapterId+"&instanceId="+id;
+    let name = "instanceEditPopup";
+    let option = "width = 1300, height = 800, top = 100, left = 200, location = no"
     window.open(url, name, option);
 }
 

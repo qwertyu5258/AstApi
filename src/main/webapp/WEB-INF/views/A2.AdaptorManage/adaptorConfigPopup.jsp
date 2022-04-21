@@ -152,7 +152,7 @@
                 "adapter_id": id_chk,                                   //Adapter_ID
                 "adapter_nm": $("#adapterNm").val(),                    //Adapter_명
                 "adapter_type_id": $("#adapterTypeId").val(),           //Adapter유형_ID
-                "use_yn": $("input:radio[name='NAME명']:checked").val() //사용 여부
+                "use_yn": $("input:radio[name='use']:checked").val()    //사용 여부
             };
             ajaxPost('/dp/ingest/adapter/save', data, function (data) {
                 console.log('완료~dp_ingest_adapter_save',data);
@@ -163,11 +163,19 @@
 
         //수정 버튼
         function popupEdit() {
+            if(!$("#adapterNm").val()){
+                alert("Adapter 명을 작성하세요.");
+                return;
+            }
+            if(!$("#adapterTypeId").val()){
+                alert("Adapter 유형을 선택하세요.");
+                return;
+            }
             const data = {
                 "adapter_id": adapterId,                                //Adapter_ID
                 "adapter_nm": $("#adapterNm").val(),                    //Adapter_명
                 "adapter_type_id": $("#adapterTypeId").val(),           //Adapter유형_ID
-                "use_yn": $("input:radio[name='NAME명']:checked").val() //사용 여부
+                "use_yn": $("input:radio[name='use']:checked").val()    //사용 여부
             };
             ajaxPost('/dp/ingest/adapter/update/'+adapterId, data, function (data) {
                 console.log('완료~dp_ingest_adapter_update',data);
@@ -191,10 +199,8 @@
                         $.ajax({
                             type: 'post',
                             url: '/dp/ingest/adapter/delete/'+adapterId,
-                            // contentsType: "application/json",
                             contentType:"application/json;charset=UTF-8",
                             //data: JSON.stringify(param),
-                            // data: param,
                             success: function(data, textStatus, xhr) {
                                 console.log('완료~dp_ingest_adapter_del',data);
                                 location.href="adaptorConfig";
@@ -202,13 +208,13 @@
                             },
                             error: function(data, status, error) {
                                 // console.log('ajax Error: ' + url);
-                                alert('ajax Error ' + data + url);
+                                alert('ajax Error ' + data );
                             }
                         });
                     }
                 },
                 error: function(data, status, error) {
-                    alert('ajax Error ' + data + url);
+                    alert('ajax Error ' + data);
                 }
             });
         }

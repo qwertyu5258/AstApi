@@ -111,8 +111,19 @@ function metaTableDel() {
             for(let i=0; i < checked_val.length; i++){
                 let delDestIdntfcId = checked_val[i].split("@")[0];
 
-                ajaxPost('/dp/ingest/meta/tables/delete/'+delDestIdntfcId+'/dataset', "", function (data) {
-                    console.log('완료~dp_ingest_meta_tbl_del_dset',data);
+                $.ajax({
+                    type: 'post',
+                    url: '/dp/ingest/meta/tables/delete/'+delDestIdntfcId+'/dataset',
+                    contentType:"application/json;charset=UTF-8",
+                    //data: JSON.stringify(param),
+                    success: function(data, textStatus, xhr) {
+                        console.log('완료~dp_ingest_meta_tbl_del_dset',data);
+
+                    },
+                    error: function(data, status, error) {
+                        console.log('ajax Error: ' + data);
+                        delStatus =false;
+                    }
                 });
             }
 
@@ -215,9 +226,15 @@ function dp_ingest_meta_tbl_dset(id, table_korean_nm, table_eng_nm) {
 //데이터셋 영문명 중복체크
 function table_eng_nm_chk(){
     let tableEngNm = $('#table_eng_nm2').val();
+    let checkType = /^[a-z0-9+]*$/;
 
     if(!tableEngNm){
-        alert('데이터셋 영문명을 작성하세요');
+        alert('테이블 영문명을 작성하세요.');
+        return;
+    }
+
+    if(!checkType.test(tableEngNm)){
+        alert('소문자나 숫자를 입력하세요.');
         return;
     }
 

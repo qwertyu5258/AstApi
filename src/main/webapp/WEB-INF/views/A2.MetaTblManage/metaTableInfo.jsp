@@ -129,6 +129,7 @@
               </div>
 
               <div class="row" id="metaTableInfoColDt">
+                  <input type="hidden" id="hidden_column_idntfc_id" value="">
                   <div class="col-md-12">
                       <div class="x_panel">
                           <div class="x_title">
