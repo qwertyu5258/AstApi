@@ -65,9 +65,9 @@
                         </div>
                         <div class="x_content">
                           <div class="table_btns mb-2">
-                            <button class="btn btn-primary btn_add">+ 추가</button>
-                            <button class="btn btn-danger btn_remove">- 삭제</button>
-                            <button class="btn btn-success">저장</button>
+                            <button class="btn btn-primary " onclick="instanceSetAdd();">+ 추가</button>
+                            <button class="btn btn-danger " onclick="instanceSetDel();">- 삭제</button>
+                            <button class="btn btn-success" onclick="instanceSetSave();">저장</button>
                           </div>
                           <div class="table_responsive">
                             <table class="table table-striped table-bordered bulk_action" style="width:100%" id="instanceSetData">
@@ -78,14 +78,19 @@
                               <thead>
                                 <tr>
                                   <th>선택</th>
-                                  <th>수집유형</th>
+                                  <th>순번</th>
                                   <th>수집방식</th>
+                                  <th>수집유형</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <%--<tr>
                                   <th>
-                                    <div class="icheckbox_flat-purple" style="position: relative;"><div class="icheckbox_flat-purple" style="position: relative;"><input class="flat" type="checkbox" name="table_records" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                    <div class="icheckbox_flat-purple" style="position: relative;">
+                                      <div class="icheckbox_flat-purple" style="position: relative;">
+                                        <input class="flat" type="checkbox" name="table_records" style="position: absolute; opacity: 0;">
+                                      </div>
+                                    </div>
                                   </th>
                                   <td>1</td>
                                   <td>
@@ -101,7 +106,11 @@
                                 </tr>
                                 <tr>
                                   <th>
-                                    <div class="icheckbox_flat-purple" style="position: relative;"><div class="icheckbox_flat-purple" style="position: relative;"><input class="flat" type="checkbox" name="table_records" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                    <div class="icheckbox_flat-purple" style="position: relative;">
+                                      <div class="icheckbox_flat-purple" style="position: relative;">
+                                        <input class="flat" type="checkbox" name="table_records" style="position: absolute; opacity: 0;">
+                                      </div>
+                                    </div>
                                   </th>
                                   <td>2</td>
                                   <td>
@@ -117,7 +126,11 @@
                                 </tr>
                                 <tr>
                                   <th>
-                                    <div class="icheckbox_flat-purple" style="position: relative;"><div class="icheckbox_flat-purple" style="position: relative;"><input class="flat" type="checkbox" name="table_records" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                    <div class="icheckbox_flat-purple" style="position: relative;">
+                                      <div class="icheckbox_flat-purple" style="position: relative;">
+                                        <input class="flat" type="checkbox" name="table_records" style="position: absolute; opacity: 0;">
+                                      </div>
+                                    </div>
                                   </th>
                                   <td>3</td>
                                   <td>
@@ -138,34 +151,35 @@
                       </div>
                     </div>
                   </div>
-                <div class="row">
+                <div class="row" id="instanceSetDataConfigArea">
                   <div class="col-md-12">
                     <div class="x_panel">
-                      <h3>Instance 설정정보</h3>
+                      <h3>접속정보 설정</h3>
                       <div class="x_content">
                         <div class="table_btns mb-2">
-                          <button class="btn btn-primary btn_add">+ 추가</button>
-                          <button class="btn btn-danger btn_remove">- 삭제</button>
-                          <button class="btn btn-success">저장</button>
+                          <button class="btn btn-primary " onclick="instanceSetConfigAdd();">+ 추가</button>
+                          <button class="btn btn-danger " onclick="instanceSetConfigDel();">- 삭제</button>
+                          <button class="btn btn-success" onclick="instanceSetConfigSave();">저장</button>
                         </div>
                         <div class="table_responsive">
-                          <table class="table table-striped table-bordered bulk_action" style="width:100%">
+                          <input type="hidden" id="hiddenConnectId" value="">
+                          <input type="hidden" id="hiddenClctTy" value="">
+                          <input type="hidden" id="hiddenClctMthd" value="">
+                          <table class="table table-striped table-bordered bulk_action" style="width:100%" id="instanceSetDataConfig">
                             <colgroup>
                               <col width="50px">
                               <col width="70px">
                             </colgroup>
                             <thead>
                             <tr>
-                              <th>
-                                <input class="tableInfoAll" id="check-all" type="checkbox" onclick="checkBoxAll('tableInfo')">
-                              </th>
+                              <th>선택</th>
                               <th>항목ID(Key)</th>
                               <th>항목명</th>
                               <th>항목설명</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                            <%--<tr>
                               <th>
                                 <div class="icheckbox_flat-purple" style="position: relative;"><div class="icheckbox_flat-purple" style="position: relative;"><input class="flat" type="checkbox" name="table_records" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
                               </th>
@@ -209,7 +223,7 @@
                               <td>
                                 <input type="text" value="">
                               </td>
-                            </tr>
+                            </tr>--%>
                             </tbody>
                           </table>
                         </div>
