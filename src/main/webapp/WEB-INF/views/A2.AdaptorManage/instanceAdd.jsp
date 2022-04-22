@@ -97,10 +97,9 @@
                                     <div class="col-md-6">
                                       <select class="form-control" id="storage_type">
                                         <option>선택</option>
-                                        <option>Option one</option>
-                                        <option>Option two</option>
-                                        <option>Option three</option>
-                                        <option>Option four</option>
+                                        <option value="년">년</option>
+                                        <option value="월">월</option>
+                                        <option value="일">일</option>
                                       </select>
                                     </div>
                                   </div>
@@ -482,102 +481,112 @@
 
       }
 
+      //Instance ID (Instance ID 자동증가 - dp_ingest_adapter_it_id_chk)
       //저장버튼
       function instancePopupAdd(){
-        const id_chk = adapter_id_chk();
-        if(!id_chk){
-          alert("Instance ID가 정상적으로 생성되지 않았습니다.");
-          return;
-        }
+        let id_chk = "";
 
         if(!$("#instance_nm").val()){
           alert("인스턴스 명을 작성해주세요.");
           return;
         }
 
-        let scheduleType = null;
-        let scheduleTimeTpe = null;
-        let scheduleYear = null;
-        let scheduleMonth = null;
-        let scheduleDay = null;
-        let scheduleHour = null;
-        let scheduleMinute = null;
-
-        if($("input:radio[name='schedule_type']:checked").val() === "Y"){
-          scheduleType = "반복";
-          if($("input:radio[name='schedule_time_type']:checked").val() === "year"){
-            scheduleTimeTpe = "year";
-            scheduleMonth = $("yearMonth").val();
-            scheduleDay = $("yearDay").val();
-            scheduleHour = $("yearHour").val();
-            scheduleMinute = $("yearMinute").val();
-
-          }else if($("input:radio[name='schedule_time_type']:checked").val() === "month"){
-            scheduleTimeTpe = "month";
-            scheduleDay = $("monthDay").val();
-            scheduleHour = $("monthHour").val();
-            scheduleMinute = $("monthMinute").val();
-
-          }else if($("input:radio[name='schedule_time_type']:checked").val() === "week"){
-            scheduleTimeTpe = "week";
-            scheduleHour = $("weekHour").val();
-            scheduleMinute = $("weekMinute").val();
-
-          }else if($("input:radio[name='schedule_time_type']:checked").val() === "day"){
-            scheduleTimeTpe = "day";
-            scheduleHour = $("dayHour").val();
-            scheduleMinute = $("dayMinute").val();
-
-          }else if($("input:radio[name='schedule_time_type']:checked").val() === "hour"){
-            scheduleTimeTpe = "hour";
-            scheduleMinute = $("hourMinute").val();
-          }
-        }else{
-          scheduleType = "미반복";
-          scheduleYear = $("noRepactYear").val();
-          scheduleMonth = $("noRepactMonth").val();
-          scheduleDay = $("noRepactDay").val();
-          scheduleHour = $("noRepactHour").val();
-          scheduleMinute = $("noRepactMinute").val();
-        }
-
-        const data = {
-          "adapter_id": adapterId,                                  //Adapter_ID
-          "instance_id": id_chk,                                    //Instance_ID
-          "instance_nm": $("#instance_nm").val(),                   //인스턴스_명
-          "dset_idntfc_id": $("#dset_idntfc_id").val(),             //데이터셋_식별_ID
-          "dset_korean_nm": $("#dset_idntfc_nm").val(),             //데이터_셋_명
-          "use_yn": $("input:radio[name='useYn']:checked").val(),   //사용여부
-          "storage_cycle": $("#storage_cycle").val(),               //보관주기
-          "storage_type": $("#storage_type").val(),                 //보관주기_타입
-          "schedule_type": scheduleType,                            //수집_스케줄_유형
-          "schedule_time_type": scheduleTimeTpe,                    //수집스케줄_시간타입
-          "schedule_now_exe": null,                                 //수집스케줄_즉시실행
-          "schedule_year": scheduleYear,                            //수집스케줄_년
-          "schedule_month": scheduleMonth,                          //수집스케줄_월
-          "schedule_day": scheduleDay,                              //수집스케줄_일
-          "schedule_hour": scheduleHour,                            //수집스케줄_시
-          "schedule_minute": scheduleMinute,                        //수집스케줄_분
-          "etc_note": $("etc_note").val(),                          //비고
-          "time_data_yn": $("input:radio[name='time_data_yn']:checked").val(),  //시계열 데이터
-          "subfolder_yn": null,                                     //하위폴더_포함여부
-          "url_mix": null,                                          //url_조합
-          "clct_mthd": $("clct_mthd").val(),                        //수집방식
-          "clct_ty": $("clct_ty").val(),                            //수집유형
-        };
-
         $.ajax({
-          type: 'post',
-          url: '/dp/ingest/adapter/instance/save',
+          type: 'get',
+          url: '/dp/ingest/adapter/instance/id/check',
           contentType:"application/json;charset=UTF-8",
-          data: JSON.stringify(data),
+          //data: param,
           success: function(data, textStatus, xhr) {
-            console.log("dp_ingest_adapter_it_save", data)
-            window.close();
-            location.href="adaptorDetail?adapterId="+adapterId;
+            id_chk = data.contents[0].instance_id;
+
+            let scheduleType = null;
+            let scheduleTimeTpe = null;
+            let scheduleYear = null;
+            let scheduleMonth = null;
+            let scheduleDay = null;
+            let scheduleHour = null;
+            let scheduleMinute = null;
+
+            if($("input:radio[name='schedule_type']:checked").val() === "Y"){
+              scheduleType = "반복";
+              if($("input:radio[name='schedule_time_type']:checked").val() === "year"){
+                scheduleTimeTpe = "year";
+                scheduleMonth = $("yearMonth").val();
+                scheduleDay = $("yearDay").val();
+                scheduleHour = $("yearHour").val();
+                scheduleMinute = $("yearMinute").val();
+
+              }else if($("input:radio[name='schedule_time_type']:checked").val() === "month"){
+                scheduleTimeTpe = "month";
+                scheduleDay = $("monthDay").val();
+                scheduleHour = $("monthHour").val();
+                scheduleMinute = $("monthMinute").val();
+
+              }else if($("input:radio[name='schedule_time_type']:checked").val() === "week"){
+                scheduleTimeTpe = "week";
+                scheduleHour = $("weekHour").val();
+                scheduleMinute = $("weekMinute").val();
+
+              }else if($("input:radio[name='schedule_time_type']:checked").val() === "day"){
+                scheduleTimeTpe = "day";
+                scheduleHour = $("dayHour").val();
+                scheduleMinute = $("dayMinute").val();
+
+              }else if($("input:radio[name='schedule_time_type']:checked").val() === "hour"){
+                scheduleTimeTpe = "hour";
+                scheduleMinute = $("hourMinute").val();
+              }
+            }else{
+              scheduleType = "미반복";
+              scheduleYear = $("noRepactYear").val();
+              scheduleMonth = $("noRepactMonth").val();
+              scheduleDay = $("noRepactDay").val();
+              scheduleHour = $("noRepactHour").val();
+              scheduleMinute = $("noRepactMinute").val();
+            }
+
+            const savedata = {
+              "adapter_id": adapterId,                                  //Adapter_ID
+              "instance_id": id_chk,                                    //Instance_ID
+              "instance_nm": $("#instance_nm").val(),                   //인스턴스_명
+              "dset_idntfc_id": $("#dset_idntfc_id").val(),             //데이터셋_식별_ID
+              "dset_korean_nm": $("#dset_idntfc_nm").val(),             //데이터_셋_명
+              "use_yn": $("input:radio[name='useYn']:checked").val(),   //사용여부
+              "storage_cycle": $("#storage_cycle").val(),               //보관주기
+              "storage_type": $("#storage_type").val(),                 //보관주기_타입
+              "schedule_type": scheduleType,                            //수집_스케줄_유형
+              "schedule_time_type": scheduleTimeTpe,                    //수집스케줄_시간타입
+              "schedule_now_exe": null,                                 //수집스케줄_즉시실행
+              "schedule_year": scheduleYear,                            //수집스케줄_년
+              "schedule_month": scheduleMonth,                          //수집스케줄_월
+              "schedule_day": scheduleDay,                              //수집스케줄_일
+              "schedule_hour": scheduleHour,                            //수집스케줄_시
+              "schedule_minute": scheduleMinute,                        //수집스케줄_분
+              "etc_note": $("etc_note").val(),                          //비고
+              "time_data_yn": $("input:radio[name='time_data_yn']:checked").val(),  //시계열 데이터
+              "subfolder_yn": null,                                     //하위폴더_포함여부
+              "url_mix": null,                                          //url_조합
+              "clct_mthd": $("clct_mthd").val(),                        //수집방식
+              "clct_ty": $("clct_ty").val(),                            //수집유형
+            };
+
+            $.ajax({
+              type: 'post',
+              url: '/dp/ingest/adapter/instance/save',
+              contentType:"application/json;charset=UTF-8",
+              data: JSON.stringify(savedata),
+              success: function(data, textStatus, xhr) {
+                console.log("dp_ingest_adapter_it_save", data)
+                window.close();
+                location.href="adaptorDetail?adapterId="+adapterId;
+              },
+              error: function(data, status, error) {
+                alert('ajax Error ' + data);
+              }
+            });
           },
           error: function(data, status, error) {
-            alert('ajax Error ' + data);
+            alert('ajax Error: ' + data + url);
           }
         });
       }
@@ -594,14 +603,6 @@
           $("#repactData").hide();
         }
       });
-
-      //Instance ID (Instance ID 자동증가)
-      function instance_id_chk() {
-        ajaxGet('/dp/ingest/adapter/instance/id/check', "", function (data) {
-          console.log('완료~dp_ingest_adapter_it_id_chk' ,data);
-          return data.contents[0].instance_id;
-        });
-      }
 
       function dataSetPopup() {
         let url = "/dataSetPopup";

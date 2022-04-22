@@ -26,7 +26,7 @@ function instanceSetInit () {
     });
 }
 
-//접속유형 상세 추가 버튼
+//접속유형 상세 추가 버튼 (dp_ingest_it_pp_info_id_chk)
 function instanceSetAdd() {
     ajaxPost('/dp/ingest/instance/property/info/id/check', "", function (data) {
         let addConnectId = data.contents[0].connect_id;
@@ -71,32 +71,26 @@ function instanceSetDel() {
             success: function(data, textStatus, xhr) {
                 if(data.contents[0].chk_yn == 'Y') {
                     delChk_YN = true;
-                }
-            },
-            error: function(data, status, error) {
-                alert('API: (dp_ingest_it_pp_del_chk) ajax Error ' + data);
-                return;
-            }
-        });
-    },1000)
-
-    if(delChk_YN){
-        alert("접속유형 항목관리가 사용되고 있습니다.");
-        return;
-    }
-
-    setTimeout(() => {
-        const delData = {
-            "connect_id" : connectId
-        };
-        $.ajax({
-            type: 'post',
-            url: '/dp/ingest/instance/property/info/delete/'+clctMthd+"/"+clctTy,
-            contentType:"application/json;charset=UTF-8",
-            data: JSON.stringify(delData),
-            success: function(data, textStatus, xhr) {
-                if(data.returnCode == '2003') {
-                    location.href="instanceSet";
+                    alert("접속유형 항목관리가 사용되고 있습니다.");
+                }else{
+                    const delData = {
+                        "connect_id" : connectId
+                    };
+                    $.ajax({
+                        type: 'post',
+                        url: '/dp/ingest/instance/property/info/delete/'+clctMthd+"/"+clctTy,
+                        contentType:"application/json;charset=UTF-8",
+                        data: JSON.stringify(delData),
+                        success: function(data, textStatus, xhr) {
+                            if(data.returnCode == '2003') {
+                                location.href="instanceSet";
+                            }
+                        },
+                        error: function(data, status, error) {
+                            alert('API: (dp_ingest_it_pp_del_chk) ajax Error ' + data);
+                            return;
+                        }
+                    });
                 }
             },
             error: function(data, status, error) {
@@ -126,7 +120,6 @@ function instanceSetSave() {
                 url: '/dp/ingest/instance/property/info/save/'+checked_Saveval[i].clct_mthd+"/"+checked_Saveval[i].clct_ty,
                 contentType:"application/json;charset=UTF-8",
                 //data: JSON.stringify(checked_Saveval[i]),
-                // data: param,
                 success: function(data, textStatus, xhr) {
                     if(data.returnCode == '0000') {
                         console.log('API: (dp_ingest_adapter_it_pp_save) ajax Success ' + data);
@@ -251,13 +244,13 @@ function instanceSetConfigDel() {
                 }
             });
         }
-        if(delSuccessYn){
-            alert('정상적으로 삭제되었습니다.');
-            location.href="instanceSet";
-        }else{
-            alert('정상적으로 삭제되지않았습니다.');
-        }
     },1000)
+    if(delSuccessYn){
+        alert('정상적으로 삭제되었습니다.');
+        location.href="instanceSet";
+    }else{
+        alert('정상적으로 삭제되지않았습니다.');
+    }
 }
 
 //접속정보 설정 저장 버튼

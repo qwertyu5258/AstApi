@@ -138,10 +138,22 @@
                               <div class="row">
                                 <div class="form-group row col-12 col-md-6">
                                   <label class="control-label">수집 스케줄 유형</label>
-                                  <div class="form-control_box duplicate_box">
-                                    <input class="form-control" type="text" id="schedule_type" value="cvs" disabled="disabled">
+                                  <div class="form-control_box">
+                                    <div class="radio radio_inline">
+                                      <label class="">
+                                        <div class="iradio_flat-purple checked" style="position: relative;">
+                                          <input class="flat" type="radio" name="schedule_type" value="반복">
+                                        </div>반복
+                                      </label>
+                                    </div>
+                                    <div class="radio radio_inline">
+                                      <label>
+                                        <div class="iradio_flat-purple" style="position: relative;">
+                                          <input class="flat" type="radio" name="schedule_type" value="미반복">
+                                        </div>미반복
+                                      </label>
+                                    </div>
                                   </div>
-                                </div>
                                 <div class="form-group row col-12 col-md-6">
                                   <div class="control-label">사용여부</div>
                                   <div class="form-control_box">
@@ -193,13 +205,13 @@
                               <div class="cont_title_box">
                                 <h3>Instance 설정정보</h3>
                                 <div class="right_btns">
-                                  <a class="btn btn-success" onclick="matchInfoConfig();">매칭정보 설정</a>
-                                  <button class="btn btn-primary" onclick="instancePropertyAdd();">저장</button>
+                                  <button class="btn btn-success" onclick="matchInfoConfig();">매칭정보 설정</button>
+                                  <button class="btn btn-primary" onclick="instancePropertySave();">저장</button>
                                 </div>
                               </div>
                               <div class="x_content">
                                 <div class="table_btns mb-2">
-                                  <button class="btn btn-primary btn_add">+ 추가</button>
+                                  <button class="btn btn-primary btn_add" onclick="instancePropertyAdd();">+ 추가</button>
                                   <button class="btn btn-danger btn_remove" onclick="instancePropertyDel();">- 삭제</button>
                                 </div>
                                 <div class="table_responsive">

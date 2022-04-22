@@ -134,7 +134,7 @@
                       <div class="x_panel">
                           <div class="x_title">
                               <h2>컬럼 항목</h2>
-                              <button class="btn btn-primary" style="float:right" id="colSaveBtn" onclick="saveColumn()">저장~~1</button>
+                              <button class="btn btn-primary" style="float:right" id="colSaveBtn" onclick="saveColumn()">저장</button>
                               <div class="clearfix"> </div>
                           </div>
                           <div class="x_content">

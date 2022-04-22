@@ -2,7 +2,10 @@
 
 metaTableItemManageInit();
 
+//메타정보 항목관리 List(dp_ingest_meta_item)
 function metaTableItemManageInit () {
+    //대분류 카테고리 가져오기
+    categoryInit();
     ajaxGet('/dp/ingest/meta/item', '', function (data) {
         console.log(data);
         let obj = data.contents;
@@ -105,7 +108,7 @@ function search() {
     });
 }
 
-//저장 버튼
+//저장 버튼(메타정보 항목관리 저장 : dp_ingest_meta_item_save)
 function metaTableItemManageSave () {
     const checked_val = [];
 

@@ -173,8 +173,8 @@
                       <div class="x_panel">
                           <div class="x_title">
                               <h2>데이터셋 항목</h2>
-                              <button class="btn btn-primary" style="float:right" id="dataSetItemSaveBtn" onclick="saveDataSetItem()">저장~~1</button>
-                              <button class="btn btn-primary" style="float:right" id="dataSetItemEditBtn" onclick="editDataSetItem()">수정~~1</button>
+                              <button class="btn btn-primary" style="float:right" id="dataSetItemSaveBtn" onclick="saveDataSetItem()">저장</button>
+                              <button class="btn btn-primary" style="float:right" id="dataSetItemEditBtn" onclick="editDataSetItem()">수정</button>
                               <div class="clearfix"> </div>
                           </div>
                           <div class="x_content">
@@ -305,8 +305,8 @@
                       <div class="x_panel">
                           <div class="x_title">
                               <h2>테이블 항목</h2>
-                              <button class="btn btn-primary" style="float:right" id="tableItemSaveBtn" onclick="saveTableItem()">저장~~2</button>
-                              <button class="btn btn-primary" style="float:right" id="tableItemEditBtn" onclick="editTableItem()">수정~~2</button>
+                              <button class="btn btn-primary" style="float:right" id="tableItemSaveBtn" onclick="saveTableItem()">저장</button>
+                              <button class="btn btn-primary" style="float:right" id="tableItemEditBtn" onclick="editTableItem()">수정</button>
                               <div class="clearfix"></div>
                           </div>
                           <div class="x_content">

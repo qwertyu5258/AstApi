@@ -56,7 +56,8 @@ function metaTableInfoAdd () {
     $("#metaTableInfoColDt").show();
 }
 
-//삭제 버튼
+//메타테이블 컬럼 삭제 체크 (dp_ingest_meta_tbl_del_chk_col)
+//메타테이블 컬럼 삭제 버튼 (dp_ingest_meta_tbl_del_col)
 function metaTableInfoDel () {
     const metaTableChecked_val = [];
 
@@ -69,19 +70,29 @@ function metaTableInfoDel () {
         return;
     }
 
-    let delChk_YN = false;
     setTimeout(() => {
         for(let i=0; i < metaTableChecked_val.length; i++){
             $.ajax({
                 type: 'post',
                 url: '/dp/ingest/meta/tables/delete/check/'+idntfcId+'/column/'+metaTableChecked_val[i],
-                // contentsType: "application/json",
                 contentType:"application/json;charset=UTF-8",
                 //data: JSON.stringify(param),
-                // data: param,
                 success: function(data, textStatus, xhr) {
                     if(data.contents[0].chk_yn == 'Y') {
-                        delChk_YN = true;
+                        alert("삭제가 불가능한 컬럼이 있습니다.");
+                    }else{
+                        if(window.confirm("정말 삭제하시겠습니까?")){
+                            setTimeout(() => {
+                                for(let i=0; i < metaTableChecked_val.length; i++){
+                                    ajaxPost('/dp/ingest/meta/tables/delete/'+idntfcId+'/dataset/'+metaTableChecked_val[i], "", function (data) {
+                                        console.log('완료~dp_ingest_meta_tbl_del_col',data);
+                                    });
+                                }
+
+                                alert("선택한 항목이 정상적으로 삭제되었습니다.");
+                                location.href="metaTableInfo?idntfcId="+idntfcId;
+                            },1000)
+                        }
                     }
                 },
                 error: function(data, status, error) {
@@ -90,26 +101,9 @@ function metaTableInfoDel () {
             });
         }
     },1000)
-
-    if(delChk_YN){
-        alert("삭제가 불가능한 컬럼이 있습니다.");
-        return;
-    }
-
-    if(window.confirm("정말 삭제하시겠습니까?")){
-        setTimeout(() => {
-            for(let i=0; i < metaTableChecked_val.length; i++){
-                ajaxPost('/dp/ingest/meta/tables/delete/'+idntfcId+'/dataset/'+metaTableChecked_val[i], "", function (data) {
-                    console.log('완료~dp_ingest_meta_tbl_del_col',data);
-                });
-            }
-
-            alert("선택한 항목이 정상적으로 삭제되었습니다.");
-            location.href="metaTableInfo?idntfcId="+idntfcId;
-        },1000)
-    }
 }
 
+//메타테이블 컬럼 항목 상세 (dp_ingest_meta_tbl_col_dt)
 function colDtDataView(idntfcId, columnIdntfcId){
     metaTableInfoReset();
     ajaxGet('/dp/ingest/meta/tables/'+idntfcId+'/column/detail/'+columnIdntfcId, "", function (data) {
@@ -144,15 +138,9 @@ function colDtDataView(idntfcId, columnIdntfcId){
 
 //저장 버튼
 function saveColumn () {
-    const id_chk = column_tbl_id_chk();
-    if(!id_chk){
-        alert("컬럼_식별자 ID가 정상적으로 생성되지 않았습니다.");
-        return;
-    }else{
-        $("#hidden_column_idntfc_id").val(id_chk);
-    }
+
     const saveColumnData = {
-        "column_idntfc_id" : $("#hidden_column_idntfc_id").val(),
+        /*"column_idntfc_id" : $("#hidden_column_idntfc_id").val(),*/
         "rl_table_idntfc_id" : idntfcId,
         "dset_knd" : $('#dset_knd').val(),
         "ordr" : $('#ordr').val(),
@@ -183,7 +171,7 @@ function saveColumn () {
 
     ajaxPost('/dp/ingest/meta/tables/save/column', saveColumnData, function (data) {
         console.log('완료~dp_ingest_meta_tbl_save_col',data);
-        location.href="metaTableInfo?idntfcId="+idntfcId;
+        location.href="metaTableInfo?idntfcId="+idntfcId+"&table_korean_nm="+tableKoreanNm+"&table_eng_nm="+tableEngNm;
     });
 }
 
@@ -221,10 +209,4 @@ function metaTableInfoReset(){
     $("#crud_se").val("");
 }
 
-//컬럼_식별자_ID (컬럼_식별자 자동증가) - 식별자 C로시작 자리수 20자
-function column_tbl_id_chk() {
-    /*ajaxGet('/dp/ingest/meta/tables/dataset/id/check', "", function (data) {
-        console.log('완료~dp_ingest_meta_tbl_dset_id_chk' ,data);
-        return data.contents[0].dset_idntfc_id;
-    });*/
-}
+

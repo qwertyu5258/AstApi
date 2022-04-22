@@ -148,6 +148,9 @@
   </div>
 
   <%@include file="/WEB-INF/views/A1.Common/commonJs.jsp" %>
+  <script>
+
+  </script>
 
 </body>
 </html>

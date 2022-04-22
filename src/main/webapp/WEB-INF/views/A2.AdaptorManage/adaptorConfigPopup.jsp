@@ -135,29 +135,40 @@
 
         //저장 버튼
         function popupAdd() {
-            const id_chk = adapter_id_chk();
-            if(!id_chk){
-                alert("Adapter ID가 정상적으로 생성되지 않았습니다.");
-                return;
-            }
+            let id_chk = "";
             if(!$("#adapterNm").val()){
                 alert("Adapter 명을 작성하세요.");
                 return;
             }
-            if(!$("#adapterTypeId").val()){
+            if($("#adapterTypeId").val() === ""){
                 alert("Adapter 유형을 선택하세요.");
                 return;
             }
-            const data = {
-                "adapter_id": id_chk,                                   //Adapter_ID
-                "adapter_nm": $("#adapterNm").val(),                    //Adapter_명
-                "adapter_type_id": $("#adapterTypeId").val(),           //Adapter유형_ID
-                "use_yn": $("input:radio[name='use']:checked").val()    //사용 여부
-            };
-            ajaxPost('/dp/ingest/adapter/save', data, function (data) {
-                console.log('완료~dp_ingest_adapter_save',data);
-                location.href="adaptorConfig";
-                window.close();
+
+            $.ajax({
+                type: 'get',
+                url: '/dp/ingest/adapter/id/check',
+                contentType:"application/json;charset=UTF-8",
+                //data: param,
+                success: function(data, textStatus, xhr) {
+                    id_chk = data.contents[0].adpater_id;
+
+                    const saveData = {
+                        "adapter_id": id_chk,                                   //Adapter_ID
+                        "adapter_nm": $("#adapterNm").val(),                    //Adapter_명
+                        "adapter_type_id": $("#adapterTypeId").val(),           //Adapter유형_ID
+                        "use_yn": $("input:radio[name='use']:checked").val()    //사용 여부
+                    };
+
+                    ajaxPost('/dp/ingest/adapter/save', saveData, function (data) {
+                        console.log('완료~dp_ingest_adapter_save',data);
+                        location.href="adaptorConfig";
+                        window.close();
+                    });
+                },
+                error: function(data, status, error) {
+                    alert('ajax Error: ' + data + url);
+                }
             });
         }
 
@@ -216,14 +227,6 @@
                 error: function(data, status, error) {
                     alert('ajax Error ' + data);
                 }
-            });
-        }
-
-        //Adapter ID (Adapter ID 자동증가)
-        function adapter_id_chk() {
-            ajaxGet('/dp/ingest/adapter/id/check', "", function (data) {
-                console.log('완료~dp_ingest_adapter_id_chk' ,data);
-                return data.contents[0].adpater_id;
             });
         }
 

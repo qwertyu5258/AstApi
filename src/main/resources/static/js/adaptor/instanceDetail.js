@@ -22,7 +22,7 @@ function instanceDetailInit () {
         $("input:checkbox[name='time_data_yn']:checkbox[value='"+resultData.time_data_yn+"']").prop('checked', true);
         $("clct_mthd").val(resultData.clct_mthd);
         $("clct_ty").val(resultData.clct_ty);
-        $("schedule_type").val(resultData.clct_ty);
+        $("input:checkbox[name='schedule_type']:checkbox[value='"+resultData.schedule_type+"']").prop('checked', true);
 
         let scheduleTimeText = "";
         if(resultData.schedule_type === "반복"){
@@ -79,7 +79,7 @@ function instanceMatchList() {
 
         for (let i = 0; i < obj.length; i++) {
             trHTML += `<tr>`;
-            trHTML += '<td><input class="tableInfo" type="checkbox" name="checkList" id="check'+i+'" value="'+obj[i].item+'"></td>';
+            trHTML += '<td><input class="tableInfo" type="checkbox" name="checkList"></td>';
             trHTML += `<td>`;
             trHTML += `<input type="text" value="`+obj[i].item+`" id="propertyItem">`;
             trHTML += `</td>`;
@@ -99,15 +99,32 @@ function instanceMatchList() {
 }
 
 //저장 버튼
-function instancePropertyAdd() {
+function instancePropertySave() {
     const checked_val = [];
 
+    let propertyItemCheck = true;
+    let propertyItemNmCheck = true;
+    let propertyValueCheck = true;
+    let propertyDescribedCheck = true;
+
     $.each($("#instanceMatchListData tbody tr"), function(){
+        if(!$(this).find("#propertyItem").val()){
+            propertyItemCheck = false;
+        }
+        if(!$(this).find("#propertyItemNm").val()){
+            propertyItemNmCheck = false;
+        }
+        if(!$(this).find("#propertyValue").val()){
+            propertyValueCheck = false;
+        }
+        if(!$(this).find("#propertyDescribed").val()){
+            propertyDescribedCheck = false;
+        }
         const contents = {
             "item" : $(this).find("#propertyItem").val(),
-            "item_nm" : $(this).find("#propertyItem").val(),
-            "value" : $(this).find("#propertyItem").val(),
-            "item_described" : $(this).find("#propertyItem").val(),
+            "item_nm" : $(this).find("#propertyItemNm").val(),
+            "value" : $(this).find("#propertyValue").val(),
+            "item_described" : $(this).find("#propertyDescribed").val(),
             "instance_id" : instanceId,
             "essential_yn" : null,
             "change_able_yn" : null,
@@ -117,6 +134,24 @@ function instancePropertyAdd() {
         };
         checked_val.push(contents);
     })
+
+    if(!propertyItemCheck){
+        alert("항목 ID를 작성하세요");
+        return;
+    }
+    if(!propertyItemNmCheck){
+        alert("항목명을 작성하세요");
+        return;
+    }
+    if(!propertyValueCheck){
+        alert("항목값을 작성하세요");
+        return;
+    }
+    if(!propertyDescribedCheck){
+        alert("항목 설명을 작성하세요");
+        return;
+    }
+
 
     let successYn = true;
     setTimeout(() => {
@@ -141,12 +176,34 @@ function instancePropertyAdd() {
     },1000)
 }
 
+//추가 버튼
+function instancePropertyAdd() {
+    let trHTML = "";
+    trHTML += `<tr>`;
+    trHTML += '<td><input class="tableInfo" type="checkbox" name="checkList"></td>';
+    trHTML += `<td>`;
+    trHTML += `<input type="text" value="" id="propertyItem">`;
+    trHTML += `</td>`;
+    trHTML += `<td>`;
+    trHTML += `<input type="text" value="" id="propertyItemNm">`;
+    trHTML += `</td>`;
+    trHTML += `<td>`;
+    trHTML += `<input type="text" value="" id="propertyValue">`;
+    trHTML += `</td>`;
+    trHTML += `<td>`;
+    trHTML += `<input type="text" value="" id="propertyDescribed">`;
+    trHTML += `</td>`;
+    trHTML += `</tr>`;
+
+    $("#instanceMatchListData tbody").append(trHTML);
+}
+
 //삭제 버튼
 function instancePropertyDel() {
     const instancePropertyChecked_val = [];
 
     $("input:checkbox[name='checkList']:checked").each(function(k,kValue){
-        instancePropertyChecked_val.push(kValue.value);
+        instancePropertyChecked_val.push($(this).parent().find("#propertyItem").val());
     })
 
     if(instancePropertyChecked_val.length === 0){
@@ -165,6 +222,7 @@ function instancePropertyDel() {
                 success: function(data, textStatus, xhr) {
                     if(data.contents[0].chk_yn == 'Y') {
                         delChk_YN = true;
+                        alert("삭제가 불가능한 접속정보가 있습니다.");
                     }
                 },
                 error: function(data, status, error) {
@@ -173,24 +231,23 @@ function instancePropertyDel() {
                 }
             });
         }
-    },1000)
-
-    if(delChk_YN){
-        alert("삭제가 불가능한 접속정보가 있습니다.");
-        return;
-    }
-
-    if(window.confirm("정말 삭제하시겠습니까?")){
-        setTimeout(() => {
-            for(let i=0; i < instancePropertyChecked_val.length; i++){
-                ajaxPost('/dp/ingest/adapter/instance/property/delete/'+instanceId+'/'+instancePropertyChecked_val[i], "", function (data) {
-                    console.log('완료~dp_ingest_adapter_it_pp_del',data);
-                });
+        if(delChk_YN){
+            alert("삭제가 불가능한 접속정보가 있습니다.");
+            return;
+        }else{
+            if(window.confirm("정말 삭제하시겠습니까?")){
+                setTimeout(() => {
+                    for(let i=0; i < instancePropertyChecked_val.length; i++){
+                        ajaxPost('/dp/ingest/adapter/instance/property/delete/'+instanceId+'/'+instancePropertyChecked_val[i], "", function (data) {
+                            console.log('완료~dp_ingest_adapter_it_pp_del',data);
+                        });
+                    }
+                    alert("선택한 항목이 정상적으로 삭제되었습니다.");
+                    location.href="instanceDetail?instanceId="+instanceId+"&adapterId="+adapterId;
+                },1000)
             }
-            alert("선택한 항목이 정상적으로 삭제되었습니다.");
-            location.href="instanceDetail?instanceId="+instanceId+"&adapterId="+adapterId;
-        },1000)
-    }
+        }
+    },1000)
 }
 
 //목록 버튼

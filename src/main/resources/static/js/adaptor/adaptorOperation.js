@@ -62,11 +62,19 @@ function totalStartBtn() {
         "adapter_id" : adapterId,
     };
 
-    ajaxPost('/dp/ingest/adapter/start', requestData, function (data) {
-        $("#adaptorOperationSEBtn").empty();
-        $("#adaptorOperationSEBtn").html(`<button class="btn btn-primary btn-sm" onclick="totalEndBtn();">중지</button>`);
+    $.ajax({
+        type: 'post',
+        url: '/dp/ingest/adapter/start',
+        contentType:"application/json;charset=UTF-8",
+        data: JSON.stringify(requestData),
+        success: function(data, textStatus, xhr) {
+            $("#adaptorOperationSEBtn").empty();
+            $("#adaptorOperationSEBtn").html(`<button class="btn btn-primary btn-sm" onclick="totalEndBtn();">중지</button>`);
+        },
+        error: function(data, status, error) {
+            console.log('ajax API(dp_ingest_adapter_start) Error: ' + data);
+        }
     });
-
 }
 
 //adaptor 상세 - Adapter 수집 종료(dp_ingest_adapter_stop)
@@ -75,9 +83,18 @@ function totalEndBtn() {
         "adapter_id" : adapterId,
     };
 
-    ajaxPost('/dp/ingest/adapter/stop', requestData, function (data) {
-        $("#adaptorOperationSEBtn").empty();
-        $("#adaptorOperationSEBtn").html(`<button class="btn btn-primary btn-sm" onclick="totalStartBtn();">시작</button>`);
+    $.ajax({
+        type: 'post',
+        url: '/dp/ingest/adapter/stop',
+        contentType:"application/json;charset=UTF-8",
+        data: JSON.stringify(requestData),
+        success: function(data, textStatus, xhr) {
+            $("#adaptorOperationSEBtn").empty();
+            $("#adaptorOperationSEBtn").html(`<button class="btn btn-primary btn-sm" onclick="totalStartBtn();">시작</button>`);
+        },
+        error: function(data, status, error) {
+            console.log('ajax API(dp_ingest_adapter_stop) Error: ' + data);
+        }
     });
 }
 
@@ -88,11 +105,19 @@ function singleStartBtn(element, instance_id) {
         "instance_id" : instance_id,
     };
 
-    ajaxPost('/dp/ingest/adapter/instance/start', requestData, function (data) {
-        $(element).parent().find("#singleBtnArea").empty();
-        $(element).parent().find("#singleBtnArea").append(`<button className="btn btn-sm btn-primary " onClick="singleEndBtn(this, '`+ instance_id +`');">중지</button>`);
+    $.ajax({
+        type: 'post',
+        url: '/dp/ingest/adapter/instance/start',
+        contentType:"application/json;charset=UTF-8",
+        data: JSON.stringify(requestData),
+        success: function(data, textStatus, xhr) {
+            $(element).parent().find("#singleBtnArea").empty();
+            $(element).parent().find("#singleBtnArea").append(`<button className="btn btn-sm btn-primary " onClick="singleEndBtn(this, '`+ instance_id +`');">중지</button>`);
+        },
+        error: function(data, status, error) {
+            console.log('ajax API(dp_ingest_adapter_it_start) Error: ' + data);
+        }
     });
-
 }
 
 //instance 상세 목록- 종료버튼(dp_ingest_adapter_stop)
@@ -101,8 +126,17 @@ function singleEndBtn(element, instance_id) {
         "instance_id" : instance_id,
     };
 
-    ajaxPost('/dp/ingest/adapter/instance/stop', requestData, function (data) {
-        $(element).parent().find("#singleBtnArea").empty();
-        $(element).parent().find("#singleBtnArea").append(`<button className="btn btn-sm btn-primary " onClick="singleStartBtn(this, '`+ instance_id +`')">중지</button>`);
+    $.ajax({
+        type: 'post',
+        url: '/dp/ingest/adapter/instance/stop',
+        contentType:"application/json;charset=UTF-8",
+        data: JSON.stringify(requestData),
+        success: function(data, textStatus, xhr) {
+            $(element).parent().find("#singleBtnArea").empty();
+            $(element).parent().find("#singleBtnArea").append(`<button className="btn btn-sm btn-primary " onClick="singleStartBtn(this, '`+ instance_id +`')">중지</button>`);
+        },
+        error: function(data, status, error) {
+            console.log('ajax API(dp_ingest_adapter_stop) Error: ' + data);
+        }
     });
 }

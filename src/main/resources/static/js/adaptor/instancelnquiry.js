@@ -3,6 +3,8 @@
 instancelnquiryInit();
 
 function instancelnquiryInit () {
+    //대분류 카테고리 가져오기
+    categoryInit();
     ajaxGet('/dp/ingest/instance/seach', "", function (data) {
         console.log(data);
         let obj = data.contents;

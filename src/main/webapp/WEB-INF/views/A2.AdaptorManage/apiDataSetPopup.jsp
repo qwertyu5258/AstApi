@@ -123,8 +123,8 @@
                         }
                     });
                 }
-                window.close();
-                location.href="instanceConfig?instanceId="+instanceId;
+                //window.close();
+                //location.href="instanceConfig?instanceId="+instanceId;
             },1000)
         }
 

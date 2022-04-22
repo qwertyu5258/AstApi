@@ -57,7 +57,6 @@
             </div>
             <div class="x_content">
               <h3>전처리 리스트</h3>
-              <form class="form-horizontal form-label-left d-flex align-items-center row">
                 <div class="col-12 col-md-10">
                   <div class="form-group row">
                     <label class="control-label">검색</label>
@@ -137,7 +136,6 @@
                     </div>
                   </div>
                 </div>
-              </form>
             </div>
           </div>
         </div>
