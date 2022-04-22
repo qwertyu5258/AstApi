@@ -36,18 +36,18 @@ public class DataSetApiController {
 
     //    dpIngestMetaDsetUpdate		/dataset/update/{param1}	post
     @PostMapping(value = {"/dataset/update/{param1}"})
-    public Map dpIngestMetaDsetUpdate(@PathVariable String param1) {
+    public Map dpIngestMetaDsetUpdate(@PathVariable String param1, @RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.postApi("/dataset/update/{param1}" + param1);
+        Map<String, Object> DataList = restService.postApi("/dataset/update/{param1}" + param1, params);
 
         return DataList;
     }
 
     //    dpIngestMetaDsetDel		/dataset/delete/{param1}	post
     @PostMapping(value = {"/dataset/delete/{param1}"})
-    public Map dpIngestMetaDsetDel(@PathVariable String param1) {
+    public Map dpIngestMetaDsetDel(@PathVariable String param1, @RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.postApi("/dataset/delete/" + param1);
+        Map<String, Object> DataList = restService.postApi("/dataset/delete/" + param1, params);
 
         return DataList;
     }

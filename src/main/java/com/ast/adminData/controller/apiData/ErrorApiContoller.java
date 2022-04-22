@@ -35,9 +35,9 @@ public class ErrorApiContoller {
 
     //    dpIngestErrorsInstant	/instant	post
     @PostMapping(value = {"/instant"})
-    public String dpIngestErrorsInstant() {
+    public String dpIngestErrorsInstant(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.postApi("/instant");
+        Map<String, Object> DataList = restService.postApi("/instant" , params);
 
         return DataList.toString();
 

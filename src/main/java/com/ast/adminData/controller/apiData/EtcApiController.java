@@ -16,9 +16,9 @@ public class EtcApiController {
 
     //    dpIngestMetaTblUpdate	/dp/ingest/meta/table/update/{param1}		post
     @PostMapping(value = {"/dp/ingest/meta/table/update/{param1}"})
-    public String dpIngestMetaTblUpdate(@PathVariable String param1) {
+    public String dpIngestMetaTblUpdate(@PathVariable String param1, @RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.postApi("/dp/ingest/meta/table/update/" + param1);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/meta/table/update/" + param1, params);
 
         return DataList.toString();
     }

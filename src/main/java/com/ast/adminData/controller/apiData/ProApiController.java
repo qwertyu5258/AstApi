@@ -15,62 +15,66 @@ public class ProApiController {
 
     private final RestService restService;
 
-//    dpIngestPro	/dp/ingest/pro		get
-@GetMapping(value = {""})
-public Map dpIngestAdaptorItIdChk() {
+    //    dpIngestPro	/dp/ingest/pro		get
+    @GetMapping(value = {""})
+    public Map dpIngestAdaptorItIdChk() {
 
-    Map<String, Object> DataList = restService.getApi("");
+        Map<String, Object> DataList = restService.getApi("");
 
-    return DataList;
-}
-//    dpIngestProDt		/{param1}	get
-@GetMapping(value = {"/{param1}"})
-public Map dpIngestProDt(@PathVariable String param1) {
+        return DataList;
+    }
 
-    Map<String, Object> DataList = restService.getApi("/" + param1);
+    //    dpIngestProDt		/{param1}	get
+    @GetMapping(value = {"/{param1}"})
+    public Map dpIngestProDt(@PathVariable String param1) {
 
-    return DataList;
-}
-//    dpIngestProIdChk		/id/check/{param1}	get
-@GetMapping(value = {"/id/check/{param1}"})
-public Map dpIngestProIdChk(@PathVariable String param1) {
+        Map<String, Object> DataList = restService.getApi("/" + param1);
 
-    Map<String, Object> DataList = restService.getApi("/id/check/" + param1);
+        return DataList;
+    }
 
-    return DataList;
-}
-//    dpIngestProIdDelChk		/id/delete/check/	get
-@GetMapping(value = {"/id/delete/check"})
-public Map dpIngestProIdDelChk() {
+    //    dpIngestProIdChk		/id/check/{param1}	get
+    @GetMapping(value = {"/id/check/{param1}"})
+    public Map dpIngestProIdChk(@PathVariable String param1) {
 
-    Map<String, Object> DataList = restService.getApi("/id/delete/check");
+        Map<String, Object> DataList = restService.getApi("/id/check/" + param1);
 
-    return DataList;
-}
-//    dpIngestProSave		/save	post
-@PostMapping(value = {"/save"})
-public Map dpIngestProSave() {
+        return DataList;
+    }
 
-    Map<String, Object> DataList = restService.postApi("/save");
+    //    dpIngestProIdDelChk		/id/delete/check/	get
+    @GetMapping(value = {"/id/delete/check"})
+    public Map dpIngestProIdDelChk() {
 
-    return DataList;
-}
-//    dpIngestProDel		/delete/{param1}	post
-@PostMapping(value = {"/delete/{param1}"})
-public Map dpIngestProDel(@PathVariable String param1) {
+        Map<String, Object> DataList = restService.getApi("/id/delete/check");
 
-    Map<String, Object> DataList = restService.postApi("/delete/" + param1);
+        return DataList;
+    }
 
-    return DataList;
-}
-//    dpIngestProUpdate		/update/{param1}	post
-@PostMapping(value = {"/update/{param1}"})
-public Map dpIngestProUpdate(@PathVariable String param1) {
+    //    dpIngestProSave		/save	post
+    @PostMapping(value = {"/save"})
+    public Map dpIngestProSave(@RequestBody Map<String, Object> params) {
 
-    Map<String, Object> DataList = restService.postApi("/update/" + param1);
+        Map<String, Object> DataList = restService.postApi("/save", params);
 
-    return DataList;
-}
+        return DataList;
+    }
 
+    //    dpIngestProDel		/delete/{param1}	post
+    @PostMapping(value = {"/delete/{param1}"})
+    public Map dpIngestProDel(@PathVariable String param1, @RequestBody Map<String, Object> params) {
 
+        Map<String, Object> DataList = restService.postApi("/delete/" + param1, params);
+
+        return DataList;
+    }
+
+    //    dpIngestProUpdate		/update/{param1}	post
+    @PostMapping(value = {"/update/{param1}"})
+    public Map dpIngestProUpdate(@PathVariable String param1, @RequestBody Map<String, Object> params) {
+
+        Map<String, Object> DataList = restService.postApi("/update/" + param1, params);
+
+        return DataList;
+    }
 }

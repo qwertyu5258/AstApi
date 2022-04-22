@@ -86,8 +86,8 @@ function metaTableAdd() {
     $("#tableItemSaveBtn").show();
 
     //수정버튼
-    $("#dataSetItemEditBtn").hide();
-    $("#tableItemEditBtn").hide();
+    // $("#dataSetItemEditBtn").hide();
+    // $("#tableItemEditBtn").hide();
     
     $("#dataSetItem").show();
     $("#tableItem").show();
@@ -200,8 +200,8 @@ function dataSetTableData(id,status) {
             $("#hidden_table_idntfc_id").val(TableData.contents[0].table_idntfc_id);  //테이블_식별자
 
             if(status === "edit"){
-                $("#dataSetItemSaveBtn").hide();
-                $("#tableItemSaveBtn").hide();
+                // $("#dataSetItemSaveBtn").hide();
+                // $("#tableItemSaveBtn").hide();
 
                 $("#dataSetItemEditBtn").show();
                 $("#tableItemEditBtn").show();
@@ -209,8 +209,8 @@ function dataSetTableData(id,status) {
                 $("#dataSetItemSaveBtn").hide();
                 $("#tableItemSaveBtn").hide();
 
-                $("#dataSetItemEditBtn").hide();
-                $("#tableItemEditBtn").hide();
+                // $("#dataSetItemEditBtn").hide();
+                // $("#tableItemEditBtn").hide();
             }
 
             $("#dataSetItem").show();

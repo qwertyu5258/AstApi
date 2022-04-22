@@ -62,36 +62,36 @@ public class InstanceApiController {
 
     //    dpIngestItPpDelGpDt		/property/delete/{param1}/{param1}	post
     @PostMapping(value = {"/property/delete/{param1}/{param2}"})
-    public Map dpIngestItPpDelGpDt(@PathVariable String param1, @PathVariable String param2) {
+    public Map dpIngestItPpDelGpDt(@PathVariable String param1, @PathVariable String param2, @RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.postApi("/property/delete/" + param1 + "/" + param2);
+        Map<String, Object> DataList = restService.postApi("/property/delete/" + param1 + "/" + param2, params);
 
         return DataList;
     }
 
     //    dpIngestItPpSaveGpDt		/property/save/{param1}/{param1}	post
     @PostMapping(value = {"/property/save/{param1}/{param2}"})
-    public Map dpIngestItPpSaveGpDt(@PathVariable String param1, @PathVariable String param2) {
+    public Map dpIngestItPpSaveGpDt(@PathVariable String param1, @PathVariable String param2, @RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.postApi("/property/save/" + param1 + "/" + param2);
+        Map<String, Object> DataList = restService.postApi("/property/save/" + param1 + "/" + param2, params);
 
         return DataList;
     }
 
     //    dpIngestItPpInfoDelGpDt		/property/info/delete/{param1}/{param1}	post
     @PostMapping(value = {"/property/info/delete/{param1}/{param2}"})
-    public Map dpIngestItPpInfoDelGpDt(@PathVariable String param1, @PathVariable String param2) {
+    public Map dpIngestItPpInfoDelGpDt(@PathVariable String param1, @PathVariable String param2, @RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.postApi("/property/info/delete/" + param1 + "/" + param2);
+        Map<String, Object> DataList = restService.postApi("/property/info/delete/" + param1 + "/" + param2, params);
 
         return DataList;
     }
 
     //    dpIngestItPpInfoSaveGpDt		/property/info/save/{param1}/{param1}	post
     @PostMapping(value = {"/property/info/save/{param1}/{param2}"})
-    public Map dpIngestItPpInfoSaveGpDt(@PathVariable String param1, @PathVariable String param2) {
+    public Map dpIngestItPpInfoSaveGpDt(@PathVariable String param1, @PathVariable String param2, @RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.postApi("/property/info/save/" + param1 + "/" + param2);
+        Map<String, Object> DataList = restService.postApi("/property/info/save/" + param1 + "/" + param2, params);
 
         return DataList;
     }
