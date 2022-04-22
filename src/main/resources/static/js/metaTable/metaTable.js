@@ -1,10 +1,10 @@
 
 var tableEngNmChk = false;      //데이터셋 영문명 중복체크 값
 
-metaTableInit();
+metaTableInit(1);
 
 //메타테이블 관리 테이블정보 (dp_ingest_meta_tbl)
-function metaTableInit () {
+function metaTableInit (pageNum) {
     //대분류 카테고리 가져오기
     categoryInit();
     $("#dataSetItem").hide();
@@ -18,7 +18,9 @@ function metaTableInit () {
         $("#metaTableCnt").html("총 "+obj.length+"개");
         $("#metaTable1 tbody").empty();
 
-        for (let i = 0; i < obj.length; i++) {
+        pageNation(obj.length, 10);
+
+        for (let i = 0; i < pageNum * 10; i++) {
             let idntfcId = obj[i].rl_dset_idntfc_id + "@" + obj[i].table_idntfc_id;
             trHTML += '<tr>'
                 + '<td><input class="tableInfo" type="checkbox" name="checkList" id="check'+i+'" value="'+idntfcId+'"></td>'
@@ -39,7 +41,7 @@ function metaTableInit () {
 }
 
 //검색
-function search() {
+function searchTbl(pageNum) {
     const data = {
         "search": $("#SelectText").val(),
         "search_type": $("#SelectCategory").val(),
@@ -55,7 +57,7 @@ function search() {
         $("#metaTableCnt").html("총 "+obj.length+"개");
         $("#metaTable1 tbody").empty();
 
-        for (let i = 0; i < obj.length; i++) {
+        for (let i = (pageNum -1 ) * 10; i < pageNum * 10; i++) {
             let idntfcId = obj[i].rl_dset_idntfc_id + "@" + obj[i].table_idntfc_id;
             trHTML += '<tr>'
                 + '<td><input class="tableInfo" type="checkbox" name="checkList" id="check'+i+'" value="'+idntfcId+'"></td>'
@@ -409,7 +411,7 @@ function editTableItem() {
 
     ajaxPost('/dp/ingest/meta/tables/update/table/'+edit_table_idntfc_id, data, function (data) {
         console.log('완료~dp_ingest_meta_tbl_update_dset',data);
-        alert("정상적으로 메타테이블의 테이블 항목이 수정되었습니다.")
+        alert("정상적으로 메타테이블의 테이블 항목이 수정되었습니다.");
     });
 }
 
@@ -444,4 +446,3 @@ function dataReset () {
     $("#hidden_dset_idntfc_id").val("");
     $("#hidden_table_idntfc_id").val("");
 }
-

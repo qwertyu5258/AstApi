@@ -75,19 +75,25 @@
                                       <th>
                                           <select class="form-control" id="LargeCategory">
                                               <option>대분류</option>
-                                              <option>Option one</option>
+                                              <option>A1</option>
+                                              <option>A2</option>
+                                              <option>A3</option>
                                           </select>
                                       </th>
                                       <th>
                                           <select class="form-control" id="MiddleCategory">
                                               <option>중분류</option>
-                                              <option>Option one</option>
+                                              <option>B1</option>
+                                              <option>B2</option>
+                                              <option>B3</option>
                                           </select>
                                       </th>
                                       <th>
                                           <select class="form-control" id="SmallCategory">
                                               <option>소분류</option>
-                                              <option>Option one</option>
+                                              <option>C1</option>
+                                              <option>C2</option>
+                                              <option>C3</option>
                                           </select>
                                       </th>
                                       <th>
@@ -100,7 +106,7 @@
                                           <input class="form-control" type="text" placeholder="" id="SelectText">
                                       </th>
                                       <th>
-                                          <button class="btn btn-primary" style="float:right" onclick="search()">검색</button>
+                                          <button class="btn btn-primary" style="float:right" onclick="searchTbl(1)">검색</button>
                                       </th>
                                   </tr>
 
@@ -156,10 +162,10 @@
                                   </table>
                                   <div class="nav justify-content-center">
                                       <ul class="pagination">
-                                          <li class="page-item"> <a class="page-link" href="#">&lt; </a></li>
-                                          <li class="page-item"> <a class="page-link" href="#">1   </a></li>
-                                          <li class="page-item"> <a class="page-link" href="#">2 </a></li>
-                                          <li class="page-item"> <a class="page-link" href="#">&gt;           </a></li>
+                                      <%--    <li class="page-item"> <a class="page-link" href="#">&lt; </a></li>
+                                          <li class="page-item"> <a class="page-link" onclick="searchTbl(1)">1</a></li>
+                                          <li class="page-item"> <a class="page-link" onclick="searchTbl(2)">2 </a></li>
+                                          <li class="page-item"> <a class="page-link" href="#">&gt;           </a></li>--%>
                                       </ul>
                                   </div>
                               </div>
@@ -212,8 +218,10 @@
                                           </th>
                                           <th>
                                               <select class="form-control" id="dset_lclas1">
-                                                  <option val="">Choose option</option>
-                                                  <option>Option one</option>
+                                                  <option>A1</option>
+                                                  <option>A2</option>
+                                                  <option>A3</option>
+                                                  <option value="AABBCC">AABBCC</option>
                                               </select>
                                           </th>
                                           <th>
@@ -233,7 +241,9 @@
                                           <th>
                                               <select class="form-control" id="dset_mclas1">
                                                   <option val="">Choose option</option>
-                                                  <option>Option one</option>
+                                                  <option>B1</option>
+                                                  <option>B2</option>
+                                                  <option>B3</option>
                                               </select>
                                           </th>
                                           <th>
@@ -253,7 +263,9 @@
                                           <th>
                                               <select class="form-control" id="dset_sclas1">
                                                   <option val="">Choose option</option>
-                                                  <option>Option one</option>
+                                                  <option>C1</option>
+                                                  <option>C2</option>
+                                                  <option>C3</option>
                                               </select>
                                           </th>
                                           <th>
