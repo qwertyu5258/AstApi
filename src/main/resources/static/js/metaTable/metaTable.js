@@ -18,7 +18,7 @@ function metaTableInit () {
         for (let i = 0; i < obj.length; i++) {
             let idntfcId = obj[i].rl_dset_idntfc_id + "@" + obj[i].table_idntfc_id;
             trHTML += '<tr class="">'
-                + '<td><input class="tableInfo" type="checkbox" onclick="metaCheckBox(checked)" name="checkList" id="check'+i+'" value="'+idntfcId+'"></td>'
+                + '<td><input class="tableInfo" type="checkbox" name="checkList" id="check'+i+'" value="'+idntfcId+'"></td>'
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_lclas + '</label></td>'
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_mclas + '</label></td>'
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_sclas + '</label></td>'
@@ -56,7 +56,7 @@ function search() {
         for (let i = 0; i < obj.length; i++) {
             let idntfcId = obj[i].rl_dset_idntfc_id + "@" + obj[i].table_idntfc_id;
             trHTML += '<tr class="">'
-                + '<td><input class="tableInfo" type="checkbox" onclick="metaCheckBox(checked)" name="checkList" id="check'+i+'" value="'+idntfcId+'"></td>'
+                + '<td><input class="tableInfo" type="checkbox" name="checkList" id="check'+i+'" value="'+idntfcId+'"></td>'
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_lclas + '</label></td>'
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_mclas + '</label></td>'
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_sclas + '</label></td>'
@@ -443,25 +443,3 @@ function dataReset () {
     $("#hidden_table_idntfc_id").val("");
 }
 
-//전체선택 checked 해제
-function metaCheckBox(value) {
-    if(value === false){
-        $("#check-all").prop("checked", false);
-    }
-
-}
-//    test
-function test1() {
-    let data =
-        {
-            "dset_idntfc_id": "test03kk1",
-            "cl_bass": "k",
-            "cl_qlity": "k",
-            "cl_cntm": "k",
-            "cl_wdtb": "k",
-            "cl_crlts": "k"
-        };
-    ajaxPost('/dp/ingest/meta/item/save', data, function (data) {
-        alert('완료~113');
-    });
-}

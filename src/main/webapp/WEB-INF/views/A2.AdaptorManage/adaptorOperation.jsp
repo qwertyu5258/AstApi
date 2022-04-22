@@ -64,7 +64,7 @@
                               <div class="cont_title_box">
                                 <h3>Adaptor 상세</h3>
                                 <div class="right_btns">
-                                  <a class="btn btn-success" onclick="adaptorConfigList();">목록</a>
+                                  <button class="btn btn-success" onclick="adaptorConfigList();">목록</button>
                                 </div>
                               </div>
                               <div class="row">

@@ -150,8 +150,8 @@ function checkOnlyOne(element, id) {
     })
     element.checked = true;
 
-    let clctTy = $(this).parent().find("#clctTy").val();
-    let clctMthd = $(this).parent().find("#clctMthd").val();
+    let clctTy = $(element).parent().find("#clctTy").val();
+    let clctMthd = $(element).parent().find("#clctMthd").val();
 
     $("#hiddenConnectId").val("");
     $("#hiddenClctTy").val("");
