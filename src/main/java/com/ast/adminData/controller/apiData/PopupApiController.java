@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @Slf4j
@@ -25,9 +26,10 @@ public class PopupApiController {
 
     //    dpIngestPopupDset01		/dataset01	get
     @GetMapping(value = {"/dataset01"})
-    public Map dpIngestPopupDset01() {
+    public Map dpIngestPopupDset01(HttpServletRequest request) {
 
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/popup");
+//        Map<String, Object> DataList = restService.getApi("/dp/ingest/popup");
+        Map<String, Object> DataList = restService.getApi(request.getServletPath() + "?" + request.getQueryString());
 
         return DataList;
     }

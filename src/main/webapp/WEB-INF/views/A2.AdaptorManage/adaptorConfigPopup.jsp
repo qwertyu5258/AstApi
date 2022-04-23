@@ -151,10 +151,10 @@
                 contentType:"application/json;charset=UTF-8",
                 //data: param,
                 success: function(data, textStatus, xhr) {
-                    id_chk = data.contents[0].adpater_id;
+                    id_chk = data.contents[0].adapter_id;
 
                     const saveData = {
-                        "adapter_id": id_chk,                                   //Adapter_ID
+                        // "adapter_id": id_chk,                                   //Adapter_ID
                         "adapter_nm": $("#adapterNm").val(),                    //Adapter_명
                         "adapter_type_id": $("#adapterTypeId").val(),           //Adapter유형_ID
                         "use_yn": $("input:radio[name='use']:checked").val()    //사용 여부

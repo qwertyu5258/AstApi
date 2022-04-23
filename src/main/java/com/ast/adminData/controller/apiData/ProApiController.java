@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @Slf4j
@@ -26,9 +27,10 @@ public class ProApiController {
 
     //    dpIngestProDt		/{param1}	get
     @GetMapping(value = {"/{param1}"})
-    public Map dpIngestProDt(@PathVariable String param1) {
+    public Map dpIngestProDt(@PathVariable String param1, HttpServletRequest request) {
 
-        Map<String, Object> DataList = restService.getApi("/" + param1);
+//        Map<String, Object> DataList = restService.getApi("/" + param1);
+        Map<String, Object> DataList = restService.getApi(request.getServletPath() + "?" + request.getQueryString());
 
         return DataList;
     }
@@ -44,9 +46,10 @@ public class ProApiController {
 
     //    dpIngestProIdDelChk		/id/delete/check/	get
     @GetMapping(value = {"/id/delete/check"})
-    public Map dpIngestProIdDelChk() {
+    public Map dpIngestProIdDelChk(HttpServletRequest request) {
 
-        Map<String, Object> DataList = restService.getApi("/id/delete/check");
+//        Map<String, Object> DataList = restService.getApi("/id/delete/check");
+        Map<String, Object> DataList = restService.getApi(request.getServletPath() + "?" + request.getQueryString());
 
         return DataList;
     }

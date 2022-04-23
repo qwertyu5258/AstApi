@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 
@@ -20,9 +21,9 @@ public class AdapterApiController {
 
     //    dpIngestadapter	/		get
     @GetMapping(value = {"", "/"})
-    public Map dpIngestAdapter() {
+    public Map dpIngestAdapter(HttpServletRequest request) {
 
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/adapter");
+        Map<String, Object> DataList = restService.getApi(request.getServletPath() + "?" + request.getQueryString());
 
         return DataList;
     }

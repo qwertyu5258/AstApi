@@ -117,7 +117,7 @@ function ajaxPost(url, param, callback) {
         data: JSON.stringify(param),
         // data: param,
         success: function(data, textStatus, xhr) {
-            if(data.returnCode == '0000') {
+            if(data.returnCode == '0000' || data.returnCode == '2001') {
                 return callback(data);
             } else {
                 alert('error : ' + data.returnCode + " : " + data.returnMsg);
