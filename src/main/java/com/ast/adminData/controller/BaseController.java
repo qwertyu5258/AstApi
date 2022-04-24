@@ -176,6 +176,10 @@ public class BaseController {
     public String idConfigPopup() {
         return "A2.AdaptorManage/idConfigPopup";
     }
+    @RequestMapping("/ApiDataConfigPopup")
+    public String ApiDataConfigPopup() {
+        return "A2.AdaptorManage/ApiDataConfigPopup";
+    }
 
 
 
