@@ -64,7 +64,7 @@ function instanceSetDel() {
             "clct_mthd" : clctMthd
         };
         $.ajax({
-            type: 'post',
+            type: 'get',
             url: '/dp/ingest/instance/property/delete/check',
             contentType:"application/json;charset=UTF-8",
             data: JSON.stringify(contents),

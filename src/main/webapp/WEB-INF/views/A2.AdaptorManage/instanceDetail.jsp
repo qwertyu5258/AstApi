@@ -211,8 +211,8 @@
                               </div>
                               <div class="x_content">
                                 <div class="table_btns mb-2">
-                                  <button class="btn btn-primary btn_add" onclick="instancePropertyAdd();">+ 추가</button>
-                                  <button class="btn btn-danger btn_remove" onclick="instancePropertyDel();">- 삭제</button>
+                                  <button class="btn btn-primary" onclick="instancePropertyAdd();">+ 추가</button>
+                                  <button class="btn btn-danger" onclick="instancePropertyDel();">- 삭제</button>
                                 </div>
                                 <div class="table_responsive">
                                   <table class="table table-striped table-bordered bulk_action" style="width:100%" id="instanceMatchListData">
