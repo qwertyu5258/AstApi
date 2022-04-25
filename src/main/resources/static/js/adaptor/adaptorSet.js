@@ -16,7 +16,7 @@ function adaptorSetInit () {
         for (let i = 0; i < obj.length; i++) {
             let noCnt = i+1;
             trHTML += `<tr>`;
-            trHTML += `<td><input class="tableInfo" type="checkbox" name="checkList" onclick="checkOnlyOne(this,`+obj[i].adapter_type_id+`);" id="check'+i+'" value="`+obj[i].adapter_type_id+`"></td>`;
+            trHTML += `<td><input class="tableInfo" type="checkbox" name="checkList" onclick="checkOnlyOne(this,'`+obj[i].adapter_type_id+`');" id="check'+i+'" value="`+obj[i].adapter_type_id+`"></td>`;
             trHTML += `<td>` + noCnt + `</td>`;
             trHTML += `<td>`;
             trHTML += `<input type="text" value="`+obj[i].adapter_type_nm+`" id="adapter_type_nm">`;
@@ -38,7 +38,7 @@ function adaptorSetAdd() {
 
         let trHTML = "";
         trHTML += `<tr>`;
-        trHTML += `<td><input class="tableInfo" type="checkbox" name="checkList" onclick="checkOnlyOne(this,`+addAdaptorId+`);" id="check'+i+'" value="`+addAdaptorId+`"></td>`;
+        trHTML += `<td><input class="tableInfo" type="checkbox" name="checkList" onclick="checkOnlyOne(this,'`+addAdaptorId+`');" id="check'+i+'" value="`+addAdaptorId+`"></td>`;
         trHTML += `<td>` + adaptorSetDataCnt + `</td>`;
         trHTML += `<td>`;
         trHTML += `<input type="text" value="" id="adapter_type_nm">`;
@@ -164,6 +164,8 @@ function checkOnlyOne(element, id) {
     $("#hiddenClctTy").val("");
     $("#hiddenClctMthd").val("");
 
+    $("#adaptorSetDataConfigArea").show();
+
     adapterSetConfigData(id, clctMthd, clctTy);
 }
 
@@ -173,7 +175,7 @@ function adapterSetConfigData(adapter_id, clct_mthd, clct_ty) {
     $("#hiddenClctTy").val(clct_mthd);
     $("#hiddenClctMthd").val(clct_ty);
 
-    ajaxGet('/dp/ingest/property/info/'+id, "", function (data) {
+    ajaxGet('/dp/ingest/property/info/'+adapter_id, "", function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";

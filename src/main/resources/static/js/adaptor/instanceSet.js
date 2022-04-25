@@ -15,7 +15,7 @@ function instanceSetInit () {
         for (let i = 0; i < obj.length; i++) {
             let noCnt = i+1;
             trHTML += `<tr>`;
-            trHTML += `<td><input class="tableInfo" type="checkbox" name="checkList" onclick="checkOnlyOne(this,`+obj[i].connect_id+`);" id="check'+i+'" value="`+obj[i].connect_id+`"></td>`;
+            trHTML += `<td><input class="tableInfo" type="checkbox" name="checkList" onclick="checkOnlyOne(this,'`+obj[i].connect_id+`');" id="check'+i+'" value="`+obj[i].connect_id+`"></td>`;
             trHTML += `<td>` + noCnt + `</td>`;
             trHTML += `<td><select id="clctMthd"><option>` + obj[i].clct_mthd + `</option></select></td>`;
             trHTML += `<td><select id="clctTy"><option>` + obj[i].clct_ty + `</option></select></td>`;
@@ -34,7 +34,7 @@ function instanceSetAdd() {
 
         let trHTML = "";
         trHTML += `<tr>`;
-        trHTML += `<td><input class="tableInfo" type="checkbox" name="checkList" onclick="checkOnlyOne(this,`+addConnectId+`);" id="check'+i+'" value="`+addConnectId+`"></td>`;
+        trHTML += `<td><input class="tableInfo" type="checkbox" name="checkList" onclick="checkOnlyOne(this,'`+addConnectId+`');" id="check'+i+'" value="`+addConnectId+`"></td>`;
         trHTML += `<td>` + instanceSetDataCnt + `</td>`;
         trHTML += `<td><select id="clctTy"><option>DB_TO_DB</option></select></td>`;
         trHTML += `<td><select id="clctMthd"><option>Postgresql</option></select></td>`;
@@ -150,10 +150,12 @@ function checkOnlyOne(element, id) {
     $("#hiddenClctTy").val("");
     $("#hiddenClctMthd").val("");
 
+    $("#instanceSetDataConfigArea").show();
+
     instanceSetConfigData(id, clctMthd, clctTy);
 }
 
-//접속유형 항목관리 - 접속정보 설정 조회
+//접속유형 항목관리 - 접속정보 설정 조회(dp_ingest_it_pp_info)
 function instanceSetConfigData(connect_id, clct_mthd, clct_ty) {
     $("#hiddenConnectId").val(connect_id);
     $("#hiddenClctTy").val(clct_mthd);
