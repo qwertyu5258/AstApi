@@ -7,8 +7,8 @@ metaTableInit(1);
 function metaTableInit (pageNum) {
     //대분류 카테고리 가져오기
     categoryInit();
-    // $("#dataSetItem").hide();
-    // $("#tableItem").hide();
+    $("#dataSetItem").hide();
+    $("#tableItem").hide();
 
     ajaxGet('/dp/ingest/meta/tables', '', function (data) {
         console.log(data);
@@ -88,8 +88,8 @@ function metaTableAdd() {
     $("#tableItemSaveBtn").show();
 
     //수정버튼
-    // $("#dataSetItemEditBtn").hide();
-    // $("#tableItemEditBtn").hide();
+    $("#dataSetItemEditBtn").hide();
+    $("#tableItemEditBtn").hide();
     
     $("#dataSetItem").show();
     $("#tableItem").show();
@@ -202,17 +202,17 @@ function dataSetTableData(id,status) {
             $("#hidden_table_idntfc_id").val(TableData.contents[0].table_idntfc_id);  //테이블_식별자
 
             if(status === "edit"){
-                // $("#dataSetItemSaveBtn").hide();
-                // $("#tableItemSaveBtn").hide();
+                $("#dataSetItemSaveBtn").hide();
+                $("#tableItemSaveBtn").hide();
 
                 $("#dataSetItemEditBtn").show();
                 $("#tableItemEditBtn").show();
             }else if(status === "view"){
-                // $("#dataSetItemSaveBtn").hide();
-                // $("#tableItemSaveBtn").hide();
+                $("#dataSetItemSaveBtn").hide();
+                $("#tableItemSaveBtn").hide();
 
-                // $("#dataSetItemEditBtn").hide();
-                // $("#tableItemEditBtn").hide();
+                $("#dataSetItemEditBtn").hide();
+                $("#tableItemEditBtn").hide();
             }
 
             $("#dataSetItem").show();
@@ -229,15 +229,9 @@ function dp_ingest_meta_tbl_dset(id, table_korean_nm, table_eng_nm) {
 //데이터셋 영문명 중복체크 (dp_ingest_meta_tbl_chk)
 function table_eng_nm_chk(){
     let tableEngNm = $('#table_eng_nm2').val();
-    let checkType = /^[a-z0-9+]*$/;
 
     if(!tableEngNm){
         alert('테이블 영문명을 작성하세요.');
-        return;
-    }
-
-    if(!checkType.test(tableEngNm)){
-        alert('소문자나 숫자를 입력하세요.');
         return;
     }
 
@@ -375,7 +369,7 @@ function saveTableItem() {
         console.log('완료~dp_ingest_meta_tbl_save_tbl',data);
         $("#hidden_table_idntfc_id").val(data.contents[0].table_idntfc_id);  //데이터셋_식별_ID
 
-        // $("#tableItemSaveBtn").hide();
+        $("#tableItemSaveBtn").hide();
         $("#tableItemEditBtn").show();
 
         alert("정상적으로 메타테이블의 테이블 항목이 등록되었습니다.")
