@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 @Slf4j
@@ -28,6 +30,14 @@ public class EtcApiController {
                              @RequestParam(value="pageCurrent", required = false, defaultValue = "1") String pageCurrent
                              ) {
         Map<String, Object> DataList = restService.getApi("/dp/ingest/pre?search" + search + "&pageCurrent" + pageCurrent);
+
+        return DataList;
+    }
+
+    @GetMapping(value = {"/dp/ingest/property/type"})
+    public Map dp_ingest_it_pp_type(HttpServletRequest request) throws UnsupportedEncodingException {
+
+        Map<String, Object> DataList = restService.getApi(request.getServletPath());
 
         return DataList;
     }
