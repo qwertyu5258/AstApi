@@ -39,9 +39,9 @@ public class InstanceApiController {
 
     //    dpIngestItPpDelChk		/property/delete/check	get
     @GetMapping(value = {"/property/delete/check"})
-    public Map dpIngestItPpDelChk() {
+    public Map dpIngestItPpDelChk(HttpServletRequest request) throws UnsupportedEncodingException {
 
-        Map<String, Object> DataList = restService.getApi("/property/delete/check");
+        Map<String, Object> DataList = restService.getApi(request.getServletPath() + "?" + URLDecoder.decode(request.getQueryString(), "UTF-8"));
 
         return DataList;
     }
@@ -101,10 +101,20 @@ public class InstanceApiController {
     }
 
     //    dpIngestItPp	/instance/property/{param1}/{param2}	get
-    @GetMapping(value = {"/instance/property/{param1}/{param2}"})
-    public Map dpIngestItPp(@PathVariable String param1, @PathVariable String param2) {
+//    @GetMapping(value = {"/property/{param1}/{param2}"})
+//    public Map dpIngestItPp(@PathVariable String param1, @PathVariable String param2) {
+//
+//        Map<String, Object> DataList = restService.getApi("/instance/property/" + param1 + "/" + param2);
+//
+//        return DataList;
+//    }
 
-        Map<String, Object> DataList = restService.getApi("/instance/property/" + param1 + "/" + param2);
+//    dp_ingest_it_pp_type	접속유형 항목관리 리스트 조회	get	/dp/ingest/instance/property/type
+
+    @GetMapping(value = {"/property/type"})
+    public Map dp_ingest_it_pp_type(HttpServletRequest request) throws UnsupportedEncodingException {
+
+        Map<String, Object> DataList = restService.getApi(request.getServletPath());
 
         return DataList;
     }

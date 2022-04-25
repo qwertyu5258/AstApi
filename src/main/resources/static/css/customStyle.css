@@ -56,3 +56,7 @@ input[type="checkbox"] {
     margin-top: -5px;
     vertical-align: bottom;
 }
+
+.icheckbox_flat-purple, .iradio_flat-purple {
+    background: none;
+}
