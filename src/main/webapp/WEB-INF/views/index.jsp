@@ -47,7 +47,7 @@
             </div>
           </div>
         </div>
-        <script>window.location.href = "table"</script>
+        <script>window.location.href = "/metaTable"</script>
         <footer> 
           <div class="full-right"></div>Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
           <div class="clearfix"></div>

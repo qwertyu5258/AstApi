@@ -90,9 +90,9 @@
                                   <table class="table table-striped" id="metaTableInfo1">
                                       <colgroup>
                                           <col width="55px">
-                                          <col width="75px">
-                                          <col width="75px">
-                                          <col width="75px">
+                                          <col width="200px">
+                                          <col width="200px">
+                                          <col width="100px">
                                       </colgroup>
                                       <thead>
                                           <tr>

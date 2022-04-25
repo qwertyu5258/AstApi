@@ -5,6 +5,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.Map;
 
 @Slf4j
@@ -26,9 +29,10 @@ public class InstanceApiController {
 
     //    dpIngestItSearch	/search	get
     @GetMapping(value = {"/search"})
-    public Map dpIngestItSearch() {
+    public Map dpIngestItSearch(HttpServletRequest request) throws UnsupportedEncodingException {
 
-        Map<String, Object> DataList = restService.getApi("/search");
+//        Map<String, Object> DataList = restService.getApi("/search");
+        Map<String, Object> DataList = restService.getApi(request.getServletPath() + "?" + URLDecoder.decode(request.getQueryString(), "UTF-8"));
 
         return DataList;
     }

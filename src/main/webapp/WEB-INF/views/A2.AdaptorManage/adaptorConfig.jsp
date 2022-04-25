@@ -87,7 +87,7 @@
                       <div class="col-md-12">
                         <div class="x_panel">
                           <div class="x_content">
-                              <div class="col-12 col-md-10">
+                              <div class="col-12 col-md-11">
                                 <div class="form-group row">
                                   <label class="control-label">검색</label>
                                   <div class="form-control_box">
@@ -101,10 +101,12 @@
                                     <div class="col-md-9 pr-0">
                                       <input class="form-control" type="text" placeholder="" id="adapterSearchText>
                                     </div>
+                                    <div class="col-md-1 pr-0">
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-12 col-md-2 btn_search_box">
+                              <div class="col-12 col-md-1 btn_search_box">
                                 <button class="btn btn-primary" onclick="search()"> <i class="glyphicon glyphicon-search"></i></button>
                               </div>
                           </div>

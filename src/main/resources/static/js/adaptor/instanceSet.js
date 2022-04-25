@@ -5,7 +5,7 @@ instanceSetInit();
 
 function instanceSetInit () {
     $("#instanceSetDataConfigArea").hide();
-    ajaxGet('/dp/ingest/instance/property/type', "", function (data) {
+    ajaxGet('222.107.32.38:42009/dp/ingest/instance/property/type', "", function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";
