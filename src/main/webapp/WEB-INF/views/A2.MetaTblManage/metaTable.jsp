@@ -222,6 +222,7 @@
                                                   <option>A2</option>
                                                   <option>A3</option>
                                                   <option value="AABBCC">AABBCC</option>
+                                                  <option value="D">D</option>
                                               </select>
                                           </th>
                                           <th>
@@ -231,6 +232,7 @@
                                               <select class="form-control" id="clct_ty1">
                                                   <option val="">Choose option</option>
                                                   <option>Option one</option>
+                                                  <option value="FILE UPLOAD">FILE UPLOAD</option>
                                               </select>
                                           </th>
                                       </tr>
