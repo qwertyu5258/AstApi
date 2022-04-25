@@ -130,7 +130,7 @@ function adaptorSetSave() {
         for(let i=0; i < checked_Saveval.length; i++){
             $.ajax({
                 type: 'post',
-                url: '}/dp/ingest/property/info/save',
+                url: '/dp/ingest/property/info/save',
                 contentType:"application/json;charset=UTF-8",
                 data: JSON.stringify(checked_Saveval[i]),
                 // data: param,
