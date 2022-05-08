@@ -52,11 +52,11 @@
         <div class="col-md-12">
           <div class="x_panel">
             <div class="x_title">
-              <h2>HOME &gt; Adaptor 관리 &gt; 전처리 리스트</h2>
+              <h2>HOME &gt; Adaptor 관리 &gt; 전처리 목록</h2>
               <div class="clearfix"> </div>
             </div>
             <div class="x_content">
-              <h3>전처리 리스트</h3>
+              <h3>전처리 목록</h3>
                 <div class="col-12 col-md-10">
                   <div class="form-group row">
                     <label class="control-label">검색</label>

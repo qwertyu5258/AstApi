@@ -3,7 +3,15 @@
 adaptorConfigInit();
 
 function adaptorConfigInit () {
-    ajaxGet('/dp/ingest/adapter', "", function (data) {
+
+    let data = {
+        "user_id" : "ksy",
+        "menu_id" : "",
+        "search_type" : "adapter_nm",
+        "search" : "11"
+    };
+
+    ajaxPost('/dp/ingest/adapter', data, function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";
@@ -36,7 +44,7 @@ function search() {
         "search_type": $("#adapterSearchType").val()
     };
 
-    ajaxGet('/dp/ingest/adapter', data, function (data) {
+    ajaxPost('/dp/ingest/adapter', data, function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";

@@ -12,109 +12,116 @@ import java.util.Map;
 
 @Slf4j
 @RestController
-@RequestMapping("/dp/ingest/instance")
 @RequiredArgsConstructor
 public class InstanceApiController {
 
     private final RestService restService;
 
     //    dpIngestAdaptorIdChk		/id/check/{param1}	get
-    @GetMapping(value = {"/id/check/{param1}"})
-    public Map dpIngestAdaptorIdChk(@PathVariable String param1) {
+    @PostMapping(value = {"/dp/ingest/instance/id/check"})
+    public Map dpIngestAdaptorIdChk(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.getApi("/id/check/" + param1);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/instance/id/check/", params);
 
         return DataList;
     }
 
     //    dpIngestItSearch	/search	get
-    @GetMapping(value = {"/search"})
-    public Map dpIngestItSearch(HttpServletRequest request) throws UnsupportedEncodingException {
+    @PostMapping(value = {"/dp/ingest/instance/search"})
+    public Map dpIngestItSearch(@RequestBody Map<String,Object> params) throws UnsupportedEncodingException {
 
-//        Map<String, Object> DataList = restService.getApi("/search");
-        Map<String, Object> DataList = restService.getApi(request.getServletPath() + "?" + URLDecoder.decode(request.getQueryString(), "UTF-8"));
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/instance/search", params);
 
         return DataList;
     }
 
     //    dpIngestItPpDelChk		/property/delete/check	get
-    @GetMapping(value = {"/property/delete/check"})
-    public Map dpIngestItPpDelChk(HttpServletRequest request) throws UnsupportedEncodingException {
+    @PostMapping(value = {"/dp/ingest/instance/property/delete/check"})
+    public Map dpIngestItPpDelChk(@RequestBody Map<String,Object> params) throws UnsupportedEncodingException {
 
-        Map<String, Object> DataList = restService.getApi(request.getServletPath() + "?" + URLDecoder.decode(request.getQueryString(), "UTF-8"));
+//        Map<String, Object> DataList = restService.postApi(request.getServletPath() + "?" + URLDecoder.decode(request.getQueryString(), "UTF-8"));
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/instance/search", params);
 
         return DataList;
     }
 
     //    dpIngestItPpInfoDelChk		/property/info/delete/check	get
-    @GetMapping(value = {"/property/info/delete/check"})
-    public Map dpIngestItPpInfoDelChk() {
+    @PostMapping(value = {"/dp/ingest/instance/property/info/delete/check"})
+    public Map dpIngestItPpInfoDelChk(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.getApi("/property/info/delete/check");
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/instance/property/info/delete/check", params);
 
         return DataList;
     }
 
     //    dpIngestItPpGpDt		/property/{param1}/{param2}	get
-    @GetMapping(value = {"/property/{param1}/{param2}"})
-    public Map dpIngestItPpGpDt(@PathVariable String param1, @PathVariable String param2) {
+    @PostMapping(value = {"/dp/ingest/instance/property/{param1}/{param2}"})
+    public Map dpIngestItPpGpDt(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.getApi("/property/" + param1 + "/" + param2);
-
+//        Map<String, Object> DataList = restService.postApi("/dp/ingest/instance/property/" + param1 + "/dp/ingest/instance/" + param2);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/instance/search", params);
         return DataList;
     }
 
     //    dpIngestItPpDelGpDt		/property/delete/{param1}/{param1}	post
-    @PostMapping(value = {"/property/delete/{param1}/{param2}"})
-    public Map dpIngestItPpDelGpDt(@PathVariable String param1, @PathVariable String param2, @RequestBody Map<String,Object> params) {
+    @PostMapping(value = {"/dp/ingest/instance/property/delete"})
+    public Map dpIngestItPpDelGpDt(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.postApi("/property/delete/" + param1 + "/" + param2, params);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/instance/property/delete", params);
 
         return DataList;
     }
 
     //    dpIngestItPpSaveGpDt		/property/save/{param1}/{param1}	post
-    @PostMapping(value = {"/property/save/{param1}/{param2}"})
-    public Map dpIngestItPpSaveGpDt(@PathVariable String param1, @PathVariable String param2, @RequestBody Map<String,Object> params) {
+    @PostMapping(value = {"/dp/ingest/instance/property/save"})
+    public Map dpIngestItPpSaveGpDt(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.postApi("/property/save/" + param1 + "/" + param2, params);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/instance/property/save", params);
 
         return DataList;
     }
 
     //    dpIngestItPpInfoDelGpDt		/property/info/delete/{param1}/{param1}	post
-    @PostMapping(value = {"/property/info/delete/{param1}/{param2}"})
-    public Map dpIngestItPpInfoDelGpDt(@PathVariable String param1, @PathVariable String param2, @RequestBody Map<String,Object> params) {
+    @PostMapping(value = {"/dp/ingest/instance/property/info/delete"})
+    public Map dpIngestItPpInfoDelGpDt(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.postApi("/property/info/delete/" + param1 + "/" + param2, params);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/instance/property/info/delete", params);
 
         return DataList;
     }
 
     //    dpIngestItPpInfoSaveGpDt		/property/info/save/{param1}/{param1}	post
-    @PostMapping(value = {"/property/info/save/{param1}/{param2}"})
-    public Map dpIngestItPpInfoSaveGpDt(@PathVariable String param1, @PathVariable String param2, @RequestBody Map<String,Object> params) {
+    @PostMapping(value = {"/dp/ingest/instance/property/info/save"})
+    public Map dpIngestItPpInfoSaveGpDt(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.postApi("/property/info/save/" + param1 + "/" + param2, params);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/instance/property/info/save", params);
 
         return DataList;
     }
 
     //    dpIngestItPp	/instance/property/{param1}/{param2}	get
-//    @GetMapping(value = {"/property/{param1}/{param2}"})
-//    public Map dpIngestItPp(@PathVariable String param1, @PathVariable String param2) {
+//    @PostMapping(value = {"/dp/ingest/instance/property/{param1}/{param2}"})
+//    public Map dpIngestItPp(@RequestBody Map<String,Object> params, @PathVariable String param2) {
 //
-//        Map<String, Object> DataList = restService.getApi("/instance/property/" + param1 + "/" + param2);
+//        Map<String, Object> DataList = restService.postApi("/dp/ingest/instance/instance/property/" + param1 + "/dp/ingest/instance/" + param2);
 //
 //        return DataList;
 //    }
 
 //    dp_ingest_it_pp_type	접속유형 항목관리 리스트 조회	get	/dp/ingest/instance/property/type
 
-    @GetMapping(value = {"/property/type"})
-    public Map dp_ingest_it_pp_type(HttpServletRequest request) throws UnsupportedEncodingException {
+    @PostMapping(value = {"/dp/ingest/instance/property/type"})
+    public Map dp_ingest_it_pp_type(@RequestBody Map<String,Object> params) throws UnsupportedEncodingException {
 
-        Map<String, Object> DataList = restService.getApi(request.getServletPath());
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/instance/property/type", params);
+
+        return DataList;
+    }
+
+    @GetMapping(value = {"/dp/ingest/instance/property/info/id/check"})
+    public Map dp_ingest_it_pp_info_id_chk() throws UnsupportedEncodingException {
+
+        Map<String, Object> DataList = restService.getApi("/dp/ingest/instance/property/info/id/check");
 
         return DataList;
     }

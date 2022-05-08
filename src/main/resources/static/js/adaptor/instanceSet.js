@@ -5,7 +5,12 @@ instanceSetInit();
 
 function instanceSetInit () {
     $("#instanceSetDataConfigArea").hide();
-    ajaxGet('/dp/ingest/instance/property/type', "", function (data) {
+
+    let data = {
+        "user_id" : "a",
+        "menu_id" : ""
+    };
+    ajaxPost('/dp/ingest/instance/property/type', data, function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";
@@ -28,7 +33,7 @@ function instanceSetInit () {
 
 //접속유형 상세 추가 버튼 (dp_ingest_it_pp_info_id_chk)
 function instanceSetAdd() {
-    ajaxPost('/dp/ingest/instance/property/info/id/check', "", function (data) {
+    ajaxGet('/dp/ingest/instance/property/info/id/check', "", function (data) {
         let addConnectId = data.contents[0].connect_id;
         instanceSetDataCnt = instanceSetDataCnt+1;
 
@@ -64,7 +69,7 @@ function instanceSetDel() {
             "clct_mthd" : clctMthd
         };
         $.ajax({
-            type: 'get',
+            type: 'post',
             url: '/dp/ingest/instance/property/delete/check',
             contentType:"application/json;charset=UTF-8",
             data: JSON.stringify(contents),
@@ -121,7 +126,7 @@ function instanceSetSave() {
                 contentType:"application/json;charset=UTF-8",
                 //data: JSON.stringify(checked_Saveval[i]),
                 success: function(data, textStatus, xhr) {
-                    if(data.returnCode == '0000') {
+                    if(data.returnCode == '0000' || data.return_code == '200') {
                         console.log('API: (dp_ingest_adapter_it_pp_save) ajax Success ' + data);
                     }
                 },
@@ -161,7 +166,7 @@ function instanceSetConfigData(connect_id, clct_mthd, clct_ty) {
     $("#hiddenClctTy").val(clct_mthd);
     $("#hiddenClctMthd").val(clct_ty);
 
-    ajaxGet('/dp/ingest/instance/property/info/'+connect_id, "", function (data) {
+    ajaxPost('/dp/ingest/instance/property/info/'+connect_id, "", function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";

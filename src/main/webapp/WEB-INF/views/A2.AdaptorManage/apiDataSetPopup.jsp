@@ -74,7 +74,7 @@
         $(document).ready(initTable);
 
         function initTable () {
-            ajaxGet('/dp/ingest/popup/property_path/'+instanceId, "", function (data) {
+            ajaxPost('/dp/ingest/popup/property_path/'+instanceId, "", function (data) {
                 console.log(data);
                 let obj = data.contents;
                 let trHTML = '';

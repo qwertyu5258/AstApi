@@ -17,39 +17,39 @@ public class ProApiController {
     private final RestService restService;
 
     //    dpIngestPro	/dp/ingest/pro		get
-    @GetMapping(value = {""})
+    @PostMapping(value = {""})
     public Map dpIngestAdaptorItIdChk() {
 
-        Map<String, Object> DataList = restService.getApi("");
+        Map<String, Object> DataList = restService.postApi("");
 
         return DataList;
     }
 
     //    dpIngestProDt		/{param1}	get
-    @GetMapping(value = {"/{param1}"})
+    @PostMapping(value = {"/{param1}"})
     public Map dpIngestProDt(@PathVariable String param1, HttpServletRequest request) {
 
-//        Map<String, Object> DataList = restService.getApi("/" + param1);
-        Map<String, Object> DataList = restService.getApi(request.getServletPath() + "?" + request.getQueryString());
+//        Map<String, Object> DataList = restService.postApi("/" + param1);
+        Map<String, Object> DataList = restService.postApi(request.getServletPath() + "?" + request.getQueryString());
 
         return DataList;
     }
 
     //    dpIngestProIdChk		/id/check/{param1}	get
-    @GetMapping(value = {"/id/check/{param1}"})
+    @PostMapping(value = {"/id/check/{param1}"})
     public Map dpIngestProIdChk(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.getApi("/id/check/" + param1);
+        Map<String, Object> DataList = restService.postApi("/id/check/" + param1);
 
         return DataList;
     }
 
     //    dpIngestProIdDelChk		/id/delete/check/	get
-    @GetMapping(value = {"/id/delete/check"})
+    @PostMapping(value = {"/id/delete/check"})
     public Map dpIngestProIdDelChk(HttpServletRequest request) {
 
-//        Map<String, Object> DataList = restService.getApi("/id/delete/check");
-        Map<String, Object> DataList = restService.getApi(request.getServletPath() + "?" + request.getQueryString());
+//        Map<String, Object> DataList = restService.postApi("/id/delete/check");
+        Map<String, Object> DataList = restService.postApi(request.getServletPath() + "?" + request.getQueryString());
 
         return DataList;
     }

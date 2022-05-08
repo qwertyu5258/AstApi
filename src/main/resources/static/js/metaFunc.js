@@ -6,7 +6,7 @@ function dp_ingest_meta_tbl(param1, param2, param3, param4, param5) {
         "dset_mclas": "12",
         "dset_sclas": "12",
     };
-    ajaxGet('/dp/ingest/meta/tables', data, function (data) {
+    ajaxPost('/dp/ingest/meta/tables', data, function (data) {
         alert('완료~113');
     });
 }
@@ -16,7 +16,7 @@ function dp_ingest_meta_tbl_dset(param1, param2) {
         "search": "12",
         "search_type": "!2",
     };
-    ajaxGet('/dp/ingest/meta/tables/{}/dataset', data, function (data) {
+    ajaxPost('/dp/ingest/meta/tables/{}/dataset', data, function (data) {
         alert('완료~113');
     });
 }
@@ -26,7 +26,7 @@ function dp_ingest_meta_tbl_tbl(param1, param2) {
         "search": "12",
         "search_type": "!2",
     };
-    ajaxGet('/dp/ingest/meta/tables/{}/table', data, function (data) {
+    ajaxPost('/dp/ingest/meta/tables/{}/table', data, function (data) {
         alert('완료~113');
     });
 }
@@ -36,17 +36,17 @@ function dp_ingest_meta_tbl_dset_id_chk(param1, param2) {
         "search": "12",
         "search_type": "!2",
     };
-    ajaxGet('/dp/ingest/meta/tables/dataset/id/check', data, function (data) {
+    ajaxPost('/dp/ingest/meta/tables/dataset/id/check', data, function (data) {
         alert('완료~113');
     });
 }
 // dp_ingest_meta_tbl_chk	get	/dp/ingest/meta/tables/{}/check
 function dp_ingest_meta_tbl_chk(param1, param2) {
     var data = {
-        "search": "12",
-        "search_type": "!2",
+        "user_id":"~`id",
+        "table_eng_nm" : "roadtraffic"
     };
-    ajaxGet(`/dp/ingest/meta/tables/${param1}/check`, data, function (data) {
+    ajaxPost(`/dp/ingest/meta/tables/check`, data, function (data) {
         alert('완료~113');
     });
 }
@@ -76,7 +76,7 @@ function dp_ingest_meta_tbl_del_chk_tbl(param1, param2) {
         "search": "12",
         "search_type": "!2",
     };
-    ajaxGet('/dp/ingest/meta/tables/delete/check/{}/table', data, function (data) {
+    ajaxPost('/dp/ingest/meta/tables/delete/check/{}/table', data, function (data) {
         alert('완료~113');
     });
 }
@@ -164,7 +164,7 @@ function dp_ingest_meta_tbl_col(param1, param2) {
         "search": "12",
         "search_type": "!2",
     };
-    ajaxGet('/dp/ingest/meta/tables/{}/column', data, function (data) {
+    ajaxPost('/dp/ingest/meta/tables/{}/column', data, function (data) {
         alert('완료~113');
     });
 }
@@ -174,7 +174,7 @@ function dp_ingest_meta_tbl_col(param1, param2) {
         "search": "12",
         "search_type": "!2",
     };
-    ajaxGet('/dp/ingest/meta/tables/{}/column/detail/{}', data, function (data) {
+    ajaxPost('/dp/ingest/meta/tables/{}/column/detail/{}', data, function (data) {
         alert('완료~113');
     });
 }
@@ -204,7 +204,7 @@ function dp_ingest_meta_tbl_del_chk_col(param1, param2) {
         "search": "12",
         "search_type": "!2",
     };
-    ajaxGet('/dp/ingest/meta/tables/delete/check/{}/column/{}', data, function (data) {
+    ajaxPost('/dp/ingest/meta/tables/delete/check/{}/column/{}', data, function (data) {
         alert('완료~113');
     });
 }
@@ -221,20 +221,24 @@ function dp_ingest_meta_tbl_del_col(param1, param2) {
 // dp_ingest_popup_meta_tbl	get	/dp/ingest/popup/meta_table
 function dp_ingest_popup_meta_tbl(param1, param2) {
     var data = {
-        "search": "12",
-        "search_type": "!2",
+        "table_korean_nm":"도로명주소_건물",
+        "user_id":"user_id"
     };
-    ajaxGet('/dp/ingest/popup/meta_table', data, function (data) {
+    ajaxPost('/dp/ingest/popup/meta_table', data, function (data) {
         alert('완료~113');
     });
 }
 // dp_ingest_meta_item	get	/dp/ingest/meta/item
 function dp_ingest_meta_item(param1, param2) {
     var data = {
-        "search": "12",
-        "search_type": "!2",
+        "user_id":"~~id",
+        "dset_lclas":"D",
+        "dset_mclas":"200",
+        "dset_sclas":"1",
+        "search":"교통",
+        "page_current":"3"
     };
-    ajaxGet('/dp/ingest/meta/item', data, function (data) {
+    ajaxPost('/dp/ingest/meta/item', data, function (data) {
         alert('완료~113');
     });
 }
@@ -254,7 +258,7 @@ function dp_ingest_data_models_pp(param1, param2) {
         "search": "12",
         "search_type": "!2",
     };
-    ajaxGet('/dp/ingest/data/models/property/{}', data, function (data) {
+    ajaxPost('/dp/ingest/data/models/property/{}', data, function (data) {
         alert('완료~113');
     });
 }
@@ -264,7 +268,7 @@ function dp_ingest_meta_dset_type(param1, param2) {
         "search": "12",
         "search_type": "!2",
     };
-    ajaxGet('/dp/ingest/meta/dataset/type/{}', data, function (data) {
+    ajaxPost('/dp/ingest/meta/dataset/type/{}', data, function (data) {
         alert('완료~113');
     });
 }
@@ -274,7 +278,7 @@ function dp_ingest_meta_dset_dt(param1, param2) {
         "search": "12",
         "search_type": "!2",
     };
-    ajaxGet('/dp/ingest/meta/dataset/detail/{}', data, function (data) {
+    ajaxPost('/dp/ingest/meta/dataset/detail/{}', data, function (data) {
         alert('완료~113');
     });
 }

@@ -12,7 +12,12 @@ function metaTableInfoInit () {
     //컬럼항목
     $("#metaTableInfoColDt").hide();
 
-    ajaxGet('/dp/ingest/meta/tables/'+idntfcId+'/column', "", function (data) {
+    let data = {
+        "user_id": "user_id",
+        "table_idntfc_id": idntfcId
+    };
+
+    ajaxPost('/dp/ingest/meta/tables/column', data, function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML;
@@ -106,7 +111,14 @@ function metaTableInfoDel () {
 //메타테이블 컬럼 항목 상세 (dp_ingest_meta_tbl_col_dt)
 function colDtDataView(idntfcId, columnIdntfcId){
     metaTableInfoReset();
-    ajaxGet('/dp/ingest/meta/tables/'+idntfcId+'/column/detail/'+columnIdntfcId, "", function (data) {
+
+    let data = {
+        "user_id":"~~id",
+        "table_idntfc_id" : "T0000000000000000001",
+        "column_idntfc_id":"C0000000000000000005"
+    };
+
+    ajaxPost('/dp/ingest/meta/tables/column/detail', data, function (data) {
         console.log("완료~dp_ingest_meta_tbl_col_dt ::",data);
         let obj = data.contents;
 

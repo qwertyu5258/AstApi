@@ -112,7 +112,7 @@
                 $("#adaptorConfigPopupDel").show();
                 $("#adaptorConfigPopupEdit").show();
 
-                ajaxGet('/dp/ingest/adapter/'+adapterId, "", function (data) {
+                ajaxPost('/dp/ingest/adapter/'+adapterId, "", function (data) {
                     console.log(data);
                     let obj = data.contents;
 
@@ -146,7 +146,7 @@
             }
 
             $.ajax({
-                type: 'get',
+                type: 'post',
                 url: '/dp/ingest/adapter/id/check',
                 contentType:"application/json;charset=UTF-8",
                 //data: param,

@@ -1,12 +1,17 @@
 let adaptorSetDataCnt = 0;
 let adaptorSetDatConfigaCnt = 0;
 
-adaptorSetInit();
+onload = adaptorSetInit();
 
 //Adapter 유형관리 리스트 조회 (dp_ingest_pp_type)
 function adaptorSetInit () {
     $("#adaptorSetDataConfigArea").hide();
-    ajaxGet('/dp/ingest/property/type', "", function (data) {
+
+    let data = {
+        "user_id" : "ksy",
+        "menu_id" : ""
+    };
+    ajaxPost('/dp/ingest/property/type', data, function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";
@@ -32,7 +37,8 @@ function adaptorSetInit () {
 
 //Adapter 유형관리- 추가 버튼 (dp_ingest_pp_info_id_chk)
 function adaptorSetAdd() {
-    ajaxPost('/dp/ingest/property/info/id/check', "", function (data) {
+    ajaxGet('/dp/ingest/property/info/id/check', "", function (data) {
+        alert(data);
         let addAdaptorId = data.contents[0].adapter_type_id;
         adaptorSetDataCnt = adaptorSetDataCnt+1;
 
@@ -62,15 +68,18 @@ function adaptorSetDel() {
         adaptorId = kValue.value;
         clctTy = $(this).parent().find("#clctTy").val();
         clctMthd = $(this).parent().find("#clctMthd").val();
-    })
+    });
 
     let delChk_YN = false;
-    setTimeout(() => {
+    // setTimeout(() => {
         const contents = {
-            "adapter_type_id" : adaptorId,
+            "user_id" : "~~id",
+            "menu_id" : "",
+            "adapter_type_id" : adaptorId
         };
         $.ajax({
             type: 'post',
+            async: false,
             url: '/dp/ingest/property/info/delete/check',
             contentType:"application/json;charset=UTF-8",
             data: JSON.stringify(contents),
@@ -84,33 +93,40 @@ function adaptorSetDel() {
                 return;
             }
         });
-    },1000)
+    // },1000)
 
     if(delChk_YN){
         alert("Adapter 유형 항목이 사용되어 삭제불가능합니다.");
         return;
     }
+    let data = {
+        "user_id" : "~~id",
+        "menu_id" : "",
+        "adapter_type_id" : adaptorId
+    };
 
-    setTimeout(() => {
-        /*const delData = {
-            "connect_id" : connectId
-        };*/
-        $.ajax({
-            type: 'post',
-            url: '/dp/ingest/property/info/delete/'+adaptorId,
-            contentType:"application/json;charset=UTF-8",
-            //data: JSON.stringify(delData),
-            success: function(data, textStatus, xhr) {
-                if(data.returnCode == '0000') {
-                    location.href="adaptorSet";
+    $.ajax({
+        type: 'post',
+        url: '/dp/ingest/property/info/delete',
+        async: false,
+        contentType: "application/json;charset=UTF-8",
+        data: JSON.stringify(data),
+        success: function (data, textStatus, xhr) {
+            if (data.returnCode == '0000' || data.return_code == '200') {
+                if(data.contents[0].successYn == 'Y') {
+                    alert('삭제 완료');
+                } else {
+                    alert('미삭제');
                 }
-            },
-            error: function(data, status, error) {
-                alert('API: (dp_ingest_pp_info_del) ajax Error ' + data);
-                return;
+            } else {
+                alert('API 에러');
             }
-        });
-    },1000)
+        },
+        error: function (data, status, error) {
+            alert('API: (dp_ingest_pp_info_del) ajax Error ' + data);
+            return;
+        }
+    });
 }
 
 //Adapter 유형관리 - 저장 버튼 (dp_ingest_pp_info_save)
@@ -126,7 +142,7 @@ function adaptorSetSave() {
         checked_Saveval.push(contents);
     })
 
-    setTimeout(() => {
+    // setTimeout(() => {
         for(let i=0; i < checked_Saveval.length; i++){
             $.ajax({
                 type: 'post',
@@ -135,7 +151,7 @@ function adaptorSetSave() {
                 data: JSON.stringify(checked_Saveval[i]),
                 // data: param,
                 success: function(data, textStatus, xhr) {
-                    if(data.returnCode == '0000') {
+                    if(data.returnCode == '0000' || data.return_code == '200') {
                         console.log('API: (dp_ingest_pp_info_save) ajax Success ' + data);
                     }
                 },
@@ -145,7 +161,7 @@ function adaptorSetSave() {
             });
         }
         location.href="adaptorSet";
-    },1000)
+    // },1000)
 }
 
 //Adapter 유형 관리 체크
@@ -175,7 +191,15 @@ function adapterSetConfigData(adapter_id, clct_mthd, clct_ty) {
     $("#hiddenClctTy").val(clct_mthd);
     $("#hiddenClctMthd").val(clct_ty);
 
-    ajaxGet('/dp/ingest/property/info/'+adapter_id, "", function (data) {
+    let data = {
+        "user_id" : "a",
+        "menu_id" : "",
+        "adapter_type_id" : "A000000003",
+        "clct_mthd" : "11",
+        "clct_ty" : "11"
+    };
+
+    ajaxPost('/dp/ingest/property/info', data, function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";

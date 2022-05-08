@@ -98,15 +98,15 @@
                                       </th>
                                       <th>
                                           <select class="form-control" id="SelectCategory">
-                                              <option>선택</option>
-                                              <option>Option one</option>
+                                              <option>dset_korean_nm</option>
+                                              <option>dset_english_nm</option>
                                           </select>
                                       </th>
                                       <th>
                                           <input class="form-control" type="text" placeholder="" id="SelectText">
                                       </th>
                                       <th>
-                                          <button class="btn btn-primary" style="float:right" onclick="searchTbl(1)">검색</button>
+                                          <button class="btn btn-primary" style="float:right" onclick="searchTbl(1)">검색~~!</button>
                                       </th>
                                   </tr>
 

@@ -8,7 +8,7 @@ instanceDetailInit();
 function instanceDetailInit () {
     $("#scheduleTime").empty();
 
-    ajaxGet('/dp/ingest/adapter/instance/'+instanceId+"/detail", "", function (data) {
+    ajaxPost('/dp/ingest/adapter/instance/'+instanceId+"/detail", "", function (data) {
         console.log(data);
         let resultData = data.contents[0];
 
@@ -70,7 +70,7 @@ function instanceDetailInit () {
 
 //instance 상세 접속정보 설정
 function instanceMatchList() {
-    ajaxGet('/dp/ingest/adapter/instance/property/'+instanceId, "", function (data) {
+    ajaxPost('/dp/ingest/adapter/instance/property/'+instanceId, "", function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";

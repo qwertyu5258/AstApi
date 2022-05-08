@@ -4,8 +4,19 @@ instancelnquiryInit();
 
 function instancelnquiryInit () {
     //대분류 카테고리 가져오기
-    categoryInit();
-    ajaxGet('/dp/ingest/instance/search', "", function (data) {
+    categoryInit('AABBCC');
+
+    let data = {
+        "search" : "1112121212",
+        "search_type": "adapter_nm",
+        "dset_lclas" : "D",
+        "dset_mclas" : "AAA",
+        "dset_sclas" : "CCC",
+        "user_id" : "a",
+        "menu_id" : ""
+    };
+
+    ajaxPost('/dp/ingest/instance/search', data, function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";
@@ -47,7 +58,7 @@ function search() {
         "dset_mclas": $("#MiddleCategory").val(),
         "dset_sclas": $("#SmallCategory").val(),
     };
-    ajaxGet('/dp/ingest/instance/search', data, function (data) {
+    ajaxPost('/dp/ingest/instance/search', data, function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";

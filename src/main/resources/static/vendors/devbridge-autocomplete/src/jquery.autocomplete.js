@@ -69,7 +69,7 @@
                 formatResult: Autocomplete.formatResult,
                 delimiter: null,
                 zIndex: 9999,
-                type: 'GET',
+                type: 'post',
                 noCache: false,
                 onSearchStart: noop,
                 onSearchComplete: noop,

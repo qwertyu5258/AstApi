@@ -577,7 +577,8 @@
               data: JSON.stringify(savedata),
               success: function(data, textStatus, xhr) {
                 console.log("dp_ingest_adapter_it_save", data)
-                window.close();
+                alert('저장완료;')
+                // window.close();
                 location.href="adaptorDetail?adapterId="+adapterId;
               },
               error: function(data, status, error) {

@@ -1,8 +1,16 @@
 
-function categoryInit(){
+function categoryInit(classType){
+    let url = '';
+    if(classType == 'lclass' || classType == undefined) {
+        url = '/dp/cm/category';
+    } else if(classType == 'mclass') {
+        url = '/dp/cm/category=clsf_id=AABBCC';
+    } else if(classType == 'sclass') {
+        url = '/dp/cm/category=clsf_id=test03';
+    }
     $.ajax({
         type: 'get',
-        url: "/dp/cm/category",
+        url: url,
         contentType:"application/json;charset=UTF-8",
         //data: param,
         success: function(data, textStatus, xhr) {
@@ -67,7 +75,7 @@ $("#MiddleCategory").change( function() {
         $("#SmallCategory").append("<option value=''>소분류</option>");
     }else{
         $.ajax({
-            type: 'get',
+            type: 'post',
             url: "/dp/cm/category?clsf_id="+clsf_id,
             contentType:"application/json;charset=UTF-8",
             //data: param,
@@ -96,7 +104,7 @@ function ajaxGet(url, param, callback) {
         contentType:"application/json;charset=UTF-8",
         data: param,
         success: function(data, textStatus, xhr) {
-            if(data.returnCode == '0000') {
+            if(data.returnCode == '0000' || data.return_code == '200') {
                 return callback(data);
             } else {
                 alert('error : ' + data.returnCode + " : " + data.returnMsg);
@@ -117,7 +125,7 @@ function ajaxPost(url, param, callback) {
         data: JSON.stringify(param),
         // data: param,
         success: function(data, textStatus, xhr) {
-            if(data.returnCode == '0000' || data.returnCode == '2001') {
+            if(data.returnCode == '0000' || data.return_code == '200' || data.returnCode == '2001' || data.returnCode == '200' || data.return_code == '200') {
                 return callback(data);
             } else {
                 alert('error : ' + data.returnCode + " : " + data.returnMsg);

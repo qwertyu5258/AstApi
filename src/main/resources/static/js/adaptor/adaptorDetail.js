@@ -5,7 +5,7 @@ let adapterId = url.searchParams.get('adapterId');
 adaptorDetailInit();
 
 function adaptorDetailInit () {
-    ajaxGet('/dp/ingest/adapter/'+adapterId, "", function (data) {
+    ajaxPost('/dp/ingest/adapter/'+adapterId, "", function (data) {
         console.log(data);
         let obj = data.contents;
 
@@ -23,7 +23,7 @@ function adaptorDetailInit () {
 
 //instance 상세목록
 function instanceList() {
-    ajaxGet('/dp/ingest/adapter/instance/'+adapterId, "", function (data) {
+    ajaxPost('/dp/ingest/adapter/instance/'+adapterId, "", function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";

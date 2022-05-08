@@ -7,7 +7,7 @@ let instanceSourceData = {};
 instanceConfigInit();
 
 function instanceConfigInit () {
-    ajaxGet('/dp/ingest/adapter/instance/match/'+instanceId, "", function (data) {
+    ajaxPost('/dp/ingest/adapter/instance/match/'+instanceId, "", function (data) {
         console.log(data);
         let obj = data.contents;
 
@@ -20,7 +20,7 @@ function instanceConfigInit () {
 
 //전처리조회 List
 function instancePreList() {
-    ajaxGet('/dp/ingest/adapter/instance/pre', "", function (data) {
+    ajaxPost('/dp/ingest/adapter/instance/pre', "", function (data) {
         console.log("instancePreData ::",data.contents);
         instancePreData = data.contents;
     });
@@ -29,7 +29,7 @@ function instancePreList() {
 
 //Source조회 List
 function instanceSourceList() {
-    ajaxGet('/dp/ingest/adapter/instance/pre', "", function (data) {
+    ajaxPost('/dp/ingest/adapter/instance/pre', "", function (data) {
         console.log("instanceSourceData ::",data.contents);
         instanceSourceData = data.contents;
     });
@@ -38,7 +38,7 @@ function instanceSourceList() {
 
 //instance 상세목록
 function instanceMatchList() {
-    ajaxGet('/dp/ingest/adapter/instance/match/list/'+instanceId, "", function (data) {
+    ajaxPost('/dp/ingest/adapter/instance/match/list/'+instanceId, "", function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";

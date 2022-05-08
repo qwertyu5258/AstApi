@@ -9,8 +9,16 @@ function metaTableInit (pageNum) {
     categoryInit();
     $("#dataSetItem").hide();
     $("#tableItem").hide();
-
-    ajaxGet('/dp/ingest/meta/tables', '', function (data) {
+    let data = {
+        "user_id":"user_id",
+        "search_type":"dset_korean_nm",
+        "search":"교통량",
+        "dset_lclas":"D",
+        "dset_mclas":"200",
+        "dset_sclas":"1",
+        "page_current":"3"
+    };
+    ajaxPost('/dp/ingest/meta/tables', data, function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML;
@@ -43,14 +51,25 @@ function metaTableInit (pageNum) {
 //검색
 function searchTbl(pageNum) {
     const data = {
+        "user_id": '~~id',
         "search": $("#SelectText").val(),
         "search_type": $("#SelectCategory").val(),
         "dset_lclas": $("#LargeCategory").val(),
         "dset_mclas": $("#MiddleCategory").val(),
         "dset_sclas": $("#SmallCategory").val(),
+        "page_current":pageNum
     };
+    // {
+    //     "user_id":"user_id",
+    //     "search_type":"dset_korean_nm",
+    //     "search":"교통량",
+    //     "dset_lclas":"D",
+    //     "dset_mclas":"200",
+    //     "dset_sclas":"1",
+    //
+    // };
 
-    ajaxGet('/dp/ingest/meta/tables', data, function (data) {
+    ajaxPost('/dp/ingest/meta/tables', data, function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML;
@@ -116,7 +135,7 @@ function metaTableDel() {
 
                 $.ajax({
                     type: 'post',
-                    url: '/dp/ingest/meta/tables/delete/'+delDestIdntfcId+'/dataset',
+                    url: '/dp/ingest/meta/tables/delete/dataset',
                     contentType:"application/json;charset=UTF-8",
                     //data: JSON.stringify(param),
                     success: function(data, textStatus, xhr) {
@@ -165,8 +184,13 @@ function dataSetTableData(id,status) {
 
     dataReset();
 
+    let data = {
+        "user_id":"user_id",
+        "dset_idntfc_id" : destIdntfcId,
+    };
+
     //메타테이블 데이터셋 항목 상세 (dp_ingest_meta_tbl_dset)
-    ajaxGet('/dp/ingest/meta/tables/'+destIdntfcId+'/dataset', "", function (datasetData) {
+    ajaxPost('/dp/ingest/meta/tables/dataset', data, function (datasetData) {
         console.log('완료~dataset' ,datasetData);
 
         $("#dset_owner1").val(datasetData.contents[0].dset_owner);         //데이터셋_소유자
@@ -184,9 +208,14 @@ function dataSetTableData(id,status) {
 
         $("#hidden_dset_idntfc_id").val(datasetData.contents[0].dset_idntfc_id);  //데이터셋_식별_ID
 
+
+        let data = {
+            "user_id":"user_id",
+            "table_idntfc_id" : tableIdntfcId,
+        };
         //메타테이블 항목 상세 (dp_ingest_meta_tbl_tbl)
-        ajaxGet('/dp/ingest/meta/tables/'+tableIdntfcId+'/table', "", function (TableData) {
-            console.log('완료~table' ,TableData);
+        ajaxPost('/dp/ingest/meta/tables/table', data, function (TableData) {
+            console.log('/dp/ingest/meta/tables/table : 호출' ,TableData);
 
             $("#table_korean_nm2").val(TableData.contents[0].table_korean_nm);      //테이블_한글명
             $("#table_dc").val(TableData.contents[0].table_dc);                     //테이블_설명
@@ -202,17 +231,17 @@ function dataSetTableData(id,status) {
             $("#hidden_table_idntfc_id").val(TableData.contents[0].table_idntfc_id);  //테이블_식별자
 
             if(status === "edit"){
-                $("#dataSetItemSaveBtn").hide();
-                $("#tableItemSaveBtn").hide();
+                // $("#dataSetItemSaveBtn").hide();
+                // $("#tableItemSaveBtn").hide();
 
                 $("#dataSetItemEditBtn").show();
                 $("#tableItemEditBtn").show();
             }else if(status === "view"){
-                $("#dataSetItemSaveBtn").hide();
-                $("#tableItemSaveBtn").hide();
-
-                $("#dataSetItemEditBtn").hide();
-                $("#tableItemEditBtn").hide();
+                // $("#dataSetItemSaveBtn").hide();
+                // $("#tableItemSaveBtn").hide();
+                //
+                // $("#dataSetItemEditBtn").hide();
+                // $("#tableItemEditBtn").hide();
             }
 
             $("#dataSetItem").show();
@@ -235,18 +264,23 @@ function table_eng_nm_chk(){
         return;
     }
 
+    let data = {
+        "user_id":"~~id",
+        "table_eng_nm" : tableEngNm
+    };
+
     $.ajax({
-        type: 'get',
-        url: `/dp/ingest/meta/tables/`+tableEngNm+`/check`,
+        type: 'post',
+        url: `/dp/ingest/meta/tables/check`,
         contentType:"application/json;charset=UTF-8",
-        //data: JSON.stringify(checked_Saveval[i]),
+        data: JSON.stringify(data),
         success: function(data, textStatus, xhr) {
-            if(data.returnCode == '0000') {
-                alert(data.returnMsg);
+            if(data.return_code == '200') {
+                alert(data.return_msg);
                 tableEngNmChk = true;
                 console.log('API: (dp_ingest_meta_tbl_chk) ajax Success ' + data);
-            }else if(data.returnCode == '4009'){
-                alert(data.returnMsg);
+            }else if(data.return_code == '9999'){
+                alert(data.return_msg);
                 tableEngNmChk = false;
             }
         },
@@ -270,6 +304,7 @@ function saveDataSetItem() {
             id_chk = data.contents[0].dset_idntfc_id;
 
             const dataSet = {
+                "user_id" : "~~id",
                 "dset_idntfc_id": id_chk,               //데이터셋_식별_ID
                 "dset_owner": $("#dset_owner1").val(),  //데이터셋_소유자
                 "dset_lclas": $("#dset_lclas1").val(),  //데이터셋_대분류
@@ -289,16 +324,21 @@ function saveDataSetItem() {
                 "creat_table_at": $("#creat_table_at1").val() //수집 테이블 생성 여부
             };
             ajaxPost('/dp/ingest/meta/tables/save/dataset', dataSet, function (data) {
-                console.log('완료~dp_ingest_meta_tbl_save_dset',data);
-                $("#hidden_dset_idntfc_id").val(data.contents[0].dset_idntfc_id);  //데이터셋_식별_ID
+                if(data.return_code == '200') {
+                    console.log('완료~dp_ingest_meta_tbl_save_dset',data);
+                    $("#hidden_dset_idntfc_id").val(data.contents[0].dset_idntfc_id);  //데이터셋_식별_ID
 
-                // $("#dataSetItemSaveBtn").hide();
-                $("#dataSetItemEditBtn").show();
-                alert("정상적으로 메타테이블 데이터셋 저장되었습니다.")
+                    // $("#dataSetItemSaveBtn").hide();
+                    $("#dataSetItemEditBtn").show();
+                    alert("정상적으로 메타테이블 데이터셋 저장되었습니다.");
+                } else {
+                    alert('저장 안됨');
+                }
+
             });
         },
         error: function(data, status, error) {
-            alert('ajax Error: ' + data + url);
+            alert('ajax Error: ' + data);
         }
     });
 }

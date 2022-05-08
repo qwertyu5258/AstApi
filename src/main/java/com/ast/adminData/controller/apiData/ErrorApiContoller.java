@@ -16,19 +16,19 @@ public class ErrorApiContoller {
     private final RestService restService;
 
     //    dpIngestErrors	/		get
-    @GetMapping(value = {""})
+    @PostMapping(value = {""})
     public String dpIngestErrors() {
 
-        Map<String, Object> DataList = restService.getApi("");
+        Map<String, Object> DataList = restService.postApi("");
 
         return DataList.toString();
     }
 
     //    dpIngestErrorsDt	/{param1}	get
-    @GetMapping(value = {"/{param1}"})
+    @PostMapping(value = {"/{param1}"})
     public String dpIngestErrorsDt(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.getApi("/" + param1);
+        Map<String, Object> DataList = restService.postApi("/" + param1);
 
         return DataList.toString();
     }

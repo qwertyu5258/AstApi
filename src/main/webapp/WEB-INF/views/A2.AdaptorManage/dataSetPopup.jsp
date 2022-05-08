@@ -84,7 +84,14 @@
         $(document).ready(initTable);
 
         function initTable () {
-            ajaxGet('/dp/ingest/popup/dataset01', "", function (data) {
+
+            let data = {
+                "user_id" : "ksy",
+                "menu_id": "",
+                "search": ""
+            }
+
+            ajaxPost('/dp/ingest/popup/dataset01', data, function (data) {
                 console.log(data);
                 let obj = data.contents;
                 let trHTML = '';
@@ -107,7 +114,7 @@
                 "search": $("#searchText").val()
             };
 
-            ajaxGet('/dp/ingest/popup/dataset01', data, function (data) {
+            ajaxPost('/dp/ingest/popup/dataset01', data, function (data) {
                 console.log(data);
                 let obj = data.contents;
                 let trHTML = '';

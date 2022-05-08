@@ -16,30 +16,29 @@ import java.util.Map;
 public class CategoryApiController {
 
     private final RestService restService;
-
     //    dp_cm_category	분류 조회	get	/dp/cm/category
     @GetMapping(value = {"/dp/cm/category"})
-    public Map dp_cm_category() {
+    public Map dp_cm_category(@RequestParam(value="clsf_id", required = false) String param1) {
 
-        Map<String, Object> DataList = restService.getApi("/dp/cm/category");
+        Map<String, Object> DataList = restService.getApi("/dp/cm/category?clsf_id=" + param1);
 
         return DataList;
     }
 
     //    dp_cm_category_list	분류 관리 조회	get	/dp/cm/category/list
-    @GetMapping(value = {"/dp/cm/category/list"})
+    @PostMapping(value = {"/dp/cm/category/list"})
     public Map dp_cm_category_list() {
 
-        Map<String, Object> DataList = restService.getApi("/dp/cm/category/list");
+        Map<String, Object> DataList = restService.postApi("/dp/cm/category/list");
 
         return DataList;
     }
 
     //    dp_cm_category_dt	분류 항목 조회	get	/dp/cm/category/detail/{}
-    @GetMapping(value = {"/dp/cm/category/detail/{param1}"})
+    @PostMapping(value = {"/dp/cm/category/detail/{param1}"})
     public Map dp_cm_category_dt(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.getApi("/dp/cm/category/detail/" + param1);
+        Map<String, Object> DataList = restService.postApi("/dp/cm/category/detail/" + param1);
 
         return DataList;
     }

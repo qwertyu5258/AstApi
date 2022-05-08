@@ -16,20 +16,20 @@ public class CodesApiController {
     private final RestService restService;
 
     //    dpCmCodesDt		/detail/{param1}	get
-    @GetMapping(value = {"/detail/{param1}"})
+    @PostMapping(value = {"/detail/{param1}"})
     public Map dpCmCodesDt(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.getApi("/detail/" + param1);
+        Map<String, Object> DataList = restService.postApi("/detail/" + param1);
 
         return DataList;
     }
 
     //
 //    dpCmCodes		/{param1}	get
-    @GetMapping(value = {"/{param1}"})
+    @PostMapping(value = {"/{param1}"})
     public Map dpCmCodes(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.getApi("/" + param1);
+        Map<String, Object> DataList = restService.postApi("/" + param1);
 
         return DataList;
     }

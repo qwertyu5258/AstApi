@@ -486,11 +486,11 @@
 
       function instanceDeatil() {
         $.ajax({
-          type: 'get',
+          type: 'post',
           url: "/dp/ingest/adapter/instance/"+instanceId+"/detail",
           contentType:"application/json;charset=UTF-8",
           success: function(data, textStatus, xhr) {
-            if(data.returnCode == '0000') {
+            if(data.returnCode == '0000' || data.return_code == '200') {
               let resultData = data.contents[0];
               console.log("API-(dp_ingest_adapter_it_dt) :", resultData);
 
@@ -673,7 +673,7 @@
           contentType:"application/json;charset=UTF-8",
           //data: JSON.stringify(param),
           success: function(data, textStatus, xhr) {
-            if(data.returnCode == '0000') {
+            if(data.returnCode == '0000' || data.return_code == '200') {
               if(data.contents[0].chk_yn === "Y"){
                 alert('사용되고 있는 Instance 입니다.' );
                 return;
@@ -684,7 +684,7 @@
                   contentType:"application/json;charset=UTF-8",
                   //data: JSON.stringify(param),
                   success: function(data, textStatus, xhr) {
-                    if(data.returnCode == '0000') {
+                    if(data.returnCode == '0000' || data.return_code == '200') {
                       if(data.contents[0].successYn === "Y"){
                         alert('정상적으로 삭제되었습니다.');
                         window.close();

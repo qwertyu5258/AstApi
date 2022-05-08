@@ -6,7 +6,17 @@ metaTableItemManageInit();
 function metaTableItemManageInit () {
     //대분류 카테고리 가져오기
     categoryInit();
-    ajaxGet('/dp/ingest/meta/item', '', function (data) {
+
+    var data = {
+        "user_id":"~~id",
+        "dset_lclas":"D",
+        "dset_mclas":"200",
+        "dset_sclas":"1",
+        "search":"교통",
+        "page_current":"3"
+    };
+
+    ajaxPost('/dp/ingest/meta/item', data, function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML ="";
@@ -55,14 +65,16 @@ function metaTableItemManageInit () {
 
 //검색
 function search() {
-    const data = {
-        "search": $("#SelectText").val(),
-        "dset_lclas": $("#LargeCategory").val(),
-        "dset_mclas": $("#MiddleCategory").val(),
-        "dset_sclas": $("#SmallCategory").val(),
+    var data = {
+        "user_id":"~~id",
+        "dset_lclas":"D",
+        "dset_mclas":"200",
+        "dset_sclas":"1",
+        "search":"교통",
+        "page_current":"3"
     };
 
-    ajaxGet('/dp/ingest/meta/item', data, function (data) {
+    ajaxPost('/dp/ingest/meta/item', data, function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML ="";

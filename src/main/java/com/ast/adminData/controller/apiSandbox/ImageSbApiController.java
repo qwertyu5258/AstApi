@@ -16,28 +16,28 @@ public class ImageSbApiController {
     private final RestService restService;
 
     //    analysisImages	GET	/services/sandbox	/images
-    @GetMapping(value = {"/services/sandbox"})
+    @PostMapping(value = {"/services/sandbox"})
     public String analysisImages() {
 
-        Map<String, Object> DataList = restService.getApi("/services/sandbox");
+        Map<String, Object> DataList = restService.postApi("/services/sandbox");
 
         return DataList.toString();
     }
 
     //    analysisImagesDetail	GET	/images/{imageId}
-    @GetMapping(value = {"/images/{param1}"})
+    @PostMapping(value = {"/images/{param1}"})
     public String analysisImagesDetail(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.getApi("/images/" + param1);
+        Map<String, Object> DataList = restService.postApi("/images/" + param1);
 
         return DataList.toString();
     }
 
     //    analysisImagesNmDupChk	GET		/images/exist/{param1}
-    @GetMapping(value = {"/images/exist/{param1}"})
+    @PostMapping(value = {"/images/exist/{param1}"})
     public String analysisImagesNmDupChk(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.getApi("/images/exist/" + param1);
+        Map<String, Object> DataList = restService.postApi("/images/exist/" + param1);
 
         return DataList.toString();
     }
@@ -55,7 +55,7 @@ public class ImageSbApiController {
     @PatchMapping(value = {"/images/{param1}"})
     public String analysisImagesUpdate(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.getApi("/images/" + param1);
+        Map<String, Object> DataList = restService.postApi("/images/" + param1);
 
         return DataList.toString();
     }
@@ -64,7 +64,7 @@ public class ImageSbApiController {
     @DeleteMapping(value = {"/images/{param1}"})
     public String analysisImagesDelete(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.getApi("/images/" + param1);
+        Map<String, Object> DataList = restService.postApi("/images/" + param1);
 
         return DataList.toString();
     }

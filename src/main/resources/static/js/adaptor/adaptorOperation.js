@@ -5,7 +5,14 @@ let adapterId = url.searchParams.get('adapterId');
 adaptorOperationInit();
 
 function adaptorOperationInit () {
-    ajaxGet('/dp/ingest/adapter/operation/'+adapterId, "", function (data) {
+
+    let data = {
+        "user_id" : "ksy",
+        "menu_id": "",
+        "adapter_id": adapterId
+    };
+
+    ajaxPost('/dp/ingest/adapter/operation', data, function (data) {
         console.log(data);
         let obj = data.contents;
 
@@ -24,7 +31,15 @@ function adaptorOperationInit () {
 
 //instance 상세목록
 function instanceList() {
-    ajaxGet('/dp/ingest/adapter/operation/instance/'+adapterId, "", function (data) {
+
+    let data = {
+        "user_id": "ksy",
+        "menu_id": "",
+        "adapter_id": adapterId
+    };
+
+
+ajaxPost('/dp/ingest/adapter/operation/instance', data, function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";

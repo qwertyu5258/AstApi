@@ -6,7 +6,7 @@ function dp_ingest_adapter(param1, param2, param3, param4, param5) {
         "dset_mclas": "12",
         "dset_sclas": "12",
     };
-    ajaxGet('/dp/ingest/adapter', data, function (data) {
+    ajaxPost('/dp/ingest/adapter', data, function (data) {
         alert('완료~113');
     });
 }

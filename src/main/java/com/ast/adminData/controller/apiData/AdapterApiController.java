@@ -12,7 +12,6 @@ import java.util.Map;
 
 @Slf4j
 @RestController
-@RequestMapping("/dp/ingest/adapter")
 @RequiredArgsConstructor
 @ResponseBody
 public class AdapterApiController {
@@ -20,15 +19,15 @@ public class AdapterApiController {
     private final RestService restService;
 
     //    dpIngestadapter	/		get
-    @GetMapping(value = {"", "/"})
-    public Map dpIngestAdapter(HttpServletRequest request) {
+    @PostMapping(value = {"/dp/ingest/adapter"})
+    public Map dpIngestAdapter(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.getApi(request.getServletPath() + "?" + request.getQueryString());
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter", params);
 
         return DataList;
     }
     //    dpIngestadapterSave		/save	post
-    @PostMapping(value = {"/save"})
+    @PostMapping(value = {"/dp/ingest/adapter/save"})
     public Map dpIngestadapterSave(@RequestBody Map<String,Object> params) {
 
         Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/save", params);
@@ -37,14 +36,32 @@ public class AdapterApiController {
     }
 
     //    dpIngestadapterIdChk		/id/check	get
-    @GetMapping(value = {"/id/check"})
-    public Map dpIngestadapterIdChk() {
+    @PostMapping(value = {"/dp/ingest/adapter/id/check"})
+    public Map dpIngestadapterIdChk(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/adapter/id/check");
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/id/check", params);
 
         return DataList;
     }
-    @GetMapping(value = {"/type"})
+    // 33 // get 으로 변경 안됨
+    @GetMapping(value = {"/dp/ingest/adapter/instance/id/check"})
+    public Map dpIngestadapterItIdChk() {
+
+        Map<String, Object> DataList = restService.getApi("/dp/ingest/adapter/instance/id/check");
+
+        return DataList;
+    }
+    // 34
+    @PostMapping(value = {"/dp/ingest/adapter/detail"})
+    public Map dpIngestadapterDt(@RequestBody Map<String,Object> params) {
+
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter", params);
+
+        return DataList;
+    }
+
+    //get 방식으로 그대로임
+    @GetMapping(value = {"/dp/ingest/adapter/type"})
     public Map dp_ingest_adapter_type() {
 
         Map<String, Object> DataList = restService.getApi("/dp/ingest/adapter/type");
@@ -52,53 +69,41 @@ public class AdapterApiController {
         return DataList;
     }
 
-    //    dpIngestadapterItIdChk		/instance/id/check/{param1}	get
-    @GetMapping(value = {"/instance/id/check"})
-    public Map dpIngestadapterItIdChk() {
+    //    dpIngestadapterItIdChk		/instance/id/check	get
 
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/adapter/instance/id/check");
 
-        return DataList;
-    }
+    //    dpIngestadapterDt			get
 
-    //    dpIngestadapterDt		/{param1}	get
-    @GetMapping(value = {"/{param1}"})
-    public Map dpIngestadapterDt(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/adapter/" + param1);
+    //    dpIngestadapterIt		/instance	get
+    @PostMapping(value = {"/dp/ingest/adapter/instance"})
+    public Map dpIngestadapterIt(@RequestBody Map<String,Object> params) {
+
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/instance", params);
 
         return DataList;
     }
 
-    //    dpIngestadapterIt		/instance/{param1}	get
-    @GetMapping(value = {"/instance/{param1}"})
-    public Map dpIngestadapterIt(@PathVariable String param1) {
+    //    dpIngestadapterDel		/delete	post
+    @PostMapping(value = {"/dp/ingest/adapter/delete"})
+    public Map dpIngestadapterDel(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/adapter/instance/" + param1);
-
-        return DataList;
-    }
-
-    //    dpIngestadapterDel		/delete/{param1}	post
-    @PostMapping(value = {"/delete/{param1}"})
-    public Map dpIngestadapterDel(@PathVariable String param1, @RequestBody Map<String,Object> params) {
-
-        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/delete/" + param1, params);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/delete", params);
 
         return DataList;
     }
 
-    //    dpIngestadapterUpdate		/update/{param1}	post
-    @PostMapping(value = {"/update/{param1}"})
-    public Map dpIngestadapterUpdate(@PathVariable String param1, @RequestBody Map<String,Object> params) {
+    //    dpIngestadapterUpdate		/update	post
+    @PostMapping(value = {"/dp/ingest/adapter/update"})
+    public Map dpIngestadapterUpdate(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/update/" + param1, params);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/update", params);
 
         return DataList;
     }
 
     //    dpIngestadapterItSave		/instance/save	post
-    @PostMapping(value = {"/instance/save"})
+    @PostMapping(value = {"/dp/ingest/adapter/instance/save"})
     public Map dpIngestadapterItSave(@RequestBody Map<String,Object> params) {
 
         Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/instance/save", params);
@@ -106,98 +111,88 @@ public class AdapterApiController {
         return DataList;
     }
 
-    //    dpIngestadapterItDel		/instance/delete/{param1}	post
-    @PostMapping(value = {"/instance/delete/{param1}"})
-    public Map dpIngestadapterItDel(@PathVariable String param1, @RequestBody Map<String,Object> params) {
+    //    dpIngestadapterItDel		/instance/delete	post
+    @PostMapping(value = {"/dp/ingest/adapter/instance/delete"})
+    public Map dpIngestadapterItDel(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/instance/delete/" + param1, params);
-
-        return DataList;
-    }
-
-    //    dpIngestadapterItUpdate		/instance/update/{param1}	post
-    @PostMapping(value = {"/instance/update/{param1}"})
-    public Map dpIngestadapterItUpdate(@PathVariable String param1, @RequestBody Map<String,Object> params) {
-
-        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/instance/update/" + param1, params);
-
-        return DataList;
-    }
-// 중복 주소(from 엑셀API)
-//    //    dpIngestadapterItDt		/instance2/{param1}	get
-//    @GetMapping(value = {"/instance2/{param1}"})
-//    public Map dpIngestadapterItDt(@PathVariable String param1) {
-//
-//        Map<String, Object> DataList = restService.getApi("/instance/" + param1);
-//
-//        return DataList;
-//    }
-
-    //    dpIngestadapterItPp		/instance/property/{param1}	get
-    @GetMapping(value = {"/instance/property/{param1}"})
-    public Map dpIngestadapterItPp(@PathVariable String param1) {
-
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/adapter/instance/property/" + param1);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/instance/delete", params);
 
         return DataList;
     }
 
-    //    dpIngestadapterItMatch	/instance/match/{param1}    get
-    @GetMapping(value = {"/instance/match/{param1}"})
-    public Map dpIngestadapterItMatch(@PathVariable String param1) {
+    //    dpIngestadapterItUpdate		/instance/update	post
+    @PostMapping(value = {"/dp/ingest/adapter/instance/update"})
+    public Map dpIngestadapterItUpdate(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/adapter/instance/match/" + param1);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/instance/update", params);
+
+        return DataList;
+    }
+    //    dpIngestadapterItPp		/instance/property	get
+    @PostMapping(value = {"/dp/ingest/adapter/instance/property"})
+    public Map dpIngestadapterItPp(@RequestBody Map<String,Object> params) {
+
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/instance/property", params);
+
+        return DataList;
+    }
+
+    //    dpIngestadapterItMatch	/instance/match    get
+    @PostMapping(value = {"/dp/ingest/adapter/instance/match"})
+    public Map dpIngestadapterItMatch(@RequestBody Map<String,Object> params) {
+
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/instance/match", params);
 
         return DataList;
     }
 
     //    dpIngestadapterItPre		/instance/pre   get
-    @GetMapping(value = {"/instance/pre"})
-    public Map dpIngestadapterItPre() {
+    @PostMapping(value = {"/dp/ingest/adapter/instance/pre"})
+    public Map dpIngestadapterItPre(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/adapter/instance/pre");
-
-        return DataList;
-    }
-
-    //    dpIngestadapterItSource		/instance/source/{param1}   get
-    @GetMapping(value = {"/instance/source/{param1}"})
-    public Map dpIngestadapterItSource(@PathVariable String param1) {
-
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/adapter/instance/source/" + param1);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/instance/pre", params);
 
         return DataList;
     }
 
-    //    dpIngestadapterItMatchSave		/instance/match/save/{param1}   post
-    @PostMapping(value = {"/instance/match/save/{param1}"})
-    public Map dpIngestadapterItMatchSave(@PathVariable String param1, @RequestBody Map<String,Object> params) {
+    //    dpIngestadapterItSource		/instance/source   get
+    @PostMapping(value = {"/dp/ingest/adapter/instance/source"})
+    public Map dpIngestadapterItSource(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/instance/match/save/" + param1, params);
-
-        return DataList;
-    }
-
-    //    dpIngestadapterOperation	/dp/ingest/adapter	/operation/{param1}	get
-    @GetMapping(value = {"/operation/{param1}"})
-    public Map dpIngestadapterOperation(@PathVariable String param1) {
-
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/adapter/operation/" + param1);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/instance/source", params);
 
         return DataList;
     }
 
-    //    dpIngestadapterOperationIt	/dp/ingest/adapter	/operation/instance/{param1}	get
-    @GetMapping(value = {"/operation/instance/{param1}"})
-    public Map dpIngestadapterOperationIt(@PathVariable String param1) {
+    //    dpIngestadapterItMatchSave		/instance/match/save   post
+    @PostMapping(value = {"/dp/ingest/adapter/instance/match/save"})
+    public Map dpIngestadapterItMatchSave(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/adapter/operation/instance/" + param1);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/instance/match/save", params);
+
+        return DataList;
+    }
+
+    //    dpIngestadapterOperation	/dp/ingest/adapter	/operation	get
+    @PostMapping(value = {"/dp/ingest/adapter/operation"})
+    public Map dpIngestadapterOperation(@RequestBody Map<String,Object> params) {
+
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/operation", params);
+
+        return DataList;
+    }
+
+    //    dpIngestadapterOperationIt	/dp/ingest/adapter	/operation/instance	get
+    @PostMapping(value = {"/dp/ingest/adapter/operation/instance"})
+    public Map dpIngestadapterOperationIt(@RequestBody Map<String,Object> params) {
+
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/operation/instance", params);
 
         return DataList;
     }
 
     //    dpIngestadapterStatus		/status	post
-    @PostMapping(value = {"/status"})
+    @PostMapping(value = {"/dp/ingest/adapter/status"})
     public Map dpIngestadapterStatus(@RequestBody Map<String,Object> params) {
 
         Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/status", params);
@@ -206,7 +201,7 @@ public class AdapterApiController {
     }
 
     //    dpIngestadapterItStatus		/instance/status	post
-    @PostMapping(value = {"/instance/status"})
+    @PostMapping(value = {"/dp/ingest/adapter/instance/status"})
     public Map dpIngestadapterItStatus(@RequestBody Map<String,Object> params) {
 
         Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/instance/status", params);
@@ -215,7 +210,7 @@ public class AdapterApiController {
     }
 
     //    dpIngestadapterStart		/start	post
-    @PostMapping(value = {"/start"})
+    @PostMapping(value = {"/dp/ingest/adapter/start"})
     public Map dpIngestadapterStart(@RequestBody Map<String,Object> params) {
 
         Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/start", params);
@@ -224,7 +219,7 @@ public class AdapterApiController {
     }
 
     //    dpIngestadapterStop		/stop	post
-    @PostMapping(value = {"/stop"})
+    @PostMapping(value = {"/dp/ingest/adapter/stop"})
     public Map dpIngestadapterStop(@RequestBody Map<String,Object> params) {
 
         Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/stop", params);
@@ -233,7 +228,7 @@ public class AdapterApiController {
     }
 
     //    dpIngestadapterItStart		/instance/start	post
-    @PostMapping(value = {"/instance/start"})
+    @PostMapping(value = {"/dp/ingest/adapter/instance/start"})
     public Map dpIngestadapterItStart(@RequestBody Map<String,Object> params) {
 
         Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/instance/start", params);
@@ -242,26 +237,26 @@ public class AdapterApiController {
     }
 
     //    dpIngestadapterItStop		/instance/stop	post
-    @PostMapping(value = {"/instance/stop"})
+    @PostMapping(value = {"/dp/ingest/adapter/instance/stop"})
     public Map dpIngestadapterItStop(@RequestBody Map<String,Object> params) {
 
         Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/instance/stop", params);
 
         return DataList;
     }
-    // dpIngestadapterItPpSave   /instance/property/save/{param1} post
-    @PostMapping(value = {"/instance/property/save/{param1}"})
-    public Map dpIngestadapterItPpSave(@PathVariable String param1, @RequestBody Map<String,Object> params) {
+    // dpIngestadapterItPpSave   /instance/property/save post
+    @PostMapping(value = {"/dp/ingest/adapter/instance/property/save"})
+    public Map dpIngestadapterItPpSave(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/instance/property/save/" + param1, params);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/instance/property/save", params);
 
         return DataList;
     }
 
-    @GetMapping(value = {"/instance/{param1}/detail"})
-    public Map dp_ingest_adapter_it_dt(@PathVariable String param1) {
+    @PostMapping(value = {"/dp/ingest/adapter/instance/detail"})
+    public Map dp_ingest_adapter_it_dt(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/adapter/instance/" + param1 + "/detail");
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/instance/detail", params);
 
         return DataList;
     }

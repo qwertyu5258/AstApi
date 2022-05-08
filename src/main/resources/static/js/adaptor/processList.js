@@ -3,7 +3,14 @@
 processListInit();
 
 function processListInit () {
-    ajaxGet('/dp/ingest/pre', "", function (data) {
+
+    let data = {
+        "user_id" : "ksy",
+        "menu_id": "",
+        "search" : "11"
+    };
+
+    ajaxPost('/dp/ingest/pre', data, function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";
@@ -34,7 +41,7 @@ function search() {
     const data = {
         "search": $("#SelectText").val()
     };
-    ajaxGet('/dp/ingest/pre', data, function (data) {
+    ajaxPost('/dp/ingest/pre', data, function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";

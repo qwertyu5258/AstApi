@@ -15,32 +15,32 @@ public class MetaDataApiController {
 
     private final RestService restService;
 
-    @GetMapping(value = {"/dp/ingest/meta/item"})
-    public Map dp_ingest_meta_item() {
+    @PostMapping(value = {"/dp/ingest/meta/item"})
+    public Map dp_ingest_meta_item(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/meta/item");
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/meta/item", params);
 
         return DataList;
     }
 
-  /*  @GetMapping(value = {"/dp/ingest/data/models/property/{param1}"})
-    public Map dp_ingest_data_models_pp(@PathVariable String param1) {
+  /*  @PostMapping(value = {"/dp/ingest/data/models/property/{param1}"})
+    public Map dp_ingest_data_models_pp(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/data/models/property/" + param1);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/data/models/property/", params);
 
         return DataList;
     }*/
-    @GetMapping(value = {"/dp/ingest/meta/dataset/type/{param1}"})
-    public Map dp_ingest_meta_dset_type(@PathVariable String param1) {
+    @PostMapping(value = {"/dp/ingest/meta/dataset/type/{param1}"})
+    public Map dp_ingest_meta_dset_type(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/meta/dataset/type/" + param1);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/meta/dataset/type/", params);
 
         return DataList;
     }
-    @GetMapping(value = {"/dp/ingest/meta/dataset/detail/{param1}"})
-    public Map dp_ingest_meta_dset_dt(@PathVariable String param1) {
+    @PostMapping(value = {"/dp/ingest/meta/dataset/detail/{param1}"})
+    public Map dp_ingest_meta_dset_dt(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/meta/dataset/detail/" + param1);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/meta/dataset/detail/", params);
 
         return DataList;
     }
@@ -55,17 +55,17 @@ public class MetaDataApiController {
     }
     
     /*@PostMapping(value = {"/dp/ingest/meta/dataset/update/{param1}"})
-    public Map dp_ingest_meta_dset_update(@PathVariable String param1) {
+    public Map dp_ingest_meta_dset_update(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.postApi("/dp/ingest/meta/dataset/update/" + param1);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/meta/dataset/update/", params);
 
         return DataList;
     }*/
 
 /*    @PostMapping(value = {"/dp/ingest/meta/dataset/delete/{param1}"})
-    public Map dp_ingest_meta_dset_del(@PathVariable String param1) {
+    public Map dp_ingest_meta_dset_del(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.postApi("/dp/ingest/meta/dataset/delete/" + param1);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/meta/dataset/delete/", params);
 
         return DataList;
     }*/

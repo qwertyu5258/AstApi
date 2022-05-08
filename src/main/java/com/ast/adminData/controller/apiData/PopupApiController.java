@@ -10,52 +10,53 @@ import java.util.Map;
 
 @Slf4j
 @RestController
-@RequestMapping("/dp/ingest/popup")
 @RequiredArgsConstructor
 @ResponseBody
 public class PopupApiController {
     private final RestService restService;
 
-    @GetMapping(value = {"/{param1}/dataset"})
-    public Map dpIngestMetaTblDset(@PathVariable String param1) {
+    @PostMapping(value = {"/dp/ingest/popup/dp/ingest/popup/{param1}/dataset"})
+    public Map dpIngestMetaTblDset(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/popup/" + param1 + "/dataset");
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/popup/dataset", params);
 
         return DataList;
     }
 
     //    dpIngestPopupDset01		/dataset01	get
-    @GetMapping(value = {"/dataset01"})
-    public Map dpIngestPopupDset01(HttpServletRequest request) {
+    @PostMapping(value = {"/dp/ingest/popup/dataset01"})
+    public Map dpIngestPopupDset01(@RequestBody Map<String,Object> params) {
 
-//        Map<String, Object> DataList = restService.getApi("/dp/ingest/popup");
-        Map<String, Object> DataList = restService.getApi(request.getServletPath() + "?" + request.getQueryString());
+//        Map<String, Object> DataList = restService.postApi("/dp/ingest/popup/dp/ingest/popup");
+//        Map<String, Object> DataList = restService.postApi(request.getServletPath() + "?" + request.getQueryString());
 
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/popup/dataset01", params);
+        
         return DataList;
     }
 
     //    dpIngestPopupTblColum		/table_colum/{param1}	get
-    @GetMapping(value = {"/table_colum/{param1}"})
-    public Map dpIngestPopupTblColum(@PathVariable String param1) {
+    @PostMapping(value = {"/dp/ingest/popup/table_colum"})
+    public Map dpIngestPopupTblColum(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/popup/table_colum/" + param1);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/popup/table_colum", params);
 
         return DataList;
     }
 
     //    dpIngestPopupPpPath   /property_path/{param1}	get
-    @GetMapping(value = {"/property_path/{param1}"})
-    public Map dpIngestPopupPpPath(@PathVariable String param1) {
+    @PostMapping(value = {"/dp/ingest/popup/property_path"})
+    public Map dpIngestPopupPpPath(@RequestBody Map<String,Object> params) {
 
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/popup/property_path/" + param1);
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/popup/property_path", params);
 
         return DataList;
     }
 
     //    dpIngestPopupMetaTbl	/metaTable	get
-    @GetMapping(value = {"/meta_table"})
-    public Map dpIngestPopupMetaTbl(@RequestParam(value="table_korean_nm", required = false) String table_korean_nm) {
-        Map<String, Object> DataList = restService.getApi("/dp/ingest/popup/meta_table?table_korean_nm=" + table_korean_nm);
+    @PostMapping(value = {"/dp/ingest/popup/meta_table"})
+    public Map dpIngestPopupMetaTbl(@RequestBody Map<String,Object> params) {
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/popup/meta_table", params);
 
         return DataList;
     }

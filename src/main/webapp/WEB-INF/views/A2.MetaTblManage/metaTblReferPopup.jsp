@@ -88,7 +88,13 @@
         $(document).ready(initTable);
 
         function initTable () {
-            ajaxGet('/dp/ingest/popup/meta_table', "", function (data) {
+
+            let data = {
+                "table_korean_nm":"도로명주소_건물",
+                "user_id":"user_id"
+            }
+
+            ajaxPost('/dp/ingest/popup/meta_table', data, function (data) {
                 console.log(data);
                 let obj = data.contents;
                 let trHTML;
@@ -114,10 +120,11 @@
             }
 
             const data = {
+                "user_id":"~~id",
                 "table_korean_nm": $("#tableKoName").val()
             };
 
-            ajaxGet('/dp/ingest/meta/tables', data, function (data) {
+            ajaxPost('/dp/ingest/meta/tables', data, function (data) {
                 console.log(data);
                 let obj = data.contents;
                 let trHTML;

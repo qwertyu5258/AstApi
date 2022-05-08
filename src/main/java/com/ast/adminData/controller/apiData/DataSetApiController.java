@@ -17,19 +17,19 @@ public class DataSetApiController {
     private final RestService restService;
 
     //    dpIngestMetaDset		/dataset	get
-    @GetMapping(value = {"/dataset"})
+    @PostMapping(value = {"/dataset"})
     public Map dpIngestMetaDset() {
 
-        Map<String, Object> DataList = restService.getApi("/dataset");
+        Map<String, Object> DataList = restService.postApi("/dataset");
 
         return DataList;
     }
 
     //    dpIngestMetaDsetDt		/dataset/{param1}	get
-    @GetMapping(value = {"/detail/{param1}"})
+    @PostMapping(value = {"/detail/{param1}"})
     public Map dpIngestMetaDsetDt(@PathVariable String param1) {
 
-        Map<String, Object> DataList = restService.getApi("/detail/" + param1);
+        Map<String, Object> DataList = restService.postApi("/detail/" + param1);
 
         return DataList;
     }
