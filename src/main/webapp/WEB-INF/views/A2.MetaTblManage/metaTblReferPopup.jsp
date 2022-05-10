@@ -146,6 +146,24 @@
         function metaTblReferSetData(tableIdntfcId,tableKoreanNm){
             $(opener.document).find("#refrn_table_idntfc_id").val(tableIdntfcId);
             $(opener.document).find("#refrn_table_idntfc_nm").val(tableKoreanNm);
+
+            let data = {
+                "user_id":"~~id",
+                "table_idntfc_id" : tableIdntfcId
+            }
+            ajaxPost('/dp/ingest/meta/tables/column', data, function (data) {
+                console.log('/dp/ingest/meta/tables/column', data);
+
+                let obj = data.contents;
+                $(opener.document).find("#refrn_column_idntfc_id")
+                $(opener.document).find("#refrn_column_idntfc_id").empty();
+                let selectHtml = "";
+                for(let i=0; i < obj.length; i++){
+                    selectHtml += `<option value="`+obj[i].column_idntfc_id+`">`+obj[i].column_korean_nm+`</option>`;
+                }
+                $(opener.document).find("#refrn_column_idntfc_id").append(selectHtml);
+            });
+
         }
 
 

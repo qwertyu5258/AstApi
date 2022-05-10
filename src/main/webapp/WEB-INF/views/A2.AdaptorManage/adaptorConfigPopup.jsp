@@ -43,7 +43,7 @@
                                       <div class="form-control_box duplicate_box" id="adapterType">
                                           <select class="form-control" id="adapterTypeId">
                                               <option value="">Choose option</option>
-                                              <option>Option one</option>
+
                                           </select>
                                       </div>
                                   </div>

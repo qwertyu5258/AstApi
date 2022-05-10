@@ -1165,7 +1165,7 @@
                             <td>
                               <select class="form-control" disabled="disabled">
                                 <option>선택</option>
-                                <option>Option one</option>
+
                                 <option>Option two</option>
                                 <option>Option three</option>
                                 <option>Option four</option>
@@ -1215,7 +1215,7 @@
                       <td>
                         <select class="form-control" disabled="disabled">
                           <option>선택</option>
-                          <option>Option one</option>
+
                           <option>Option two</option>
                           <option>Option three</option>
                           <option>Option four</option>
@@ -1271,7 +1271,7 @@
                       <td>
                         <select class="form-control" disabled="disabled">
                           <option>선택</option>
-                          <option>Option one</option>
+
                           <option>Option two</option>
                           <option>Option three</option>
                           <option>Option four</option>

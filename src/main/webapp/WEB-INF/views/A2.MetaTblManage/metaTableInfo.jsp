@@ -159,7 +159,7 @@
                                           </th>
                                           <th>참조 테이블 식별자</th>
                                           <th colspan="3">
-                                              <input class="form-control" id="refrn_table_idntfc_id" type="text" disabled="disabled">
+                                              <input class="form-control" id="refrn_table_idntfc_id" type="text" disabled="disabled" style="display: inline-block;width: 85%">
                                               <button class="btn btn-primary" onclick="refrnTablePopup();"> <i class="glyphicon glyphicon-search"></i></button>
 
                                           </th>
@@ -185,17 +185,14 @@
                                           <th>
                                               <select class="form-control" id="data_type">
                                                   <option value="">Choose option</option>
-                                                  <option>Option one</option>
+
                                               </select>
                                           </th>
                                           <th>
                                               데이터 길이
                                           </th>
                                           <th>
-                                              <select class="form-control" id="data_lt">
-                                                  <option value="">Choose option</option>
-                                                  <option>Option one</option>
-                                              </select>
+                                              <input class="form-control" type="text" placeholder="" id="data_lt">
                                           </th>
                                           <th>
                                               참조컬럼 식별자
@@ -203,7 +200,7 @@
                                           <th colspan="3">
                                               <select class="form-control" id="refrn_column_idntfc_id">
                                                   <option value="">Choose option</option>
-                                                  <option>Option one</option>
+
                                               </select>
                                           </th>
                                       </tr>
@@ -223,7 +220,7 @@
                                           <th>
                                               <select class="form-control" id="dset_knd">
                                                   <option value="">Choose option</option>
-                                                  <option>Option one</option>
+
                                               </select>
                                           </th>
                                           <th style="vertical-align: middle">참조 컬럼명</th>
@@ -271,10 +268,7 @@
                                               컬럼저장타입
                                           </th>
                                           <th>
-                                              <select class="form-control" id="column_stre_type">
-                                                  <option value="">Choose option</option>
-                                                  <option>Option one</option>
-                                              </select>
+                                              <input class="form-control" type="text" placeholder="" id="column_stre_type">
                                           </th>
                                           <th rowspan="3">
                                               컬럼설명
@@ -294,10 +288,7 @@
                                               정렬 순서
                                           </th>
                                           <th>
-                                              <select class="form-control" id="ordr">
-                                                  <option value="">Choose option</option>
-                                                  <option>Option one</option>
-                                              </select>
+                                              <input class="form-control" type="text" placeholder="" id="ordr">
                                           </th>
                                           <th>
                                               개인정보여부
@@ -323,10 +314,7 @@
                                               CRUD 구분
                                           </th>
                                           <th>
-                                              <select class="form-control" id="crud_se">
-                                                  <option value="">Choose option</option>
-                                                  <option>Option one</option>
-                                              </select>
+                                              <input class="form-control" type="text" placeholder="" id="crud_se">
                                           </th>
                                       </tr>
                                       </thead>

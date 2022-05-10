@@ -90,7 +90,7 @@
                           <div class="col-md-6 pl-0" id="adapterDetalTypeNm">
                             <%--<select class="form-control">
                               <option>Choose option</option>
-                              <option>Option one</option>
+
                               <option>Option two</option>
                               <option>Option three</option>
                               <option>Option four</option>

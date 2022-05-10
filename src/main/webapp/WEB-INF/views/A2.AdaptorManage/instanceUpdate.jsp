@@ -66,7 +66,7 @@
                                 <div class="form-control_box duplicate_box">
                                   <select class="form-control" id="clct_mthd">
                                     <option>선택</option>
-                                    <option>Option one</option>
+
                                     <option>Option two</option>
                                     <option>Option three</option>
                                     <option>Option four</option>
@@ -79,7 +79,7 @@
                                 <div class="form-control_box duplicate_box">
                                   <select class="form-control" id="clct_ty">
                                     <option>선택</option>
-                                    <option>Option one</option>
+
                                     <option>Option two</option>
                                     <option>Option three</option>
                                     <option>Option four</option>
@@ -98,7 +98,7 @@
                                   <div class="col-md-6">
                                     <select class="form-control" id="storage_type">
                                       <option>선택</option>
-                                      <option>Option one</option>
+
                                       <option>Option two</option>
                                       <option>Option three</option>
                                       <option>Option four</option>

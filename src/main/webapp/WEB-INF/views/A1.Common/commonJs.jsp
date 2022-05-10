@@ -26,8 +26,9 @@
 <script src="vendors/jszip/dist/jszip.min.js"></script>
 
 <script src="js/custom.js"></script>
-<script src="js/common.js"></script>
 
+<script src="js/common.js"></script>
+<script src="js/commonSelectbox.js"></script>
 <script src="js/commonTable.js"></script>
 <script src="js/metaFunc.js"></script>
 

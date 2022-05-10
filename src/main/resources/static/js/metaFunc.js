@@ -138,7 +138,7 @@ function dp_ingest_meta_tbl_update_dset(param1, param2) {
         "search": "12",
         "search_type": "!2",
     };
-    ajaxPost('/dp/ingest/meta/tables/update/dataset/{}', data, function (data) {
+    ajaxPost('/dp/ingest/meta/tables/update/dataset', data, function (data) {
         alert('완료~113');
     });
 }
@@ -148,7 +148,7 @@ function dp_ingest_meta_tbl_update_tbl(param1, param2) {
         "search": "12",
         "search_type": "!2",
     };
-    ajaxPost('/dp/ingest/meta/tables/update/table/{}', data, function (data) {
+    ajaxPost('/dp/ingest/meta/tables/update/table', data, function (data) {
         alert('완료~113');
     });
 }

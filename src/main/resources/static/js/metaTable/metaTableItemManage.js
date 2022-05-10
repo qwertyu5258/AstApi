@@ -12,7 +12,7 @@ function metaTableItemManageInit () {
         "dset_lclas":"D",
         "dset_mclas":"200",
         "dset_sclas":"1",
-        "search":"교통",
+        "search": $("#SelectText").val(),
         "page_current":"3"
     };
 
@@ -67,11 +67,11 @@ function metaTableItemManageInit () {
 function search() {
     var data = {
         "user_id":"~~id",
-        "dset_lclas":"D",
-        "dset_mclas":"200",
-        "dset_sclas":"1",
-        "search":"교통",
-        "page_current":"3"
+        "dset_lclas": $("#LargeCategory").val(),
+        "dset_mclas": $("#MiddleCategory").val(),
+        "dset_sclas": $("#SmallCategory").val(),
+        "search":$("#SelectText").val(),
+        "page_current": "1"
     };
 
     ajaxPost('/dp/ingest/meta/item', data, function (data) {
@@ -122,7 +122,10 @@ function search() {
 
 //저장 버튼(메타정보 항목관리 저장 : dp_ingest_meta_item_save)
 function metaTableItemManageSave () {
-    const checked_val = [];
+    const checked_val = {
+        "user_id": "userId",
+        "list" : [],
+    };
 
     $.each($("#metaTableItemManageData tbody tr"), function(){
         let clBassChecked = "N";
@@ -148,6 +151,7 @@ function metaTableItemManageSave () {
         }
 
         const contents = {
+            "user_id" : "~~id",
             "dset_idntfc_id" : $(this).find("#hiddenIdntfcId").val(),
             "cl_bass" : clBassChecked,
             "cl_qlity" : clQlityChecked,
@@ -155,33 +159,33 @@ function metaTableItemManageSave () {
             "cl_wdtb" : clWdtbChecked,
             "cl_crlts" : clCrltsChecked,
         };
-        checked_val.push(contents);
-    })
+        checked_val.list.push(contents);
+    });
 
     let addStatus = true;
     if(window.confirm("저장하시겠습니까?")){
-        setTimeout(() => {
-            for(let i=0; i < checked_val.length; i++){
-                console.log("metaTableItemManage Save Data", checked_val[i]);
+        // setTimeout(() => {
+        //     for(let i=0; i < checked_val.length; i++){
+        //         console.log("metaTableItemManage Save Data", checked_val[i]);
 
                 $.ajax({
                     type: 'post',
                     url: '/dp/ingest/meta/item/save',
                     contentType:"application/json;charset=UTF-8",
-                    data: JSON.stringify(checked_val[i]),
+                    data: JSON.stringify(checked_val),
                     success: function(data, textStatus, xhr) {
-                        console.log("dp_ingest_meta_item_save", data)
+                        console.log("dp_ingest_meta_item_save", data);
                     },
                     error: function(data, status, error) {
-                        alert('ajax Error ' + data);
+                        console.log('ajax Error ' + data);
                         addStatus =false;
                     }
                 });
-            }
+            // }
             if(addStatus){
                 alert("정상적으로 저장되었습니다.");
                 location.href="metaTableItemManage";
             }
-        },1000)
+        // },1000)
     }
 }

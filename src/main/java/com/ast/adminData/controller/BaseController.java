@@ -160,6 +160,10 @@ public class BaseController {
     public String processRegist() {
         return "A2.AdaptorManage/processRegist";
     }
+    @RequestMapping("/processDetail")
+    public String processDetail() {
+        return "A2.AdaptorManage/processDetail";
+    }
     @RequestMapping("/dataCollectList")
     public String dataCollectList() {
         return "A2.DataCollectManage/dataCollectList";

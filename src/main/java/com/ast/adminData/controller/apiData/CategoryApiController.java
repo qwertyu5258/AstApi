@@ -19,9 +19,12 @@ public class CategoryApiController {
     //    dp_cm_category	분류 조회	get	/dp/cm/category
     @GetMapping(value = {"/dp/cm/category"})
     public Map dp_cm_category(@RequestParam(value="clsf_id", required = false) String param1) {
-
-        Map<String, Object> DataList = restService.getApi("/dp/cm/category?clsf_id=" + param1);
-
+        Map<String, Object> DataList = null;
+        if(param1 == null) {
+            DataList = restService.getApi("/dp/cm/category");
+        } else {
+            DataList = restService.getApi("/dp/cm/category?clsf_id=" + param1);
+        }
         return DataList;
     }
 

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>LX DT | 테이블 형태~~1</title>
+    <title>LX DT | 전처리 상세화면</title>
     <%@include file="/WEB-INF/views/A1.Common/commonCss.jsp" %>
   </head>
   <body class="nav-md">
@@ -153,7 +153,7 @@
                                 </tbody>
                               </table>
                               <!-- 속성유형 String -->
-                              <table class="col-md-12 table type02">
+                            <%--  <table class="col-md-12 table type02">
                                 <colgroup>
                                   <col width="140px">
                                   <col width="*">
@@ -347,7 +347,7 @@
                                   <td><input class="form-control" type="text" value="가나다라마바" disabled="disabled"></td>
                                 </tr>
                                 </tbody>
-                              </table>
+                              </table>--%>
                             </form>
                           </div>
                         </div>

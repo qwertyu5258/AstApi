@@ -74,25 +74,22 @@
                   <th>
                     <select class="form-control" id="LargeCategory">
                       <option>대분류</option>
-                      <option>Option one</option>
                     </select>
                   </th>
                   <th>
                     <select class="form-control" id="MiddleCategory">
                       <option>중분류</option>
-                      <option>Option one</option>
                     </select>
                   </th>
                   <th>
                     <select class="form-control" id="SmallCategory">
                       <option>소분류</option>
-                      <option>Option one</option>
                     </select>
                   </th>
                   <th>
                     <select class="form-control" id="SelectCategory">
                       <option>선택</option>
-                      <option>Option one</option>
+
                     </select>
                   </th>
                   <th>

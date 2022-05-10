@@ -27,6 +27,7 @@
                     <li><a href="adaptorSet">Adaptor 유형관리</a></li>
                     <li><a href="processList">전처리 목록</a></li>
                     <li><a href="processRegist">전처리 등록</a></li>
+                    <li><a href="processDetail">전처리 상세</a></li>
                     <li><a href="ApiDataConfigPopup">API Data 설정(팝업 추가)</a></li>
                 </ul>
             </li>

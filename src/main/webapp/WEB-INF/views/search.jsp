@@ -63,7 +63,7 @@
                         <div class="form-control_box">
                           <select class="form-control">
                             <option>Choose option</option>
-                            <option>Option one</option>
+
                             <option>Option two</option>
                             <option>Option three</option>
                             <option>Option four</option>
@@ -90,7 +90,7 @@
                           <div class="col-md-3 pl-0">
                             <select class="form-control">
                               <option>Choose option</option>
-                              <option>Option one</option>
+
                               <option>Option two</option>
                               <option>Option three</option>
                               <option>Option four</option>
@@ -172,7 +172,7 @@
                           <div class="col-md-3 pl-0">
                             <select class="form-control">
                               <option>Choose option</option>
-                              <option>Option one</option>
+
                               <option>Option two</option>
                               <option>Option three</option>
                               <option>Option four</option>

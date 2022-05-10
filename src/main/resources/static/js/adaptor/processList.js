@@ -18,8 +18,8 @@ function processListInit () {
         $("#processListData tbody").empty();
 
         for (let i = 0; i < obj.length; i++) {
-            trHTML += `<tr class="">`;
-            trHTML += `<td onclick="processListEdit('`+ obj[i].pre_id +`')">` + obj[i].pre_nm + `</td>`;
+            trHTML += `<tr class="" onclick="processDetail('`+ obj[i].pre_id +`')" style="cursor:pointer">`;
+            trHTML += `<td>` + obj[i].pre_nm + `</td>`;
             trHTML += `<td>` + obj[i].property_type + `</td>`;
             trHTML += `<td>` + obj[i].number_digit + `</td>`;
             trHTML += `<td>` + obj[i].change_shape + `</td>`;
@@ -49,8 +49,8 @@ function search() {
         $("#processListData tbody").empty();
 
         for (let i = 0; i < obj.length; i++) {
-            trHTML += `<tr class="">`;
-            trHTML += `<td onclick="processListEdit('`+ obj[i].pre_id +`')">` + obj[i].pre_nm + `</td>`;
+            trHTML += `<tr class="" onclick="processDetail('`+ obj[i].pre_id +`')" style="cursor:pointer">`;
+            trHTML += `<td>` + obj[i].pre_nm + `</td>`;
             trHTML += `<td>` + obj[i].property_type + `</td>`;
             trHTML += `<td>` + obj[i].number_digit + `</td>`;
             trHTML += `<td>` + obj[i].change_shape + `</td>`;
@@ -73,8 +73,8 @@ function processListAdd() {
 }
 
 //전처리 상세페이지 이동
-function processListEdit() {
-    location.href="processRegist";
+function processDetail() {
+    location.href="processDetail";
 }
 
 

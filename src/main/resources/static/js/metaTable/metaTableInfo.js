@@ -149,10 +149,12 @@ function colDtDataView(idntfcId, columnIdntfcId){
 }
 
 //저장 버튼
-function saveColumn () {
+function saveColumn() {
 
     const saveColumnData = {
-        /*"column_idntfc_id" : $("#hidden_column_idntfc_id").val(),*/
+        "user_id" : "~~id",
+
+        "column_idntfc_id" : $("#hidden_column_idntfc_id").val(),
         "rl_table_idntfc_id" : idntfcId,
         "dset_knd" : $('#dset_knd').val(),
         "ordr" : $('#ordr').val(),
@@ -178,8 +180,9 @@ function saveColumn () {
         "crud_se": $('#crud_se').val(),
         "crud_dc": $('#crud_dc').val(),
         "use_at": $('#use_at').val(),
-        "creat_table_at":$('#creat_table_at').val()
-    }
+        "creat_table_at":$('#creat_table_at').val(),
+        "menu_id" : $('#menu_id').val()
+    };
 
     ajaxPost('/dp/ingest/meta/tables/save/column', saveColumnData, function (data) {
         console.log('완료~dp_ingest_meta_tbl_save_col',data);

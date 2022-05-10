@@ -129,7 +129,7 @@
                                   <div class="talbel_total" id="metaTableCnt">총 1개</div>
                                   <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableDel()">삭제</button>
                                   <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableAdd()">추가</button>
-                                  <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableEdit()">테이블수정</button>
+                                  <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableEdit()">테이블생성</button>
                                   <table class="table table-striped" id="metaTable1">
                                       <colgroup>
                                           <col width="55px">
@@ -205,7 +205,7 @@
                                           <th>수집방식</th>
                                           <th><select class="form-control" id="clct_mthd1">
                                               <option val="">Choose option</option>
-                                              <option>Option one</option>
+
                                           </select></th>
                                           <th rowspan="3" style="vertical-align: middle;">데이터셋 설명</th>
                                           <th rowspan="3" style="vertical-align: middle;">
@@ -231,7 +231,7 @@
                                           <th>
                                               <select class="form-control" id="clct_ty1">
                                                   <option val="">Choose option</option>
-                                                  <option>Option one</option>
+
                                                   <option value="FILE UPLOAD">FILE UPLOAD</option>
                                               </select>
                                           </th>
@@ -271,13 +271,10 @@
                                               </select>
                                           </th>
                                           <th>
-                                              CUD 구분
+                                              CUD 구분(한자리)
                                           </th>
                                           <th>
-                                              <select class="form-control" id="crud_se1">
-                                                  <option val="">Choose option</option>
-                                                  <option>Option one</option>
-                                              </select>
+                                              <input class="form-control" type="text" placeholder="" id="crud_se1">
                                           </th>
                                           <th rowspan="2" style="vertical-align: middle">CUD 설명</th>
                                           <th rowspan="2" style="vertical-align: middle">
@@ -298,10 +295,7 @@
                                               수집 테이블 생성 여부
                                           </th>
                                           <th>
-                                              <select class="form-control" id="creat_table_at1">
-                                                  <option val="">Choose option</option>
-                                                  <option>Option one</option>
-                                              </select>
+                                              <input class="form-control" type="text" placeholder="" id="creat_table_at1">
                                           </th>
                                       </tr>
                                       </thead>
@@ -353,7 +347,7 @@
                                               테이블 영문명
                                           </th>
                                           <th colspan="3">
-                                              <input class="form-control" type="text" placeholder="" id="table_eng_nm2" style="display: inline-block;width: 80%">
+                                              <input class="form-control" type="text" placeholder="" id="table_eng_nm2" style="display: inline-block;width: 70%">
                                               <button class="btn btn-primary" style="float:right" onclick="table_eng_nm_chk()">중복체크</button>
                                           </th>
                                       </tr>
@@ -364,17 +358,14 @@
                                           <th>
                                               <select class="form-control" id="table_dset_knd">
                                                   <option value="">Choose option</option>
-                                                  <option>Option one</option>
+
                                               </select>
                                           </th>
                                           <th>
                                               소유자 ID
                                           </th>
                                           <th>
-                                              <select class="form-control" id="table_owner">
-                                                  <option value="">Choose option</option>
-                                                  <option>Option one</option>
-                                              </select>
+                                              <input class="form-control" type="text" placeholder="" id="table_owner">
                                           </th>
                                       </tr>
                                       <tr>
@@ -384,17 +375,14 @@
                                           <th>
                                               <select class="form-control" id="physic_table_ty">
                                                   <option value="">Choose option</option>
-                                                  <option>Option one</option>
+
                                               </select>
                                           </th>
                                           <th>
-                                              CUD 구분
+                                              CUD 구분(한자리)
                                           </th>
                                           <th>
-                                              <select class="form-control" id="crud_se2">
-                                                  <option value="">Choose option</option>
-                                                  <option>Option one</option>
-                                              </select>
+                                              <input class="form-control" type="text" placeholder="" id="crud_se2">
                                           </th>
                                           <th rowspan="2" style="vertical-align: middle">CUD 설명</th>
                                           <th rowspan="2" style="vertical-align: middle">
@@ -415,10 +403,7 @@
                                               수집 테이블 생성 여부
                                           </th>
                                           <th>
-                                              <select class="form-control" id="creat_table_at2">
-                                                  <option value="">Choose option</option>
-                                                  <option>Option one</option>
-                                              </select>
+                                              <input class="form-control" type="text" placeholder="" id="creat_table_at2">
                                           </th>
                                       </tr>
                                       </thead>

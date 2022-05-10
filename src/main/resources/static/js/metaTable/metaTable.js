@@ -3,6 +3,9 @@ var tableEngNmChk = false;      //데이터셋 영문명 중복체크 값
 
 metaTableInit(1);
 
+dp_cm_codes_clct_mthd();
+dp_cm_codes_clct_ty();
+
 //메타테이블 관리 테이블정보 (dp_ingest_meta_tbl)
 function metaTableInit (pageNum) {
     //대분류 카테고리 가져오기
@@ -12,11 +15,11 @@ function metaTableInit (pageNum) {
     let data = {
         "user_id":"user_id",
         "search_type":"dset_korean_nm",
-        "search":"교통량",
-        "dset_lclas":"D",
-        "dset_mclas":"200",
-        "dset_sclas":"1",
-        "page_current":"3"
+        "search":"",
+        "dset_lclas":"",
+        "dset_mclas":"",
+        "dset_sclas":"",
+        "page_current":"1"
     };
     ajaxPost('/dp/ingest/meta/tables', data, function (data) {
         console.log(data);
@@ -29,7 +32,7 @@ function metaTableInit (pageNum) {
         pageNation(obj.length, 10);
 
         for (let i = 0; i < pageNum * 10; i++) {
-            let idntfcId = obj[i].rl_dset_idntfc_id + "@" + obj[i].table_idntfc_id;
+            let idntfcId = obj[i]?.rl_dset_idntfc_id + "@" + obj[i]?.table_idntfc_id;
             trHTML += '<tr>'
                 + '<td><input class="tableInfo" type="checkbox" name="checkList" id="check'+i+'" value="'+idntfcId+'"></td>'
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_lclas + '</label></td>'
@@ -57,7 +60,7 @@ function searchTbl(pageNum) {
         "dset_lclas": $("#LargeCategory").val(),
         "dset_mclas": $("#MiddleCategory").val(),
         "dset_sclas": $("#SmallCategory").val(),
-        "page_current":pageNum
+        "page_current":pageNum == null ? "1" : pageNum.toString()
     };
     // {
     //     "user_id":"user_id",
@@ -76,8 +79,10 @@ function searchTbl(pageNum) {
         $("#metaTableCnt").html("총 "+obj.length+"개");
         $("#metaTable1 tbody").empty();
 
+
+
         for (let i = (pageNum -1 ) * 10; i < pageNum * 10; i++) {
-            let idntfcId = obj[i].rl_dset_idntfc_id + "@" + obj[i].table_idntfc_id;
+            let idntfcId = obj[i]?.rl_dset_idntfc_id + "@" + obj[i]?.table_idntfc_id;
             trHTML += '<tr>'
                 + '<td><input class="tableInfo" type="checkbox" name="checkList" id="check'+i+'" value="'+idntfcId+'"></td>'
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_lclas + '</label></td>'
@@ -137,7 +142,7 @@ function metaTableDel() {
                     type: 'post',
                     url: '/dp/ingest/meta/tables/delete/dataset',
                     contentType:"application/json;charset=UTF-8",
-                    //data: JSON.stringify(param),
+                    data: JSON.stringify(param),
                     success: function(data, textStatus, xhr) {
                         console.log('완료~dp_ingest_meta_tbl_del_dset',data);
 
@@ -348,6 +353,7 @@ function editDataSetItem() {
     const edit_dset_idntfc_id = $('#hidden_dset_idntfc_id').val();
 
     const data = {
+        "user_id": "~~id",
         "dset_idntfc_id": edit_dset_idntfc_id,               //데이터셋_식별_ID
         "dset_owner": $("#dset_owner1").val(),  //데이터셋_소유자
         "dset_lclas": $("#dset_lclas1").val(),  //데이터셋_대분류
@@ -367,8 +373,8 @@ function editDataSetItem() {
         "creat_table_at": $("#creat_table_at1").val() //수집 테이블 생성 여부
     };
 
-    ajaxPost('/dp/ingest/meta/tables/update/dataset/'+edit_dset_idntfc_id, data, function (data) {
-        alert("정상적으로 메타테이블 데이터셋 수정되었습니다.")
+    ajaxPost('/dp/ingest/meta/tables/update/dataset', data, function (data) {
+        alert("정상적으로 메타테이블 데이터셋 수정되었습니다.");
     });
 }
 
