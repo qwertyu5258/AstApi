@@ -14,10 +14,7 @@
             <div class="navbar nav_title"><a class="site_title" href="index"><i class="fa fa-paw"> </i><span>LX DT </span></a></div>
             <div class="clearfix"> </div>
             <div class="profile clearfix">
-              <div class="profile_pic"><img class="img-circle profile_img" src="/img/img.jpg" alt="..."></div>
-              <div class="profile_info"><span>Welcome,</span>
-                <h2>John Doe</h2>
-              </div>
+
             </div><br>
 
             <%@include file="/WEB-INF/views/A1.Menu/menu.jsp" %>
@@ -68,11 +65,12 @@
                               <div class="cont_title_box">
                                 <h4>전처리 상세 정보</h4>
                                 <div class="right_btns">
-                                  <a class="btn btn-success" href="">목록</a>
-                                  <button class="btn btn-primary">저장</button>
+                                  <a class="btn btn-success" href="processList">목록</a>
+                                  <button class="btn btn-primary" type="button" onclick="dp_ingest_pre_del()">삭제</button>
+                                  <button class="btn btn-primary" type="button" onclick="dp_ingest_pre_update()">수정~~</button>
                                 </div>
                               </div>
-                              <table class="col-md-12 table type02">
+                              <table class="col-md-12 table type02" id="preProcessTable">
                                 <colgroup>
                                   <col width="140px">
                                   <col width="*">
@@ -362,6 +360,6 @@
     </div>
 
     <%@include file="/WEB-INF/views/A1.Common/commonJs.jsp" %>
-
+      <script type="text/javascript" src="js/preProcess/preProcessDetail.js"></script>
   </body>
 </html>

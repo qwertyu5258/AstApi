@@ -50,7 +50,7 @@
         <div class="col-md-12">
           <div class="x_panel">
             <div class="x_title">
-              <h2>HOME > 데이터 셋 > 메타정보 리스트 > 메타정보 상세</h2>
+              <h2>HOME > 데이터셋 > 메타정보 상세</h2>
               <div class="clearfix"> </div>
             </div>
             <div class="x_content">
@@ -71,19 +71,19 @@
                     <tr>
                       <th>데이터 셋 명</th>
                       <td><input class="form-control col-md-8" type="text" value="LX_연계1" disabled="disabled"></td>
-                      <th>데이터 모델 명</th>
+                      <th>메타데이터파일 식별자</th>
                       <td><input class="form-control col-md-8" type="text" value="문화재" disabled="disabled"></td>
                     </tr>
                     <tr>
-                      <th>메타데이터버전</th>
+                      <th>메타데이터언어</th>
                       <td><input class="form-control col-md-8" type="text" value=""></td>
-                      <th>제공항목</th>
+                      <th>메타데이터적용대상명</th>
                       <td><input class="form-control col-md-8" type="text" value="문화시설정보"></td>
                     </tr>
                     <tr>
-                      <th>소유권</th>
+                      <th>메타데이터작성일</th>
                       <td><input class="form-control col-md-8" type="text" value="한국국토정보공사"></td>
-                      <th>라이선스</th>
+                      <th>메타데이터버전</th>
                       <td>
                         <select class="form-control col-md-8 mr-4">
                           <option>CC BY</option>
@@ -97,21 +97,21 @@
                       </td>
                     </tr>
                     <tr>
-                      <th>제공기관</th>
+                      <th>책임기관명</th>
                       <td><input class="form-control col-md-8" type="text" value="한국국토정보공사"></td>
-                      <th>제공시스템</th>
+                      <th>책임부서명</th>
                       <td><input class="form-control col-md-8" type="text" value="한국국토정보공사"></td>
                     </tr>
                     <tr>
-                      <th>제공부서</th>
+                      <th>책임담당자</th>
                       <td><input class="form-control col-md-8" type="text" value="주소관리부"></td>
-                      <th>담당자</th>
+                      <th>전화</th>
                       <td><input class="form-control col-md-8" type="text" value="홍길동"></td>
                     </tr>
                     <tr>
-                      <th>연락처</th>
+                      <th>키워드</th>
                       <td><input class="form-control col-md-8" type="text" value="010-1234-1234"></td>
-                      <th>이메일</th>
+                      <th>업데이트주기</th>
                       <td><input class="form-control col-md-8" type="text" value="test@naver.com"></td>
                     </tr>
                     <tr>
@@ -121,9 +121,11 @@
                       <td><input class="form-control col-md-8" type="text" value=""></td>
                     </tr>
                     <tr>
-                      <th>키워드</th>
+                      <th>주소</th>
                       <td><input class="form-control col-md-8" type="text" value=""></td>
-                      <th>업데이트주기</th>
+                    </tr>
+                    <tr>
+                      <th>설명</th>
                       <td><input class="form-control col-md-8" type="text" value=""></td>
                     </tr>
                     <tr>

@@ -59,51 +59,91 @@ function instanceSetDel() {
         connectId = kValue.value;
         clctTy = $(this).parent().find("#clctTy").val();
         clctMthd = $(this).parent().find("#clctMthd").val();
-    })
+    });
 
     let delChk_YN = false;
     setTimeout(() => {
+
         const contents = {
-            "connect_id" : connectId,
-            "clct_ty" : clctTy,
-            "clct_mthd" : clctMthd
+            "user_id" : "ksy",
+            "menu_id": "",
+            "instance_id" : "I0000000000000000123",
+            "item" : "11"
         };
-        $.ajax({
-            type: 'post',
-            url: '/dp/ingest/instance/property/delete/check',
-            contentType:"application/json;charset=UTF-8",
-            data: JSON.stringify(contents),
-            success: function(data, textStatus, xhr) {
-                if(data.contents[0].chk_yn == 'Y') {
-                    delChk_YN = true;
-                    alert("접속유형 항목관리가 사용되고 있습니다.");
-                }else{
-                    const delData = {
-                        "connect_id" : connectId
-                    };
-                    $.ajax({
-                        type: 'post',
-                        url: '/dp/ingest/instance/property/info/delete/'+clctMthd+"/"+clctTy,
-                        contentType:"application/json;charset=UTF-8",
-                        data: JSON.stringify(delData),
-                        success: function(data, textStatus, xhr) {
-                            if(data.returnCode == '2003') {
-                                location.href="instanceSet";
-                            }
-                        },
-                        error: function(data, status, error) {
-                            alert('API: (dp_ingest_it_pp_del_chk) ajax Error ' + data);
-                            return;
+
+        ajaxPost('/dp/ingest/adapter/instance/property/delete/check', contents, function (data) {
+            if(data.contents[0].chk_yn == 'Y') {
+                delChk_YN = true;
+                alert("접속유형 항목관리가 사용되고 있습니다.");
+            }else{
+                let delData = {
+                    "clct_ty" : "11",
+                    "clct_mthd" : "1111",
+                    "connect_id" : connectId,
+                    "user_id" : "",
+                    "menu_id" : ""
+                };
+
+                $.ajax({
+                    type: 'post',
+                    url: '/dp/ingest/instance/property/info/delete',
+                    contentType:"application/json;charset=UTF-8",
+                    data: JSON.stringify(delData),
+                    success: function(data, textStatus, xhr) {
+                        if(data.returnCode == '2003') {
+                            location.href="instanceSet";
                         }
-                    });
-                }
-            },
-            error: function(data, status, error) {
-                alert('API: (dp_ingest_it_pp_del_chk) ajax Error ' + data);
-                return;
+                    },
+                    error: function(data, status, error) {
+                        alert('API: (dp_ingest_it_pp_del_chk) ajax Error ' + data);
+                        return;
+                    }
+                });
             }
         });
-    },1000)
+
+        // $.ajax({
+        //     type: 'post',
+        //     // url: '/dp/ingest/instance/property/delete/check',
+        //     url: '/dp/ingest/adapter/instance/property/delete/check',
+        //     contentType:"application/json;charset=UTF-8",
+        //     data: JSON.stringify(contents),
+        //     success: function(data, textStatus, xhr) {
+        //         if(data.contents[0].chk_yn == 'Y') {
+        //             delChk_YN = true;
+        //             alert("접속유형 항목관리가 사용되고 있습니다.");
+        //         }else{
+        //             let delData = {
+        //                 "clct_ty" : "11",
+        //                 "clct_mthd" : "1111",
+        //                 "connect_id" : connectId,
+        //                 "user_id" : "",
+        //                 "menu_id" : ""
+        //             };
+        //
+        //             $.ajax({
+        //                 type: 'post',
+        //                 url: '/dp/ingest/instance/property/info/delete',
+        //                 contentType:"application/json;charset=UTF-8",
+        //                 data: JSON.stringify(delData),
+        //                 success: function(data, textStatus, xhr) {
+        //                     if(data.returnCode == '2003') {
+        //                         location.href="instanceSet";
+        //                     }
+        //                 },
+        //                 error: function(data, status, error) {
+        //                     alert('API: (dp_ingest_it_pp_del_chk) ajax Error ' + data);
+        //                     return;
+        //                 }
+        //             });
+        //         }
+        //     },
+        //     error: function(data, status, error) {
+        //         alert('API: (dp_ingest_it_pp_del_chk) ajax Error ' + data);
+        //         return;
+        //     }
+        // });
+    },1000);
 }
 
 //접속유형 상세 - 저장 버튼
@@ -116,15 +156,22 @@ function instanceSetSave() {
             "clct_ty" : $(this).find("#clctMthd").val(),
         };
         checked_Saveval.push(contents);
-    })
+    });
 
     setTimeout(() => {
         for(let i=0; i < checked_Saveval.length; i++){
+
+            let data = {
+                "clct_ty" : checked_Saveval[i].clct_mthd,
+                "clct_mthd" : checked_Saveval[i].clct_ty,
+                "user_id" : "",
+                "menu_id" : ""
+            };
             $.ajax({
                 type: 'post',
-                url: '/dp/ingest/instance/property/info/save/'+checked_Saveval[i].clct_mthd+"/"+checked_Saveval[i].clct_ty,
+                url: '/dp/ingest/instance/property/info/save',
                 contentType:"application/json;charset=UTF-8",
-                //data: JSON.stringify(checked_Saveval[i]),
+                data: JSON.stringify(checked_Saveval[i]),
                 success: function(data, textStatus, xhr) {
                     if(data.returnCode == '0000' || data.return_code == '200') {
                         console.log('API: (dp_ingest_adapter_it_pp_save) ajax Success ' + data);
@@ -166,7 +213,15 @@ function instanceSetConfigData(connect_id, clct_mthd, clct_ty) {
     $("#hiddenClctTy").val(clct_mthd);
     $("#hiddenClctMthd").val(clct_ty);
 
-    ajaxPost('/dp/ingest/instance/property/info/'+connect_id, "", function (data) {
+    let data = {
+        "clct_ty" : clct_ty,
+        "clct_mthd" : clct_mthd,
+        "connect_id" : connect_id,
+        "user_id" : "~~id",
+        "menu_id" : ""
+    };
+
+    ajaxPost('/dp/ingest/instance/property/info', data, function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";
@@ -235,11 +290,22 @@ function instanceSetConfigDel() {
     let delSuccessYn = true;
     setTimeout(() => {
         for(let i=0; i < instanceSetConfigChecked_val.length; i++){
+
+            let data = {
+                "clct_ty" : clctTy,
+                "clct_mthd" : clctMthd,
+                "connect_id" : $("#hiddenConnectId").val(),
+                "item" : $(this).find("#configItem").val(),
+                "user_id" : "",
+                "menu_id" : ""
+            };
+
             $.ajax({
                 type: 'post',
-                url: '/dp/ingest/instance/property/detail/delete/'+clctMthd+"/"+clctTy,
+                url: '/dp/ingest/instance/property/detail/delete',
                 contentType:"application/json;charset=UTF-8",
-                data: JSON.stringify(instanceSetConfigChecked_val[i]),
+                // data: JSON.stringify(instanceSetConfigChecked_val[i]),
+                data: JSON.stringify(data),
                 success: function(data, textStatus, xhr) {
                     if(data.returnCode !== '0000') {
                         delSuccessYn = false;
@@ -261,6 +327,7 @@ function instanceSetConfigDel() {
 }
 
 //접속정보 설정 저장 버튼
+// ~~~~
 function instanceSetConfigSave() {
     let connectId = $("#hiddenConnectId").val();
     let clctMthd = $("#hiddenClctTy").val();
@@ -275,7 +342,7 @@ function instanceSetConfigSave() {
             "display_seq" : null
         };
         instanceSetConfigSaveData.push(contents);
-    })
+    });
 
     const requestData = {
         "connect_id" : connectId,

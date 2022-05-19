@@ -14,10 +14,7 @@
         <div class="navbar nav_title"><a class="site_title" href="index"><i class="fa fa-paw"> </i><span>LX DT </span></a></div>
         <div class="clearfix"> </div>
         <div class="profile clearfix">
-          <div class="profile_pic"><img class="img-circle profile_img" src="/img/img.jpg" alt="..."></div>
-          <div class="profile_info"><span>Welcome,</span>
-            <h2>John Doe</h2>
-          </div>
+
         </div><br>
 
         <%@include file="/WEB-INF/views/A1.Menu/menu.jsp" %>
@@ -66,9 +63,9 @@
                         </div>
                         <div class="x_content">
                           <div class="table_btns mb-2">
-                            <button class="btn btn-primary " onclick="adaptorSetAdd();">+ 추가</button>
-                            <button class="btn btn-danger " onclick="adaptorSetDel();">- 삭제</button>
-                            <button class="btn btn-success" onclick="adaptorSetSave();">저장</button>
+                            <button class="btn btn-primary " type="button" onclick="adaptorSetAdd();">+ 추가</button>
+                            <button class="btn btn-danger " type="button" onclick="adaptorSetDel();">- 삭제</button>
+                            <button class="btn btn-success" type="button" onclick="adaptorSetSave();">저장</button>
                           </div>
                           <div class="table_responsive">
                             <table class="table table-striped table-bordered bulk_action" style="width:100%" id="adaptorSetData">

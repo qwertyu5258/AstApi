@@ -8,7 +8,7 @@ function adaptorConfigInit () {
         "user_id" : "ksy",
         "menu_id" : "",
         "search_type" : "adapter_nm",
-        "search" : "11"
+        "search" : ""
     };
 
     ajaxPost('/dp/ingest/adapter', data, function (data) {
@@ -40,8 +40,10 @@ function adaptorConfigInit () {
 //검색
 function search() {
     const data = {
+        "user_id": "ksy",
+        "menu_id": "",
+        "search_type": $("#adapterSearchType").val(),
         "search": $("#adapterSearchText").val(),
-        "search_type": $("#adapterSearchType").val()
     };
 
     ajaxPost('/dp/ingest/adapter', data, function (data) {

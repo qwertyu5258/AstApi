@@ -24,6 +24,7 @@
 <script src="vendors/dragula/dist/dragula.js"></script>
 <script src="vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
 <script src="vendors/jszip/dist/jszip.min.js"></script>
+<script src="lodash.js"></script>
 
 <script src="js/custom.js"></script>
 

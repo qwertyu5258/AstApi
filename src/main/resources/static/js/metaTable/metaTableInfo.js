@@ -224,4 +224,16 @@ function metaTableInfoReset(){
     $("#crud_se").val("");
 }
 
+$("#data_type").change( function(el) {
+    if($("#data_type option:selected").text() == 'varchar' ) {
+        $("#column_stre_type").val('String');
+    } else if ($("#data_type option:selected").text() == 'integer'){
+        $("#column_stre_type").val('Integer');
+    } else if ($("#data_type option:selected").text() == 'nemeric'){
+        $("#column_stre_type").val('Double');
+    } else if ($("#data_type option:selected").text() == 'timestamp'){
+        $("#column_stre_type").val('Date');
+    }
+});
+
 

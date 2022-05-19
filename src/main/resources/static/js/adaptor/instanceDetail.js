@@ -6,9 +6,20 @@ let adapterId = url.searchParams.get('adapterId');
 instanceDetailInit();
 
 function instanceDetailInit () {
+
+    let url = new URL(window.location.href);
+    let instanceId = url.searchParams.get('instanceId');
+    let adapterId = url.searchParams.get('adapterId');
+
     $("#scheduleTime").empty();
 
-    ajaxPost('/dp/ingest/adapter/instance/'+instanceId+"/detail", "", function (data) {
+    let data = {
+        "user_id" : "ksy",
+        "menu_id" : "",
+        "instance_id" : instanceId
+    };
+
+    ajaxPost('/dp/ingest/adapter/instance/detail', data, function (data) {
         console.log(data);
         let resultData = data.contents[0];
 
@@ -70,7 +81,18 @@ function instanceDetailInit () {
 
 //instance 상세 접속정보 설정
 function instanceMatchList() {
-    ajaxPost('/dp/ingest/adapter/instance/property/'+instanceId, "", function (data) {
+
+    let url = new URL(window.location.href);
+    let instanceId = url.searchParams.get('instanceId');
+    let adapterId = url.searchParams.get('adapterId');
+
+    let data = {
+        "user_id" : "ksy",
+        "menu_id" : "",
+        "instance_id" : instanceId
+    };
+
+    ajaxPost('/dp/ingest/adapter/instance/property/', data, function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";

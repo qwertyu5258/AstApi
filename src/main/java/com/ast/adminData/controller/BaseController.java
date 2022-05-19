@@ -134,7 +134,7 @@ public class BaseController {
     }
     @RequestMapping("/instanceConfig")
     public String instanceConfig() {
-        return "A2.AdaptorManage/instanceConfig";
+        return "InstanceMatchInfoPopup";
     }
     @RequestMapping("/adaptorOperation")
     public String adaptorOperation() {
@@ -152,17 +152,17 @@ public class BaseController {
     public String adaptorSet() {
         return "A2.AdaptorManage/adaptorSet";
     }
-    @RequestMapping("/processList")
-    public String processList() {
-        return "A2.AdaptorManage/processList";
+    @RequestMapping("/preProcessList")
+    public String preProcessList() {
+        return "A2.AdaptorManage/preProcessList";
     }
-    @RequestMapping("/processRegist")
-    public String processRegist() {
-        return "A2.AdaptorManage/processRegist";
+    @RequestMapping("/preProcessRegist")
+    public String preProcessRegist() {
+        return "A2.AdaptorManage/preProcessRegist";
     }
-    @RequestMapping("/processDetail")
-    public String processDetail() {
-        return "A2.AdaptorManage/processDetail";
+    @RequestMapping("/preProcessDetail")
+    public String preProcessDetail() {
+        return "A2.AdaptorManage/preProcessDetail";
     }
     @RequestMapping("/dataCollectList")
     public String dataCollectList() {
@@ -172,9 +172,9 @@ public class BaseController {
     public String dataCollectDetail() {
         return "A2.DataCollectManage/dataCollectDetail";
     }
-    @RequestMapping("/codeSet")
-    public String codeSet() {
-        return "A2.CodeManage/codeSet";
+    @RequestMapping("/codeManage")
+    public String codeManage() {
+        return "A2.SystemManage/codeManage";
     }
     @RequestMapping("/idConfigPopup")
     public String idConfigPopup() {
@@ -184,7 +184,50 @@ public class BaseController {
     public String ApiDataConfigPopup() {
         return "A2.AdaptorManage/ApiDataConfigPopup";
     }
-
+    @RequestMapping("/collectErrList")
+    public String collectErrList() {
+        return "A2.CollectErr/collectErrList";
+    }
+    @RequestMapping("/collectErrDetail")
+    public String collectErrDetail() {
+        return "A2.CollectErr/collectErrDetail";
+    }
+    @RequestMapping("/tableColChangePopup")
+    public String tableColChangePopup() {
+        return "A2.CollectErr/tableColChangePopup";
+    }
+    @RequestMapping("/InstanceMatchInfoPopup")
+    public String InstanceMatchInfoPopup() {
+        return "A2.CollectErr/InstanceMatchInfoPopup";
+    }
+    @RequestMapping("/dataSetLogPopup")
+    public String dataSetLogPopup() {
+        return "A2.DataSet/dataSetLogPopup";
+    }
+    @RequestMapping("/dataSetFailLogPopup")
+    public String dataSetFailLogPopup() {
+        return "A2.DataSet/dataSetFailLogPopup";
+    }
+    @RequestMapping("/codeGroupAddPopup")
+    public String codeGroupAddPopup() {
+        return "A2.SystemManage/codeGroupAddPopup";
+    }
+    @RequestMapping("/codeGroupDetailPopup")
+    public String codeGroupDetailPopup() {
+        return "A2.SystemManage/codeGroupDetailPopup";
+    }
+    @RequestMapping("/codeAddPopup")
+    public String codeAddPopup() {
+        return "A2.SystemManage/codeAddPopup";
+    }
+    @RequestMapping("/codeDetailPopup")
+    public String codeDetailPopup() {
+        return "A2.SystemManage/codeDetailPopup";
+    }
+    @RequestMapping("/classManage")
+    public String classManage() {
+        return "A2.SystemManage/classManage";
+    }
 
 
 }

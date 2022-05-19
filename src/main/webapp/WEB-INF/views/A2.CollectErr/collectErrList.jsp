@@ -14,10 +14,7 @@
         <div class="navbar nav_title"><a class="site_title" href="index"><i class="fa fa-paw"> </i><span>LX DT </span></a></div>
         <div class="clearfix"> </div>
         <div class="profile clearfix">
-          <div class="profile_pic"><img class="img-circle profile_img" src="/img/img.jpg" alt="..."></div>
-          <div class="profile_info"><span>Welcome,</span>
-            <h2>John Doe</h2>
-          </div>
+
         </div><br>
 
         <%@include file="/WEB-INF/views/A1.Menu/menu.jsp" %>
@@ -52,88 +49,92 @@
         <div class="col-md-12">
           <div class="x_panel">
             <div class="x_title">
-              <h2>HOME &gt; Adaptor 관리 &gt; 전처리 목록</h2>
+              <h2>HOME > 수집오류</h2>
               <div class="clearfix"> </div>
             </div>
+
             <div class="x_content">
-              <h3>전처리 목록</h3>
-                <div class="col-12 col-md-10">
-                  <div class="form-group row">
-                    <label class="control-label">검색</label>
-                    <div class="form-control_box">
-                      <div class="col-md-9 pr-0">
-                        <input class="form-control" type="text" placeholder="">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-2 btn_search_box">
-                  <button class="btn btn-primary" onclick="search();"> <i class="glyphicon glyphicon-search"></i></button>
-                </div>
-                <div class="col-12 col-md-12">
-                  <div class="right_btns">
-                    <button class="btn btn-primary" onclick="processListAdd();">등록</button>
-                  </div>
-                </div>
+              <table class="table">
+                <colgroup>
+                  <col width="50px">
+                  <col width="150px">
+                  <col width="150px">
+                  <col width="150px">
+                  <col width="150px">
+                  <col width="200px">
+                  <col width="50px">
+                </colgroup>
+                <tr>
+                  <th style="vertical-align: middle">
+                    검색
+                  </th>
+                  <th>
+                    <select class="form-control" id="LargeCategory">
+                      <option>대분류</option>
+                    </select>
+                  </th>
+                  <th>
+                    <select class="form-control" id="MiddleCategory">
+                      <option>중분류</option>
+                    </select>
+                  </th>
+                  <th>
+                    <select class="form-control" id="SmallCategory">
+                      <option>소분류</option>
+                    </select>
+                  </th>
+                  <th>
+                    <select class="form-control" id="SelectCategory">
+                      <option>선택</option>
+
+                    </select>
+                  </th>
+                  <th>
+                    <input class="form-control" type="text" placeholder="" id="SelectText">
+                  </th>
+                  <th>
+                    <button class="btn btn-primary" style="float:right" onclick="search()">검색</button>
+                  </th>
+                </tr>
+
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="x_panel">
+
+            <div class="x_content">
                 <div class="col-12 col-md-12">
                   <div class="table_responsive">
-                    <div class="talbel_total mb-2" id="processListCnt">총 1 건</div>
-                    <table class="table table-striped" id="processListData">
+<%--                    <h3>Instance 정보</h3>--%>
+                    <div class="talbel_total mb-2" id="allCnt">총 3 건</div>
+                    <table class="table table-striped" id="instanceData">
                       <colgroup>
+                        <col width="120px">
+                        <col width="120px">
                       </colgroup>
                       <thead>
                       <tr>
-                        <th rowspan="2">전처리 명</th>
-                        <%--<th rowspan="2">변경유형</th>--%>
-                        <th rowspan="2">속성유형</th>
-                        <th rowspan="2">자리수</th>
-
-                        <th rowspan="2">변경모양</th>
-                        <th colspan="2">자리수</th>
-                        <th rowspan="2">정수</th>
-                        <th rowspan="2">소수점</th>
-                        <th rowspan="2">변경단어</th>
-                        <th colspan="2">전처리</th>
-                      </tr>
-                      <tr>
-                        <th>시작</th>
-                        <th>끝</th>
-                        <th>전</th>
-                        <th>후</th>
+                        <th>데이터 셋명</th>
+                        <th>데이터 한글명</th>
+                        <th>수집방식</th>
+                        <th>수집유형</th>
+                        <th>대분류</th>
+                        <th>중분류</th>
+                        <th>소분류</th>
+                        <th>Adaptor 명</th>
+                        <th>Instance 명</th>
+                        <th>수집상태</th>
+                        <th>오류 사항</th>
                       </tr>
                       </thead>
                       <tbody>
-                      <%--<tr>
-                        <td>주민등록번호</td>
-                        <td>String</td>
-                        <td>14</td>
-                        <td>123456-1234567</td>
-                        <td>123456-1******</td>
-                      </tr>
-                      <tr>
-                        <td>주민등록번호</td>
-                        <td>String</td>
-                        <td>14</td>
-                        <td>123456-1234567</td>
-                        <td>123456-1******</td>
-                      </tr>
-                      <tr>
-                        <td>주민등록번호</td>
-                        <td>String</td>
-                        <td>14</td>
-                        <td>123456-1234567</td>
-                        <td>123456-1******</td>
-                      </tr>--%>
                       </tbody>
                     </table>
-                    <div class="nav justify-content-center">
-                      <ul class="pagination">
-                        <li class="page-item"> <a class="page-link" href="#">&lt; </a></li>
-                        <li class="page-item"> <a class="page-link" href="#">1   </a></li>
-                        <li class="page-item"> <a class="page-link" href="#">2 </a></li>
-                        <li class="page-item"> <a class="page-link" href="#">&gt;           </a></li>
-                      </ul>
-                    </div>
                   </div>
                 </div>
             </div>
@@ -144,8 +145,11 @@
   </div>
 
   <%@include file="/WEB-INF/views/A1.Common/commonJs.jsp" %>
-  <script type="text/javascript" src="../js/adaptor/processList.js"></script>
+
+  <script type="text/javascript" src="../js/collectErr/collectErrList.js"></script>
   <script src="http://jonmiles.github.io/bootstrap-treeview/js/bootstrap-treeview.js"></script>
+
+
 
 </body>
 </html>

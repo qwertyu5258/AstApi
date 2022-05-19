@@ -6,17 +6,78 @@ let instanceSourceData = {};
 
 instanceConfigInit();
 
+
+
 function instanceConfigInit () {
-    ajaxPost('/dp/ingest/adapter/instance/match/'+instanceId, "", function (data) {
+
+    let data = {
+        "user_id" : "ksy",
+        "menu_id": "",
+        "instance_id" : "I0000000000000000123"
+    };
+
+    ajaxPost('/dp/ingest/adapter/instance/match', data, function (data) {
         console.log(data);
         let obj = data.contents;
 
         $("#instanceNm").val(obj[0].instance_nm);
         $("#dsetKoreanNm").html(obj[0].dset_korean_nm);
 
-        instancePreList();
+        $("#table1 tbody").empty();
+
+        let trHTML = '';
+
+        for (let i = 0; i < obj.length; i++) {
+            trHTML += `<tr>`;
+            trHTML += `<th>${obj[i].dset_idntfc_id}</th>`;
+            trHTML += `<th>${obj[i].column_korean_nm}</th>`;
+            trHTML += `<th>${obj[i].column_eng_nm}</th>`;
+            trHTML += `<th>${obj[i].column_stre_type}</th>`;
+            trHTML += `<th>${obj[i].dset_lcdata_ltlas}</th>`;
+            trHTML += `</tr>`;
+        }
+        $("#table1 tbody").append(trHTML);
+
+
+        // instancePreList();
     });
 }
+
+function dp_ingest_data_models_pp() {
+
+    let table_idntfc_id = 'T0000000000000000001';
+
+    ajaxGet('/dp/ingest/property/info/id/check?table_idntfc_id=' + table_idntfc_id, "", function (data) {
+
+        console.log('dp_ingest_data_models_pp 호출');
+    });
+}
+
+function dp_ingest_adapter_it_source() {
+
+    let data = {
+        "user_id" : "ksy",
+        "menu_id": "",
+        "instance_id": "I0000000000000000122"
+    };
+    ajaxPost('/dp/ingest/adapter/instance/source', data, function (data) {
+        alert('완료~113');
+    });
+
+}
+
+function dp_ingest_adapter_it_pre() {
+    let data = {
+        "user_id" : "ksy",
+        "menu_id": ""
+    };
+    ajaxPost('/dp/ingest/adapter/instance/pre', data, function (data) {
+        alert('완료~113');
+    });
+}
+
+
+
 
 //전처리조회 List
 function instancePreList() {
@@ -24,21 +85,31 @@ function instancePreList() {
         console.log("instancePreData ::",data.contents);
         instancePreData = data.contents;
     });
-    instanceSourceList();
+    // instanceSourceList();
 }
 
 //Source조회 List
-function instanceSourceList() {
-    ajaxPost('/dp/ingest/adapter/instance/pre', "", function (data) {
-        console.log("instanceSourceData ::",data.contents);
-        instanceSourceData = data.contents;
-    });
-    instanceMatchList();
-}
+// function instanceSourceList() {
+//     ajaxPost('/dp/ingest/adapter/instance/pre', "", function (data) {
+//         console.log("instanceSourceData ::",data.contents);
+//         instanceSourceData = data.contents;
+//     });
+//     instanceMatchList();
+// }
 
 //instance 상세목록
 function instanceMatchList() {
-    ajaxPost('/dp/ingest/adapter/instance/match/list/'+instanceId, "", function (data) {
+
+    let url = new URL(window.location.href);
+    let instanceId = url.searchParams.get('instanceId');
+
+    let data = {
+        "user_id" : "ksy",
+        "menu_id": "",
+        "instance_id" : instanceId
+    };
+
+    ajaxPost('/dp/ingest/adapter/instance/match/list', data, function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";
@@ -138,8 +209,11 @@ function instanceConfigApiSet() {
 function instanceConfigIdSet() {
     let url = "/idConfigPopup";
     let name = "idConfigPopup";
-    let option = "width = 1000, height = 800, top = 100, left = 200, location = no"
+    let option = "width = 1000, height = 800, top = 100, left = 200, location = no";
     window.open(url, name, option);
-
 }
+
+
+
+    
 

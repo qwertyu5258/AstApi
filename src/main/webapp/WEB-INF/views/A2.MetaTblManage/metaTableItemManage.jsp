@@ -14,10 +14,7 @@
             <div class="navbar nav_title"><a class="site_title" href="index"><i class="fa fa-paw"> </i><span>LX DT </span></a></div>
             <div class="clearfix"> </div>
             <div class="profile clearfix">
-              <div class="profile_pic"><img class="img-circle profile_img" src="/img/img.jpg" alt="..."></div>
-              <div class="profile_info"><span>Welcome,</span>
-                <h2>John Doe</h2>
-              </div>
+
             </div><br>
 
             <%@include file="/WEB-INF/views/A1.Menu/menu.jsp" %>
@@ -140,10 +137,6 @@
                                   </table>
                                   <div class="nav justify-content-center">
                                       <ul class="pagination">
-                                          <li class="page-item"> <a class="page-link" href="#">&lt; </a></li>
-                                          <li class="page-item"> <a class="page-link" href="#">1   </a></li>
-                                          <li class="page-item"> <a class="page-link" href="#">2 </a></li>
-                                          <li class="page-item"> <a class="page-link" href="#">&gt;           </a></li>
                                       </ul>
                                   </div>
                               </div>

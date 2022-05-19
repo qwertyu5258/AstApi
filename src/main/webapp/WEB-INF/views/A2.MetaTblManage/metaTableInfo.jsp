@@ -14,10 +14,7 @@
             <div class="navbar nav_title"><a class="site_title" href="index"><i class="fa fa-paw"> </i><span>LX DT </span></a></div>
             <div class="clearfix"> </div>
             <div class="profile clearfix">
-              <div class="profile_pic"><img class="img-circle profile_img" src="/img/img.jpg" alt="..."></div>
-              <div class="profile_info"><span>Welcome,</span>
-                <h2>John Doe</h2>
-              </div>
+
             </div><br>
 
             <%@include file="/WEB-INF/views/A1.Menu/menu.jsp" %>
@@ -184,8 +181,11 @@
                                           </th>
                                           <th>
                                               <select class="form-control" id="data_type">
-                                                  <option value="">Choose option</option>
-
+                                                  <option value="">선택</option>
+                                                  <option value="">varchar</option>
+                                                  <option value="">integer</option>
+                                                  <option value="">numeric</option>
+                                                  <option value="">timestamp</option>
                                               </select>
                                           </th>
                                           <th>
@@ -268,7 +268,7 @@
                                               컬럼저장타입
                                           </th>
                                           <th>
-                                              <input class="form-control" type="text" placeholder="" id="column_stre_type">
+                                              <input class="form-control" type="text" placeholder="" id="column_stre_type" readonly>
                                           </th>
                                           <th rowspan="3">
                                               컬럼설명

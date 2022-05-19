@@ -36,10 +36,10 @@ public class AdapterApiController {
     }
 
     //    dpIngestadapterIdChk		/id/check	get
-    @PostMapping(value = {"/dp/ingest/adapter/id/check"})
-    public Map dpIngestadapterIdChk(@RequestBody Map<String,Object> params) {
+    @GetMapping(value = {"/dp/ingest/adapter/id/check"})
+    public Map dpIngestadapterIdChk() {
 
-        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/id/check", params);
+        Map<String, Object> DataList = restService.getApi("/dp/ingest/adapter/id/check");
 
         return DataList;
     }
@@ -257,6 +257,14 @@ public class AdapterApiController {
     public Map dp_ingest_adapter_it_dt(@RequestBody Map<String,Object> params) {
 
         Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/instance/detail", params);
+
+        return DataList;
+    }
+
+    @PostMapping(value = {"/dp/ingest/adapter/instance/property/delete/check"})
+    public Map dp_ingest_adapter_it_pp_del_chk(@RequestBody Map<String,Object> params) {
+
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/adapter/instance/property/delete/check", params);
 
         return DataList;
     }

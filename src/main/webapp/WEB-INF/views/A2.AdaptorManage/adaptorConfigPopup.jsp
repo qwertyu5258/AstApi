@@ -112,7 +112,12 @@
                 $("#adaptorConfigPopupDel").show();
                 $("#adaptorConfigPopupEdit").show();
 
-                ajaxPost('/dp/ingest/adapter/'+adapterId, "", function (data) {
+                let data = {
+                    "user_id" : "ksy",
+                    "menu_id" : "",
+                    "adapter_id" : adapterId
+                };
+                ajaxPost('/dp/ingest/adapter/detail', data, function (data) {
                     console.log(data);
                     let obj = data.contents;
 
@@ -146,7 +151,7 @@
             }
 
             $.ajax({
-                type: 'post',
+                type: 'get',
                 url: '/dp/ingest/adapter/id/check',
                 contentType:"application/json;charset=UTF-8",
                 //data: param,
@@ -155,14 +160,21 @@
 
                     const saveData = {
                         // "adapter_id": id_chk,                                   //Adapter_ID
+                        "user_id" : "~~id",
                         "adapter_nm": $("#adapterNm").val(),                    //Adapter_명
                         "adapter_type_id": $("#adapterTypeId").val(),           //Adapter유형_ID
-                        "use_yn": $("input:radio[name='use']:checked").val()    //사용 여부
+                        "use_yn": $("input:radio[name='use']:checked").val(),    //사용 여부
+                        "menu_id" : ""
                     };
 
                     ajaxPost('/dp/ingest/adapter/save', saveData, function (data) {
+                        if(data.contents[0].successYn == 'Y') {
+                            alert('저장 완료');
+                        } else {
+                            alert('미저장');
+                        }
                         console.log('완료~dp_ingest_adapter_save',data);
-                        location.href="adaptorConfig";
+                        // location.href="adaptorConfig";
                         window.close();
                     });
                 },
@@ -182,13 +194,16 @@
                 alert("Adapter 유형을 선택하세요.");
                 return;
             }
-            const data = {
-                "adapter_id": adapterId,                                //Adapter_ID
-                "adapter_nm": $("#adapterNm").val(),                    //Adapter_명
-                "adapter_type_id": $("#adapterTypeId").val(),           //Adapter유형_ID
-                "use_yn": $("input:radio[name='use']:checked").val()    //사용 여부
-            };
-            ajaxPost('/dp/ingest/adapter/update/'+adapterId, data, function (data) {
+            let data = {
+                "user_id" : "ksy",
+                "menu_id" : "",
+                "adapter_id" : adapterId,                              //Adapter_ID
+                "adapter_nm" : $("#adapterNm").val(),                  //Adapter_명
+                "adapter_type_id" : $("#adapterTypeId").val(),         //Adapter유형_ID
+                "use_yn" : $("input:radio[name='use']:checked").val()  //사용 여부
+            }
+
+            ajaxPost('/dp/ingest/adapter/update', data, function (data) {
                 console.log('완료~dp_ingest_adapter_update',data);
                 location.href="adaptorConfig";
                 window.close();

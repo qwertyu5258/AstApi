@@ -14,10 +14,7 @@
         <div class="navbar nav_title"><a class="site_title" href="index"><i class="fa fa-paw"> </i><span>LX DT </span></a></div>
         <div class="clearfix"> </div>
         <div class="profile clearfix">
-          <div class="profile_pic"><img class="img-circle profile_img" src="/img/img.jpg" alt="..."></div>
-          <div class="profile_info"><span>Welcome,</span>
-            <h2>John Doe</h2>
-          </div>
+
         </div><br>
 
         <%@include file="/WEB-INF/views/A1.Menu/menu.jsp" %>
@@ -85,10 +82,6 @@
                       <th>수집유형</th>
                       <td>Postgresql</td>
                     </tr>
-                    <tr>
-                      <th>메타 테이블명</th>
-                      <td colspan="3">문화재 정보</td>
-                    </tr>
                     </tbody>
                   </table>
                 </div>
@@ -109,96 +102,6 @@
                       </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>문화재명1</td>
-                          <td>11</td>
-                          <td>1111</td>
-                          <td>1</td>
-                          <td>성공</td>
-                          <td>2019. 6.18 오후 1:07:39</td>
-                          <td>2019. 6.18 오후 1:07:39</td>
-                        </tr>
-                        <tr>
-                          <td>문화재명2</td>
-                          <td>12</td>
-                          <td>1112</td>
-                          <td>1</td>
-                          <td>성공</td>
-                          <td>2019. 6.18 오후 1:07:39</td>
-                          <td>2019. 6.18 오후 1:07:39</td>
-                        </tr>
-                        <tr>
-                          <td>문화재명3</td>
-                          <td>13</td>
-                          <td>1113</td>
-                          <td>1</td>
-                          <td>성공</td>
-                          <td>2019. 6.18 오후 1:07:39</td>
-                          <td>2019. 6.18 오후 1:07:39</td>
-                        </tr>
-                        <tr>
-                          <td>문화재명4</td>
-                          <td>14</td>
-                          <td>1114</td>
-                          <td>1</td>
-                          <td>성공</td>
-                          <td>2019. 6.18 오후 1:07:39</td>
-                          <td>2019. 6.18 오후 1:07:39</td>
-                        </tr>
-                        <tr>
-                          <td>문화재명5</td>
-                          <td>15</td>
-                          <td>1115</td>
-                          <td>1</td>
-                          <td>성공</td>
-                          <td>2019. 6.18 오후 1:07:39</td>
-                          <td>2019. 6.18 오후 1:07:39</td>
-                        </tr>
-                        <tr>
-                          <td>문화재명6</td>
-                          <td>16</td>
-                          <td>1116</td>
-                          <td>1</td>
-                          <td>성공</td>
-                          <td>2019. 6.18 오후 1:07:39</td>
-                          <td>2019. 6.18 오후 1:07:39</td>
-                        </tr>
-                        <tr>
-                          <td>문화재명7</td>
-                          <td>17</td>
-                          <td>1117</td>
-                          <td>1</td>
-                          <td>성공</td>
-                          <td>2019. 6.18 오후 1:07:39</td>
-                          <td>2019. 6.18 오후 1:07:39</td>
-                        </tr>
-                        <tr>
-                          <td>문화재명8</td>
-                          <td>18</td>
-                          <td>1118</td>
-                          <td>1</td>
-                          <td>성공</td>
-                          <td>2019. 6.18 오후 1:07:39</td>
-                          <td>2019. 6.18 오후 1:07:39</td>
-                        </tr>
-                        <tr>
-                          <td>문화재명9</td>
-                          <td>19</td>
-                          <td>1119</td>
-                          <td>1</td>
-                          <td>성공</td>
-                          <td>2019. 6.18 오후 1:07:39</td>
-                          <td>2019. 6.18 오후 1:07:39</td>
-                        </tr>
-                        <tr>
-                          <td>문화재명10</td>
-                          <td>20</td>
-                          <td>1120</td>
-                          <td>1</td>
-                          <td>성공</td>
-                          <td>2019. 6.18 오후 1:07:39</td>
-                          <td>2019. 6.18 오후 1:07:39</td>
-                        </tr>
                       </tbody>
                     </table>
                     <div class="nav justify-content-center">
@@ -219,6 +122,6 @@
   </div>
 
   <%@include file="/WEB-INF/views/A1.Common/commonJs.jsp" %>
-
+  <script type="text/javascript" src="../js/dataSet/dataSetDetail.js"></script>
 </body>
 </html>

@@ -99,6 +99,14 @@ public class InstanceApiController {
         return DataList;
     }
 
+    @PostMapping(value = {"/dp/ingest/instance/property/info"})
+    public Map dp_ingest_it_pp_info(@RequestBody Map<String,Object> params) {
+
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/instance/property/info", params);
+
+        return DataList;
+    }
+
     //    dpIngestItPp	/instance/property/{param1}/{param2}	get
 //    @PostMapping(value = {"/dp/ingest/instance/property/{param1}/{param2}"})
 //    public Map dpIngestItPp(@RequestBody Map<String,Object> params, @PathVariable String param2) {

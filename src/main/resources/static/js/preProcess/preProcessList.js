@@ -39,6 +39,8 @@ function processListInit () {
 //검색
 function search() {
     const data = {
+        "user_id" : "ksy",
+        "menu_id": "",
         "search": $("#SelectText").val()
     };
     ajaxPost('/dp/ingest/pre', data, function (data) {
@@ -73,8 +75,8 @@ function processListAdd() {
 }
 
 //전처리 상세페이지 이동
-function processDetail() {
-    location.href="processDetail";
+function processDetail(params1) {
+    location.href="processDetail?pre_id=" + params1;
 }
 
 

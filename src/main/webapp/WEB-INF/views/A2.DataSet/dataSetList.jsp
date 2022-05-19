@@ -14,10 +14,7 @@
         <div class="navbar nav_title"><a class="site_title" href="index"><i class="fa fa-paw"> </i><span>LX DT </span></a></div>
         <div class="clearfix"> </div>
         <div class="profile clearfix">
-          <div class="profile_pic"><img class="img-circle profile_img" src="/img/img.jpg" alt="..."></div>
-          <div class="profile_info"><span>Welcome,</span>
-            <h2>John Doe</h2>
-          </div>
+
         </div><br>
 
         <%@include file="/WEB-INF/views/A1.Menu/menu.jsp" %>
@@ -85,60 +82,34 @@
                     <div class="talbel_total mb-2">총 1 건</div>
                     <table class="table table-striped">
                       <colgroup>
+                        <col width="10%">
+                        <col width="10%">
+                        <col width="10%">
+                        <col width="7%">
+                        <col width="7%">
+                        <col width="7%">
+                        <col width="10%">
+                        <col width="10%">
+                        <col width="10%">
+                        <col width="10%">
+                        <col width="10%">
                       </colgroup>
                       <thead>
                       <tr>
                         <th>데이터 셋 명</th>
                         <th>수집방식</th>
                         <th>수집유형</th>
-                        <th>데이터 모델 명</th>
-                        <th>메타 테이블명</th>
+                        <th>대분류</th>
+                        <th>중분류</th>
+                        <th>소분류</th>
+                        <th>테이블 한글명</th>
+                        <th>메타정보</th>
                         <th>수집 건수</th>
                         <th>적재 건수</th>
                         <th>실패 건수</th>
                       </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td><a href="#">LX_연계1</a></td>
-                          <td>DB_TO_DB</td>
-                          <td>Postgresql</td>
-                          <td>연계1</td>
-                          <td>문화재정보</td>
-                          <td>100</td>
-                          <td>100</td>
-                          <td>0</td>
-                        </tr>
-                        <tr>
-                          <td><a href="#">문화재</a></td>
-                          <td>OPEN_API</td>
-                          <td>api</td>
-                          <td>문화재</td>
-                          <td>박물관정보</td>
-                          <td>100</td>
-                          <td>99</td>
-                          <td>1</td>
-                        </tr>
-                        <tr>
-                          <td><a href="#">XML파일</a></td>
-                          <td>FILE</td>
-                          <td>xml</td>
-                          <td>XML파일</td>
-                          <td>지역정보</td>
-                          <td>0</td>
-                          <td>0</td>
-                          <td>0</td>
-                        </tr>
-                        <tr>
-                          <td><a href="#">종합</a></td>
-                          <td>융복합</td>
-                          <td>융복합</td>
-                          <td>융복합1</td>
-                          <td>융복합1</td>
-                          <td>20</td>
-                          <td>20</td>
-                          <td>20</td>
-                        </tr>
                       </tbody>
                     </table>
                     <div class="nav justify-content-center">
@@ -160,6 +131,6 @@
   </div>
 
   <%@include file="/WEB-INF/views/A1.Common/commonJs.jsp" %>
-
+  <script type="text/javascript" src="../js/dataSet/dataSetList.js"></script>
 </body>
 </html>

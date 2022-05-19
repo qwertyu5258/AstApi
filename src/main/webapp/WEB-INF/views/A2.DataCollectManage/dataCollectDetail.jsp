@@ -14,10 +14,7 @@
         <div class="navbar nav_title"><a class="site_title" href="index"><i class="fa fa-paw"> </i><span>LX DT </span></a></div>
         <div class="clearfix"> </div>
         <div class="profile clearfix">
-          <div class="profile_pic"><img class="img-circle profile_img" src="/img/img.jpg" alt="..."></div>
-          <div class="profile_info"><span>Welcome,</span>
-            <h2>John Doe</h2>
-          </div>
+
         </div><br>
 
         <%@include file="/WEB-INF/views/A1.Menu/menu.jsp" %>
@@ -102,15 +99,11 @@
                       <td>처리여부</td>
                     </tr>
                     <tr>
-                      <td colspan="2"><a href="#" class="btn btn-success btn-sm">메타정보 변경</a></td>
+                      <td colspan="2"><a href="tableColChangePopup" class="btn btn-success btn-sm">테이블 컬럼 변경</a></td>
                       <td>미처리</td>
                     </tr>
                     <tr>
-                      <td colspan="2"><a href="#" class="btn btn-success btn-sm">데이터 모델 변경</a></td>
-                      <td>미처리</td>
-                    </tr>
-                    <tr>
-                      <td colspan="2"><a href="#" class="btn btn-success btn-sm">Instance 매칭정보</a></td>
+                      <td colspan="2"><a href="InstanceMatchInfoPopup" class="btn btn-success btn-sm">Instance 매칭정보</a></td>
                       <td>미처리</td>
                     </tr>
                     </tbody>
@@ -125,6 +118,7 @@
   </div>
 
   <%@include file="/WEB-INF/views/A1.Common/commonJs.jsp" %>
+  <script type="text/javascript" src="../js/collectErr/collectErrDetail.js"></script>
 
 </body>
 </html>

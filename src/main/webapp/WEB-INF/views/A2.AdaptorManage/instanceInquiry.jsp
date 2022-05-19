@@ -12,13 +12,7 @@
     <div class="col-md-3 left_col menu_fixed">
       <div class="left_col scroll-view">
         <div class="navbar nav_title"><a class="site_title" href="index"><i class="fa fa-paw"> </i><span>LX DT </span></a></div>
-        <div class="clearfix"> </div>
-        <div class="profile clearfix">
-          <div class="profile_pic"><img class="img-circle profile_img" src="/img/img.jpg" alt="..."></div>
-          <div class="profile_info"><span>Welcome,</span>
-            <h2>John Doe</h2>
-          </div>
-        </div><br>
+
 
         <%@include file="/WEB-INF/views/A1.Menu/menu.jsp" %>
 
@@ -52,7 +46,7 @@
         <div class="col-md-12">
           <div class="x_panel">
             <div class="x_title">
-              <h2>HOME > Adaptor 관리 > Instance 조회</h2>
+              <h2>HOME > Adaptor 관리 > Instance 조회~~1</h2>
               <div class="clearfix"> </div>
             </div>
 

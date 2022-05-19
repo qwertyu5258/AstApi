@@ -14,10 +14,7 @@
             <div class="navbar nav_title"><a class="site_title" href="index"><i class="fa fa-paw"> </i><span>LX DT </span></a></div>
             <div class="clearfix"> </div>
             <div class="profile clearfix">
-              <div class="profile_pic"><img class="img-circle profile_img" src="/img/img.jpg" alt="..."></div>
-              <div class="profile_info"><span>Welcome,</span>
-                <h2>John Doe</h2>
-              </div>
+
             </div><br>
 
             <%@include file="/WEB-INF/views/A1.Menu/menu.jsp" %>
@@ -98,8 +95,9 @@
                                       </th>
                                       <th>
                                           <select class="form-control" id="SelectCategory">
-                                              <option>dset_korean_nm</option>
-                                              <option>dset_english_nm</option>
+                                              <option value="dset_korean_nm">데이터셋 명</option>
+                                              <option value="dset_english_nm">테이블 영문명 </option>
+                                              <option value="table_korean_nm">테이블 한글명 </option>
                                           </select>
                                       </th>
                                       <th>
@@ -203,7 +201,7 @@
                                               <input class="form-control" type="text" placeholder="" id="dset_korean_nm1">
                                           </th>
                                           <th>수집방식</th>
-                                          <th><select class="form-control" id="clct_mthd1">
+                                          <th><select class="form-control" id="clct_mthd1" disabled>
                                               <option val="">Choose option</option>
 
                                           </select></th>
@@ -229,7 +227,7 @@
                                               수집유형
                                           </th>
                                           <th>
-                                              <select class="form-control" id="clct_ty1">
+                                              <select class="form-control" id="clct_ty1" disabled>
                                                   <option val="">Choose option</option>
 
                                                   <option value="FILE UPLOAD">FILE UPLOAD</option>
@@ -274,7 +272,11 @@
                                               CUD 구분(한자리)
                                           </th>
                                           <th>
-                                              <input class="form-control" type="text" placeholder="" id="crud_se1">
+                                              <select class="form-control" id="crud_se1">
+                                                  <option value="C">C</option>
+                                                  <option value="U">U</option>
+                                                  <option value="D">D</option>
+                                              </select>
                                           </th>
                                           <th rowspan="2" style="vertical-align: middle">CUD 설명</th>
                                           <th rowspan="2" style="vertical-align: middle">
@@ -357,8 +359,8 @@
                                           </th>
                                           <th>
                                               <select class="form-control" id="table_dset_knd">
-                                                  <option value="">Choose option</option>
-
+                                                  <option value="D">일반 테이블</option>
+                                                  <option value="M">메타 테이블</option>
                                               </select>
                                           </th>
                                           <th>
@@ -382,7 +384,11 @@
                                               CUD 구분(한자리)
                                           </th>
                                           <th>
-                                              <input class="form-control" type="text" placeholder="" id="crud_se2">
+                                              <select class="form-control" id="crud_se2">
+                                                  <option value="C">C</option>
+                                                  <option value="U">U</option>
+                                                  <option value="D">D</option>
+                                              </select>
                                           </th>
                                           <th rowspan="2" style="vertical-align: middle">CUD 설명</th>
                                           <th rowspan="2" style="vertical-align: middle">

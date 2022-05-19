@@ -38,7 +38,6 @@ function adaptorSetInit () {
 //Adapter 유형관리- 추가 버튼 (dp_ingest_pp_info_id_chk)
 function adaptorSetAdd() {
     ajaxGet('/dp/ingest/property/info/id/check', "", function (data) {
-        alert(data);
         let addAdaptorId = data.contents[0].adapter_type_id;
         adaptorSetDataCnt = adaptorSetDataCnt+1;
 

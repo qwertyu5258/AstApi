@@ -29,21 +29,21 @@ function metaTableInit (pageNum) {
         $("#metaTableCnt").html("총 "+obj.length+"개");
         $("#metaTable1 tbody").empty();
 
-        pageNation(obj.length, 10);
+        pageNation(obj.length, 10, 1);
 
         for (let i = 0; i < pageNum * 10; i++) {
             let idntfcId = obj[i]?.rl_dset_idntfc_id + "@" + obj[i]?.table_idntfc_id;
             trHTML += '<tr>'
                 + '<td><input class="tableInfo" type="checkbox" name="checkList" id="check'+i+'" value="'+idntfcId+'"></td>'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_lclas + '</label></td>'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_mclas + '</label></td>'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_sclas + '</label></td>'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].clct_mthd + '</label></td>'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].clct_ty + '</label></td>'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_korean_nm + '</label></td>'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].table_korean_nm + '</label></td>'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].table_eng_nm + '</label></td>,'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].creat_table_at + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.dset_lclas + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.dset_mclas + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.dset_sclas + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.clct_mthd + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.clct_ty + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.dset_korean_nm + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.table_korean_nm + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.table_eng_nm + '</label></td>,'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.creat_table_at + '</label></td>'
                 + '<td><button class="btn btn-primary" style="width:100%" onclick="dp_ingest_meta_tbl_dset(`'+ obj[i].table_idntfc_id +'`,`'+ obj[i].table_korean_nm +'`,`'+ obj[i].table_eng_nm +'`)">바로가기</button></td>'
                 + '</tr>';
         }
@@ -53,6 +53,9 @@ function metaTableInit (pageNum) {
 
 //검색
 function searchTbl(pageNum) {
+
+    markPage(pageNum);
+
     const data = {
         "user_id": '~~id',
         "search": $("#SelectText").val(),
@@ -81,20 +84,20 @@ function searchTbl(pageNum) {
 
 
 
-        for (let i = (pageNum -1 ) * 10; i < pageNum * 10; i++) {
+        for (let i = (pageNum -1 ) * 10; i < (obj.length < pageNum * 10 ? obj.length : pageNum * 10); i++) {
             let idntfcId = obj[i]?.rl_dset_idntfc_id + "@" + obj[i]?.table_idntfc_id;
             trHTML += '<tr>'
                 + '<td><input class="tableInfo" type="checkbox" name="checkList" id="check'+i+'" value="'+idntfcId+'"></td>'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_lclas + '</label></td>'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_mclas + '</label></td>'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_sclas + '</label></td>'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].clct_mthd + '</label></td>'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].clct_ty + '</label></td>'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].dset_korean_nm + '</label></td>'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].table_korean_nm + '</label></td>'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].table_eng_nm + '</label></td>,'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i].creat_table_at + '</label></td>'
-                + '<td><button class="btn btn-primary" style="width:100%" onclick="dp_ingest_meta_tbl_dset(`'+ obj[i].table_idntfc_id +'`,`'+ obj[i].table_korean_nm +'`,`'+ obj[i].table_eng_nm +'`)">바로가기</button></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.dset_lclas + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.dset_mclas + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.dset_sclas + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.clct_mthd + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.clct_ty + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.dset_korean_nm + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.table_korean_nm + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.table_eng_nm + '</label></td>,'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.creat_table_at + '</label></td>'
+                + '<td><button class="btn btn-primary" style="width:100%" onclick="dp_ingest_meta_tbl_dset(`'+ obj[i]?.table_idntfc_id +'`,`'+ obj[i]?.table_korean_nm +'`,`'+ obj[i]?.table_eng_nm +'`)">바로가기</button></td>'
                 + '</tr>';
         }
         $("#metaTable1 tbody").append(trHTML);

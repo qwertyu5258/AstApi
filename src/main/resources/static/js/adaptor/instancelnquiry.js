@@ -4,15 +4,15 @@ instancelnquiryInit();
 
 function instancelnquiryInit () {
     //대분류 카테고리 가져오기
-    categoryInit('AABBCC');
+    categoryInit();
 
     let data = {
-        "search" : "1112121212",
+        "search" : "",
         "search_type": "adapter_nm",
-        "dset_lclas" : "D",
-        "dset_mclas" : "AAA",
-        "dset_sclas" : "CCC",
-        "user_id" : "a",
+        "dset_lclas" : "",
+        "dset_mclas" : "",
+        "dset_sclas" : "",
+        "user_id" : "~~id",
         "menu_id" : ""
     };
 

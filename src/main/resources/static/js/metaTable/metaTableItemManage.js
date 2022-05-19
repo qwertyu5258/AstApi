@@ -1,19 +1,19 @@
 
 
-metaTableItemManageInit();
+metaTableItemManageInit(1);
 
 //메타정보 항목관리 List(dp_ingest_meta_item)
-function metaTableItemManageInit () {
+function metaTableItemManageInit (pageNum) {
     //대분류 카테고리 가져오기
     categoryInit();
 
     var data = {
         "user_id":"~~id",
-        "dset_lclas":"D",
-        "dset_mclas":"200",
-        "dset_sclas":"1",
+        "dset_lclas":"",
+        "dset_mclas":"",
+        "dset_sclas":"",
         "search": $("#SelectText").val(),
-        "page_current":"3"
+        "page_current":"1"
     };
 
     ajaxPost('/dp/ingest/meta/item', data, function (data) {
@@ -24,14 +24,16 @@ function metaTableItemManageInit () {
         $("#metaTableItemManageCnt").html("총 "+obj.length+"개");
         $("#metaTableItemManageData tbody").empty();
 
-        for (let i = 0; i < obj.length; i++) {
-            let idntfcId = obj[i].dset_idntfc_id;
+        pageNation(obj.length, 10, 1);
+
+        for (let i = 0; i < pageNum * 10; i++) {
+            let idntfcId = obj[i]?.dset_idntfc_id;
             trHTML += '<tr>';
             trHTML += '<input class="tableInfo" id="hiddenIdntfcId" type="hidden" value="'+idntfcId+'">';
-            trHTML += '<td><label>' + obj[i].dset_lclas + '</label></td>';
-            trHTML += '<td><label>' + obj[i].dset_mclas + '</label></td>';
-            trHTML += '<td><label>' + obj[i].dset_sclas + '</label></td>';
-            trHTML += '<td><label>' + obj[i].dset_korean_nm + '</label></td>';
+            trHTML += '<td><label>' + obj[i]?.dset_lclas + '</label></td>';
+            trHTML += '<td><label>' + obj[i]?.dset_mclas + '</label></td>';
+            trHTML += '<td><label>' + obj[i]?.dset_sclas + '</label></td>';
+            trHTML += '<td><label>' + obj[i]?.dset_korean_nm + '</label></td>';
             if(obj[i].cl_bass === "Y"){
                 trHTML += '<td><input type="checkbox" name="clBass" id="clBass" checked></td>';
             }else{
@@ -64,7 +66,10 @@ function metaTableItemManageInit () {
 }
 
 //검색
-function search() {
+function searchTbl(pageNum) {
+
+    markPage(pageNum);
+
     var data = {
         "user_id":"~~id",
         "dset_lclas": $("#LargeCategory").val(),
@@ -81,35 +86,35 @@ function search() {
         $("#metaTableItemManageCnt").html("총 "+obj.length+"개");
         $("#metaTableItemManageData tbody").empty();
 
-        for (let i = 0; i < obj.length; i++) {
-            let idntfcId = obj[i].dset_idntfc_id;
+        for (let i = (pageNum -1 ) * 10; i < (obj.length < pageNum * 10 ? obj.length : pageNum * 10); i++) {
+            let idntfcId = obj[i]?.dset_idntfc_id;
             trHTML += '<tr>';
             trHTML += '<input class="tableInfo" id="hiddenIdntfcId" type="hidden" value="'+idntfcId+'">';
-            trHTML += '<td><label>' + obj[i].dset_lclas + '</label></td>';
-            trHTML += '<td><label>' + obj[i].dset_mclas + '</label></td>';
-            trHTML += '<td><label>' + obj[i].dset_sclas + '</label></td>';
-            trHTML += '<td><label>' + obj[i].dset_korean_nm + '</label></td>';
-                if(obj[i].cl_bass === "Y"){
+            trHTML += '<td><label>' + obj[i]?.dset_lclas + '</label></td>';
+            trHTML += '<td><label>' + obj[i]?.dset_mclas + '</label></td>';
+            trHTML += '<td><label>' + obj[i]?.dset_sclas + '</label></td>';
+            trHTML += '<td><label>' + obj[i]?.dset_korean_nm + '</label></td>';
+                if(obj[i]?.cl_bass === "Y"){
                     trHTML += '<td><input type="checkbox" name="clBass" id="clBass" checked></td>';
                 }else{
                     trHTML += '<td><input type="checkbox" name="clBass" id="clBass"></td>';
                 }
-                if(obj[i].cl_qlity === "Y"){
+                if(obj[i]?.cl_qlity === "Y"){
                     trHTML += '<td><input type="checkbox" name="clQlity" id="clQlity" checked></td>';
                 }else{
                     trHTML += '<td><input type="checkbox" name="clQlity" id="clQlity"></td>';
                 }
-                if(obj[i].cl_cntm === "Y"){
+                if(obj[i]?.cl_cntm === "Y"){
                     trHTML += '<td><input type="checkbox" name="clQlity" id="clCntm" checked></td>';
                 }else{
                     trHTML += '<td><input type="checkbox" name="clQlity" id="clCntm"></td>';
                 }
-                if(obj[i].cl_wdtb === "Y"){
+                if(obj[i]?.cl_wdtb === "Y"){
                     trHTML += '<td><input type="checkbox" name="clQlity" id="clWdtb" checked></td>';
                 }else{
                     trHTML += '<td><input type="checkbox" name="clQlity" id="clWdtb"></td>';
                 }
-                if(obj[i].cl_crlts === "Y"){
+                if(obj[i]?.cl_crlts === "Y"){
                     trHTML += '<td><input type="checkbox" name="clQlity" id="clCrlts" checked></td>';
                 }else{
                     trHTML += '<td><input type="checkbox" name="clQlity" id="clCrlts"></td>';

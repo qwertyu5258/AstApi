@@ -22,18 +22,17 @@ function ajaxPost(url, param, callback) {
         type: 'post',
         url: url,
         // contentsType: "application/json",
+        async: false,
         contentType:"application/json;charset=UTF-8",
         data: JSON.stringify(param),
         // data: param,
         success: function(data, textStatus, xhr) {
-            if(data.returnCode == '0000' || data.return_code == '200' || data.returnCode == '2001' || data.returnCode == '200' || data.return_code == '200') {
+            if (data.returnCode == '0000' || data.return_code == '200' || data.returnCode == '2001'|| data.returnCode == '200' || data.return_code == '200' || data.return_code == '4004') {
                 return callback(data);
+            } else if (data.return_code == undefined) {
+                alert('API 응답없음');
             } else {
-                if(data.returnCode == undefined || data.return_code == undefined){
-                    alert('API 응답없음');
-                } else {
-                    alert('error,  returnCode : ' + data.returnCode + " : " + data.returnMsg + " : " + url);
-                }
+                alert('error,  returnCode : ' + data.returnCode + " : " + data.returnMsg + " : " + "return_code: " + data.return_code + "return_msg : " + data.return_msg + url);
             }
         },
         error: function(data, status, error) {
