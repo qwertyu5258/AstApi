@@ -96,7 +96,7 @@
                                       </select>
                                     </div>
                                     <div class="col-md-9 pr-0">
-                                      <input class="form-control" type="text" placeholder="" id="adapterSearchText>
+                                      <input class="form-control" type="text" placeholder="" id="adapterSearchText">
                                     </div>
                                     <div class="col-md-1 pr-0">
                                     </div>

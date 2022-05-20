@@ -29,10 +29,10 @@ function metaTableInfoInit () {
         $("#tableEnName").val(tableEngNm);
 
         for (let i = 0; i < obj.length; i++) {
-            trHTML += '<tr class="">'
+            trHTML += '<tr class=""  onclick="colDtDataView(`'+ idntfcId +'`,`'+ obj[i].column_idntfc_id +'`)">'
                 + '<td><input class="tableInfo" type="checkbox" name="checkList" id="check'+i+'" value="'+obj[i].column_idntfc_id+'"></td>'
                 + '<td><label>' + obj[i].column_korean_nm + '</label></td>'
-                + '<td onclick="colDtDataView(`'+ idntfcId +'`,`'+ obj[i].column_idntfc_id +'`)"><label>' + obj[i].column_eng_nm + '</label></td>'
+                + '<td><label>' + obj[i].column_eng_nm + '</label></td>'
                 + '<td><label>' + obj[i].data_type + '</label></td>'
                 + '<td><label>' + obj[i].data_lt + '</label></td>'
                 + '<td><label>' + obj[i].not_null_at + '</label></td>'
@@ -110,12 +110,13 @@ function metaTableInfoDel () {
 
 //메타테이블 컬럼 항목 상세 (dp_ingest_meta_tbl_col_dt)
 function colDtDataView(idntfcId, columnIdntfcId){
+    $("#metaTableInfoColDt").show();
     metaTableInfoReset();
 
     let data = {
         "user_id":"~~id",
-        "table_idntfc_id" : "T0000000000000000001",
-        "column_idntfc_id":"C0000000000000000005"
+        "table_idntfc_id" : idntfcId,
+        "column_idntfc_id":columnIdntfcId
     };
 
     ajaxPost('/dp/ingest/meta/tables/column/detail', data, function (data) {
@@ -192,7 +193,8 @@ function saveColumn() {
 
 //참조 테이블 검색 팝업창
 function refrnTablePopup() {
-    let url = "/metaTblReferPopup";
+    let table_korean_nm = $('#column_korean_nm').val();
+    let url = "/metaTblReferPopup?table_korean_nm=" + table_korean_nm;
     let name = "metaTblReferPopup";
     let option = "width = 700, height = 700, top = 100, left = 200, location = no"
     window.open(url, name, option);

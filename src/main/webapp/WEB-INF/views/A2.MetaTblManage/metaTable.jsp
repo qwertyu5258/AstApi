@@ -127,13 +127,20 @@
                                   <div class="talbel_total" id="metaTableCnt">총 1개</div>
                                   <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableDel()">삭제</button>
                                   <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableAdd()">추가</button>
-                                  <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableEdit()">테이블생성</button>
+                                  <button class="btn btn-primary" style="width:13%;float:right" onclick="metaTableEdit()">테이블생성</button>
                                   <table class="table table-striped" id="metaTable1">
                                       <colgroup>
                                           <col width="55px">
                                           <col width="75px">
-                                          <col width="75px">
-                                          <col width="75px">
+                                          <col width="150px">
+                                          <col width="200px">
+                                          <col width="100px">
+                                          <col width="100px">
+                                          <col width="200px">
+                                          <col width="200px">
+                                          <col width="200px">
+                                          <col width="100px">
+                                          <col width="150px">
                                       </colgroup>
                                       <thead>
                                           <tr>

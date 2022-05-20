@@ -30,9 +30,9 @@ public class CategoryApiController {
 
     //    dp_cm_category_list	분류 관리 조회	get	/dp/cm/category/list
     @PostMapping(value = {"/dp/cm/category/list"})
-    public Map dp_cm_category_list() {
+    public Map dp_cm_category_list(@RequestBody Map<String, Object> params) {
 
-        Map<String, Object> DataList = restService.postApi("/dp/cm/category/list");
+        Map<String, Object> DataList = restService.postApi("/dp/cm/category/list", params);
 
         return DataList;
     }

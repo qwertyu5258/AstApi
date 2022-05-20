@@ -1,20 +1,17 @@
 
 function categoryInit(classType){
-    let url = '';
-    if(classType == 'lclass' || classType == undefined) {
-        url = '/dp/cm/category';
-    } else if(classType == 'mclass') {
-        url = '/dp/cm/category=clsf_id=AABBCC';
-    } else if(classType == 'sclass') {
-        url = '/dp/cm/category=clsf_id=test03';
-    }
+    let data = {
+        "user_id":"~~id",
+        "menu_id":""
+    };
     $.ajax({
-        type: 'get',
-        url: url,
+        type: 'post',
+        url: '/dp/cm/category/list',
         contentType:"application/json;charset=UTF-8",
-        //data: param,
+        data: JSON.stringify(data),
         success: function(data, textStatus, xhr) {
             let obj = data.contents;
+            obj = _.filter(obj, { level:1 });
             console.log("LargeCategory Data ::", obj);
             $("#LargeCategory").empty();
             let categoryHTML = "";
@@ -66,6 +63,13 @@ function dp_cm_codes_clct_ty() {
 
 $("#LargeCategory").change( function() {
     let clsf_id = $("#LargeCategory option:selected").val();
+
+    // 중분류 소분류 초기화
+    $("#MiddleCategory").empty();
+    $("#MiddleCategory").append("<option value=''>중분류</option>");
+    $("#SmallCategory").empty();
+    $("#SmallCategory").append("<option value=''>소분류</option>");
+    
     if(clsf_id === ""){
         $("#MiddleCategory").empty();
         $("#MiddleCategory").append("<option value=''>중분류</option>");
@@ -73,13 +77,18 @@ $("#LargeCategory").change( function() {
         $("#SmallCategory").empty();
         $("#SmallCategory").append("<option value=''>소분류</option>");
     }else{
+        let data = {
+            "user_id":"~~id",
+            "menu_id":""
+        };
         $.ajax({
-            type: 'get',
-            url: "/dp/cm/category?clsf_id="+clsf_id,
+            type: 'post',
+            url: "/dp/cm/category/list",
             contentType:"application/json;charset=UTF-8",
-            //data: param,
+            data: JSON.stringify(data),
             success: function(data, textStatus, xhr) {
                 let obj = data.contents;
+                obj = _.filter(obj, { up_clsf_id: clsf_id });;
                 console.log("LargeCategory Data ::", obj);
                 $("#MiddleCategory").empty();
                 let categoryHTML = "";
@@ -102,13 +111,18 @@ $("#MiddleCategory").change( function() {
         $("#SmallCategory").empty();
         $("#SmallCategory").append("<option value=''>소분류</option>");
     }else{
+        let data = {
+            "user_id":"~~id",
+            "menu_id":""
+        };
         $.ajax({
-            type: 'get',
-            url: "/dp/cm/category?clsf_id="+clsf_id,
+            type: 'post',
+            url: "/dp/cm/category/list",
             contentType:"application/json;charset=UTF-8",
-            //data: param,
+            data: JSON.stringify(data),
             success: function(data, textStatus, xhr) {
                 let obj = data.contents;
+                obj = _.filter(obj, { up_clsf_id: clsf_id });;
                 console.log("LargeCategory Data ::", obj);
                 $("#SmallCategory").empty();
                 let categoryHTML = "";

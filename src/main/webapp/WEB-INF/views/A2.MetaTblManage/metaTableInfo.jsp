@@ -182,10 +182,10 @@
                                           <th>
                                               <select class="form-control" id="data_type">
                                                   <option value="">선택</option>
-                                                  <option value="">varchar</option>
-                                                  <option value="">integer</option>
-                                                  <option value="">numeric</option>
-                                                  <option value="">timestamp</option>
+                                                  <option value="VARCHAR">VARCHAR</option>
+                                                  <option value="INTEGER">INTEGER</option>
+                                                  <option value="NUMERIC">NUMERIC</option>
+                                                  <option value="DATE">TIMESTAMP</option>
                                               </select>
                                           </th>
                                           <th>
@@ -218,9 +218,9 @@
                                               데이터 셋 종류
                                           </th>
                                           <th>
-                                              <select class="form-control" id="dset_knd">
-                                                  <option value="">Choose option</option>
-
+                                              <select class="form-control" id="table_dset_knd">
+                                                  <option value="D">일반 테이블</option>
+                                                  <option value="M">메타 테이블</option>
                                               </select>
                                           </th>
                                           <th style="vertical-align: middle">참조 컬럼명</th>

@@ -113,10 +113,10 @@
                                   <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableItemManageSave()">저장</button>
                                   <table class="table table-striped" id="metaTableItemManageData">
                                       <colgroup>
-                                          <col width="55px">
                                           <col width="75px">
-                                          <col width="75px">
-                                          <col width="75px">
+                                          <col width="150px">
+                                          <col width="200px">
+                                          <col width="200px">
                                       </colgroup>
                                       <thead>
                                           <tr>

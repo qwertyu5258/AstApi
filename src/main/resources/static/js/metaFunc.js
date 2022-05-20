@@ -211,8 +211,8 @@ function dp_ingest_meta_tbl_del_chk_col(param1, param2) {
 // dp_ingest_meta_tbl_del_col	post	/dp/ingest/meta/tables/delete/{}/column/{}
 function dp_ingest_meta_tbl_del_col(param1, param2) {
     var data = {
-        "search": "12",
-        "search_type": "!2",
+        "search": "",
+        "search_type": "",
     };
     ajaxPost('/dp/ingest/meta/tables/delete/{}/column/{}', data, function (data) {
         alert('완료~113');
@@ -221,8 +221,8 @@ function dp_ingest_meta_tbl_del_col(param1, param2) {
 // dp_ingest_popup_meta_tbl	get	/dp/ingest/popup/meta_table
 function dp_ingest_popup_meta_tbl(param1, param2) {
     var data = {
-        "table_korean_nm":"도로명주소_건물",
-        "user_id":"user_id"
+        "table_korean_nm":"",
+        "user_id":"~~user_id"
     };
     ajaxPost('/dp/ingest/popup/meta_table', data, function (data) {
         alert('완료~113');

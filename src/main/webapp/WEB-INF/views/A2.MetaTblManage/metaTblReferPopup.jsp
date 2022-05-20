@@ -89,8 +89,15 @@
 
         function initTable () {
 
+
+
+            let url = new URL(window.location.href);
+            let table_korean_nm = url.searchParams.get('table_korean_nm');
+
+            $('#tableKoName').val(table_korean_nm)
+
             let data = {
-                "table_korean_nm":"도로명주소_건물",
+                "table_korean_nm":table_korean_nm,
                 "user_id":"user_id"
             }
 
@@ -103,9 +110,9 @@
 
                 for (let i = 0; i < obj.length; i++) {
                     trHTML += '<tr class="">'
-                        + '<td onclick="metaTblReferSetData(`'+ obj[i].table_idntfc_id +'`,`'+ obj[i].table_korean_nm +'`)">' + obj[i].dset_korean_nm + '</td>'
-                        + '<td onclick="metaTblReferSetData(`'+ obj[i].table_idntfc_id +'`,`'+ obj[i].table_korean_nm +'`)">' + obj[i].table_eng_nm + '</td>'
-                        + '<td onclick="metaTblReferSetData(`'+ obj[i].table_idntfc_id +'`,`'+ obj[i].table_korean_nm +'`)">' + obj[i].table_korean_nm + '</td>'
+                        + '<td ondblclick="metaTblReferSetData(`'+ obj[i].table_idntfc_id +'`,`'+ obj[i].table_korean_nm +'`)">' + obj[i].dset_korean_nm + '</td>'
+                        + '<td ondblclick="metaTblReferSetData(`'+ obj[i].table_idntfc_id +'`,`'+ obj[i].table_korean_nm +'`)">' + obj[i].table_eng_nm + '</td>'
+                        + '<td ondblclick="metaTblReferSetData(`'+ obj[i].table_idntfc_id +'`,`'+ obj[i].table_korean_nm +'`)">' + obj[i].table_korean_nm + '</td>'
                         + '</tr>';
                 }
                 $("#metaTblReferPopupData tbody").append(trHTML);
@@ -162,6 +169,7 @@
                     selectHtml += `<option value="`+obj[i].column_idntfc_id+`">`+obj[i].column_korean_nm+`</option>`;
                 }
                 $(opener.document).find("#refrn_column_idntfc_id").append(selectHtml);
+                window.close();
             });
 
         }

@@ -120,6 +120,9 @@ function metaTableAdd() {
     
     $("#dataSetItem").show();
     $("#tableItem").show();
+
+    $("#clct_mthd1").attr("disabled", false);
+    $("#clct_ty1").attr("disabled", false);
 }
 
 //삭제 버튼
@@ -239,15 +242,17 @@ function dataSetTableData(id,status) {
             $("#hidden_table_idntfc_id").val(TableData.contents[0].table_idntfc_id);  //테이블_식별자
 
             if(status === "edit"){
+                // 추가버튼 클릭
                 // $("#dataSetItemSaveBtn").hide();
                 // $("#tableItemSaveBtn").hide();
 
                 $("#dataSetItemEditBtn").show();
                 $("#tableItemEditBtn").show();
             }else if(status === "view"){
-                // $("#dataSetItemSaveBtn").hide();
-                // $("#tableItemSaveBtn").hide();
-                //
+                // 리스트 클릭
+                $("#dataSetItemSaveBtn").hide();
+                $("#tableItemSaveBtn").hide();
+
                 // $("#dataSetItemEditBtn").hide();
                 // $("#tableItemEditBtn").hide();
             }
@@ -489,3 +494,22 @@ function dataReset () {
     $("#hidden_dset_idntfc_id").val("");
     $("#hidden_table_idntfc_id").val("");
 }
+
+$("#clct_mthd1").change( function() {
+
+    let group_code = $("#clct_mthd1 option:selected").val()
+    ajaxGet('/dp/cm/codes/clct_mthd?group_code=' + group_code, "", function (data) {
+
+        let obj = data.contents;
+        let HTML1 = "";
+
+        $("#clct_ty1").empty()
+        HTML1 += "<option value=''>선택</option>";
+        for(let i=0; i < obj.length; i++){
+            HTML1 += `<option value="`+obj[i].dtl_code+`">`+obj[i].dtl_code_nm+`</option>`;
+        }
+        $("#clct_ty1").append(HTML1);
+
+    });
+
+});
