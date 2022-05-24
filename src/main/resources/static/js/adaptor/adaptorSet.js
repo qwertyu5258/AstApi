@@ -5,6 +5,10 @@ onload = adaptorSetInit();
 
 //Adapter 유형관리 리스트 조회 (dp_ingest_pp_type)
 function adaptorSetInit () {
+
+    dp_cm_codes_clct_mthd();
+    dp_cm_codes_clct_ty();
+
     $("#adaptorSetDataConfigArea").hide();
 
     let data = {
@@ -26,13 +30,16 @@ function adaptorSetInit () {
             trHTML += `<td>`;
             trHTML += `<input type="text" value="`+obj[i].adapter_type_nm+`" id="adapter_type_nm">`;
             trHTML += `</td>`;
-            trHTML += `<td><select id="clctTy"><option>` + obj[i].clct_mthd + `</option></select></td>`;
-            trHTML += `<td><select id="clctMthd"><option>` + obj[i].clct_ty + `</option></select></td>`;
+            trHTML += `<td><select id="clct_mthd${i}" class="clct_mthd1"><option>` + obj[i].clct_mthd + `</option></select></td>`;
+            trHTML += `<td><select id="clct_ty1" class="clct_ty1"><option>` + obj[i].clct_ty + `</option></select></td>`;
             trHTML += `</tr>`;
             adaptorSetDataCnt = noCnt;
         }
         $("#adaptorSetData tbody").append(trHTML);
     });
+
+    dp_cm_codes_clct_mthd();
+    dp_cm_codes_clct_ty();
 }
 
 //Adapter 유형관리- 추가 버튼 (dp_ingest_pp_info_id_chk)

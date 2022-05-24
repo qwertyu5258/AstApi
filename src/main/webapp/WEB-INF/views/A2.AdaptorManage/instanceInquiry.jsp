@@ -82,8 +82,9 @@
                   </th>
                   <th>
                     <select class="form-control" id="SelectCategory">
-                      <option>선택</option>
-
+                      <option value="dset_korean_nm">데이터셋 명</option>
+                      <option value="dset_english_nm">테이블 영문명 </option>
+                      <option value="table_korean_nm">테이블 한글명 </option>
                     </select>
                   </th>
                   <th>
@@ -174,7 +175,7 @@
   </div>
 
   <%@include file="/WEB-INF/views/A1.Common/commonJs.jsp" %>
-  <script type="text/javascript" src="../js/adaptor/instancelnquiry.js"></script>
+  <script type="text/javascript" src="../js/adaptor/instanceInquiry.js"></script>
   <script src="http://jonmiles.github.io/bootstrap-treeview/js/bootstrap-treeview.js"></script>
 
 

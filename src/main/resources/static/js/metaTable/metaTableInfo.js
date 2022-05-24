@@ -227,13 +227,13 @@ function metaTableInfoReset(){
 }
 
 $("#data_type").change( function(el) {
-    if($("#data_type option:selected").text() == 'varchar' ) {
+    if($("#data_type option:selected").text() == 'VARCHAR' ) {
         $("#column_stre_type").val('String');
-    } else if ($("#data_type option:selected").text() == 'integer'){
+    } else if ($("#data_type option:selected").text() == 'INTEGER'){
         $("#column_stre_type").val('Integer');
-    } else if ($("#data_type option:selected").text() == 'nemeric'){
+    } else if ($("#data_type option:selected").text() == 'NUMERIC'){
         $("#column_stre_type").val('Double');
-    } else if ($("#data_type option:selected").text() == 'timestamp'){
+    } else if ($("#data_type option:selected").text() == 'TIMESTAMP'){
         $("#column_stre_type").val('Date');
     }
 });

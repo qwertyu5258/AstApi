@@ -96,7 +96,7 @@
                                       <th>
                                           <select class="form-control" id="SelectCategory">
                                               <option value="dset_korean_nm">데이터셋 명</option>
-                                              <option value="dset_english_nm">테이블 영문명 </option>
+                                              <option value="table_eng_nm">테이블 영문명 </option>
                                               <option value="table_korean_nm">테이블 한글명 </option>
                                           </select>
                                       </th>
@@ -127,7 +127,7 @@
                                   <div class="talbel_total" id="metaTableCnt">총 1개</div>
                                   <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableDel()">삭제</button>
                                   <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableAdd()">추가</button>
-                                  <button class="btn btn-primary" style="width:13%;float:right" onclick="metaTableEdit()">테이블생성</button>
+                                  <button class="btn btn-primary" style="width:13%;float:right" onclick="metaTableEdit(this)" id="tableAddEdit1">테이블생성</button>
                                   <table class="table table-striped" id="metaTable1">
                                       <colgroup>
                                           <col width="55px">
@@ -208,7 +208,7 @@
                                               <input class="form-control" type="text" placeholder="" id="dset_korean_nm1">
                                           </th>
                                           <th>수집방식</th>
-                                          <th><select class="form-control" id="clct_mthd1" disabled>
+                                          <th><select class="form-control clct_mthd1" id="clct_mthd1" disabled>
                                               <option val="">Choose option</option>
 
                                           </select></th>
@@ -234,7 +234,7 @@
                                               수집유형
                                           </th>
                                           <th>
-                                              <select class="form-control" id="clct_ty1" disabled>
+                                              <select class="form-control clct_ty1" id="clct_ty1" disabled>
                                                   <option val="">Choose option</option>
 
                                                   <option value="FILE UPLOAD">FILE UPLOAD</option>
@@ -304,7 +304,7 @@
                                               수집 테이블 생성 여부
                                           </th>
                                           <th>
-                                              <input class="form-control" type="text" placeholder="" id="creat_table_at1">
+                                              <input class="form-control" type="text" placeholder="" id="creat_table_at1" readonly>
                                           </th>
                                       </tr>
                                       </thead>
@@ -366,8 +366,8 @@
                                           </th>
                                           <th>
                                               <select class="form-control" id="table_dset_knd">
-                                                  <option value="D">일반 테이블</option>
-                                                  <option value="M">메타 테이블</option>
+                                                  <option value="D">데이터</option>
+                                                  <option value="M">메타정보</option>
                                               </select>
                                           </th>
                                           <th>
@@ -383,8 +383,9 @@
                                           </th>
                                           <th>
                                               <select class="form-control" id="physic_table_ty">
-                                                  <option value="">Choose option</option>
-
+                                                  <option value="">마스터 테이블</option>
+                                                  <option value="">일반 테이블</option>
+                                                  <option value="">메타 테이블</option>
                                               </select>
                                           </th>
                                           <th>
@@ -416,7 +417,7 @@
                                               수집 테이블 생성 여부
                                           </th>
                                           <th>
-                                              <input class="form-control" type="text" placeholder="" id="creat_table_at2">
+                                              <input class="form-control" type="text" placeholder="" id="creat_table_at2" readonly>
                                           </th>
                                       </tr>
                                       </thead>

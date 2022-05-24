@@ -314,7 +314,11 @@
                                               CRUD 구분
                                           </th>
                                           <th>
-                                              <input class="form-control" type="text" placeholder="" id="crud_se">
+                                              <select class="form-control" id="crud_se">
+                                                  <option value="C">C</option>
+                                                  <option value="U">U</option>
+                                                  <option value="D">D</option>
+                                              </select>
                                           </th>
                                       </tr>
                                       </thead>

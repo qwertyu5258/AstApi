@@ -152,12 +152,6 @@ function dp_ingest_meta_tbl_update_tbl(param1, param2) {
         alert('완료~113');
     });
 }
-// dp_ingest_meta_tbl_make	post	/dp/ingest/meta/tables/make/{}
-function dp_ingest_meta_tbl_make(param1) {
-    ajaxPost('/dp/ingest/meta/tables/make/{}', data, function (data) {
-        alert('완료~113');
-    });
-}
 // dp_ingest_meta_tbl_col	get 	/dp/ingest/meta/tables/{}/column
 function dp_ingest_meta_tbl_col(param1, param2) {
     var data = {

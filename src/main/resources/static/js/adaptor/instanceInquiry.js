@@ -42,7 +42,12 @@ function instancelnquiryInit () {
             }else{
                 trHTML += `<td></td>`;
             }
-            trHTML += `<td>` + obj[i].use_yn + `</td>`;
+            if(obj[i].active_yn === "Y"){
+                trHTML += `<td>` + "실행" + `</td>`;
+            } else {
+                trHTML += `<td>` + "중지" + `</td>`;
+            }
+
             trHTML += `</tr>`;
         }
         $("#instanceData tbody").append(trHTML);

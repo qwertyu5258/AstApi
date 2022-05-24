@@ -24,7 +24,7 @@ function metaTableItemManageInit (pageNum) {
         $("#metaTableItemManageCnt").html("총 "+obj.length+"개");
         $("#metaTableItemManageData tbody").empty();
 
-        pageNation(obj.length, 10, 1);
+        pageNation(data.page_no, 10, 1);
 
         for (let i = 0; i < pageNum * 10; i++) {
             let idntfcId = obj[i]?.dset_idntfc_id;

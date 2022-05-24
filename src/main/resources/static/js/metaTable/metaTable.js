@@ -26,12 +26,13 @@ function metaTableInit (pageNum) {
         let obj = data.contents;
         let trHTML;
 
-        $("#metaTableCnt").html("총 "+obj.length+"개");
+        $("#metaTableCnt").html("총 "+data.totalcount+"개");
         $("#metaTable1 tbody").empty();
 
-        pageNation(obj.length, 10, 1);
+        pageNation(data.page_no, 10, 1);
+        // pageNation(obj.length, 10, 1);
 
-        for (let i = 0; i < pageNum * 10; i++) {
+        for (let i = 0; i < data.contents.length; i++) {
             let idntfcId = obj[i]?.rl_dset_idntfc_id + "@" + obj[i]?.table_idntfc_id;
             trHTML += '<tr>'
                 + '<td><input class="tableInfo" type="checkbox" name="checkList" id="check'+i+'" value="'+idntfcId+'"></td>'
@@ -43,7 +44,7 @@ function metaTableInit (pageNum) {
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.dset_korean_nm + '</label></td>'
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.table_korean_nm + '</label></td>'
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.table_eng_nm + '</label></td>,'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.creat_table_at + '</label></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label id="creat_table_at' + i +'">' + (obj[i]?.creat_table_at == null ? 'N' : obj[i].creat_table_at)   + '</label></td>'
                 + '<td><button class="btn btn-primary" style="width:100%" onclick="dp_ingest_meta_tbl_dset(`'+ obj[i].table_idntfc_id +'`,`'+ obj[i].table_korean_nm +'`,`'+ obj[i].table_eng_nm +'`)">바로가기</button></td>'
                 + '</tr>';
         }
@@ -79,12 +80,12 @@ function searchTbl(pageNum) {
         console.log(data);
         let obj = data.contents;
         let trHTML;
-        $("#metaTableCnt").html("총 "+obj.length+"개");
+        $("#metaTableCnt").html("총 "+data.totalcount+"개");
         $("#metaTable1 tbody").empty();
 
 
 
-        for (let i = (pageNum -1 ) * 10; i < (obj.length < pageNum * 10 ? obj.length : pageNum * 10); i++) {
+        for (let i = 0; i < data.contents.length; i++) {
             let idntfcId = obj[i]?.rl_dset_idntfc_id + "@" + obj[i]?.table_idntfc_id;
             trHTML += '<tr>'
                 + '<td><input class="tableInfo" type="checkbox" name="checkList" id="check'+i+'" value="'+idntfcId+'"></td>'
@@ -96,8 +97,8 @@ function searchTbl(pageNum) {
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.dset_korean_nm + '</label></td>'
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.table_korean_nm + '</label></td>'
                 + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.table_eng_nm + '</label></td>,'
-                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label>' + obj[i]?.creat_table_at + '</label></td>'
-                + '<td><button class="btn btn-primary" style="width:100%" onclick="dp_ingest_meta_tbl_dset(`'+ obj[i]?.table_idntfc_id +'`,`'+ obj[i]?.table_korean_nm +'`,`'+ obj[i]?.table_eng_nm +'`)">바로가기</button></td>'
+                + '<td onclick="dataSetTableData(`'+ idntfcId +'`,`view`)"><label id="creat_table_at' + i +'">' + (obj[i]?.creat_table_at == null ? 'N' : obj[i].creat_table_at)   + '</label></td>'
+                + '<td><button class="btn btn-primary" style="width:100%" onclick="dp_ingest_meta_tbl_dset(`'+ obj[i].table_idntfc_id +'`,`'+ obj[i].table_korean_nm +'`,`'+ obj[i].table_eng_nm +'`)">바로가기</button></td>'
                 + '</tr>';
         }
         $("#metaTable1 tbody").append(trHTML);
@@ -121,8 +122,11 @@ function metaTableAdd() {
     $("#dataSetItem").show();
     $("#tableItem").show();
 
-    $("#clct_mthd1").attr("disabled", false);
-    $("#clct_ty1").attr("disabled", false);
+    // $("#clct_mthd1").attr("disabled", false);
+    // $("#clct_ty1").attr("disabled", false);
+
+    $("#tableAddEdit1").text("테이블생성");
+    
 }
 
 //삭제 버튼
@@ -131,7 +135,7 @@ function metaTableDel() {
 
     $("input:checkbox[name='checkList']:checked").each(function(k,kValue){
         checked_val.push(kValue.value);
-    })
+    });
 
     if(checked_val.length === 0){
         alert("삭제할 항목을 선택해 주세요.");
@@ -140,53 +144,71 @@ function metaTableDel() {
 
     let delStatus = true;
     if(window.confirm("정말 삭제하시겠습니까?")){
-        setTimeout(() => {
-            for(let i=0; i < checked_val.length; i++){
-                let delDestIdntfcId = checked_val[i].split("@")[0];
+                let delDestIdntfcId = checked_val[0].split("@")[0];
+
+                let data = {
+                    "user_id" : "userId",
+                    "dset_idntfc_id" : delDestIdntfcId
+                };
 
                 $.ajax({
                     type: 'post',
                     url: '/dp/ingest/meta/tables/delete/dataset',
                     contentType:"application/json;charset=UTF-8",
-                    data: JSON.stringify(param),
+                    data: JSON.stringify(data),
                     success: function(data, textStatus, xhr) {
                         console.log('완료~dp_ingest_meta_tbl_del_dset',data);
-
                     },
                     error: function(data, status, error) {
                         console.log('ajax Error: ' + data);
                         delStatus =false;
                     }
                 });
-            }
 
             if(delStatus){
                 alert("선택한 항목이 정상적으로 삭제되었습니다.");
-                location.href="metaTable";
+                // location.href="metaTable";
             }else{
                 alert("선택한 항목중 일부 삭제되지않았습니다.");
             }
-        },1000)
     }
 }
 
 //테이블수정 버튼
-function metaTableEdit() {
-    const checked_val = [];
+function metaTableEdit(el) {
+    if(el.innerHTML == '테이블생성') {
+        // 테이블 생성
+        // const checked_val = [];
+        //
+        // $("input:checkbox[name='checkList']:checked").each(function(k, kValue){
+        //     checked_val.push(kValue.value);
+        // });
+        //
+        // if(checked_val.length === 0){
+        //     alert("수정할 항목을 선택해 주세요.");
+        //     return;
+        // }else if(checked_val.length > 1){
+        //     alert("하나의 항목을 선택해 주세요.");
+        //     return;
+        // }
+        dp_ingest_meta_tbl_make($('#table_eng_nm2').val());
+        // dataSetTableData(checked_val[0], "edit");
+    } else {
+        // 테이블 수정
+        const checked_val = [];
 
-    $("input:checkbox[name='checkList']:checked").each(function(k, kValue){
-        checked_val.push(kValue.value);
-    })
-
-    if(checked_val.length === 0){
-        alert("수정할 항목을 선택해 주세요.");
-        return;
-    }else if(checked_val.length > 1){
-        alert("하나의 항목을 선택해 주세요.");
-        return;
+        $("input:checkbox[name='checkList']:checked").each(function(k, kValue){
+            checked_val.push(kValue.value);
+        });
+        if(checked_val.length === 0){
+            alert("수정할 항목을 선택해 주세요.");
+            return;
+        }else if(checked_val.length > 1){
+            alert("하나의 항목을 선택해 주세요.");
+            return;
+        }
+        dp_ingest_meta_tbl_remake(checked_val[0]);
     }
-
-    dataSetTableData(checked_val[0], "edit");
 }
 
 function dataSetTableData(id,status) {
@@ -252,6 +274,8 @@ function dataSetTableData(id,status) {
                 // 리스트 클릭
                 $("#dataSetItemSaveBtn").hide();
                 $("#tableItemSaveBtn").hide();
+                
+                $("#tableAddEdit1").text("테이블수정");
 
                 // $("#dataSetItemEditBtn").hide();
                 // $("#tableItemEditBtn").hide();
@@ -271,9 +295,15 @@ function dp_ingest_meta_tbl_dset(id, table_korean_nm, table_eng_nm) {
 //데이터셋 영문명 중복체크 (dp_ingest_meta_tbl_chk)
 function table_eng_nm_chk(){
     let tableEngNm = $('#table_eng_nm2').val();
+    let checkType = /^[a-z0-9_+]*$/;
 
     if(!tableEngNm){
         alert('테이블 영문명을 작성하세요.');
+        return;
+    }
+
+    if(!checkType.test(tableEngNm)){
+        alert('소문자나 숫자를 입력하세요.');
         return;
     }
 
@@ -457,7 +487,7 @@ function editTableItem() {
         "creat_table_at": $('#creat_table_at2').val()               //수집_테이블_생성_여부
     };
 
-    ajaxPost('/dp/ingest/meta/tables/update/table/'+edit_table_idntfc_id, data, function (data) {
+    ajaxPost('/dp/ingest/meta/tables/update/table/', data, function (data) {
         console.log('완료~dp_ingest_meta_tbl_update_dset',data);
         alert("정상적으로 메타테이블의 테이블 항목이 수정되었습니다.");
     });
@@ -511,5 +541,46 @@ $("#clct_mthd1").change( function() {
         $("#clct_ty1").append(HTML1);
 
     });
+
+});
+
+function dp_ingest_meta_tbl_make(param1) {
+    let data = {
+        "user_id" : "userId",
+        "table_eng_nm" : param1
+    };
+    ajaxPost('/dp/ingest/meta/tables/make', data, function (data) {
+        alert('완료~113');
+    });
+}
+
+
+function dp_ingest_meta_tbl_remake(param1) {
+
+    param1 = param1.split("@")[1];
+    let data = {
+        "user_id" : "userId",
+        "table_eng_nm" : param1
+    };
+    ajaxPost('/dp/ingest/meta/tables/remake', data, function (data) {
+        alert('완료~113');
+    });
+}
+$('.tableInfo').click(function (param1) {
+    if($(`#${param1.target.id}`)[0].checked == false) {
+        $(`#${param1.target.id}`).prop('checked', false);
+        return;
+    }
+    $(".tableInfo").prop('checked', false)
+    $(`#${param1.target.id}`).prop('checked', true)
+
+    let creatTableAt = 'creat_table_at' + param1.target.id.replace('check','');
+    creatTableAt = $(`#${creatTableAt}`)[0].innerText;
+
+    if(creatTableAt == 'N') {
+        $("#tableAddEdit1").text("테이블생성");
+    } else {
+        $("#tableAddEdit1").text("테이블수정");
+    }
 
 });

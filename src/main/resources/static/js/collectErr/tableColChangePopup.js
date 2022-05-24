@@ -60,9 +60,6 @@ function dp_ingest_meta_tbl_make() {
         alert('완료~113');
     });
 }
-
-
-
 /////////////////////////////////////////////////////////////////////////////////
 function search() {
     const data = {

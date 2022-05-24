@@ -1,9 +1,9 @@
 
-function pageNation(dataLength, listPerPage, startNum) {
+function pageNation(totalPage, listPerPage, startNum) {
     let HTML = '';
 
     HTML += `<li  class="page-item"> <a class="page-link" onclick="beforePage()"> < </a></li>`;
-    for (let i = (startNum-1) * 10 ; i < ((dataLength / listPerPage < 9) ? dataLength / listPerPage : 9); i++) {
+    for (let i = (startNum-1) * 10 ; i < totalPage; i++) {
         HTML += `<li  class="page-item"> <a class="page-link" onclick="searchTbl(` + (i + 1) + `)">` +  (i + 1)  +  `</a></li>`;
     }
     HTML += `<li  class="page-item"> <a class="page-link" onclick="afterPage()"> > </a></li>`;
@@ -27,7 +27,7 @@ function afterPage() {
     console.log('beforePage');
     let indexNum = _.findIndex($('.page-link'), function(o) { return o.style.backgroundColor == 'rgb(222, 226, 230)'; });
     searchTbl(indexNum +1);
-    if((indexNum + 1) % 10 == 0) {
+    if((indexNum) % 10 == 0) {
         pageNation();
     }
 }

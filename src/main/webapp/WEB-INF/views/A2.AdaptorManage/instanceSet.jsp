@@ -69,8 +69,8 @@
                           <div class="table_responsive">
                             <table class="table table-striped table-bordered bulk_action" style="width:100%" id="instanceSetData">
                               <colgroup>
-                                <col width="44px">
                                 <col width="70px">
+                                <col width="110px">
                               </colgroup>
                               <thead>
                                 <tr>
