@@ -18,7 +18,7 @@ function processListInit () {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";
-        $("#processListCnt").html("총 "+obj.length+"개");
+        $("#processListCnt").html("총 "+data.totalcount+"개");
         $("#preProcessTable tbody").empty();
 
         for (let i = 0; i < obj.length; i++) {
@@ -85,7 +85,7 @@ function search() {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";
-        $("#processListCnt").html("총 "+obj.length+"개");
+        $("#processListCnt").html("총 "+data.totalcount+"개");
         $("#processListData tbody").empty();
 
         for (let i = 0; i < obj.length; i++) {

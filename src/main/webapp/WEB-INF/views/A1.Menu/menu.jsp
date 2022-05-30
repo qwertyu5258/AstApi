@@ -117,7 +117,7 @@
             <li> <a><i class="fa fa-list-alt"></i>sample<span class="fa fa-chevron-down" /></a>
                 <ul class="nav child_menu">
                     <li><a href="table"> <i class="fa fa-user"> </i>테이블 형태</a></li>
-                    <li> <a href="modal"> <i class="fa fa-user"> </i>모달 형태</a></li>
+                    <li> <a href="modal"> <i class="fa fa-user"> </i>modal형태</a></li>
                     <li> <a href="search"> <i class="fa fa-user"> </i>검색 형태</a></li>
                     <li> <a href="input"> <i class="fa fa-user"> </i>등록폼</a></li>
                     <li> <a href="clcntErrorDetail"> <i class="fa fa-user"> </i>수집오류 상세</a></li>

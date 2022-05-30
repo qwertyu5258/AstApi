@@ -60,3 +60,10 @@ input[type="checkbox"] {
 .icheckbox_flat-purple, .iradio_flat-purple {
     background: none;
 }
+
+table td {
+    cursor: pointer;
+}
+table td label{
+    cursor: pointer;
+}

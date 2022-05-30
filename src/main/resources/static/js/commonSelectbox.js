@@ -50,7 +50,7 @@ function dp_cm_codes_clct_mthd() {
 
         let optionHtml = "";
         for(let i=0; i < obj.length; i++){
-            optionHtml += `<option value="`+obj[i].etc_code+`">`+obj[i].dtl_code_nm+`</option>`;
+            optionHtml += `<option value="`+obj[i].dtl_code+`">`+obj[i].dtl_code_nm+`</option>`;
         }
         $(".clct_mthd1").append(optionHtml);
 
@@ -63,7 +63,7 @@ function dp_cm_codes_clct_ty() {
 
         let optionHtml = "";
         for(let i=0; i < obj.length; i++){
-            optionHtml += `<option value="`+obj[i].etc_code+`">`+obj[i].dtl_code_nm+`</option>`;
+            optionHtml += `<option value="`+obj[i].dtl_code+`">`+obj[i].dtl_code_nm+`</option>`;
         }
         $(".clct_ty1").append(optionHtml);
     });
@@ -226,3 +226,54 @@ $("#dset_mclas1").change( function() {
         });
     }
 });
+
+
+function initGetCategory(parentCategory, childCategory ) {
+        let clsf_id = $(`#${parentCategory} option:selected`).val();
+
+        $(`#${childCategory}`).empty();
+        $(`#${childCategory}`).append("<option value=''></option>");
+
+        if (clsf_id === "") {
+            if( childCategory == 'dset_mclas1'){
+                $(`#${childCategory}`).empty();
+                $(`#${childCategory}`).append("<option value=''>중분류</option>");
+            } else if( childCategory == 'dset_sclas1'){
+                $(`#${childCategory}`).empty();
+                $(`#${childCategory}`).append("<option value=''>소분류</option>");
+            }
+            
+        } else {
+            let data = {
+                "user_id": "~~id",
+                "menu_id": ""
+            };
+            $.ajax({
+                type: 'post',
+                url: "/dp/cm/category/list",
+                contentType: "application/json;charset=UTF-8",
+                async: false,
+                data: JSON.stringify(data),
+                success: function (data, textStatus, xhr) {
+                    let obj = data.contents;
+                    obj = _.filter(obj, {up_clsf_id: clsf_id});
+
+                    console.log("LargeCategory Data ::", obj);
+                    $(`#${childCategory}`).empty();
+                    let categoryHTML = "";
+                    if(childCategory == 'dset_sclas1' ){
+                        categoryHTML += "<option value=''>소분류</option>";
+                    } else {
+                        categoryHTML += "<option value=''>중분류</option>";
+                    }
+                    for (let i = 0; i < obj.length; i++) {
+                        categoryHTML += `<option value="` + obj[i].clsf_id + `">` + obj[i].clsf_nm + `</option>`;
+                    }
+                    $(`#${childCategory}`).append(categoryHTML);
+                },
+                error: function (data, status, error) {
+                    console.log('ajax /dp/cm/category Error: ' + data);
+                }
+            });
+        }
+}

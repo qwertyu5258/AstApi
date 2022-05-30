@@ -6,6 +6,8 @@
     <title>LX DT | 테이블 형태</title>
     <%@include file="../A1.Common/commonCss.jsp" %>
   </head>
+  <style>
+  </style>
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
@@ -90,7 +92,7 @@
                                           <input class="form-control" type="text" placeholder="" id="SelectText">
                                       </th>
                                       <th>
-                                          <button class="btn btn-primary" style="float:right" onclick="search()">검색</button>
+                                          <button class="btn btn-primary" style="float:right" onclick="searchTbl(1)">검색</button>
                                       </th>
                                   </tr>
 

@@ -20,7 +20,7 @@ function instancelnquiryInit () {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";
-        $("#instanceCnt").html("총 "+obj.length+"개");
+        $("#instanceCnt").html("총 "+data.totalcount+"개");
         $("#instanceData tbody").empty();
 
         for (let i = 0; i < obj.length; i++) {
@@ -67,7 +67,7 @@ function search() {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";
-        $("#instanceCnt").html("총 "+obj.length+"개");
+        $("#instanceCnt").html("총 "+data.totalcount+"개");
         $("#instanceData tbody").empty();
 
         for (let i = 0; i < obj.length; i++) {

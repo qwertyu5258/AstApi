@@ -18,7 +18,7 @@ function Init() {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";
-        $("#allCnt").html("총 "+obj.length+"개");
+        $("#allCnt").html("총 "+data.totalcount+"개");
         $("#table1 tbody").empty();
 
         for (let i = 0; i < obj.length; i++) {

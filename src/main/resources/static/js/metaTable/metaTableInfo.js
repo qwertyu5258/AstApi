@@ -4,6 +4,7 @@ let idntfcId = url.searchParams.get('idntfcId');
 let tableKoreanNm = url.searchParams.get('table_korean_nm');
 let tableEngNm = url.searchParams.get('table_eng_nm');
 
+
 console.log("idntfcId ::", idntfcId);
 
 metaTableInfoInit();
@@ -16,14 +17,16 @@ function metaTableInfoInit () {
         "user_id": "user_id",
         "table_idntfc_id": idntfcId
     };
+    $("#metaTableInfo1 tbody").append(`<tr style="text-align:center"><td colspan='12'>데이터가 없습니다</td></tr>`);
 
     ajaxPost('/dp/ingest/meta/tables/column', data, function (data) {
         console.log(data);
         let obj = data.contents;
         let trHTML;
 
-        $("#metaTableInfoCnt").html("총 "+obj.length+"개");
-        $("#metaTableInfo1 tbody").empty();
+        $("#metaTableInfoCnt").html("총 "+data.totalCount+"개");
+        // pageNation(data.page_no, 10, 1);
+        // markPage(1);
 
         $("#tableKoName").val(tableKoreanNm);
         $("#tableEnName").val(tableEngNm);
@@ -44,6 +47,7 @@ function metaTableInfoInit () {
                 + '<td><label>' + obj[i].ordr + '</label></td>'
                 + '</tr>';
         }
+        $("#metaTableInfo1 tbody").empty();
         $("#metaTableInfo1 tbody").append(trHTML);
     });
 }
@@ -55,9 +59,8 @@ function metaTableList () {
 
 //추가 버튼
 function metaTableInfoAdd () {
-
     metaTableInfoReset();
-
+    $("#colSaveBtn").text('추가');
     $("#metaTableInfoColDt").show();
 }
 
@@ -68,7 +71,7 @@ function metaTableInfoDel () {
 
     $("input:checkbox[name='checkList']:checked").each(function(k,kValue){
         metaTableChecked_val.push(kValue.value);
-    })
+    });
 
     if(metaTableChecked_val.length === 0){
         alert("삭제할 항목을 선택해 주세요.");
@@ -110,6 +113,9 @@ function metaTableInfoDel () {
 
 //메타테이블 컬럼 항목 상세 (dp_ingest_meta_tbl_col_dt)
 function colDtDataView(idntfcId, columnIdntfcId){
+
+    $("#colSaveBtn").text('수정');
+    
     $("#metaTableInfoColDt").show();
     metaTableInfoReset();
 
@@ -152,13 +158,18 @@ function colDtDataView(idntfcId, columnIdntfcId){
 //저장 버튼
 function saveColumn() {
 
+    if($("#colSaveBtn").text() == '수정'){
+        editColumn();
+        return;
+    }
+
     const saveColumnData = {
         "user_id" : "~~id",
 
         "column_idntfc_id" : $("#hidden_column_idntfc_id").val(),
         "rl_table_idntfc_id" : idntfcId,
         "dset_knd" : $('#dset_knd').val(),
-        "ordr" : $('#ordr').val(),
+        "ordr" : parseInt($('#ordr').val()),
         "refrn_table_idntfc_id" : $('#refrn_table_idntfc_id').val(),
         "refrn_column_idntfc_id" : $('#refrn_column_idntfc_id').val(),
         "table_eng_nm" : tableEngNm,
@@ -190,13 +201,97 @@ function saveColumn() {
         location.href="metaTableInfo?idntfcId="+idntfcId+"&table_korean_nm="+tableKoreanNm+"&table_eng_nm="+tableEngNm;
     });
 }
+//저장 버튼
+function editColumn() {
+
+
+    let data = {
+        "user_id":"user_id",
+        "column_idntfc_id":"C0000000000000000091",
+        "rl_table_idntfc_id":"T0000000000000000007",
+        "dset_knd":"D",
+        "ordr":20,
+
+        "refrn_table_idntfc_id":null,
+        "refrn_column_idntfc_id":null,
+        "table_eng_nm":"UPIS_C_UQ151",
+        "column_eng_nm":"SIGNGU_SE",
+        "column_korean_nm":"시군구코드",
+
+        "column_dc":"시군구코드",
+        "data_type":"VARCHAR",
+        "data_lt":"5",
+        "data_frmat":null,
+        "not_null_at":"N",
+
+        "pk_info":null,
+        "fk_info":null,
+        "ak_info":null,
+        "rstrct_cnd":null,
+        "indvdl_info_at":null,
+
+        "encpt_at":null,
+        "othbc_at":null,
+        "column_stre_type":null,
+        "column_nm":null,
+        "crud_se":null,
+
+        "crud_dc":"UPDATE",
+        "use_at":null,
+        "creat_table_at":null
+    }
+
+    const saveColumnData = {
+        "user_id" : "~~id",
+        "column_idntfc_id" : $("#hidden_column_idntfc_id").val(),
+        "rl_table_idntfc_id" : idntfcId,
+        "dset_knd" : $('#dset_knd').val(),
+        "ordr" : parseInt($('#ordr').val()),
+
+        "refrn_table_idntfc_id" : $('#refrn_table_idntfc_id').val(),
+        "refrn_column_idntfc_id" : $('#refrn_column_idntfc_id').val(),
+        "table_eng_nm" : tableEngNm,
+        "column_eng_nm" : $('#column_eng_nm').val(),
+        "column_korean_nm" : $('#column_korean_nm').val(),
+
+        "column_dc" : $('#column_dc').val(),
+        "data_type" : $('#data_type').val(),
+        "data_lt" : $('#data_lt').val(),
+        "data_frmat" : null,
+        "not_null_at" : $('#not_null_at').val(),
+
+        "pk_info" : $('#pk_info').val(),
+        "fk_info" : $('#fk_info').val(),
+        "ak_info" : null,
+        "rstrct_cnd" : null,
+        "indvdl_info_at" : $('#indvdl_info_at').val(),
+
+        "encpt_at" : $('#encpt_at').val(),
+        "othbc_at" : null,
+        "column_stre_type" : $('#column_stre_type').val(),
+        "column_nm" : null,
+        "crud_se": $('#crud_se').val(),
+
+        "crud_dc": $('#crud_dc').val(),
+        "use_at": $('#use_at').val(),
+        "creat_table_at":$('#creat_table_at').val(),
+        // "menu_id" : $('#menu_id').val()
+    };
+
+
+
+    ajaxPost('/dp/ingest/meta/tables/update/column', saveColumnData, function (data) {
+        console.log('완료~/dp/ingest/meta/tables/update/column',data);
+        location.href="metaTableInfo?idntfcId="+idntfcId+"&table_korean_nm="+tableKoreanNm+"&table_eng_nm="+tableEngNm;
+    });
+}
 
 //참조 테이블 검색 팝업창
 function refrnTablePopup() {
     let table_korean_nm = $('#column_korean_nm').val();
-    let url = "/metaTblReferPopup?table_korean_nm=" + table_korean_nm;
+    let url = "/metaTblReferPopup";
     let name = "metaTblReferPopup";
-    let option = "width = 700, height = 700, top = 100, left = 200, location = no"
+    let option = "width = 700, height = 700, top = 100, left = 200, location = no";
     window.open(url, name, option);
 }
 
@@ -238,4 +333,14 @@ $("#data_type").change( function(el) {
     }
 });
 
+function setRefrn_column_idntfc_id(param1) {
+    refrn_table_idntfc_nm_list = param1;
+}
 
+$("#refrn_column_idntfc_id").change( function(el) {
+    console.log(refrn_table_idntfc_nm_list);
+
+    let engName1 = _.filter(refrn_table_idntfc_nm_list, data => data.column_korean_nm == $("#refrn_column_idntfc_id option:selected").text())[0];
+
+    $('#refrn_column_idntfc_nm').val(engName1.column_eng_nm);
+});

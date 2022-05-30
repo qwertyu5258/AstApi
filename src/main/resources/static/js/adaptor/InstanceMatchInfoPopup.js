@@ -61,7 +61,7 @@ function dp_ingest_adapter_it_source() {
         "instance_id": "I0000000000000000122"
     };
     ajaxPost('/dp/ingest/adapter/instance/source', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 
 }
@@ -72,7 +72,7 @@ function dp_ingest_adapter_it_pre() {
         "menu_id": ""
     };
     ajaxPost('/dp/ingest/adapter/instance/pre', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 

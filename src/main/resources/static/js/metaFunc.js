@@ -7,7 +7,7 @@ function dp_ingest_meta_tbl(param1, param2, param3, param4, param5) {
         "dset_sclas": "12",
     };
     ajaxPost('/dp/ingest/meta/tables', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_tbl_dset	get 	/dp/ingest/meta/tables/{}/dataset
@@ -17,7 +17,7 @@ function dp_ingest_meta_tbl_dset(param1, param2) {
         "search_type": "!2",
     };
     ajaxPost('/dp/ingest/meta/tables/{}/dataset', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_tbl_tbl	get 	/dp/ingest/meta/tables/{}/table
@@ -27,7 +27,7 @@ function dp_ingest_meta_tbl_tbl(param1, param2) {
         "search_type": "!2",
     };
     ajaxPost('/dp/ingest/meta/tables/{}/table', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_tbl_dset_id_chk	get 	/dp/ingest/meta/tables/dataset/id/check
@@ -37,7 +37,7 @@ function dp_ingest_meta_tbl_dset_id_chk(param1, param2) {
         "search_type": "!2",
     };
     ajaxPost('/dp/ingest/meta/tables/dataset/id/check', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_tbl_chk	get	/dp/ingest/meta/tables/{}/check
@@ -47,7 +47,7 @@ function dp_ingest_meta_tbl_chk(param1, param2) {
         "table_eng_nm" : "roadtraffic"
     };
     ajaxPost(`/dp/ingest/meta/tables/check`, data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_tbl_del_dset	post	/dp/ingest/meta/tables/delete/{}/dataset
@@ -57,7 +57,7 @@ function dp_ingest_meta_tbl_del_dset(param1, param2) {
         "search_type": "!2",
     };
     ajaxPost('/dp/ingest/meta/tables/delete/{}/dataset', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_tbl_del_tbl	post	/dp/ingest/meta/tables/delete/{}/table
@@ -67,7 +67,7 @@ function dp_ingest_meta_tbl_del_tbl(param1, param2) {
         "search_type": "!2",
     };
     ajaxPost('/dp/ingest/meta/tables/delete/{}/table', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_tbl_del_chk_tbl	get	/dp/ingest/meta/tables/delete/check/{}/table
@@ -77,7 +77,7 @@ function dp_ingest_meta_tbl_del_chk_tbl(param1, param2) {
         "search_type": "!2",
     };
     ajaxPost('/dp/ingest/meta/tables/delete/check/{}/table', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_tbl_save_dset	post	/dp/ingest/meta/tables/save/dataset
@@ -101,7 +101,7 @@ function dp_ingest_meta_tbl_save_dset(param1, param2) {
         "creat_table_at":null
     };
     ajaxPost('/dp/ingest/meta/tables/save/dataset', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_tbl_save_tbl	post	/dp/ingest/meta/tables/save/table
@@ -129,7 +129,7 @@ function dp_ingest_meta_tbl_save_tbl(param1, param2) {
         "creat_table_at":null
     };
     ajaxPost('/dp/ingest/meta/tables/save/table', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_tbl_update_dset	post	/dp/ingest/meta/tables/update/dataset/{}
@@ -139,7 +139,7 @@ function dp_ingest_meta_tbl_update_dset(param1, param2) {
         "search_type": "!2",
     };
     ajaxPost('/dp/ingest/meta/tables/update/dataset', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_tbl_update_tbl	post	/dp/ingest/meta/tables/update/table/{}
@@ -149,7 +149,7 @@ function dp_ingest_meta_tbl_update_tbl(param1, param2) {
         "search_type": "!2",
     };
     ajaxPost('/dp/ingest/meta/tables/update/table', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_tbl_col	get 	/dp/ingest/meta/tables/{}/column
@@ -159,7 +159,7 @@ function dp_ingest_meta_tbl_col(param1, param2) {
         "search_type": "!2",
     };
     ajaxPost('/dp/ingest/meta/tables/{}/column', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_tbl_col_dt	get 	/dp/ingest/meta/tables/{}/column/detail/{}
@@ -169,7 +169,7 @@ function dp_ingest_meta_tbl_col(param1, param2) {
         "search_type": "!2",
     };
     ajaxPost('/dp/ingest/meta/tables/{}/column/detail/{}', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_tbl_save_col	post	/dp/ingest/meta/tables/save/column
@@ -179,7 +179,7 @@ function dp_ingest_meta_tbl_save_col(param1, param2) {
         "search_type": "!2",
     };
     ajaxPost('/dp/ingest/meta/tables/save/column', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_tbl_update_col	post	/dp/ingest/meta/tables/update/{}/column/{}
@@ -189,7 +189,7 @@ function dp_ingest_meta_tbl_update_col(param1, param2) {
         "search_type": "!2",
     };
     ajaxPost('/dp/ingest/meta/tables/update/{}/column/{}', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_tbl_del_chk_col	get 	/dp/ingest/meta/tables/delete/check/{}/column/{}
@@ -199,7 +199,7 @@ function dp_ingest_meta_tbl_del_chk_col(param1, param2) {
         "search_type": "!2",
     };
     ajaxPost('/dp/ingest/meta/tables/delete/check/{}/column/{}', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_tbl_del_col	post	/dp/ingest/meta/tables/delete/{}/column/{}
@@ -209,7 +209,7 @@ function dp_ingest_meta_tbl_del_col(param1, param2) {
         "search_type": "",
     };
     ajaxPost('/dp/ingest/meta/tables/delete/{}/column/{}', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_popup_meta_tbl	get	/dp/ingest/popup/meta_table
@@ -219,7 +219,7 @@ function dp_ingest_popup_meta_tbl(param1, param2) {
         "user_id":"~~user_id"
     };
     ajaxPost('/dp/ingest/popup/meta_table', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_item	get	/dp/ingest/meta/item
@@ -233,7 +233,7 @@ function dp_ingest_meta_item(param1, param2) {
         "page_current":"3"
     };
     ajaxPost('/dp/ingest/meta/item', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_item_save	post	/dp/ingest/meta/item/save
@@ -243,7 +243,7 @@ function dp_ingest_meta_item_save(param1, param2) {
         "search_type": "!2",
     };
     ajaxPost('/dp/ingest/meta/item/save', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_data_models_pp	get	/dp/ingest/data/models/property/{}
@@ -253,7 +253,7 @@ function dp_ingest_data_models_pp(param1, param2) {
         "search_type": "!2",
     };
     ajaxPost('/dp/ingest/data/models/property/{}', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_dset_type	get	/dp/ingest/meta/dataset/type/{}
@@ -263,7 +263,7 @@ function dp_ingest_meta_dset_type(param1, param2) {
         "search_type": "!2",
     };
     ajaxPost('/dp/ingest/meta/dataset/type/{}', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_dset_dt	get	/dp/ingest/meta/dataset/detail/{}
@@ -273,7 +273,7 @@ function dp_ingest_meta_dset_dt(param1, param2) {
         "search_type": "!2",
     };
     ajaxPost('/dp/ingest/meta/dataset/detail/{}', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_dset_update	post	/dp/ingest/meta/dataset/update/{}
@@ -283,7 +283,7 @@ function dp_ingest_meta_dset_update(param1, param2) {
         "search_type": "!2",
     };
     ajaxPost('/dp/ingest/meta/dataset/update/{}', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 // dp_ingest_meta_dset_del	post	/dp/ingest/meta/dataset/delete/{}
@@ -293,7 +293,7 @@ function dp_ingest_meta_dset_del(param1, param2) {
         "search_type": "!2",
     };
     ajaxPost('/dp/ingest/meta/dataset/delete/{}', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 

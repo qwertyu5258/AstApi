@@ -65,7 +65,7 @@
                   </div>
                 </div>
                 <div class="col-12 col-md-2 btn_search_box">
-                  <button class="btn btn-primary" onclick="search();"> <i class="glyphicon glyphicon-search"></i></button>
+                  <button class="btn btn-primary" onclick="search(1);"> <i class="glyphicon glyphicon-search"></i></button>
                 </div>
                 <div class="col-12 col-md-12">
                   <div class="right_btns">

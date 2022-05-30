@@ -85,6 +85,9 @@
     <%@include file="../A1.Common/commonJs.jsp" %>
     <script src="http://jonmiles.github.io/bootstrap-treeview/js/bootstrap-treeview.js"></script>
     <script>
+
+
+
         $(document).ready(initTable);
 
         function initTable () {
@@ -97,7 +100,7 @@
             $('#tableKoName').val(table_korean_nm)
 
             let data = {
-                "table_korean_nm":table_korean_nm,
+                "table_korean_nm":'',
                 "user_id":"user_id"
             }
 
@@ -121,20 +124,18 @@
 
         //검색
         function metaTblReferPopupSearch() {
-            if(!$("#tableKoName").val()){
-                alert("검색 테이블명을 작성하세요.");
-                return;
-            }
 
             const data = {
                 "user_id":"~~id",
                 "table_korean_nm": $("#tableKoName").val()
             };
 
-            ajaxPost('/dp/ingest/meta/tables', data, function (data) {
+            ajaxPost('/dp/ingest/popup/meta_table', data, function (data) {
                 console.log(data);
                 let obj = data.contents;
                 let trHTML;
+
+                $("#metaTblReferPopupData tbody").empty()
 
                 $("#metaTblReferPopupCnt").html("총 "+obj.length+"개");
 
@@ -162,13 +163,22 @@
                 console.log('/dp/ingest/meta/tables/column', data);
 
                 let obj = data.contents;
+                let openerList = []
+
                 $(opener.document).find("#refrn_column_idntfc_id")
                 $(opener.document).find("#refrn_column_idntfc_id").empty();
                 let selectHtml = "";
                 for(let i=0; i < obj.length; i++){
                     selectHtml += `<option value="`+obj[i].column_idntfc_id+`">`+obj[i].column_korean_nm+`</option>`;
+                    openerList.push({
+                        'column_korean_nm' : obj[i].column_korean_nm,
+                        'column_idntfc_id' : obj[i].column_idntfc_id,
+                        'column_eng_nm': obj[i].column_eng_nm,
+                    });
                 }
                 $(opener.document).find("#refrn_column_idntfc_id").append(selectHtml);
+
+                window.opener.setRefrn_column_idntfc_id(openerList);
                 window.close();
             });
 

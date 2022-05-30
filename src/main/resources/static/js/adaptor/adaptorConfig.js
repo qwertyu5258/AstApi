@@ -16,7 +16,7 @@ function adaptorConfigInit () {
         let obj = data.contents;
         let trHTML = "";
 
-        $("#adaptorConfigCnt").html("총 "+obj.length+"개");
+        $("#adaptorConfigCnt").html("총 "+data.totalcount+"개");
         $("#adaptorConfigData tbody").empty();
 
         for (let i = 0; i < obj.length; i++) {
@@ -51,7 +51,7 @@ function search() {
         let obj = data.contents;
         let trHTML = "";
 
-        $("#adaptorConfigCnt").html("총 "+obj.length+"개");
+        $("#adaptorConfigCnt").html("총 "+data.totalcount+"개");
         $("#adaptorConfigData tbody").empty();
 
         for (let i = 0; i < obj.length; i++) {

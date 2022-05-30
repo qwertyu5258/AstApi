@@ -48,7 +48,7 @@ function instanceList() {
         let obj = data.contents;
         let trHTML = "";
 
-        $("#instanceListCnt").html("총 "+obj.length+"개");
+        $("#instanceListCnt").html("총 "+data.totalcount+"개");
         $("#instanceListData tbody").empty();
 
         for (let i = 0; i < obj.length; i++) {

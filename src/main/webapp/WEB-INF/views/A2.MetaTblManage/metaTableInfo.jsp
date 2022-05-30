@@ -46,6 +46,7 @@
         </div>
 
           <div class="right_col" role="main">
+              테이블 정보 :메타 테이블 관리
               <div class="row">
                   <div class="col-md-12">
                       <div class="x_panel">
@@ -80,10 +81,11 @@
                           </div>
                           <div class="x_content">
                               <div class="table_responsive">
-                                  <div class="talbel_total" id="metaTableInfoCnt">총 1개</div>
+                                  <div class="talbel_total" id="metaTableInfoCnt">총 개</div>
                                   <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableInfoDel()">삭제</button>
                                   <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableInfoAdd()">추가</button>
                                   <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableList()">목록</button>
+                                  <div style="overflow-x: scroll;width: 100%;height: 420px;">
                                   <table class="table table-striped" id="metaTableInfo1">
                                       <colgroup>
                                           <col width="55px">
@@ -111,13 +113,8 @@
                                       <tbody>
                                       </tbody>
                                   </table>
+                                  </div>
                                   <div class="nav justify-content-center">
-                                      <ul class="pagination">
-                                          <li class="page-item"> <a class="page-link" href="#">&lt; </a></li>
-                                          <li class="page-item"> <a class="page-link" href="#">1   </a></li>
-                                          <li class="page-item"> <a class="page-link" href="#">2 </a></li>
-                                          <li class="page-item"> <a class="page-link" href="#">&gt;           </a></li>
-                                      </ul>
                                   </div>
                               </div>
                           </div>
@@ -125,7 +122,7 @@
                   </div>
               </div>
 
-              <div class="row" id="metaTableInfoColDt">
+              <div class="row" id="metaTableInfoColDt" style="display: none">
                   <input type="hidden" id="hidden_column_idntfc_id" value="">
                   <div class="col-md-12">
                       <div class="x_panel">
@@ -158,6 +155,7 @@
                                           <th colspan="3">
                                               <input class="form-control" id="refrn_table_idntfc_id" type="text" disabled="disabled" style="display: inline-block;width: 85%">
                                               <button class="btn btn-primary" onclick="refrnTablePopup();"> <i class="glyphicon glyphicon-search"></i></button>
+                                              <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" data-target=".modal">버튼</button>
 
                                           </th>
                                       </tr>
@@ -361,4 +359,7 @@
 
 
   </body>
+
+  <%@include file="./metaTblReferPopup.jsp" %>
+
 </html>

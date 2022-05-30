@@ -17,7 +17,7 @@ function collectErrListInit () {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";
-        $("#processListCnt").html("총 "+obj.length+"개");
+        $("#processListCnt").html("총 "+data.totalcount+"개");
         $("#table1 tbody").empty();
 
         for (let i = 0; i < obj.length; i++) {
@@ -39,7 +39,7 @@ function dp_ingest_meta_tbl_col() {
         "table_idntfc_id" : "T0000000000000000011"
     };
     ajaxPost('/dp/ingest/meta/tables/column', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 function dp_ingest_adapter_it_tbl() {
@@ -48,7 +48,7 @@ function dp_ingest_adapter_it_tbl() {
         "table_idntfc_id" : "T0000000000000000021"
     };
     ajaxPost('/dp/ingest/adapter/instance/table', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 function dp_ingest_meta_tbl_make() {
@@ -57,7 +57,7 @@ function dp_ingest_meta_tbl_make() {
         "table_eng_nm" : "roadtraffictttt"
     };
     ajaxPost('/dp/ingest/meta/tables/make', data, function (data) {
-        alert('완료~113');
+        alert('완료');
     });
 }
 /////////////////////////////////////////////////////////////////////////////////
@@ -69,7 +69,7 @@ function search() {
         console.log(data);
         let obj = data.contents;
         let trHTML = "";
-        $("#processListCnt").html("총 "+obj.length+"개");
+        $("#processListCnt").html("총 "+data.totalcount+"개");
         $("#instanceData tbody").empty();
 
         for (let i = 0; i < obj.length; i++) {

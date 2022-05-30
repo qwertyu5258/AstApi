@@ -104,7 +104,7 @@
                                 </div>
                               </div>
                               <div class="col-12 col-md-1 btn_search_box">
-                                <button class="btn btn-primary" onclick="search()"> <i class="glyphicon glyphicon-search"></i></button>
+                                <button class="btn btn-primary" onclick="search(1)"> <i class="glyphicon glyphicon-search"></i></button>
                               </div>
                           </div>
                           <div class="x_title col-md-11 mb-4">

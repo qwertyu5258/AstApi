@@ -91,7 +91,7 @@
                     <input class="form-control" type="text" placeholder="" id="SelectText">
                   </th>
                   <th>
-                    <button class="btn btn-primary" style="float:right" onclick="search()">검색</button>
+                    <button class="btn btn-primary" style="float:right" onclick="search(1)">검색</button>
                   </th>
                 </tr>
 

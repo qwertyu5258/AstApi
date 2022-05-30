@@ -104,7 +104,7 @@
                                           <input class="form-control" type="text" placeholder="" id="SelectText">
                                       </th>
                                       <th>
-                                          <button class="btn btn-primary" style="float:right" onclick="searchTbl(1)">검색~~!</button>
+                                          <button class="btn btn-primary" style="float:right" onclick="searchTbl(1)">검색</button>
                                       </th>
                                   </tr>
 
@@ -124,7 +124,7 @@
                           </div>
                           <div class="x_content">
                               <div class="table_responsive">
-                                  <div class="talbel_total" id="metaTableCnt">총 1개</div>
+                                  <div class="talbel_total" id="metaTableCnt">총 개</div>
                                   <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableDel()">삭제</button>
                                   <button class="btn btn-primary" style="width:10%;float:right" onclick="metaTableAdd()">추가</button>
                                   <button class="btn btn-primary" style="width:13%;float:right" onclick="metaTableEdit(this)" id="tableAddEdit1">테이블생성</button>
@@ -179,7 +179,7 @@
                   </div>
               </div>
 
-              <div class="row" id="dataSetItem">
+              <div class="row" id="dataSetItem" style="display: none">
                   <div class="col-md-12">
                       <div class="x_panel">
                           <div class="x_title">
@@ -304,7 +304,7 @@
                                               수집 테이블 생성 여부
                                           </th>
                                           <th>
-                                              <input class="form-control" type="text" placeholder="" id="creat_table_at1" readonly>
+                                              <input class="form-control" type="text" placeholder="" id="creatTableAt1" readonly>
                                           </th>
                                       </tr>
                                       </thead>
@@ -317,7 +317,7 @@
                   </div>
               </div>
 
-              <div class="row" id="tableItem">
+              <div class="row" id="tableItem" style="display: none">
                   <div class="col-md-12">
                       <div class="x_panel">
                           <div class="x_title">
@@ -357,7 +357,7 @@
                                           </th>
                                           <th colspan="3">
                                               <input class="form-control" type="text" placeholder="" id="table_eng_nm2" style="display: inline-block;width: 70%">
-                                              <button class="btn btn-primary" style="float:right" onclick="table_eng_nm_chk()">중복체크</button>
+                                              <button class="btn btn-primary" style="float:right" id="dupCheck" onclick="table_eng_nm_chk()">중복체크</button>
                                           </th>
                                       </tr>
                                       <tr>
@@ -383,9 +383,9 @@
                                           </th>
                                           <th>
                                               <select class="form-control" id="physic_table_ty">
-                                                  <option value="">마스터 테이블</option>
-                                                  <option value="">일반 테이블</option>
-                                                  <option value="">메타 테이블</option>
+                                                  <option value="masterTbl">마스터 테이블</option>
+                                                  <option value="nomalTbl">일반 테이블</option>
+                                                  <option value="metaTbl">메타 테이블</option>
                                               </select>
                                           </th>
                                           <th>
@@ -417,7 +417,7 @@
                                               수집 테이블 생성 여부
                                           </th>
                                           <th>
-                                              <input class="form-control" type="text" placeholder="" id="creat_table_at2" readonly>
+                                              <input class="form-control" type="text" placeholder="" id="creatTableAt2" readonly>
                                           </th>
                                       </tr>
                                       </thead>
@@ -456,9 +456,6 @@
     <%@include file="../A1.Common/commonJs.jsp" %>
     <script type="text/javascript" src="../js/metaTable/metaTable.js"></script>
     <script src="http://jonmiles.github.io/bootstrap-treeview/js/bootstrap-treeview.js"></script>
-
-
-
 
   </body>
 </html>

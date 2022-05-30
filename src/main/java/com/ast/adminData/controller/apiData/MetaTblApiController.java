@@ -191,9 +191,23 @@ public class MetaTblApiController {
 
     //    dpIngestMetaTblUpdateCol	/dp/ingest/meta/tables/update/{}/column/{}	post
     @PostMapping(value = {"/dp/ingest/meta/tables/update/column"})
-    public Map dpIngestMetaTblUpdateCol(@RequestBody Map<String, Object> params) {
+    public Map dp_ingest_meta_tbl_make(@RequestBody Map<String, Object> params) {
 
         Map<String, Object> DataList = restService.postApi("/dp/ingest/meta/tables/update/column", params);
+
+        return DataList;
+    }
+    @PostMapping(value = {"/dp/ingest/meta/tables/make"})
+    public Map dpIngestMetaTblUpdateCol(@RequestBody Map<String, Object> params) {
+
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/meta/tables/make", params);
+
+        return DataList;
+    }
+    @PostMapping(value = {"/dp/ingest/meta/tables/remake"})
+    public Map dp_ingest_meta_tbl_remake(@RequestBody Map<String, Object> params) {
+
+        Map<String, Object> DataList = restService.postApi("/dp/ingest/meta/tables/remake", params);
 
         return DataList;
     }
