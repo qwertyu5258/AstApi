@@ -90,7 +90,7 @@
                                   <div class="form-control_box">
                                     <div class="col-md-3 pl-0">
                                       <select class="form-control" id="adapterSearchType">
-                                        <option value="">Choose option</option>
+                                        <option value="">선 택</option>
                                         <option value="adapter_nm">adapter 명</option>
                                         <option value="adapter_type_nm">adapter 유형</option>
                                       </select>

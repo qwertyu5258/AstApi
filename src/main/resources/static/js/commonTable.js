@@ -1,5 +1,12 @@
 let totalPage1;
-function pageNation(totalPage, listPerPage, startNum) {
+let totalPage2;
+
+function pageNation(totalPage, listPerPage, startNum, positionId) {
+    if(startNum % 10 == 0) {
+        startNum = startNum - 9;
+    } else {
+        startNum = parseInt(startNum / 10) * 10 + 1;
+    }
 
     totalPage1 = totalPage;
     $('.pagination').empty();
@@ -28,16 +35,17 @@ function pageNation(totalPage, listPerPage, startNum) {
 }
 
 function markPage(pageNum) {
+    if(pageNum == totalPage1){
+        $('#afterPage').attr('onclick','');
+    }
     if(pageNum % 10 == 0){
-        pageNum = pageNum;
+        pageNum = 10;
     } else {
         pageNum = pageNum % 10;
     }
     $('.page-link').css("background-color","white");
     $('.page-link')[pageNum + 1].style.backgroundColor = '#dee2e6';
-    if(pageNum == totalPage1){
-        $('#afterPage').attr('onclick','');
-    }
+
 }
 function beforePage() {
     console.log('beforePage');
@@ -86,6 +94,106 @@ function afterMostPage() {
 
     markPage(totalPage1);
 }
+function pageNation2(totalPage, listPerPage, startNum) {
+    if(startNum % 10 == 0) {
+        startNum = startNum - 9;
+    } else {
+        startNum = parseInt(startNum / 10) * 10 + 1;
+    }
+
+    totalPage2 = totalPage;
+    $('#pagination2').empty();
+
+    let HTML = '';
+
+    let lastCheck = false;
+
+    HTML += `<li  class="page-item2"> <a class="page-link2" id="beforeMostPage2" onclick="beforeMostPage2()"> << </a></li>`;
+    HTML += `<li  class="page-item2"> <a class="page-link2" id="beforePage2" onclick="beforePage2()"> < </a></li>`;
+    for (let i = startNum- 1 ; i <  ((totalPage < (startNum + 10)) ?  totalPage:  (startNum + 9)) ; i++) {
+        HTML += `<li  class="page-item2"> <a class="page-link2" onclick="searchTbl2(` + (i + 1) + `, 'pageSelect')">` +  (i + 1)  +  `</a></li>`;
+        if((i + 1) == totalPage){
+            lastCheck = true;
+        }
+    }
+    if(lastCheck == true){
+        HTML += `<li  class="page-item2"> <a class="page-link2" id="afterPage2" onclick="afterPage2()"> > </a></li>`;
+        // HTML += `<li  class="page-item"> <a class="page-link" id="afterMostPage" onclick="searchTbl(${totalPage}, 'pageSelect')"> >> </a></li>`;
+        HTML += `<li  class="page-item2"> <a class="page-link2" id="afterMostPage2" onclick="afterMostPage2()"> >> </a></li>`;
+    } else {
+        HTML += `<li  class="page-item2"> <a class="page-link2" id="afterPage2" onclick="afterPage2()"> > </a></li>`;
+        HTML += `<li  class="page-item2"> <a class="page-link2" id="afterMostPage2" onclick="afterMostPage2()"> >> </a></li>`;
+    }
+    $('#pagination2').append(HTML);
+}
+
+function markPage2(pageNum) {
+    if(pageNum == totalPage2){
+        $('#afterPage2').attr('onclick','');
+    }
+    if(pageNum % 10 == 0){
+        pageNum = 10;
+    } else {
+        pageNum = pageNum % 10;
+    }
+    $('.page-link2').css("background-color","white");
+    $('.page-link2')[pageNum + 1].style.backgroundColor = '#dee2e6';
+
+}
+function beforePage2() {
+    console.log('beforePage');
+    // let indexNum = _.findIndex($('.page-link'), function(o) { return o.style.backgroundColor == 'rgb(222, 226, 230)'; });
+    let indexNum = _.filter($('.page-link2'),function(o) { return o.style.backgroundColor == 'rgb(222, 226, 230)'; })[0].innerText;
+    indexNum = parseInt(indexNum);
+    if(indexNum == 1) {
+        searchTbl2(indexNum, 'pageSelect');
+    } else {
+        searchTbl2(indexNum - 1, 'pageSelect');
+    }
+}
+function beforeMostPage2() {
+    console.log('beforePage');
+    // let indexNum = _.findIndex($('.page-link'), function(o) { return o.style.backgroundColor == 'rgb(222, 226, 230)'; });
+    let indexNum = _.filter($('.page-link2'),function(o) { return o.style.backgroundColor == 'rgb(222, 226, 230)'; })[0].innerText;
+    indexNum = parseInt(indexNum);
+    searchTbl2(1, 'pageSelect');
+}
+function afterPage2() {
+    console.log('beforePage');
+    // let indexNum = _.findIndex($('.page-link'), function(o) { return o.style.backgroundColor == 'rgb(222, 226, 230)'; });
+    let indexNum = _.filter($('.page-link2'),function(o) { return o.style.backgroundColor == 'rgb(222, 226, 230)'; })[0].innerText;
+    if(indexNum != totalPage2) {
+        indexNum = parseInt(indexNum);
+        searchTbl2(indexNum + 1, 'pageSelect');
+        if ((indexNum) % 10 == 0) {
+            pageNation2(totalPage2, 10, indexNum + 1);
+        }
+        markPage2(indexNum + 1);
+    } else {
+
+    }
+}
+function afterMostPage2() {
+    console.log('beforePage');
+
+    let indexNum = parseInt(totalPage2 / 10 ) * 10 + 1;
+
+    // let indexNum = _.findIndex($('.page-link'), function(o) { return o.style.backgroundColor == 'rgb(222, 226, 230)'; });
+    // let indexNum = _.filter($('.page-link'),function(o) { return o.style.backgroundColor == 'rgb(222, 226, 230)'; })[0].innerText;
+    searchTbl2(totalPage2, 'pageSelect');
+    if(totalPage2 >= indexNum) {
+        pageNation2(totalPage2, 10, indexNum);
+    }
+
+    markPage2(totalPage2);
+}
+
+
+
+
+
+
+
 
 function checkBoxAll(TblName) {
 
@@ -101,7 +209,6 @@ function checkBoxAll(TblName) {
         }
     });
 }
-
 function IsChecked(TblName) {
     var resultChk = false;
     $(`.${TblName}`).each(function(index,el) {

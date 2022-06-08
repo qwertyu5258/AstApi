@@ -32,7 +32,7 @@ function ajaxPost(url, param, callback) {
             } else if (data.return_code == undefined) {
                 alert('API 응답없음');
             } else {
-                alert('error,  returnCode : ' + data.returnCode + " : " + data.returnMsg + " : " + "return_code: " + data.return_code + "return_msg : " + data.return_msg + url);
+                alert(data?.contents[0]?.error);
             }
         },
         error: function(data, status, error) {

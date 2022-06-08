@@ -209,7 +209,7 @@
                                           </th>
                                           <th>수집방식</th>
                                           <th><select class="form-control clct_mthd1" id="clct_mthd1" disabled>
-                                              <option val="">Choose option</option>
+                                              <option val="">선 택</option>
 
                                           </select></th>
                                           <th rowspan="3" style="vertical-align: middle;">데이터셋 설명</th>
@@ -235,7 +235,7 @@
                                           </th>
                                           <th>
                                               <select class="form-control clct_ty1" id="clct_ty1" disabled>
-                                                  <option val="">Choose option</option>
+                                                  <option val="">선 택</option>
 
                                                   <option value="FILE UPLOAD">FILE UPLOAD</option>
                                               </select>
@@ -247,7 +247,7 @@
                                           </th>
                                           <th>
                                               <select class="form-control" id="dset_mclas1">
-                                                  <option val="">Choose option</option>
+                                                  <option val="">선 택</option>
                                                   <option>B1</option>
                                                   <option>B2</option>
                                                   <option>B3</option>
@@ -269,7 +269,7 @@
                                           </th>
                                           <th>
                                               <select class="form-control" id="dset_sclas1">
-                                                  <option val="">Choose option</option>
+                                                  <option val="">선 택</option>
                                                   <option>C1</option>
                                                   <option>C2</option>
                                                   <option>C3</option>
@@ -399,6 +399,7 @@
                                               </select>
                                           </th>
                                           <th rowspan="2" style="vertical-align: middle">CUD 설명</th>
+                                          <th rowspan="2" style="vertical-align: middle"></th>
                                           <th rowspan="2" style="vertical-align: middle">
                                               <textarea style="width: 100%;height: 100px;" id="crud_dc2"></textarea>
                                           </th>

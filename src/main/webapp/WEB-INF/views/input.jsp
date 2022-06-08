@@ -173,7 +173,7 @@
                         <label class="control-label">라이선스</label>
                         <div class="form-control_box">
                           <select class="form-control">
-                            <option>Choose option</option>
+                            <option>선 택</option>
                           </select>
                         </div>
                       </div>

@@ -42,7 +42,7 @@
                                       <label class="control-label">Adaptor 유형</label>
                                       <div class="form-control_box duplicate_box" id="adapterType">
                                           <select class="form-control" id="adapterTypeId">
-                                              <option value="">Choose option</option>
+                                              <option value="">선 택</option>
 
                                           </select>
                                       </div>

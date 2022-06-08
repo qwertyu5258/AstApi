@@ -32,7 +32,7 @@ function processListInit () {
             trHTML += `<th>속성유형</th> `;
             trHTML += `<td>`;
             trHTML += `<select className="form-control col-md-12">`;
-            trHTML += `<option>Choose option</option>`;
+            trHTML += `<option>선 택</option>`;
             trHTML += `<option>Option two</option>`;
             trHTML += `<option>Option three</option>`;
             trHTML += `<option>Option four</option>`;
@@ -45,7 +45,7 @@ function processListInit () {
             trHTML += `<th>변경유형</th>`;
             trHTML += `<td>`;
             trHTML += `<select className="form-control">`;
-            trHTML += `<option>Choose option</option>`;
+            trHTML += `<option>선 택</option>`;
             trHTML += `<option>Option two</option>`;
             trHTML += `<option>Option three</option>`;
             trHTML += `<option>Option four</option>`;

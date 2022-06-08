@@ -113,7 +113,7 @@
                               <th>데이터타입</th>
                               <th>
                                 <select class="form-control" id="">
-                                  <option value="">Choose option</option>
+                                  <option value="">선 택</option>
                                 </select>
                               </th>
                               <th>데이터길이</th>
@@ -132,7 +132,7 @@
                               <th>데이터셋 종류</th>
                               <th>
                                 <select class="form-control" id="adapterSearchType">
-                                  <option value="">Choose option</option>
+                                  <option value="">선 택</option>
                                 </select>
                               </th>
                             </tr>
@@ -156,7 +156,7 @@
                               <th>참조 테이블 식별자</th>
                               <th>
                                 <select class="form-control" id="">
-                                  <option value="">Choose option</option>
+                                  <option value="">선 택</option>
                                 </select>
                               </th>
                               <th>참조 테이블 명</th>
@@ -184,7 +184,7 @@
                               <th>컬럼저장 타입</th>
                               <th>
                                 <select class="form-control" id="">
-                                  <option value="">Choose option</option>
+                                  <option value="">선 택</option>
                                 </select>
                               </th>
                               <th>정렬순서</th>
@@ -196,7 +196,7 @@
                               <th>사용여부</th>
                               <th>
                                 <select class="form-control" id="">
-                                  <option value="">Choose option</option>
+                                  <option value="">선 택</option>
                                 </select>
                               </th>
                               <th>CRUD 구분</th>

@@ -53,11 +53,12 @@
               <div class="clearfix"> </div>
             </div>
             <div class="x_content">
-              <form class="form-horizontal form-label-left d-flex align-items-center row">
                 <div class="col-12 col-md-12">
                   <div class="table_responsive">
                     <h3>코드 관리</h3>
-                    <div class="qty_total mb-2">코드 그룹 <span class="ml-5">총 20건</span></div>
+                    <div class="qty_total mb-2">코드 그룹
+                      <div class="talbel_total" id="tableCnt">총 개</div>
+                    </div>
                     <table class="table table-striped table-bordered">
                       <colgroup>
                           <col width="150px" />
@@ -70,18 +71,20 @@
                           <td>
                             <div class="form-control_box">
                               <div class="col-md-6">
-                                <input class="form-control" type="text">
+                                <input class="form-control" type="text" id="SelectText">
                               </div>
-                              <button class="btn btn-primary">검색</button>
-                              <button class="btn btn-primary">추가</button>
+                              <button type="button" class="btn btn-primary" onclick="searchTbl(1)">검색</button>
+                              <button class="btn btn-primary" data-toggle="modal" data-target=".modal">추가</button>
                             </div>
                           </td>
                         </tr>
                         <tr>
                           <td bgcolor="#fff">
-                            <table class="table table-striped table-bordered">
+                            <table class="table table-striped table-bordered" id="table1">
                                 <thead>
                                   <tr>
+                                    <th>분류명</th>
+                                    <th>분류코드</th>
                                     <th>코드그룹 ID</th>
                                     <th>코드 그룹명</th>
                                     <th>사용여부</th>
@@ -89,36 +92,6 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  <tr>
-                                    <td>I01</td>
-                                    <td>사용여부</td>
-                                    <td>사용</td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td>I02</td>
-                                    <td>데이터포멧유형</td>
-                                    <td>사용</td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td>I03</td>
-                                    <td>데이터요청기관</td>
-                                    <td>사용</td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td>I04</td>
-                                    <td>수집유형</td>
-                                    <td>사용</td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td>I05</td>
-                                    <td>수집방식</td>
-                                    <td>사용</td>
-                                    <td></td>
-                                  </tr>
                                 </tbody>
                             </table>
                             <div class="nav justify-content-center">
@@ -135,8 +108,9 @@
                     </table>
                   </div>
                   <div class="table_responsive mt-4">
-                    <div class="qty_total mb-2">코드 <span class="ml-5">총 20건</span></div>
-                    <table class="table table-striped table-bordered">
+                    <div class="qty_total mb-2">코드
+                    <div class="talbel_total" id="tableCnt2">총 개</div>
+                    <table class="table table-striped table-bordered" >
                       <colgroup>
                         <col width="150px" />
                       </colgroup>
@@ -148,16 +122,16 @@
                         <td>
                           <div class="form-control_box">
                             <div class="col-md-6">
-                              <input class="form-control" type="text">
+                              <input class="form-control" type="text" id="SelectText2">
                             </div>
-                            <button class="btn btn-primary">검색</button>
-                            <button class="btn btn-primary">추가</button>
+                            <button type="button" class="btn btn-primary" onclick="searchTbl2(1)">검색</button>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#modal3">추가</button>
                           </div>
                         </td>
                       </tr>
                       <tr>
                         <td bgcolor="#fff">
-                          <table class="table table-striped">
+                          <table class="table table-striped" id="table2">
                             <thead>
                             <tr>
                               <th>코드그룹 ID</th>
@@ -165,52 +139,14 @@
                               <th>코드명</th>
                               <th>사용여부</th>
                               <th>코드 설명</th>
+                              <th>기타 코드</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                              <td>I01</td>
-                              <td>I01001</td>
-                              <td>사용여부</td>
-                              <td>사용</td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                                <td>I01</td>
-                                <td>I01001</td>
-                                <td>사용여부</td>
-                                <td>사용</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>I01</td>
-                                <td>I01001</td>
-                                <td>사용여부</td>
-                                <td>사용</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>I01</td>
-                                <td>I01001</td>
-                                <td>사용여부</td>
-                                <td>사용</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>I01</td>
-                                <td>I01001</td>
-                                <td>사용여부</td>
-                                <td>사용</td>
-                                <td></td>
-                            </tr>
                             </tbody>
                           </table>
                           <div class="nav justify-content-center">
-                            <ul class="pagination">
-                              <li class="page-item"> <a class="page-link" href="#">&lt; </a></li>
-                              <li class="page-item"> <a class="page-link" href="#">1 </a></li>
-                              <li class="page-item"> <a class="page-link" href="#">2 </a></li>
-                              <li class="page-item"> <a class="page-link" href="#">&gt; </a></li>
+                            <ul class="pagination2" id="pagination2">
                             </ul>
                           </div>
                         </td>
@@ -221,7 +157,6 @@
                     </table>
                   </div>
                 </div>
-              </form>
             </div>
           </div>
         </div>
@@ -230,6 +165,17 @@
   </div>
 
   <%@include file="/WEB-INF/views/A1.Common/commonJs.jsp" %>
+  <script type="text/javascript" src="../js/systemManage/codeManage.js"></script>
+  <script type="text/javascript" src="../js/systemManage/codeManagePopup.js"></script>
+
+    <%@include file="/WEB-INF/views/A2.SystemManage/codeManagePopup.jsp" %>
+
+
+
+
+
+    </div>
+
 
 </body>
 </html>

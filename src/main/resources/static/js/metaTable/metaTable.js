@@ -96,7 +96,7 @@ function searchTbl(pageNum, type) {
         $("#metaTableCnt").html("총 " + data.totalcount + "개");
         $("#metaTable1 tbody").empty();
 
-        pageNation(data.page_no, 10, 1);
+        pageNation(data.page_no, 10, pageNum);
         markPage(pageNum);
 
         for (let i = 0; i < data.contents.length; i++) {
@@ -145,6 +145,10 @@ function metaTableAdd() {
 
     $("#tableAddEdit1").text("테이블생성");
 
+    $('#dupCheck').show();
+    $("#table_eng_nm2").css("width","72%");
+    $('#table_eng_nm2').prop('readonly', false);
+
 }
 
 //삭제 버튼
@@ -162,34 +166,44 @@ function metaTableDel() {
 
     let delStatus = true;
     if (window.confirm("정말 삭제하시겠습니까?")) {
+
         let delDestIdntfcId = checked_val[0].split("@")[0];
-
-        let data = {
-            "user_id": "userId",
-            "dset_idntfc_id": delDestIdntfcId
+        var data1 = {
+            "user_id":"user_id",
+            "table_idntfc_id" : delDestIdntfcId
         };
+        ajaxPost('/dp/ingest/meta/tables/delete/check/table', data1, function (data) {
+            if (data.contents[0].successYN == 'Y') {
+                let data2 = {
+                    "user_id": "userId",
+                    "dset_idntfc_id": delDestIdntfcId
+                };
 
-        $.ajax({
-            type: 'post',
-            url: '/dp/ingest/meta/tables/delete/dataset',
-            contentType: "application/json;charset=UTF-8",
-            data: JSON.stringify(data),
-            success: function (data, textStatus, xhr) {
-                console.log('완료~dp_ingest_meta_tbl_del_dset', data);
-            },
-            error: function (data, status, error) {
-                console.log('ajax Error: ' + data);
-                delStatus = false;
+                $.ajax({
+                    type: 'post',
+                    url: '/dp/ingest/meta/tables/delete/dataset',
+                    contentType: "application/json;charset=UTF-8",
+                    data: JSON.stringify(data2),
+                    success: function (data, textStatus, xhr) {
+                        console.log('완료~dp_ingest_meta_tbl_del_dset', data);
+                    },
+                    error: function (data, status, error) {
+                        console.log('ajax Error: ' + data);
+                        delStatus = false;
+                    }
+                });
+                if (delStatus) {
+                    alert("선택한 항목이 정상적으로 삭제되었습니다.");
+                    // location.href="metaTable";
+                } else {
+                    alert("선택한 항목중 일부 삭제되지않았습니다.");
+                }
+            } else{
+                alert('메타테이블 테이블 삭제 체크 : N');
             }
         });
-
-        if (delStatus) {
-            alert("선택한 항목이 정상적으로 삭제되었습니다.");
-            // location.href="metaTable";
-        } else {
-            alert("선택한 항목중 일부 삭제되지않았습니다.");
-        }
     }
+
 }
 
 //테이블수정 버튼
@@ -261,17 +275,17 @@ function dataSetTableData(id, status) {
 
         $("#creatTableAt1").val(datasetData.contents[0].creat_table_at); //수집 테이블 생성 여부
 
-        if (datasetData.contents[0].creat_table_at == 'Y'){
-            $('#table_eng_nm2'). prop('readonly', true);
-            $('#dupCheck').hide();
-            $("#table_eng_nm2").css("width","100%");
-            $("#tableAddEdit1").text("테이블수정");
-        } else {
-            $('#table_eng_nm2'). prop('readonly', false);
-            $('#dupCheck').show();
-            $("#table_eng_nm2").css("width","70%");
-            $("#tableAddEdit1").text("테이블생성");
-        }
+        // if (datasetData.contents[0].creat_table_at == 'Y'){
+        //     $('#table_eng_nm2'). prop('readonly', true);
+        //     $('#dupCheck').hide();
+        //     $("#table_eng_nm2").css("width","100%");
+        //     $("#tableAddEdit1").text("테이블수정");
+        // } else {
+        //     $('#table_eng_nm2'). prop('readonly', false);
+        //     $('#dupCheck').show();
+        //     $("#table_eng_nm2").css("width","70%");
+        //     $("#tableAddEdit1").text("테이블생성");
+        // }
 
         $("#hidden_dset_idntfc_id").val(datasetData.contents[0].dset_idntfc_id);  //데이터셋_식별_ID
 
@@ -323,6 +337,28 @@ function dataSetTableData(id, status) {
 
             $("#dataSetItem").show();
             $("#tableItem").show();
+
+            $("#dataSetItemEditBtn").show();
+
+            if (datasetData.contents[0].creat_table_at == 'Y'){
+                $('#table_eng_nm2'). prop('readonly', true);
+                $('#dupCheck').hide();
+                $("#table_eng_nm2").css("width","100%");
+                $("#tableAddEdit1").text("테이블수정");
+            } else {
+                $('#table_eng_nm2'). prop('readonly', false);
+                $('#dupCheck').show();
+                $("#table_eng_nm2").css("width","70%");
+                $("#tableAddEdit1").text("테이블생성");
+            }
+            if(TableData.contents[0]?.table_idntfc_id == null) {
+                $('#tableItemSaveBtn').show();
+                $('#tableItemEditBtn').hide();
+            } else {
+                $('#tableItemSaveBtn').hide();
+                $('#tableItemEditBtn').show();
+            }
+
         });
     });
 }
@@ -502,12 +538,23 @@ function saveTableItem() {
         $("#tableItemSaveBtn").hide();
         $("#tableItemEditBtn").show();
 
-        alert("정상적으로 메타테이블의 테이블 항목이 등록되었습니다.")
+        alert("정상적으로 메타테이블의 테이블 항목이 등록되었습니다.");
+        tableEngNmChk = false;
     });
 }
 
 //테이블 항목 수정 (dp_ingest_meta_tbl_update_tbl)
 function editTableItem() {
+    // if(tableEngNmChk == false){
+    //     alert('중복 체크를 해주세요');
+    //     return;
+    // }
+    if($('#dupCheck')[0].style.display != 'none'){
+        if(tableEngNmChk == false){
+                alert('중복 체크를 해주세요');
+                return;
+            }
+    }
     const edit_table_idntfc_id = $('#hidden_table_idntfc_id').val();
 
     const data = {
@@ -536,6 +583,7 @@ function editTableItem() {
     ajaxPost('/dp/ingest/meta/tables/update/table', data, function (data) {
         console.log('완료~dp_ingest_meta_tbl_update_dset', data);
         alert("정상적으로 메타테이블의 테이블 항목이 수정되었습니다.");
+        tableEngNmChk = false;
     });
 }
 
@@ -564,6 +612,7 @@ function dataReset() {
     $("#physic_table_ty").val("");
     $("#crud_se2").val("");
     $("#crud_dc2").val("");
+    $("#table_dc").val("");
     $("#use_at2").val("Y");
     $("#creatTableAt2").val("");
 
@@ -641,6 +690,10 @@ function tableInfoInit() {
 
 $("#SelectText").on("keyup", function (key) {
     if (key.keyCode == 13) {
-        searchTbl(1)
+        searchTbl(1);
     }
 });
+$("#table_eng_nm2").on("keyup", function (key) {
+    tableEngNmChk = false;
+});
+

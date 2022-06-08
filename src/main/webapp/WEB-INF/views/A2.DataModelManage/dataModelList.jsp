@@ -60,7 +60,7 @@
                         <div class="form-control_box">
                           <div class="col-md-3 pl-0">
                             <select class="form-control">
-                              <option>Choose option</option>
+                              <option>선 택</option>
 
                               <option>Option two</option>
                               <option>Option three</option>

@@ -88,7 +88,7 @@
                                     <th>속성유형</th>
                                     <td>
                                       <select class="form-control col-md-12">
-                                        <option>Choose option</option>
+                                        <option>선 택</option>
 
                                         <option>Option two</option>
                                         <option>Option three</option>
@@ -102,7 +102,7 @@
                                     <th>속성유형</th>
                                     <td>
                                       <select class="form-control">
-                                        <option>Choose option</option>
+                                        <option>선 택</option>
 
                                         <option>Option two</option>
                                         <option>Option three</option>
@@ -116,7 +116,7 @@
                                     <th>변경유형</th>
                                     <td>
                                       <select class="form-control">
-                                        <option>Choose option</option>
+                                        <option>선 택</option>
 
                                         <option>Option two</option>
                                         <option>Option three</option>
@@ -130,7 +130,7 @@
                                     <th>시작 자리수</th>
                                     <td>
                                       <select class="form-control">
-                                        <option>Choose option</option>
+                                        <option>선 택</option>
 
                                         <option>Option two</option>
                                         <option>Option three</option>
@@ -177,7 +177,7 @@
                                     <th>변경유형</th>
                                     <td>
                                       <select class="form-control">
-                                        <option>Choose option</option>
+                                        <option>선 택</option>
 
                                         <option>Option two</option>
                                         <option>Option three</option>

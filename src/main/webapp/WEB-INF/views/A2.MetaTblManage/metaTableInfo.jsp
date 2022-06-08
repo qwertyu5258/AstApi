@@ -154,8 +154,10 @@
                                           <th>참조 테이블 식별자</th>
                                           <th colspan="3">
                                               <input class="form-control" id="refrn_table_idntfc_id" type="text" disabled="disabled" style="display: inline-block;width: 85%">
-                                              <button class="btn btn-primary" onclick="refrnTablePopup();"> <i class="glyphicon glyphicon-search"></i></button>
-                                              <button class="btn btn-sm btn-danger" type="button" data-toggle="modal" data-target=".modal">버튼</button>
+                                              <button class="btn btn-primary" type="button" data-toggle="modal" data-target=".modal">
+                                                  <i class="glyphicon glyphicon-search"></i>
+                                              </button>
+
 
                                           </th>
                                       </tr>
@@ -164,6 +166,7 @@
                                               영문명
                                           </th>
                                           <th colspan="3">
+                                              <input class="form-control" type="hidden" placeholder="" id="old_column_eng_nm">
                                               <input class="form-control" type="text" placeholder="" id="column_eng_nm">
                                           </th>
                                           <th>
@@ -197,7 +200,7 @@
                                           </th>
                                           <th colspan="3">
                                               <select class="form-control" id="refrn_column_idntfc_id">
-                                                  <option value="">Choose option</option>
+                                                  <option value="">선 택</option>
 
                                               </select>
                                           </th>
@@ -223,7 +226,8 @@
                                           </th>
                                           <th style="vertical-align: middle">참조 컬럼명</th>
                                           <th colspan="3" style="vertical-align: middle">
-                                              <input class="form-control" type="text" placeholder="" id="refrn_column_idntfc_nm" disabled="disabled">
+                                              <input class="form-control" type="text" placeholder="" id="refrn_column_idntfc_id_eng_nm" disabled="disabled">
+                                              <input class="form-control" type="text" placeholder="" id="refrn_column_idntfc_nm" disabled="disabled" style="display: none">
                                           </th>
                                       </tr>
                                       <tr>
@@ -331,35 +335,56 @@
 
         </div>
         <!-- modal -->
-        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade bs-example-modal-lg" id="modal1" tabindex="-1" role="dialog" aria-hidden="true" style="height: 850px;">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
                 <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                 <button class="close" type="button" data-dismiss="modal"></button><span aria-hidden="true">&times;</span>
               </div>
-              <div class="modal-body"><a class="btn btn-primary" href="/modal">모달 바로가기 </a></div>
-              <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-                <button class="btn btn-primary" type="button">Save changes</button>
-              </div>
+              <div class="modal-body" style="height: 890px;overflow-y: scroll;">
+                  <div class="row">
+                      <div class="form-group row col-12 col-md-6">
+                          <label class="control-label" style="margin-top: 7px">테이블 한글 명</label>
+                          <div class="form-control_box duplicate_box">
+                              <input class="form-control" id="tableKoNameModal" type="text">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="talbel_total" id="metaTblReferPopupCnt">총 1개</div>
+                  <button class="btn btn-primary" style="width:10%;float:right;min-width: 60px;" onclick="metaTblReferPopupSearch();">검색</button>
+                  <table class="table table-striped" id="metaTblReferPopupData" style="text-align: center;overflow: auto">
+                      <colgroup>
+                          <%-- <col width="55px">
+                           <col width="">
+                           <col width="">
+                           <col width="">--%>
+                      </colgroup>
+                      <thead>
+                      <tr>
+                          <th rowspan="2" style="vertical-align: middle">데이터셋한글</th>
+                          <th colspan="2">테이블명</th>
+                      </tr>
+                      <tr>
+                          <th>영문</th>
+                          <th>국문</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                  </table>
             </div>
           </div>
         </div>
-        <footer>
-          <div class="full-right"></div>Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-          <div class="clearfix"></div>
-        </footer>
       </div>
     </div>
 
     <%@include file="../A1.Common/commonJs.jsp" %>
     <script type="text/javascript" src="../js/metaTable/metaTableInfo.js"></script>
+    <script type="text/javascript" src="../js/metaTable/metaTblReferPopup.js"></script>
     <script src="http://jonmiles.github.io/bootstrap-treeview/js/bootstrap-treeview.js"></script>
-
 
   </body>
 
-  <%@include file="./metaTblReferPopup.jsp" %>
 
 </html>

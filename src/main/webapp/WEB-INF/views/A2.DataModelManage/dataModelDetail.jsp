@@ -143,7 +143,7 @@
                           <div class="meta_title">속성 값</div>
                           <div class="meta_cont">
                             <select class="form-control">
-                              <option>Choose option</option>
+                              <option>선 택</option>
                             </select>
                           </div>
                         </div>
